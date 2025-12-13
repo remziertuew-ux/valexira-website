@@ -412,3 +412,20 @@
     height: 52px !important; /* Yüksekliği 32 piksel olarak zorla */
     width: auto !important;  /* Oranı korumak için genişliği otomatik yap */
 }
+
+.image-square-container {
+    /* Resim Kapsayıcı Ayarları */
+    position: relative; /* İçindeki resmi konumlandırmak için */
+    padding-top: 100%; /* Resim alanını kare (genişliğin %100'ü kadar yükseklik) yapar */
+    overflow: hidden; /* Resim dışarı taşmasın */
+}
+
+.image-square-container img {
+    /* Resim Ayarları */
+    position: absolute; /* Kapsayıcının içinde tam olarak konumlandır */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi, kare alanı dolduracak şekilde kırparak yay */
+}
