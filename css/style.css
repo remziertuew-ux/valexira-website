@@ -465,3 +465,101 @@ body {
     transform: scale(1.1); 
     transition: all 0.3s ease;
 }
+/* Yeni Infografik Bölümü */
+.infographic-section-v2.dark-theme {
+    background-color: #1a1a1a; 
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.infographic-container-v2 {
+    /* 4 eşit sütunlu yatay düzen */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px; 
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Her Bir Hizmet Kutusu */
+.service-box-v2 {
+    background-color: #2e2e2e; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-box-v2:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); 
+}
+
+/* Her kutunun üstündeki renkli bant */
+.service-box-v2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; 
+    border-radius: 20px 20px 0 0; 
+    clip-path: ellipse(150% 100% at 50% 0%); 
+    transform: translateY(-50px); 
+    z-index: 1;
+}
+
+/* Kutuların İçeriği, İkonlar, Başlıklar ve Metinler (Renkler korunur) */
+.box-content-v2 { position: relative; z-index: 2; color: #ffffff; }
+.icon-wrapper-v2 {
+    background-color: #2e2e2e; 
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -20px auto 20px auto; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #1a1a1a; 
+}
+.icon-wrapper-v2 i { font-size: 2.2em; color: #f0f0f0; }
+.service-box-v2 h3 { font-size: 1.5em; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
+.service-box-v2 p { font-size: 0.95em; color: #c0c0c0; line-height: 1.6; }
+
+/* Renk Özelleştirmeleri */
+.matbaa-box::before { background-color: #FFC107; } 
+.matbaa-box .icon-wrapper-v2 i { color: #FFC107; }
+
+.digital-print-box::before { background-color: #00bcd4; } 
+.digital-print-box .icon-wrapper-v2 i { color: #00bcd4; }
+
+.promotion-box::before { background-color: #4CAF50; } 
+.promotion-box .icon-wrapper-v2 i { color: #4CAF50; }
+
+/* MOR RENK (WEB TASARIM) */
+.web-design-box::before { background-color: #9c27b0; } 
+.web-design-box .icon-wrapper-v2 i { color: #9c27b0; }
+
+
+/* Responsive Ayarlar (Mobil Görünüm için tek sütun) */
+@media (max-width: 1200px) {
+    .infographic-container-v2 {
+        grid-template-columns: repeat(2, 1fr); /* Tabletlerde 2 sütun */
+    }
+}
+
+@media (max-width: 650px) {
+    .infographic-container-v2 {
+        grid-template-columns: 1fr; /* Mobil cihazlarda tek sütun */
+        gap: 20px;
+    }
+}
