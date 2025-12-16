@@ -49,7 +49,19 @@
         dots: true,
         items: 1,
         dotsData: true,
+    });const items = document.querySelectorAll('.cmyk-item');
+
+document.addEventListener('mousemove', (e) => {
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+
+    items.forEach((item, index) => {
+        const speed = (index + 1) * 20;
+        const xOffset = (x - 0.5) * speed;
+        const yOffset = (y - 0.5) * speed;
+        item.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
     });
+});
 
     
 })(jQuery);
