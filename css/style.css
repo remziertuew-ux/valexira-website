@@ -563,3 +563,41 @@ body {
         gap: 20px;
     }
 }
+/* Ana kapsayıcı */
+.hero-container {
+    background-color: #000; /* Siyah arka plan */
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Ana başlık stili */
+.main-title {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Animasyonun olduğu turkuaz kısım */
+#typing-text {
+    color: #0895f3; /* Görseldeki mavi/turkuaz ton */
+}
+
+/* Yanıp sönen imleç */
+.cursor {
+    color: #ffffff;
+    margin-left: 5px;
+    animation: blink-animation 0.8s infinite;
+}
+
+@keyframes blink-animation {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 28px;
+    }
+}
