@@ -50,7 +50,11 @@ document.addEventListener('mousemove', (e) => {
         const yOffset = (y - 0.5) * speed;
         item.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
     });
-});
+});$(document).on('click', '[data-lightbox]', function() {
+        setTimeout(function() {
+            $('.lb-close').attr('href', '#').attr('aria-label', 'Kapat');
+        }, 500);
+    });
 
     
 })(jQuery);
