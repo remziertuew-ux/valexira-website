@@ -655,3 +655,57 @@ body {
 }
 
 .cmyk-item:hover::after { opacity: 1; bottom: -5px; }
+
+.poseify-all-services {
+    background-color: #000; /* Koyu tema */
+    padding: 60px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #0f0f0f;
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    border-bottom: 4px solid #333; /* Başlangıç alt çizgisi */
+    transition: all 0.3s ease;
+}
+
+.card-header h3 {
+    color: #fff;
+    margin: 15px 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card ul li {
+    color: #888;
+    padding: 6px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #1a1a1a;
+    transition: 0.2s;
+}
+
+/* Renk Atamaları */
+.cyan-border:hover { border-color: #00d4ff; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2); }
+.magenta-border:hover { border-color: #ec1280; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(236, 18, 128, 0.2); }
+.yellow-border:hover { border-color: #fff200; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255, 242, 0, 0.2); }
+.white-border:hover { border-color: #ffffff; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1); }
+
+.card:hover ul li { color: #ddd; }
+.card ul li:hover { color: #fff; padding-left: 8px; }
