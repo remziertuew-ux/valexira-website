@@ -40,6 +40,8 @@
     });
 
 
+const items = document.querySelectorAll('.cmyk-item');
+
 document.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
@@ -50,6 +52,7 @@ document.addEventListener('mousemove', (e) => {
         const yOffset = (y - 0.5) * speed;
         item.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
     });
+});
 
     
 })(jQuery);
