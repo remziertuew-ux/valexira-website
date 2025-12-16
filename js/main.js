@@ -50,21 +50,6 @@ document.addEventListener('mousemove', (e) => {
         const yOffset = (y - 0.5) * speed;
         item.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
     });
-// Sayfa açılır açılmaz butonu düzeltir (Tıklama beklemez)
-$(document).ready(function() {
-    var fixLink = function() {
-        var $lbClose = $('.lb-close');
-        if ($lbClose.length > 0) {
-            $lbClose.attr('href', '#').attr('aria-label', 'Kapat');
-        }
-    };
-    
-    // Hem sayfa açıldığında hem de resme tıklandığında çalıştır
-    fixLink(); 
-    $(document).on('click', '[data-lightbox]', function() {
-        setTimeout(fixLink, 500);
-    });
-});
 
     
 })(jQuery);
