@@ -718,3 +718,27 @@ body {
     width: 100% !important;
     margin: 0 auto !important;
 }
+/* style.css */
+
+.proje-description {
+    color: #ffffff !important; /* Yazı rengini tam beyaz yaptık */
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 10px;
+    font-weight: 400; /* Biraz daha kalınlaştırarak okunurluğu artırdık */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Hafif gölge ile yazıyı öne çıkardık */
+}
+
+/* Resim ayarları aynı kalsın */
+.custom-proje-img {
+    width: 100%;
+    height: 380px !important;
+    object-fit: cover;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+/* Ana sayfa kartlarını korumaya devam ediyoruz */
+.card {
+    width: 280px !important;
+}
