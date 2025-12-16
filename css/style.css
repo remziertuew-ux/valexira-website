@@ -718,37 +718,3 @@ body {
     width: 100% !important;
     margin: 0 auto !important;
 }
-/* style.css - Hem ana sayfa hem tasarım sayfası için en temiz çözüm */
-
-/* Kartların genel yapısı */
-.card {
-    background: #0f0f0f;
-    border-radius: 12px;
-    border-bottom: 4px solid #333;
-    transition: all 0.3s ease;
-    width: 100% !important; /* Kolonun genişliğine uyum sağlar */
-    height: 100%; /* Kartların boylarını eşitler */
-    margin: 0 auto;
-}
-
-/* Kartların içindeki resimleri orantılı büyüt */
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-/* Boşlukları ve taşmaları önleyen ana kural */
-.row.justify-content-center {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: stretch; /* Kart boylarını otomatik eşitler */
-    margin: 0 -10px !important; /* Kenar paylarını dengeler */
-}
-
-/* Ekran boyutuna göre kart büyüklüğü ayarı */
-.col-md-4 {
-    padding: 10px !important; /* Kartlar arasındaki boşluğu buradan yönetin */
-}
-
-.card:hover ul li { color: #ddd; }
-.card ul li:hover { color: #fff; padding-left: 8px; }
