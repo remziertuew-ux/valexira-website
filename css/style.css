@@ -1,4 +1,8 @@
 /********** Template CSS **********/
+* {
+  max-width: 100vw;
+}
+
 
 .back-to-top {
     position: fixed;
@@ -709,3 +713,9 @@ body {
 
 .card:hover ul li { color: #ddd; }
 .card ul li:hover { color: #fff; padding-left: 8px; }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
