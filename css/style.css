@@ -709,3 +709,8 @@ body {
 
 .card:hover ul li { color: #ddd; }
 .card ul li:hover { color: #fff; padding-left: 8px; }
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
