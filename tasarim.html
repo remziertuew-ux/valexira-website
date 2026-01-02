@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr" style="width: 100%; overflow-x: hidden; box-sizing: border-box;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Valexira Dijital | Profesyonel Baskı ve Tasarım Çözümleri</title>
+    
+    <meta name="description" content="Valexira Dijital; dijital baskı, matbaa, promosyon, levha ve tasarım hizmetlerinde profesyonel çözümler sunar.">
+    <meta name="keywords" content="dijital baskı, matbaa, promosyon, tasarım, istanbul baskı">
+    <link rel="canonical" href="https://www.valexira.com/">
+
+    <meta property="og:title" content="Valexira Dijital | Teknik Çizim ve Reklam Merkezi">
+    <meta property="og:description" content="Kroki çiziminden matbaa ürünlerine kadar profesyonel baskı çözümleri.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:type" content="website">
+
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        *, *:before, *:after { box-sizing: border-box; }
+        html, body { 
+            width: 100% !important; 
+            margin: 0 !important; 
+            padding: 0 !important; 
+            overflow-x: hidden !important; /* Sağa kaymayı %100 bitirir */
+            background-color: #19011d; /* Belirlediğin ana gövde rengi */
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body style="width: 100%; overflow-x: hidden;">
+    
+    <div class="v-site-main" style="width: 100%; overflow-x: hidden; position: relative; display: flex; flex-direction: column;">
+
+<header class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;">
+    <div class="container nav-container">
+        <a href="index.html" class="logo-area" title="Valexira Dijital Ana Sayfa">
+            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img">
+            <span class="logo-text">DİJİTAL</span>
+        </a>
+        
+        <nav class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="dijital-baski.html">Dijital Baskı</a></li>
+                <li><a href="matbaa.html">Matbaa</a></li>
+                <li><a href="promosyon.html">Promosyon</a></li>
+                <li><a href="levha.html">Levha</a></li>
+                <li><a href="Duba-Bayrak.html">Duba & Bayrak</a></li>
+                <li><a href="tasarim.html">Tasarım</a></li>
+                <li><a href="portfolyo.html">Portfolyo</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <div class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menüyü Aç">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="iletisim.html" class="btn-quote desktop-only">Teklif Al</a>
+        </div>
+    </div>
+
+    <style>
+        @media (max-width: 1024px) {
+            .nav-menu.active { 
+                display: block !important; 
+                transform: translateX(0) !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
+</header>
+
+<section style="width: 100%; padding-top: clamp(60px, 10vh, 100px); overflow-x: hidden; display: block; box-sizing: border-box; background: transparent;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(20px, 5vh, 40px) clamp(15px, 4vw, 30px); text-align: center; box-sizing: border-box;">
+        
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: clamp(2.2rem, 9vw, 5rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: clamp(-1px, -0.2vw, -2px); margin: 0; line-height: 1.1; display: block; word-wrap: break-word; overflow-wrap: break-word; box-sizing: border-box;">
+            TASARIM
+        </h1>
+
+    </div>
+</section>
+
+<div id="valexira-lightbox" onclick="this.style.display='none'" 
+    style="display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 3, 44, 0.98); cursor: zoom-out; align-items: center; justify-content: center; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); box-sizing: border-box; padding: 20px;">
+    
+    <div style="position: absolute; top: clamp(15px, 4vh, 30px); right: clamp(15px, 4vw, 30px); color: #00f2ff; font-size: 45px; font-weight: 300; cursor: pointer; line-height: 1; user-select: none;">&times;</div>
+    
+    <img id="lightbox-img" src="" alt="Valexira Portfolyo Detay" 
+        style="max-width: 100%; max-height: 90vh; border-radius: 12px; border: 2px solid rgba(0,242,255,0.3); box-shadow: 0 0 60px rgba(0,242,255,0.15); object-fit: contain; transition: transform 0.3s ease; box-sizing: border-box;">
+</div>
+
+<script>
+    /** * Valexira Lightbox Fonksiyonu
+     * Görseli tam ekran açar ve sayfa kaymasını engeller.
+     */
+    function openImage(src) {
+        const lb = document.getElementById('valexira-lightbox');
+        const img = document.getElementById('lightbox-img');
+        
+        if(lb && img) {
+            img.src = src;
+            lb.style.display = 'flex';
+            // Mobilde arkadaki sayfanın kaymasını engellemek istersen:
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Lightbox kapandığında kaymayı geri açma
+    document.getElementById('valexira-lightbox').addEventListener('click', function() {
+        document.body.style.overflow = 'auto';
+    });
+</script>
+
+<section style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(40px, 8vw, 100px) 0; background: transparent; display: block;">
+    
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(15px, 4vw, 30px); text-align: center; margin-bottom: clamp(40px, 6vh, 60px); box-sizing: border-box;">
+        <h2 style="font-family: 'Segoe UI', sans-serif; font-size: clamp(28px, 7vw, 56px); font-weight: 900; color: #ffffff; margin-bottom: 20px; line-height: 1.1; word-wrap: break-word;">
+            Geleceği <span style="color: #00f2ff;">Valexira</span> ile Tasarlayın
+        </h2>
+        <p style="font-family: 'Segoe UI', sans-serif; font-size: clamp(16px, 2vw, 20px); color: rgba(255,255,255,0.7); font-weight: 400; max-width: 800px; margin: 0 auto;">
+            Fikirlerinizi dijital birer sanat eserine dönüştürüyoruz.
+        </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 30px; width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 clamp(15px, 4vw, 30px); box-sizing: border-box;">
+
+        <article style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 35px; overflow: hidden; text-align: center; display: flex; flex-direction: column; box-sizing: border-box; transition: transform 0.3s ease;">
+            <div onclick="openImage('images/tasa-3.jpeg')" style="cursor: zoom-in; padding: 12px; box-sizing: border-box;">
+                <img src="images/tasa-3.jpeg" alt="Valexira Grafik Tasarım Hizmetleri" style="width: 100%; height: clamp(200px, 25vh, 260px); object-fit: cover; border-radius: 25px; display: block;" loading="lazy">
+            </div>
+            <div style="padding: 25px 30px 35px; flex-grow: 1; box-sizing: border-box;">
+                <span style="background: #ff007f; color: #fff; padding: 6px 18px; border-radius: 50px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">KREATİF</span>
+                <h3 style="font-size: clamp(22px, 3vw, 26px); color: #ffffff; margin: 20px 0 12px; font-weight: 800; line-height: 1.2;">Grafik Tasarım</h3>
+                <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; margin: 0;">Afiş, broşür ve katalog tasarımları ile markanızın mesajını en etkili şekilde iletiyoruz.</p>
+            </div>
+        </article>
+
+        <article style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 35px; overflow: hidden; text-align: center; display: flex; flex-direction: column; box-sizing: border-box; transition: transform 0.3s ease;">
+            <div onclick="openImage('images/tass.jpg')" style="cursor: zoom-in; padding: 12px; box-sizing: border-box;">
+                <img src="images/tass.jpg" alt="Valexira Kurumsal Kimlik Tasarımı" style="width: 100%; height: clamp(200px, 25vh, 260px); object-fit: cover; border-radius: 25px; display: block;" loading="lazy">
+            </div>
+            <div style="padding: 25px 30px 35px; flex-grow: 1; box-sizing: border-box;">
+                <span style="background: #00f2ff; color: #000; padding: 6px 18px; border-radius: 50px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">BRANDING</span>
+                <h3 style="font-size: clamp(22px, 3vw, 26px); color: #ffffff; margin: 20px 0 12px; font-weight: 800; line-height: 1.2;">Kurumsal Kimlik</h3>
+                <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; margin: 0;">Logo tasarımı ve profesyonel marka imajı çalışmaları ile kalıcı bir kimlik oluşturuyoruz.</p>
+            </div>
+        </article>
+
+        <article style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 35px; overflow: hidden; text-align: center; display: flex; flex-direction: column; box-sizing: border-box; transition: transform 0.3s ease;">
+            <div onclick="openImage('images/tasa-1.jpeg')" style="cursor: zoom-in; padding: 12px; box-sizing: border-box;">
+                <img src="images/tasa-1.jpeg" alt="Valexira Dijital Tasarım ve Sosyal Medya" style="width: 100%; height: clamp(200px, 25vh, 260px); object-fit: cover; border-radius: 25px; display: block;" loading="lazy">
+            </div>
+            <div style="padding: 25px 30px 35px; flex-grow: 1; box-sizing: border-box;">
+                <span style="background: #7000ff; color: #fff; padding: 6px 18px; border-radius: 50px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">DİJİTAL</span>
+                <h3 style="font-size: clamp(22px, 3vw, 26px); color: #ffffff; margin: 20px 0 12px; font-weight: 800; line-height: 1.2;">Dijital Tasarım</h3>
+                <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; margin: 0;">Sosyal medya görselleri ve dijital reklam tasarımları ile fark yaratmanızı sağlıyoruz.</p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(40px, 8vw, 100px) 0; font-family: 'Segoe UI', sans-serif; color: #fff; background: transparent; display: block;">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(30px, 5vw, 60px); box-sizing: border-box;">
+        
+        <article style="flex: 1; min-width: min(100%, 350px); box-sizing: border-box;">
+            <header>
+                <h2 style="font-size: clamp(26px, 5vw, 42px); font-weight: 900; line-height: 1.1; margin-bottom: 25px; color: #00f2ff; word-wrap: break-word;">
+                    Dijital Dünyadaki <br> <span style="color: #ff007f;">İmzanızı Atıyoruz</span>
+                </h2>
+            </header>
+            
+            <p style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; line-height: 1.8; margin-bottom: 30px; word-wrap: break-word;">
+                İster sıfırdan <strong>özel kodlama</strong> (HTML, CSS, JS) ile size özel bir yapı, isterseniz de hızlı ve yönetilebilir <strong>CMS</strong> sistemleri... Valexira olarak işinize en uygun teknolojiyi seçiyoruz.
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin-bottom: 40px; box-sizing: border-box;">
+                <li style="margin-bottom: 18px; display: flex; align-items: flex-start; gap: 12px; box-sizing: border-box;">
+                    <span style="color: #00f2ff; font-size: 18px; line-height: 1.2;">✔</span> 
+                    <span style="font-size: 14px; line-height: 1.5;"><strong>Özel Kodlama:</strong> Performans odaklı, hızlı ve %100 özgün SEO yapıları.</span>
+                </li>
+                <li style="margin-bottom: 18px; display: flex; align-items: flex-start; gap: 12px; box-sizing: border-box;">
+                    <span style="color: #00f2ff; font-size: 18px; line-height: 1.2;">✔</span> 
+                    <span style="font-size: 14px; line-height: 1.5;"><strong>Kullanıcı Dostu:</strong> Kolay güncellenebilir, modern yönetim panelleri.</span>
+                </li>
+                <li style="margin-bottom: 18px; display: flex; align-items: flex-start; gap: 12px; box-sizing: border-box;">
+                    <span style="color: #00f2ff; font-size: 18px; line-height: 1.2;">✔</span> 
+                    <span style="font-size: 14px; line-height: 1.5;"><strong>Mobil Uyumluluk:</strong> Tüm cihazlarda kusursuz görünen "Responsive" tasarım.</span>
+                </li>
+            </ul>
+
+            <a href="#iletisim" style="display: inline-block; padding: 15px 40px; background: linear-gradient(45deg, #ff007f, #b30059); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s ease; box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3); text-transform: uppercase; font-size: 14px; letter-spacing: 1px;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                Projeni Başlat
+            </a>
+        </article>
+
+        <div style="flex: 1; min-width: min(100%, 350px); position: relative; box-sizing: border-box;">
+            <div style="position: absolute; width: 70%; height: 70%; background: #00f2ff; filter: blur(100px); opacity: 0.15; top: 15%; right: 15%; z-index: 1;"></div>
+            
+            <div style="position: relative; z-index: 2; border-radius: 35px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px rgba(0,0,0,0.5); box-sizing: border-box;">
+                <img src="images/web.jpg" alt="Valexira Web Tasarım ve Yazılım Süreci" style="width: 100%; display: block; transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+            </div>
+            
+            <aside style="position: absolute; bottom: -10px; left: -10px; background: #02032c; padding: 12px 20px; border-radius: 20px; border: 1px solid #00f2ff; z-index: 3; box-shadow: 0 10px 30px rgba(0,0,0,0.6); box-sizing: border-box;">
+                <span style="display: block; color: #00f2ff; font-weight: 900; font-size: 22px; line-height: 1;">%100</span>
+                <span style="font-size: 11px; font-weight: 600; color: #fff; white-space: nowrap; text-transform: uppercase; letter-spacing: 1px;">Mobil Uyum</span>
+            </aside>
+        </div>
+
+    </div>
+</section>
+
+<footer class="v-footer" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative;">
+    
+    <div class="v-footer-glow" style="max-width: 100%; pointer-events: none;"></div>
+
+    <div class="v-footer-container" style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; box-sizing: border-box; padding: 0 clamp(15px, 4vw, 30px);">
+        <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); box-sizing: border-box;">
+            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" style="max-width: 100%; height: auto;" loading="lazy">
+            <p class="v-footer-desc" style="font-size: clamp(14px, 2vw, 16px); line-height: 1.6;">
+                Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.
+            </p>
+        </div>
+
+        <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); box-sizing: border-box;">
+            <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Kreatif</h3>
+            <ul class="v-footer-list" style="list-style: none; padding: 0;">
+                <li>Logo Tasarımı</li>
+                <li>Web Site Tasarımı</li>
+                <li>Afiş & Broşür</li>
+                <li>Kurumsal Kimlik</li>
+            </ul>
+        </nav>
+
+        <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); box-sizing: border-box;">
+            <h3 class="v-footer-head cyan" style="font-size: clamp(18px, 3vw, 22px);">Üretim</h3>
+            <ul class="v-footer-list" style="list-style: none; padding: 0;">
+                <li>Branda Baskı</li>
+                <li>Folyo Uygulama</li>
+                <li>Kartvizit & Magnet</li>
+                <li>Işıklı Tabela</li>
+            </ul>
+        </nav>
+
+        <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); box-sizing: border-box;">
+            <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Bize Ulaşın</h3>
+            <div class="v-footer-contact" style="font-size: clamp(14px, 2vw, 15px);">
+                <p>Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İST.</p>
+                <p><a href="tel:+905427412994" style="text-decoration: none; color: inherit; font-weight: bold;">+90 542 741 29 94</a></p>
+                <p>valexiradijital@gmail.com</p>
+            </div>
+            
+            <a href="https://wa.me/905427412994" target="_blank" rel="noopener" class="v-whatsapp-link" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
+                WhatsApp ile Yazın
+            </a>
+        </div>
+    </div>
+
+    <div class="v-footer-bottom" style="width: 100%; text-align: center; padding: 20px 0; font-size: clamp(12px, 1.5vw, 14px); box-sizing: border-box; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px;">
+        © 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
