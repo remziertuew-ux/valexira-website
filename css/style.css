@@ -744,7 +744,7 @@ body {
 /* WhatsApp Butonu */
 .v-whatsapp-link {
     background: #25d366;
-    color: #fff;
+    color: #030303;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -775,6 +775,7 @@ body {
     .v-footer-logo { margin: 0 auto 20px auto; }
     .v-whatsapp-link { justify-content: center; }   
 }
+
 
 
 
