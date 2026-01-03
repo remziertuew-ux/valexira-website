@@ -100,6 +100,103 @@
         }
     </script>
 
+        <section class="v-promo-section">
+    <style>
+        .v-promo-section {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            padding: clamp(40px, 8vh, 80px) 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .v-promo-container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        /* Yazı Rengi Beyaz ve Güvenli */
+        .v-promo-title {
+            margin: 0;
+            color: #ffffff !important;
+            text-transform: uppercase;
+            line-height: 1.2;
+            flex: 1.2;
+            min-width: 300px;
+        }
+        .v-promo-title span {
+            font-size: 24px;
+            font-weight: 300;
+            display: block;
+        }
+        .v-promo-title b {
+            font-size: clamp(30px, 5vw, 55px);
+            font-weight: 900;
+            display: block;
+        }
+        /* Alt Bölüm ve Kart */
+        .v-promo-subtitle {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .v-promo-line { height: 3px; width: 60px; background: #ff007f; }
+        .v-promo-pink { color: #ff007f; font-weight: 800; font-size: 24px; }
+
+        .v-promo-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 5px solid #00f2fe;
+            border-radius: 0 30px 30px 0;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .v-promo-p { color: #ffffff; font-size: 17px; margin-bottom: 25px; opacity: 0.9; }
+        
+        /* Parlamasız Temiz Buton */
+        .v-promo-btn {
+            display: inline-block;
+            background: #00f2fe;
+            color: #19011d;
+            padding: 15px 35px;
+            border-radius: 12px;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: none !important; /* Parlama kaldırıldı */
+            transition: 0.3s;
+        }
+        .v-promo-btn:hover { background: #ffffff; transform: translateY(-3px); }
+    </style>
+
+    <div class="v-promo-container">
+        <div class="v-promo-title">
+            <h1>
+                <span>4000 ADET ÜZERİ</span>
+                <b>KARTVİZİT SİPARİŞLERİNİZDE</b>
+            </h1>
+            <div class="v-promo-subtitle">
+                <div class="v-promo-line"></div>
+                <span class="v-promo-pink">TASARIM ÜCRETSİZ!</span>
+            </div>
+        </div>
+
+        <div class="v-promo-card">
+            <p class="v-promo-p">Kurumsal kimliğinizi yansıtan en şık kartvizitler için profesyonel grafik tasarım ekibimiz yanınızda.</p>
+            <a href="https://valexira.com/teklif-al" class="v-promo-btn">KAMPANYADAN YARARLAN</a>
+        </div>
+    </div>
+</section>
+
             <section style="width: 100%; padding: clamp(40px, 8vw, 80px) 15px; box-sizing: border-box; overflow: hidden; background: transparent;">
     
     <div style="text-align: center; margin-bottom: clamp(30px, 6vw, 50px); width: 100%;">
@@ -510,6 +607,7 @@
 </body>
 
 </html>
+
 
 
 
