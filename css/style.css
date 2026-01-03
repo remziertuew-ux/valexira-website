@@ -767,8 +767,10 @@ body {
 @media (max-width: 768px) {
     .v-footer-container { text-align: center; }
     .v-footer-logo { margin: 0 auto 20px auto; }
-    .v-whatsapp-link { justify-content: center; }
-}/* Valexira Banner Styles - Elit & Modern */
+    .v-whatsapp-link { justify-content: center; }   
+}
+
+/* Valexira Banner Styles - Elit & Modern */
 .vx-banner {
     width: 100%;
     background: transparent; /* Body renklerini kullanır */
@@ -890,6 +892,7 @@ body {
     .vx-huge-text { letter-spacing: 2px; }
     .vx-label { letter-spacing: 6px; }
 }
+
 
 
 
