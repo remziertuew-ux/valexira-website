@@ -776,6 +776,72 @@ body {
     .v-whatsapp-link { justify-content: center; }   
 }
 
+/* Valexira Modern Yumuşak Butonlar */
+.v-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 25px 0;
+    background: transparent;
+    overflow: hidden;
+    overflow-x: hidden !important; /* Scrollbar engelleyici */
+}
+
+.v-btn-wrap {
+    position: relative;
+    width: 160px;
+    height: 50px;
+    background: #02032c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 30px;
+    overflow: hidden;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Dönen Işık Efekti */
+.v-light {
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    animation: v-rotate 3s linear infinite;
+}
+
+.v-light.cyan { background: conic-gradient(from 0deg, transparent, #00f2fe, transparent 40%); }
+.v-light.pink { background: conic-gradient(from 0deg, transparent, #ff00ff, transparent 40%); animation-direction: reverse; }
+
+/* İç Karartma (Çerçeve Temizleyici) */
+.v-inner {
+    position: absolute;
+    inset: 2px;
+    background: #02032c;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+/* Yumuşak Font ve Saf Beyaz Yazı */
+.v-label {
+    position: relative;
+    z-index: 2;
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: none !important;
+}
+
+@keyframes v-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
 
 
 
