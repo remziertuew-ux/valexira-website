@@ -106,33 +106,53 @@
             </h2>
         </header>
 
-        <div class="v-blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(20px, 4vw, 35px); width: 100%; box-sizing: border-box;">
+<section class="v-blog-hero" style="width: 100%; padding-top: clamp(60px, 8vh, 100px); overflow-x: hidden; display: block; background: transparent;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(20px, 5vh, 40px) 20px; text-align: center; box-sizing: border-box;">
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: clamp(2.2rem, 8vw, 5.5rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -1px; margin: 0; line-height: 1; display: block;">
+            BLOG <br>
+            <span style="font-size: clamp(0.9rem, 2.5vw, 1.3rem); letter-spacing: 4px; color: #00f2fe; display: block; margin-top: 10px;">VALEXIRA DIJITAL</span>
+        </h1>
+        <nav aria-label="Breadcrumb" style="margin-top: 20px;">
+            <p style="color: rgba(255,255,255,0.5); font-size: 13px; text-transform: uppercase; margin: 0;">
+                Anasayfa / <strong style="color: #fff;">Blog & Güncel Çözümler</strong>
+            </p>
+        </nav>
+    </div>
+</section>
+
+<section class="v-blog-section" style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(30px, 6vh, 60px) 0; background: transparent; font-family: 'Segoe UI', sans-serif; color: #fff; display: block;">
+    <div class="v-blog-container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(15px, 4vw, 30px); box-sizing: border-box;">
+        
+        <header style="text-align: center; margin-bottom: clamp(30px, 6vw, 50px); width: 100%;">
+            <span style="color: #ff007f; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 12px; display: block; margin-bottom: 8px;">GÜNCEL İÇERİKLER</span>
+            <h2 style="font-size: clamp(24px, 5vw, 38px); font-weight: 800; margin: 0; line-height: 1.2; word-wrap: break-word;">
+                Reklam Dünyasından <span style="color: #00f2fe;">Haberler</span>
+            </h2>
+        </header>
+
+        <div class="v-blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 4vw, 30px); width: 100%;">
             
-            <article style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 25px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; box-sizing: border-box; width: 100%;">
-                <div style="height: clamp(180px, 25vh, 230px); width: 100%; overflow: hidden;">
-                    <img src="images/blog-1.jpg" alt="2026 Dijital Reklam Trendleri - Valexira" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy">
+            <article style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; width: 100%;">
+                <div style="height: clamp(160px, 20vh, 210px); width: 100%; overflow: hidden;">
+                    <img src="images/blog-1.jpg" alt="2026 Dijital Reklam Trendleri" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <div style="padding: clamp(20px, 5vw, 30px); flex-grow: 1; display: flex; flex-direction: column; box-sizing: border-box;">
-                    <time datetime="2025-12-31" style="font-size: 12px; opacity: 0.5; margin-bottom: 10px; display: block;">31 ARALIK 2025</time>
-                    <h3 style="font-size: clamp(18px, 3.5vw, 22px); font-weight: 800; margin-bottom: 15px; color: #fff; line-height: 1.3; word-wrap: break-word;">
-                        2026 Yılında Markanızı Öne Çıkaracak Dijital Trendler
-                    </h3>
-                    <p style="font-size: 15px; opacity: 0.7; line-height: 1.6; margin-bottom: 25px;">Yeni nesil reklam teknolojileri ve tüketici alışkanlıklarındaki büyük değişimleri analiz ediyoruz...</p>
-                    <button onclick="openBlogModal('blog1')" style="margin-top: auto; background: transparent; border: 1px solid #00f2fe; color: #00f2fe; padding: clamp(10px, 2vw, 14px) 25px; border-radius: 50px; font-weight: 700; cursor: pointer; align-self: flex-start; transition: 0.3s;">Devamını Oku</button>
+                <div style="padding: clamp(15px, 4vw, 25px); flex-grow: 1; display: flex; flex-direction: column;">
+                    <time datetime="2025-12-31" style="font-size: 11px; opacity: 0.5; margin-bottom: 10px;">31 ARALIK 2025</time>
+                    <h3 style="font-size: clamp(18px, 3vw, 21px); font-weight: 700; margin-bottom: 12px; line-height: 1.3;">2026 Dijital Trendler</h3>
+                    <p style="font-size: 14px; opacity: 0.7; line-height: 1.5; margin-bottom: 20px;">Yeni nesil reklam teknolojileri ve tüketici alışkanlıkları...</p>
+                    <button onclick="openBlogModal('blog1')" style="margin-top: auto; background: transparent; border: 1px solid #00f2fe; color: #00f2fe; padding: 10px 20px; border-radius: 50px; font-weight: 600; cursor: pointer; align-self: flex-start;">Devamını Oku</button>
                 </div>
             </article>
 
-            <article style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 25px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; box-sizing: border-box; width: 100%;">
-                <div style="height: clamp(180px, 25vh, 230px); width: 100%; overflow: hidden;">
-                    <img src="images/blog-2.jpg" alt="Tabela Seçimi ve Tasarım Rehberi" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy">
+            <article style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; width: 100%;">
+                <div style="height: clamp(160px, 20vh, 210px); width: 100%; overflow: hidden;">
+                    <img src="images/blog-2.jpg" alt="Tabela Seçimi Rehberi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <div style="padding: clamp(20px, 5vw, 30px); flex-grow: 1; display: flex; flex-direction: column; box-sizing: border-box;">
-                    <time datetime="2025-12-28" style="font-size: 12px; opacity: 0.5; margin-bottom: 10px; display: block;">28 ARALIK 2025</time>
-                    <h3 style="font-size: clamp(18px, 3.5vw, 22px); font-weight: 800; margin-bottom: 15px; color: #fff; line-height: 1.3; word-wrap: break-word;">
-                        Doğru Tabela Seçimi: İşletmenizin Sokaktaki İmzası
-                    </h3>
-                    <p style="font-size: 15px; opacity: 0.7; line-height: 1.6; margin-bottom: 25px;">Müşterilerinizin sizi fark etmesini sağlayacak en etkili tabela modelleri ve malzeme sırları...</p>
-                    <button onclick="openBlogModal('blog2')" style="margin-top: auto; background: transparent; border: 1px solid #ff007f; color: #ff007f; padding: clamp(10px, 2vw, 14px) 25px; border-radius: 50px; font-weight: 700; cursor: pointer; align-self: flex-start; transition: 0.3s;">Devamını Oku</button>
+                <div style="padding: clamp(15px, 4vw, 25px); flex-grow: 1; display: flex; flex-direction: column;">
+                    <time datetime="2025-12-28" style="font-size: 11px; opacity: 0.5; margin-bottom: 10px;">28 ARALIK 2025</time>
+                    <h3 style="font-size: clamp(18px, 3vw, 21px); font-weight: 700; margin-bottom: 12px; line-height: 1.3;">Doğru Tabela Seçimi</h3>
+                    <p style="font-size: 14px; opacity: 0.7; line-height: 1.5; margin-bottom: 20px;">İşletmenizi fark ettirecek en etkili tabela modelleri...</p>
+                    <button onclick="openBlogModal('blog2')" style="margin-top: auto; background: transparent; border: 1px solid #ff007f; color: #ff007f; padding: 10px 20px; border-radius: 50px; font-weight: 600; cursor: pointer; align-self: flex-start;">Devamını Oku</button>
                 </div>
             </article>
 
@@ -140,35 +160,38 @@
     </div>
 </section>
 
-<div id="blog-modal" style="display: none; position: fixed; z-index: 100000; inset: 0; background: rgba(2, 3, 44, 0.98); backdrop-filter: blur(15px); align-items: center; justify-content: center; padding: clamp(10px, 3vw, 20px); overflow-x: hidden;" onclick="closeBlogModal()">
-    <div style="background: #19011d; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 800px; max-height: 90vh; border-radius: clamp(20px, 4vw, 35px); overflow-y: auto; padding: clamp(20px, 5vw, 50px); position: relative; box-shadow: 0 50px 100px rgba(0,0,0,0.8); box-sizing: border-box;" onclick="event.stopPropagation()">
-        <button onclick="closeBlogModal()" style="position: sticky; top: 0; float: right; background: none; border: none; color: #fff; font-size: 40px; cursor: pointer; line-height: 0.5; z-index: 10;">&times;</button>
-        <div id="modal-content" style="width: 100%; box-sizing: border-box;">
-            </div>
+<div id="blog-modal" style="display: none; position: fixed; z-index: 999999; inset: 0; background: rgba(2, 3, 44, 0.95); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 15px; overflow: hidden;" onclick="closeBlogModal()">
+    <div style="background: #19011d; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 700px; max-height: 80vh; border-radius: 25px; overflow-y: auto; padding: clamp(20px, 5vw, 40px); position: relative; box-sizing: border-box;" onclick="event.stopPropagation()">
+        <button onclick="closeBlogModal()" style="position: sticky; top: 0; float: right; background: none; border: none; color: #fff; font-size: 30px; cursor: pointer; line-height: 1;">&times;</button>
+        <div id="modal-content" style="width: 100%; box-sizing: border-box; overflow-x: hidden;"></div>
     </div>
 </div>
 
 <script>
-    // Veri yapısı ve fonksiyonlar aynı kaldı, sadece modal içi clamp eklendi
     const blogData = {
-        blog1: { title: "2026 Yılında Markanızı Öne Çıkaracak Dijital Trendler", content: "<p>...</p>" },
-        blog2: { title: "Doğru Tabela Seçimi: İşletmenizin Sokaktaki İmzası", content: "<p>...</p>" },
-        print1: { title: "Minimalist Tasarımın Marka Algısı Üzerindeki Gücü", content: "<p>Az çoktur felsefesiyle hazırlanan tasarımlar akılda daha kalıcı olur.</p>" },
-        print2: { title: "Lüks Baskı Teknikleri: Lak, Kabartma ve Özel Kağıtlar", content: "<p>Özel kağıtlar ve lak uygulamaları kurumsal prestiji artırır.</p>" }
+        blog1: { 
+            title: "2026 Dijital Reklam Trendleri", 
+            content: "2026 yılında AI destekli içerikler ve hiper-kişiselleştirme ön planda olacak. Valexira olarak markanızı geleceğe hazırlıyoruz." 
+        },
+        blog2: { 
+            title: "Doğru Tabela Seçimi", 
+            content: "Kutu harf, neon ve totem tabela seçenekleri arasında işletmenize en uygun olanı seçmek için malzeme kalitesi ve görünürlük kritik öneme sahiptir." 
+        }
     };
 
-    function openPrintModal(id) { // Fonksiyon adını senin butona göre güncelledim
+    function openBlogModal(id) {
         const modal = document.getElementById('blog-modal');
         const content = document.getElementById('modal-content');
-        const post = blogData[id];
+        const data = blogData[id];
         
-        content.innerHTML = `
-            <h2 style="font-size: clamp(22px, 5vw, 32px); font-weight: 900; color: #00f2fe; margin-bottom: 20px; line-height: 1.2;">${post.title}</h2>
-            <div style="font-size: clamp(15px, 2vw, 17px); line-height: 1.8; color: rgba(255,255,255,0.8); word-wrap: break-word;">${post.content}</div>
-        `;
-        
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        if (data) {
+            content.innerHTML = `
+                <h2 style="font-size: clamp(20px, 4vw, 28px); color: #00f2fe; margin-bottom: 15px;">${data.title}</h2>
+                <div style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.8);">${data.content}</div>
+            `;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     function closeBlogModal() {
@@ -318,5 +341,6 @@
 </body>
 
 </html>
+
 
 
