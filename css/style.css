@@ -237,7 +237,7 @@ html, body {
 }
 
 .service-card {
-    background: rgba(25, 1, 29, 0.6);
+    background: rgba(25, 1, 29, 0);
     border-radius: 20px;
     padding: 30px;
     transition: all 0.4s ease-in-out;
@@ -768,4 +768,5 @@ body {
     .v-footer-container { text-align: center; }
     .v-footer-logo { margin: 0 auto 20px auto; }
     .v-whatsapp-link { justify-content: center; }
+
 }
