@@ -7,16 +7,17 @@
 }
 
 html, body {
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden; /* Sağa kayma %100 engellendi */
-    /* İstediğin Degrade Arka Plan Renkleri */
-    background: radial-gradient(circle at center, #12032c 0%, #19011d 100%);
-    background-attachment: fixed;
-    color: #ffffff;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%; /* Mobil font büyüme hatasını önler */
+    width: 100% !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    /* Renklerin sonuna !important ekledik */
+    background: radial-gradient(circle at center, #570366 0%, #02032c 100%) !important;
+    background-attachment: fixed !important;
+    color: #ffffff !important;
+    font-size: clamp(14px, 2vw, 18px) !important;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    line-height: 1.5 !important;
+    -webkit-text-size-adjust: 100% !important;
 }
 
 .container {
@@ -30,7 +31,7 @@ html, body {
 .navbar {
     width: 100%;
     height: 85px;
-    background: rgba(25, 1, 29, 0.95);
+    background: radial-gradient(circle at center, #570366 0%, #02032c 100%) !important;
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -775,3 +776,4 @@ body {
     .v-footer-logo { margin: 0 auto 20px auto; }
     .v-whatsapp-link { justify-content: center; }   
 }
+
