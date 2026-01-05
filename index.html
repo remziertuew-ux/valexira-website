@@ -305,24 +305,37 @@
         <p class="v-note" style="font-size: 12px; opacity: 0.7;">* Ölçülerinizi girdikten sonra sağdaki formdan teklif alabilirsiniz.</p>
     </article>
 
-    <aside class="v-card" style="flex: 1; min-width: min(100%, 340px); box-sizing: border-box; width: 100%;">
-        <h3 style="font-size: clamp(20px, 4vw, 24px);">📩 Teklif Al</h3>
-        <div class="v-group" style="width: 100%; box-sizing: border-box;">
-            <label style="display: block; margin-bottom: 5px;">Uygulama Detayları</label>
-            <textarea id="v_details" placeholder="Örn: Folyo baskı, laminasyonlu..." style="width: 100%; box-sizing: border-box; min-height: 80px;"></textarea>
-        </div>
-        <div class="v-upload" id="v_trigger" style="width: 100%; box-sizing: border-box; text-align: center; border: 1px dashed #ccc; padding: 10px; border-radius: 8px;">
-            <span id="v_status">📁 Tasarım Dosyasını Seç</span>
-            <input type="file" id="v_file" hidden>
-        </div>
-        <div class="v-group" style="width: 100%; box-sizing: border-box;">
-            <label style="display: block; margin-bottom: 5px;">WhatsApp Numaranız</label>
-            <input type="tel" id="v_phone" placeholder="05XX XXX XX XX" style="width: 100%; box-sizing: border-box; padding: 10px;">
-        </div>
-        <button type="button" id="v_submit" class="v-btn" style="width: 100%; box-sizing: border-box; cursor: pointer;">WHATSAPP İLE GÖNDER</button>
-    </aside>
+<div class="v-card" style="display: flex; flex-direction: column; gap: 15px; width: 100%; box-sizing: border-box; overflow-x: hidden;">
+    <h3 style="margin-bottom: 5px; color: #00e5ff;">🛠️ Materyal Seçim Asistanı</h3>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 10px;">Alan seçin, uzman önerimizi görün.</p>
 
-</section>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%;">
+        <button type="button" onclick="pickProduct('cam')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🪟 Cam / Folyo</button>
+        <button type="button" onclick="pickProduct('dekor')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">❄️ Cam Dekor</button>
+        <button type="button" onclick="pickProduct('levha')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🧱 Duvar / Levha</button>
+        <button type="button" onclick="pickProduct('rehber')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🧲 Magnet / Kartvizit</button>
+    </div>
+
+    <div id="asistan-sonuc" style="margin-top: 10px; padding: 12px; background: rgba(255,255,255,0.02); border-radius: 10px; min-height: 85px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px dashed rgba(255,255,255,0.1); box-sizing: border-box;">
+        <span style="opacity: 0.5; font-size: 0.85rem;">Seçim yapınız...</span>
+    </div>
+</div>
+
+<script>
+function pickProduct(val) {
+    const res = document.getElementById('asistan-sonuc');
+    let text = "";
+
+    const data = {
+        'cam': "<b>Öneri: One Way Vision / Folyo</b><br><small>Camlarda dıştan reklam, içten net görüş sağlar.</small>",
+        'dekor': "<b>Öneri: Kumlu / Kesim Folyo</b><br><small>Ofis ve vitrinlerde şık dekoratif çözümler.</small>",
+        'levha': "<b>Öneri: Foreks Üzeri Folyo</b><br><small>Yönlendirme ve İSG için en dayanıklı sert zemin.</small>",
+        'rehber': "<b>Hangi Ürün Daha Yararlı?</b><br><small><b>Kartvizit:</b> Prestij ve tanışma. <br><b>Magnet:</b> Buzdolabında kalıcı reklam.</small>"
+    };
+
+    res.innerHTML = `<span style="color: #00e5ff; animation: fadeInUp 0.5s ease-out forwards; display:block; width:100%;">${data[val]}</span>`;
+}
+</script>
 
 <section style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(40px, 6vw, 80px) clamp(15px, 4vw, 30px);">
     
@@ -532,6 +545,7 @@
 </body>
 
 </html>
+
 
 
 
