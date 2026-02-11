@@ -14,6 +14,7 @@ html, body {
     background: radial-gradient(circle at center, #570366 0%, #02032c 100%) !important;
     background-attachment: fixed !important;
     color: #ffffff !important;
+    /* Clamp ile yazı boyutu mobil/masaüstü arası ölçeklenir */
     font-size: clamp(14px, 2vw, 18px) !important;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
     line-height: 1.5 !important;
@@ -24,7 +25,7 @@ html, body {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 5%; /* Kenarlardan nefes payı */
+    padding: 0 clamp(15px, 5%, 50px); /* Kenar boşlukları mobilde daralır */
 }
 
 /* --- 2. NAVBAR (ÜST MENÜ) --- */
@@ -39,6 +40,7 @@ html, body {
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+    padding: 0 clamp(15px, 4vw, 40px);
 }
 
 .nav-container {
@@ -54,10 +56,11 @@ html, body {
     gap: 10px;
     text-decoration: none;
     flex-shrink: 0;
+    max-width: 80%; /* Mobilde logoyu sıkıştırmaz */
 }
 
 .logo-img {
-    height: 40px;
+    height: clamp(30px, 5vw, 40px); /* Logo mobilde hafif küçülür */
     width: auto;
     object-fit: contain;
 }
@@ -65,7 +68,7 @@ html, body {
 .logo-text {
     color: #00e5ff;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
     letter-spacing: 1px;
 }
 
@@ -73,7 +76,7 @@ html, body {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 14px;
+    gap: clamp(10px, 1.5vw, 14px);
 }
 
 .nav-links li {
@@ -83,7 +86,7 @@ html, body {
 .nav-links a {
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
-    font-size: 0.82rem; /* Çok öğeli menü için ideal font */
+    font-size: clamp(0.75rem, 1.5vw, 0.82rem); /* Font boyutu clamp */
     font-weight: 500;
     white-space: nowrap; /* Yazıların kırılmasını engeller */
     transition: 0.3s ease;
@@ -95,20 +98,23 @@ html, body {
 
 .btn-quote {
     border: 2px solid #ff007f;
-    padding: 7px 18px;
+    padding: 7px clamp(12px, 2vw, 18px);
     border-radius: 50px;
     color: white;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     font-weight: 700;
     flex-shrink: 0;
 }
 
 /* --- 3. HERO SECTION (İÇERİK) --- */
 .hero {
-    margin-top: 140px;
+    /* Margin top mobilde daha az, masaüstünde çok */
+    margin-top: clamp(100px, 15vh, 140px);
     text-align: center;
-    padding-bottom: 60px;
+    padding-bottom: clamp(30px, 6vw, 60px);
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .hero-title {
@@ -116,19 +122,23 @@ html, body {
     font-weight: 900;
     margin-bottom: 15px;
     letter-spacing: -1px;
+    line-height: 1.2;
 }
 
 .subtitle {
     color: #ffffff;
     margin-bottom: 45px;
     font-size: clamp(0.9rem, 4vw, 1.2rem);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-btns {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 80px;
+    margin-bottom: clamp(40px, 8vw, 80px);
     flex-wrap: wrap; /* Mobilde alt alta gelmesini sağlar */
 }
 
@@ -188,10 +198,12 @@ html, body {
 }
 
 @media (max-width: 480px) {
-    .hero-btns { flex-direction: column; align-items: center; }
-    .btn { width: 100%; max-width: 300px; }
+    .hero-btns { flex-direction: column; align-items: center; width: 100%; }
+    .btn { width: 100%; max-width: 100%; } /* Mobilde tam genişlik */
     .logo-text { font-size: 0.9rem; } /* Dar ekranda yazıyı küçült */
-}/* --- BAŞLIK ANİMASYONU --- */
+}
+
+/* --- BAŞLIK ANİMASYONU --- */
 
 .hero-title {
     opacity: 0; /* Başlangıçta görünmez */
@@ -199,7 +211,7 @@ html, body {
     animation: fadeInUp 1s ease-out forwards; /* Giriş animasyonu */
     
     /* Neon Parlama Efekti İçin Hazırlık */
-    background: linear-gradient(to right, #fcc40e 20%, #00e5ff 40%, #ff007f 60%, #bdff07 80%);
+    background: linear-gradient(to right, #fcc40e 20%, #00e5ff 40%, #ff007f 60%, #ff9c07 80%);
     background-size: 200% auto;
     color: #fff;
     background-clip: text;
@@ -228,12 +240,15 @@ html, body {
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
     animation-delay: 0.5s; /* Başlıktan yarım saniye sonra gelir */
-}/* --- HİZMET KARTLARI GENEL --- */
+}
+
+/* --- HİZMET KARTLARI GENEL --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Min 280px, ama mobilde %100 genişlik alarak taşmayı önler */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 25px;
-    padding: 60px 0;
+    padding: clamp(30px, 6vw, 60px) 0;
     width: 100%;
 }
 
@@ -250,7 +265,7 @@ html, body {
 /* --- SPAN BAŞLIK STİLLERİ --- */
 .card-title {
     display: block; /* Span'ı başlık gibi alt satıra itmesi için */
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
     font-weight: 800;
     margin-bottom: 25px;
     text-align: center;
@@ -300,9 +315,11 @@ html, body {
         grid-template-columns: 1fr;
         padding: 40px 10px;
     }
-}/* --- SÜREÇ AKIŞI STİLLERİ --- */
+}
+
+/* --- SÜREÇ AKIŞI STİLLERİ --- */
 .workflow-section {
-    padding: 100px 5%;
+    padding: clamp(50px, 8vw, 100px) 5%;
     text-align: center;
     width: 100%;
 }
@@ -317,12 +334,13 @@ html, body {
 .workflow-subtitle {
     color: #888;
     margin-bottom: 60px;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
 }
 
 .workflow-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Mobilde 300px altına düşerse tek sütuna geçer */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 30px;
 }
 
@@ -330,7 +348,7 @@ html, body {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 25px;
-    padding: 50px 30px;
+    padding: clamp(30px, 5vw, 50px) 30px;
     position: relative;
     transition: 0.3s;
 }
@@ -385,7 +403,9 @@ html, body {
     .workflow-grid { grid-template-columns: 1fr; }
     .full-width { grid-column: auto; }
     .step-box { padding: 40px 20px; }
-}/* GENEL AYARLAR */
+}
+
+/* GENEL AYARLAR */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -401,7 +421,7 @@ body {
 }
 
 .v-main-title { text-align: center; margin-bottom: 40px; }
-.v-main-title h1 { font-size: clamp(24px, 4vw, 42px); }
+.v-main-title h1 { font-size: clamp(24px, 6vw, 42px); }
 .v-main-title span { color: #00f2fe; }
 
 .v-container {
@@ -416,7 +436,7 @@ body {
 /* KART TASARIMI */
 .v-card {
     flex: 1;
-    min-width: min(100%, 400px); /* Mobilde tam genişlik, masaüstünde yan yana */
+    min-width: min(100%, 350px); /* Mobilde tam genişlik, masaüstünde yan yana */
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(0, 242, 254, 0.2);
     padding: clamp(20px, 4vw, 40px);
@@ -424,7 +444,7 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.v-card h2 { margin-bottom: 20px; font-size: 20px; color: #00f2fe; border-bottom: 1px solid #00f2fe33; padding-bottom: 10px; }
+.v-card h2 { margin-bottom: 20px; font-size: clamp(18px, 4vw, 20px); color: #00f2fe; border-bottom: 1px solid #00f2fe33; padding-bottom: 10px; }
 
 .v-group { margin-bottom: 15px; }
 .v-group label { display: block; margin-bottom: 5px; font-size: 14px; font-weight: 600; }
@@ -438,7 +458,7 @@ body {
     background: rgba(0, 242, 254, 0.1);
     padding: 15px; border-radius: 10px; text-align: center; margin-top: 20px;
 }
-.v-result strong { font-size: 24px; color: #00f2fe; display: block; }
+.v-result strong { font-size: clamp(20px, 5vw, 24px); color: #00f2fe; display: block; }
 
 .v-upload {
     border: 2px dashed rgba(0, 242, 254, 0.3); border-radius: 10px;
@@ -455,6 +475,7 @@ body {
     font-weight: 800;
     cursor: pointer;
     box-shadow: none;
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
 .v-note { font-size: 12px; color: #aaa; margin-top: 15px; text-align: center; }
@@ -463,7 +484,9 @@ body {
 @media (max-width: 768px) {
     .v-container { flex-direction: column; }
     .v-card { min-width: 100%; }
-}/* IZOLASYON VE TASMA KORUMASI */
+}
+
+/* IZOLASYON VE TASMA KORUMASI */
 .v-ultra-clean {
     width: 100%;
     padding: clamp(30px, 6vw, 70px) 0;
@@ -514,7 +537,7 @@ body {
 /* LİSTE SİSTEMİ */
 .v-feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
     gap: 15px;
     list-style: none;
     margin-bottom: 30px;
@@ -538,11 +561,13 @@ body {
 
 /* MOBİL KRİTİK AYARLAR */
 @media (max-width: 850px) {
-    .v-main-grid { text-align: center; }
+    .v-main-grid { text-align: center; grid-template-columns: 1fr; } /* Tek sütun garanti */
     .v-media-side { order: 2; } /* Resim mobilde yazının altına iner */
     .v-text-side { order: 1; }  /* Yazı mobilde üstte kalır (SEO için) */
     .v-seo-footer { border-left: none; border-top: 2px solid #ff007f; padding-top: 15px; }
-}/* STATS SECTION - NO BACKGROUND */
+}
+
+/* STATS SECTION - NO BACKGROUND */
 .v-stats-row {
     width: 100%;
     padding: clamp(30px, 6vw, 60px) 0;
@@ -567,7 +592,39 @@ body {
 /* RAKAMLAR / İKONLAR */
 .v-stat-icon {
     font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 900;/* FAQ SECTION - MINIMAL & TOUGH */
+    font-weight: 900;
+    color: #ff007f; /* Pink */
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+/* BAŞLIKLAR */
+.v-stat-title {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: #00e5ff; /* Cyan */
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* AÇIKLAMALAR */
+.v-stat-desc {
+    font-size: 0.95rem;
+    color: #ffffff;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* MOBİL AYAR */
+@media (max-width: 600px) {
+    .v-stat-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 30px;
+    }
+    .v-stat-item:last-child { border-bottom: none; }
+}
+
+/* FAQ SECTION - MINIMAL & TOUGH */
 .v-faq-container {
     width: 100%;
     padding: clamp(30px, 6vw, 60px) 20px;
@@ -637,36 +694,8 @@ body {
     .v-faq-card { text-align: center; }
     .v-faq-card h3 { justify-content: center; }
 }
-    color: #ff007f; /* Pink */
-    margin-bottom: 10px;
-    line-height: 1;
-}
 
-/* BAŞLIKLAR */
-.v-stat-title {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: #00e5ff; /* Cyan */
-    margin-bottom: 15px;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-/* AÇIKLAMALAR */
-.v-stat-desc {
-    font-size: 0.95rem;
-    color: #ffffff;
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-/* MOBİL AYAR */
-@media (max-width: 600px) {
-    .v-stat-item {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 30px;
-    }
-    .v-stat-item:last-child { border-bottom: none; }
-}/* VALEXIRA FOOTER MASTER CSS */
+/* VALEXIRA FOOTER MASTER CSS */
 .v-footer {
     width: 100%;
     padding: clamp(40px, 8vw, 80px) 0 0 0;
@@ -774,7 +803,7 @@ body {
 @media (max-width: 768px) {
     .v-footer-container { text-align: center; }
     .v-footer-logo { margin: 0 auto 20px auto; }
-    .v-whatsapp-link { justify-content: center; }   
+    .v-whatsapp-link { justify-content: center; }
 }
 
 /* Ana Sitenin style.css dosyasına ekle */
