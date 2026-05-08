@@ -243,7 +243,6 @@ html, body {
 /* --- HİZMET KARTLARI GENEL --- */
 .services-grid {
     display: grid;
-    /* Min 280px, ama mobilde %100 genişlik alarak taşmayı önler */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 25px;
     padding: clamp(30px, 6vw, 60px) 0;
@@ -258,16 +257,18 @@ html, body {
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center; /* İçeriği kartın ortasına toplar */
 }
 
 /* --- SPAN BAŞLIK STİLLERİ --- */
 .card-title {
-    display: block; /* Span'ı başlık gibi alt satıra itmesi için */
+    display: block;
     font-size: clamp(1.1rem, 3vw, 1.3rem);
     font-weight: 800;
     margin-bottom: 25px;
     text-align: center;
     letter-spacing: 1px;
+    width: 100%;
 }
 
 /* --- LIGHT (NEON) ÇERÇEVE VE RENKLER --- */
@@ -282,7 +283,7 @@ html, body {
 
 .light-pink {
     border: 1.5px solid #ff007f;
-    box-shadow: 0 0 10px #02032c
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
 }
 .light-pink .card-title { 
     color: #ff007f; 
@@ -292,18 +293,25 @@ html, body {
 /* Hover Durumunda Işığı Artır */
 .service-card:hover {
     transform: translateY(-8px);
-    background: #02032c
+    background: rgba(25, 1, 29, 0.9);
 }
 .light-cyan:hover { box-shadow: 0 0 20px rgba(0, 229, 255, 0.5); }
 .light-pink:hover { box-shadow: 0 0 20px rgba(255, 0, 127, 0.5); }
 
-/* Liste Elemanları */
-.service-card ul { list-style: none; }
+/* Liste Elemanları - Düzeltildi */
+.service-card ul { 
+    list-style: none; 
+    width: fit-content; /* Genişliği içeriği kadar yapar */
+    margin: 0 auto; /* Listeyi kartın ortasına hizalar */
+    padding: 0;
+}
 .service-card ul li {
     color: #e0e0e0;
     font-size: 0.92rem;
     padding: 9px 0;
+    text-align: left; /* Yazıları sola yaslayarak hizayı korur */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: nowrap; /* Yazıların kırılmasını engeller */
 }
 .service-card ul li:last-child { border-bottom: none; }
 
