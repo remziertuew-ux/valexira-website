@@ -29,30 +29,64 @@
         }
     </style>
 </head>
+
 <body style="width: 100%; overflow-x: hidden;">
+
+    <div class="v-particles-container">
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+    <div class="v-particle"></div>
+</div>
     
     <div class="v-site-main" style="width: 100%; overflow-x: hidden; position: relative; display: flex; flex-direction: column;">
 
     <header class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
+            <a href="index.html" class="logo-area" title="Valexira Dijital Ana Sayfa">
                 <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img">
                 <span class="logo-text">DİJİTAL</span>
             </a>
             
             <nav class="nav-menu" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="/">Anasayfa</a></li>
-                    <li><a href="dijital-baski">Dijital Baskı</a></li>
-                    <li><a href="matbaa">Matbaa</a></li>
-                    <li><a href="promosyon">Promosyon</a></li>
-                    <li><a href="levha">Levha</a></li>
-                    <li><a href="Duba-Bayrak">Duba & Bayrak</a></li>
-                    <li><a href="tasarim">Tasarım</a></li>
-                    <li><a href="portfolyo">Portfolyo</a></li>
-                    <li><a href="hakkimizda">Hakkımızda</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="iletisim">İletişim</a></li>
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="dijital-baski.html">Dijital Baskı</a></li>
+                    <li><a href="matbaa.html">Matbaa</a></li>
+                    <li><a href="promosyon.html">Promosyon</a></li>
+                    <li><a href="levha.html">Levha</a></li>
+                    <li><a href="Duba-Bayrak.html">Duba & Bayrak</a></li>
+                    <li><a href="tasarim.html">Tasarım</a></li>
+                    <li><a href="portfolyo.html">Portfolyo</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
                 </ul>
             </nav>
 
@@ -70,8 +104,9 @@
     <main class="hero">
         <div class="container">
             <h1 class="hero-title" style="font-family: 'Poppins', sans-serif;">Dijital Baskı & Tasarım</h1>
-            <p class="subtitle">Geleceğin estetiğini bugünle buluşturuyoruz.</p>
+            <p class="subtitle">Profestonel tasarım ve baskı çözümleri.</p>
             
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
 <section style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; padding: 30px 0; background: transparent; overflow: hidden; overflow-x: hidden !important; box-sizing: border-box;">
@@ -100,37 +135,45 @@
     </style>
 </section>
 
-<section class="promo-content">
-    <h2 class="promo-title">Profesyonel Baskı Çözümleri</h2>
+<section class="v-banner-wrapper" style="width: 100%; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; background: transparent; padding: clamp(15px, 5vh, 40px) 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; overflow-x: hidden;">
     
+    <style>
+        /* Kesin Beyaz Renk ve Gölge İptali */
+        .v-white-text { color: #ffffff !important; text-transform: uppercase; margin: 0; line-height: 1.2; }
+        .v-btn-link:hover { background: #ffffff !important; transform: translateY(-3px); box-shadow: none !important; }
+        
+        /* Lazer Animasyonu */
+        @keyframes vScan { 0% { left: -100%; } 40%, 100% { left: 100%; } }
+
+        /* Mobildeki taşmaları ve boşlukları kontrol eden clamp */
+        .promo-desc {
+            text-align: center; 
+            margin: clamp(10px, 3vh, 20px) auto 0; /* Üst boşluğu kıstık */
+            max-width: 800px; 
+            overflow-x: hidden;
+            font-size: clamp(14px, 2.5vw, 18px); /* Yazı boyutunu da esnettik */
+        }
+    </style>
+
     <p class="promo-desc">
         İşletmeniz için <span class="highlight">dijital baskı</span>, 
         <span class="highlight">tişört baskı</span> ve kurumsal 
         <span class="highlight">matbaa</span> hizmetleri sunuyoruz. 
         Yüksek kaliteli <strong>kartvizit</strong>, <strong>magnet</strong>, 
-        <strong>broşür</strong>,dayanıklı <strong>branda</strong> ve 
-        <strong>folyo</strong> <span class="highlight">Tasarım</span> </strong> uygulamalarıyla markanızı zirveye taşıyoruz.
+        <strong>broşür</strong>, dayanıklı <strong>branda</strong> ve 
+        <strong>folyo</strong> <span class="highlight">Tasarım</span> uygulamalarıyla markanızı zirveye taşıyoruz.
     </p>
 </section>
-        </div>
-    </main>
 
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('navMenu');
-            nav.classList.toggle('active');
-        }
-    </script>
-
-            <div class="demo-wrapper">
+    <div class="demo-wrapper">
     <a href="https://tubular-treacle-d9dd2f.netlify.app/" target="_blank" class="valexira-demo-btn">
         <span class="btn-text">WEB SİTELERİ</span>
         <span class="btn-subtext">CANLI DEMO İZLE</span>
         <div class="btn-glow"></div>
     </a>
 </div>
-     
-     <section style="width: 100%; padding: clamp(40px, 8vw, 80px) 15px; box-sizing: border-box; overflow: hidden; background: transparent;">
+
+    <section style="width: 100%; padding: clamp(40px, 8vw, 80px) 15px; box-sizing: border-box; overflow: hidden; background: transparent;">
     
     <div style="text-align: center; margin-bottom: clamp(30px, 6vw, 50px); width: 100%;">
         <h2 style="font-size: clamp(22px, 5vw, 38px); font-weight: 850; color: #ffffff; margin: 0; text-transform: uppercase; letter-spacing: -1px;">
@@ -149,7 +192,7 @@
                 </div>
             </a>
             <h2 style="color: #ffffff; font-size: clamp(18px, 1.8vw, 22px); margin: 0 0 5px 0; font-weight: 700;">Kartvizit</h2>
-            <p style="color: rgba(255,255,255,0.5); font-size: clamp(13px, 1.2vw, 15px); margin: 0 0 15px 0;">999 TL'den Başlayanlar</p>
+            <p style="color: rgba(255,255,255,0.5); font-size: clamp(13px, 1.2vw, 15px); margin: 0 0 15px 0;">899 TL'den Başlayanlar</p>
             <a href="https://valexira.com/matbaa" title="Kartvizit ürünlerini incele" style="text-decoration: none; align-self: flex-start; color: #ffffff; font-weight: 700; font-size: 14px; border-bottom: 2px solid #02032c; padding-bottom: 4px;">İncele ></a>
         </article>
 
@@ -159,7 +202,7 @@
                 </div>
             </a>
             <h2 style="color: #ffffff; font-size: clamp(18px, 1.8vw, 22px); margin: 0 0 5px 0; font-weight: 700;">Branda</h2>
-            <p style="color: rgba(255,255,255,0.5); font-size: clamp(13px, 1.2vw, 15px); margin: 0 0 15px 0;">349 TL'den Başlayanlar</p>
+            <p style="color: rgba(255,255,255,0.5); font-size: clamp(13px, 1.2vw, 15px); margin: 0 0 15px 0;">399 TL'den Başlayanlar</p>
             <a href="https://valexira.com/dijital-baski" title="Branda fiyatlarını incele" style="text-decoration: none; align-self: flex-start; color: #ffffff; font-weight: 700; font-size: 14px; border-bottom: 2px solid #02032c; padding-bottom: 4px;">İncele ></a>
         </article>
 
@@ -169,7 +212,7 @@
                 </div>
             </a>
             <h2 style="color: #ffffff; font-size: clamp(18px, 1.8vw, 22px); margin: 0 0 5px 0; font-weight: 700;">Folyo</h2>
-            <p style="color: rgba(255,255,255,0.5); font-size: clamp(13px, 1.2vw, 15px); margin: 0 0 15px 0;">349 TL'den Başlayanlar</p>
+            <p style="color: rgba(255,255,255,0.5); font-size: clamp(13px, 1.2vw, 15px); margin: 0 0 15px 0;">399 TL'den Başlayanlar</p>
             <a href="https://valexira.com/dijital-baski" title="Folyo baskı seçeneklerini incele" style="text-decoration: none; align-self: flex-start; color: #ffffff; font-weight: 700; font-size: 14px; border-bottom: 2px solid #02032c; padding-bottom: 4px;">İncele ></a>
         </article>
 
@@ -539,7 +582,7 @@ function pickProduct(val) {
     </div>
 </footer>
 
-    <script>
+<script>
 function toggleMenu() {
     const navMenu = document.getElementById('navMenu');
     // CSS'deki .active class'ını ekleyip çıkarır
@@ -560,34 +603,4 @@ document.addEventListener('click', function(event) {
 <script src="js/main.js"></script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
