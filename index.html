@@ -132,10 +132,31 @@
     </div>
 </header>
 
-    <main class="hero">
-        <div class="container">
-            <h1 class="hero-title" style="font-family: 'Poppins', sans-serif;">Dijital Baskı & Tasarım</h1>
-            <p class="subtitle">Profesyonel tasarım ve baskı çözümleri.</p>
+<!-- MOBİL MENÜ SCRIPTİ - BURAYA EKLENDİ -->
+<script>
+function toggleMenu() {
+    const navMenu = document.getElementById('navMenu');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    
+    navMenu.classList.toggle('active');
+    menuBtn.classList.toggle('open');
+}
+
+document.addEventListener('click', function(event) {
+    const navMenu = document.getElementById('navMenu');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (!navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        navMenu.classList.remove('active');
+        menuBtn.classList.remove('open');
+    }
+});
+</script>
+
+<main class="hero">
+    <div class="container">
+        <h1 class="hero-title" style="font-family: 'Poppins', sans-serif;">Dijital Baskı & Tasarım</h1>
+        <p class="subtitle">Profesyonel tasarım ve baskı çözümleri.</p>
             
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
