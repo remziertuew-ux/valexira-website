@@ -599,6 +599,21 @@ function pickProduct(val) {
             </ul>
         </nav>
 
+        <!-- YENİ SÜTUN: LOKASYONLAR -->
+        <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); box-sizing: border-box;">
+            <h3 class="v-footer-head cyan" style="font-size: clamp(18px, 3vw, 22px);">Lokasyonlar</h3>
+            <ul class="v-footer-list" style="list-style: none; padding: 0;">
+                <li><a href="https://valexira.com/aksaray-reklamci" style="text-decoration: none; color: inherit;">Aksaray Reklamcı</a></li>
+                <li><a href="https://valexira.com/atasehir-reklamci" style="text-decoration: none; color: inherit;">Ataşehir Reklamcı</a></li>
+                <li><a href="https://valexira.com/bagcilar-reklamci" style="text-decoration: none; color: inherit;">Bağcılar Reklamcı</a></li>
+                <li><a href="https://valexira.com/bakirkoy-reklamci" style="text-decoration: none; color: inherit;">Bakırköy Reklamcı</a></li>
+                <li><a href="https://valexira.com/beyazit-reklamci" style="text-decoration: none; color: inherit;">Beyazıt Reklamcı</a></li>
+                <li><a href="https://valexira.com/esenler-reklamci" style="text-decoration: none; color: inherit;">Esenler Reklamcı</a></li>
+                <li><a href="https://valexira.com/kadikoy-reklamci" style="text-decoration: none; color: inherit;">Kadıköy Reklamcı</a></li>
+                <li><a href="https://valexira.com/sirinevler-reklamci" style="text-decoration: none; color: inherit;">Şirinevler Reklamcı</a></li>
+            </ul>
+        </nav>
+
         <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); box-sizing: border-box;">
             <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Bize Ulaşın</h3>
             <div class="v-footer-contact" style="font-size: clamp(14px, 2vw, 15px);">
@@ -618,26 +633,3 @@ function pickProduct(val) {
         © 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
     </div>
 </footer>
-
-<script>
-function toggleMenu() {
-    const navMenu = document.getElementById('navMenu');
-    // CSS'deki .active class'ını ekleyip çıkarır
-    navMenu.classList.toggle('active');
-}
-
-// Menü açıkken sayfa dışına tıklandığında menüyü kapatır
-document.addEventListener('click', function(event) {
-    const navMenu = document.getElementById('navMenu');
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (!navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-        navMenu.classList.remove('active');
-    }
-});
-</script>
-
-<script src="js/main.js"></script>
-
-</body>
-</html>
