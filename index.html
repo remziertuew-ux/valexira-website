@@ -397,22 +397,31 @@ document.addEventListener('click', function(event) {
 
 <section class="v-container" style="width: 100%; overflow-x: hidden; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px clamp(15px, 4vw, 30px);">
         
-    <article class="v-card" style="flex: 1; min-width: min(100%, 340px); box-sizing: border-box; width: 100%;">
-        <h3 style="font-size: clamp(20px, 4vw, 24px);">📏 M² Hesapla</h3>
-        <div class="v-group" style="width: 100%; box-sizing: border-box;">
-            <label style="display: block; margin-bottom: 5px;">En (cm)</label>
-            <input type="number" id="m2_en" placeholder="Örn: 100" oninput="calculateM2()" style="width: 100%; box-sizing: border-box; padding: 10px;">
-        </div>
-        <div class="v-group" style="width: 100%; box-sizing: border-box;">
-            <label style="display: block; margin-bottom: 5px;">Boy (cm)</label>
-            <input type="number" id="m2_boy" placeholder="Örn: 200" oninput="calculateM2()" style="width: 100%; box-sizing: border-box; padding: 10px;">
-        </div>
-        <div class="v-result" style="width: 100%; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center;">
-            <span>Toplam Alan:</span>
-            <strong id="m2_sonuc">0.00 m²</strong>
-        </div>
-        <p class="v-note" style="font-size: 12px; opacity: 0.7;">* Ölçülerinizi girdikten sonra sağdaki formdan teklif alabilirsiniz.</p>
-    </article>
+<article class="v-card" style="flex: 1; min-width: min(100%, 340px); box-sizing: border-box; width: 100%;">
+    <h3 style="font-size: clamp(20px, 4vw, 24px);">📏 M² Hesapla</h3>
+    <div class="v-group" style="width: 100%; box-sizing: border-box;">
+        <label style="display: block; margin-bottom: 5px;">En (cm)</label>
+        <input type="number" id="m2_en" placeholder="Örn: 100" oninput="calculateM2()" style="width: 100%; box-sizing: border-box; padding: 10px;">
+    </div>
+    <div class="v-group" style="width: 100%; box-sizing: border-box;">
+        <label style="display: block; margin-bottom: 5px;">Boy (cm)</label>
+        <input type="number" id="m2_boy" placeholder="Örn: 200" oninput="calculateM2()" style="width: 100%; box-sizing: border-box; padding: 10px;">
+    </div>
+    <div class="v-result" style="width: 100%; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center;">
+        <span>Toplam Alan:</span>
+        <strong id="m2_sonuc">0.00 m²</strong>
+    </div>
+    <p class="v-note" style="font-size: 12px; opacity: 0.7;">* Ölçülerinizi girdikten sonra sağdaki formdan teklif alabilirsiniz.</p>
+</article>
+
+<script>
+function calculateM2() {
+    var en = parseFloat(document.getElementById('m2_en').value) || 0;
+    var boy = parseFloat(document.getElementById('m2_boy').value) || 0;
+    var alan = (en / 100) * (boy / 100);
+    document.getElementById('m2_sonuc').textContent = alan.toFixed(2) + ' m²';
+}
+</script>
 
 <div class="v-card" style="display: flex; flex-direction: column; gap: 15px; width: 100%; box-sizing: border-box; overflow-x: hidden;">
     <h3 style="margin-bottom: 5px; color: #00e5ff;">🛠️ Materyal Seçim Asistanı</h3>
