@@ -769,32 +769,179 @@ function pickProduct(val) {
     </div>
 </section>
 
-<section class="v-ultra-clean" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative;">
+<section class="v-ultra-clean" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative; padding: clamp(30px, 6vw, 70px) 0;">
     
     <div class="v-main-grid" style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(20px, 5vw, 50px); box-sizing: border-box; padding: 0 clamp(15px, 4vw, 30px);">
         
-        <div class="v-media-side" style="flex: 1; min-width: min(100%, 400px); box-sizing: border-box;">
-            <img src="images/ana-web.jpg" alt="Valexira Dijital Tasarım Çözümleri" class="v-img" style="max-width: 100%; height: auto; display: block;" loading="lazy">
+        <!-- SVG Görsel Tarafı - Animasyonlu -->
+        <div class="v-media-side" style="flex: 1; min-width: min(100%, 400px); box-sizing: border-box; display: flex; justify-content: center; align-items: center;">
+            <svg viewBox="0 0 400 400" style="width: 100%; max-width: 400px; height: auto;" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="monitorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff007f;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#9b59b6;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#02032c;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glowEffect">
+                        <feGaussianBlur stdDeviation="4" result="blur"/>
+                        <feMerge>
+                            <feMergeNode in="blur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Arka plan daire -->
+                <circle cx="200" cy="200" r="180" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                
+                <!-- Parçacıklar -->
+                <circle cx="50" cy="80" r="3" fill="#ff007f" opacity="0.6">
+                    <animate attributeName="cy" values="80;90;80" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="350" cy="120" r="2" fill="#00e5ff" opacity="0.8">
+                    <animate attributeName="cy" values="120;110;120" dur="4s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="80" cy="320" r="2.5" fill="#9b59b6" opacity="0.5">
+                    <animate attributeName="cy" values="320;310;320" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="320" cy="350" r="3" fill="#ff007f" opacity="0.7">
+                    <animate attributeName="cy" values="350;340;350" dur="5s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Monitor -->
+                <g transform="translate(100, 80)">
+                    <!-- Monitor stand -->
+                    <rect x="70" y="180" width="60" height="40" rx="5" fill="#533483" opacity="0.8"/>
+                    <rect x="50" y="220" width="100" height="10" rx="5" fill="#ff007f" opacity="0.9"/>
+                    
+                    <!-- Monitor ekran çerçevesi -->
+                    <rect x="0" y="0" width="200" height="180" rx="15" fill="url(#monitorGrad)" filter="url(#glowEffect)"/>
+                    <rect x="10" y="10" width="180" height="160" rx="10" fill="url(#screenGrad)"/>
+                    
+                    <!-- Ekran içeriği - animasyonlu -->
+                    <rect x="30" y="40" width="140" height="8" rx="4" fill="#fff" opacity="0.9">
+                        <animate attributeName="width" values="140;100;140" dur="3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="30" y="60" width="100" height="8" rx="4" fill="#00e5ff" opacity="0.8">
+                        <animate attributeName="width" values="100;140;100" dur="3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="30" y="80" width="120" height="8" rx="4" fill="#fff" opacity="0.6">
+                        <animate attributeName="width" values="120;80;120" dur="3s" repeatCount="indefinite"/>
+                    </rect>
+                    
+                    <!-- Ekran parıltısı -->
+                    <rect x="-20" y="10" width="40" height="160" fill="rgba(255,255,255,0.1)" rx="5">
+                        <animateTransform attributeName="transform" type="translate" values="-20,0; 180,0; -20,0" dur="4s" repeatCount="indefinite"/>
+                    </rect>
+                </g>
+                
+                <!-- Telefon -->
+                <g transform="translate(280, 200)">
+                    <rect x="0" y="0" width="60" height="120" rx="10" fill="#ff007f" opacity="0.9" filter="url(#glowEffect)"/>
+                    <rect x="5" y="5" width="50" height="110" rx="8" fill="#02032c"/>
+                    
+                    <!-- Telefon ekranı -->
+                    <rect x="10" y="20" width="30" height="6" rx="3" fill="#fff" opacity="0.8"/>
+                    <rect x="10" y="35" width="20" height="6" rx="3" fill="#00e5ff" opacity="0.7">
+                        <animate attributeName="width" values="20;30;20" dur="2s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="10" y="50" width="25" height="6" rx="3" fill="#fff" opacity="0.5"/>
+                </g>
+                
+                <!-- Kalem -->
+                <g transform="translate(60, 250) rotate(-30)">
+                    <rect x="0" y="0" width="80" height="12" rx="6" fill="#00e5ff" opacity="0.9"/>
+                    <polygon points="80,0 100,6 80,12" fill="#ff007f"/>
+                    <animateTransform attributeName="transform" type="translate" values="60,250; 65,245; 60,250" dur="3s" repeatCount="indefinite" additive="sum"/>
+                </g>
+                
+                <!-- Bulut -->
+                <g transform="translate(150, 50)">
+                    <ellipse cx="30" cy="20" rx="25" ry="15" fill="#fff" opacity="0.9"/>
+                    <ellipse cx="50" cy="25" rx="20" ry="12" fill="#fff" opacity="0.9"/>
+                    <ellipse cx="20" cy="25" rx="15" ry="10" fill="#fff" opacity="0.9"/>
+                    <animateTransform attributeName="transform" type="translate" values="150,50; 155,50; 150,50" dur="4s" repeatCount="indefinite"/>
+                </g>
+                
+                <!-- Güneş -->
+                <g transform="translate(300, 60)">
+                    <circle cx="0" cy="0" r="20" fill="#ff007f" opacity="0.9">
+                        <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="0" cy="0" r="15" fill="#ffcc00" opacity="0.8"/>
+                    <!-- Işınlar -->
+                    <line x1="0" y1="-30" x2="0" y2="-40" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="21" y1="-21" x2="28" y2="-28" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="30" y1="0" x2="40" y2="0" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="21" y1="21" x2="28" y2="28" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="0" y1="30" x2="0" y2="40" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="-21" y1="21" x2="-28" y2="28" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="-30" y1="0" x2="-40" y2="0" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="-21" y1="-21" x2="-28" y2="-28" stroke="#ff007f" stroke-width="3" opacity="0.6">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0; 360 0 0" dur="10s" repeatCount="indefinite"/>
+                    </line>
+                </g>
+                
+                <!-- Palet/Renk daireleri -->
+                <g transform="translate(80, 150)">
+                    <circle cx="0" cy="0" r="15" fill="#ff007f" opacity="0.8"/>
+                    <circle cx="25" cy="10" r="12" fill="#00e5ff" opacity="0.8"/>
+                    <circle cx="15" cy="30" r="10" fill="#9b59b6" opacity="0.8"/>
+                    <animateTransform attributeName="transform" type="rotate" values="0 80 150; 360 80 150" dur="20s" repeatCount="indefinite"/>
+                </g>
+            </svg>
         </div>
 
+        <!-- Metin Tarafı - Hover Efektleri -->
         <article class="v-text-side" style="flex: 1.2; min-width: min(100%, 320px); box-sizing: border-box;">
-            <h2 class="v-heading">Markanızı <span>Yeniden Tasarlıyoruz</span></h2>
-            <p class="v-subtext">
+            <h2 class="v-heading" style="font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; color: #00e5ff;">
+                Markanızı <span style="color: #ff007f;">Yeniden Tasarlıyoruz</span>
+            </h2>
+            <p class="v-subtext" style="font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.6; color: #fff; margin-bottom: 30px;">
                 Sadece baskı değil, markanızın dijital ve fiziksel dünyadaki kimliğini inşa ediyoruz. 
-                <strong>Web site arayüzlerinden</strong>, masanızdaki <strong>profesyonel kartvizit tasarımına</strong> kadar her detayda estetik ve fonksiyonellik sunuyoruz.
+                <strong style="color: #00e5ff;">Web site arayüzlerinden</strong>, masanızdaki <strong style="color: #ff007f;">profesyonel kartvizit tasarımına</strong> kadar her detayda estetik ve fonksiyonellik sunuyoruz.
             </p>
 
-            <ul class="v-feature-grid" style="width: 100%; box-sizing: border-box;">
-                <li><span>🚀</span> <b>Özgün Logo</b> Tasarımı</li>
-                <li><span>🌐</span> <b>Modern Web Site</b> Çözümleri</li>
-                <li><span>🎨</span> <b>Etkileyici Afiş</b> ve Broşür</li>
-                <li><span>🎴</span> <b>Kurumsal Kartvizit</b></li>
-                <li><span>🧲</span> <b>Özel Kesim Magnet</b></li>
-                <li><span>📝</span> <b>İrsaliye</b> ve Resmi Evrak</li>
+            <ul class="v-feature-grid" style="width: 100%; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 15px; list-style: none; margin-bottom: 30px; padding: 0;">
+                <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(255,0,127,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
+                    <span style="font-size: 1.2rem;">🚀</span> <b style="color: #00e5ff;">Özgün Logo</b> Tasarımı
+                </li>
+                <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(0,229,255,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
+                    <span style="font-size: 1.2rem;">🌐</span> <b style="color: #ff007f;">Modern Web Site</b> Çözümleri
+                </li>
+                <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(255,0,127,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
+                    <span style="font-size: 1.2rem;">🎨</span> <b style="color: #00e5ff;">Etkileyici Afiş</b> ve Broşür
+                </li>
+                <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(0,229,255,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
+                    <span style="font-size: 1.2rem;">🎴</span> <b style="color: #ff007f;">Kurumsal Kartvizit</b>
+                </li>
+                <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(255,0,127,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
+                    <span style="font-size: 1.2rem;">🧲</span> <b style="color: #00e5ff;">Özel Kesim Magnet</b>
+                </li>
+                <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(0,229,255,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
+                    <span style="font-size: 1.2rem;">📝</span> <b style="color: #ff007f;">İrsaliye</b> ve Resmi Evrak
+                </li>
             </ul>
 
-            <div class="v-seo-footer" style="width: 100%; box-sizing: border-box;">
-                <p>Arama motoru görünürlüğünüzü artıran <strong>SEO uyumlu altyapımız</strong> ve profesyonel <strong>grafik tasarım</strong> desteğimizle rakiplerinizin önüne geçin.</p>
+            <div class="v-seo-footer" style="width: 100%; box-sizing: border-box; border-left: 3px solid #ff007f; padding-left: 20px; font-size: 0.85rem; color: #ccc; line-height: 1.5;">
+                <p>Arama motoru görünürlüğünüzü artıran <strong style="color: #00e5ff;">SEO uyumlu altyapımız</strong> ve profesyonel <strong style="color: #ff007f;">grafik tasarım</strong> desteğimizle rakiplerinizin önüne geçin.</p>
             </div>
         </article>
     </div>
