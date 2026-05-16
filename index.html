@@ -212,8 +212,7 @@
             </a>
         </div>
 
-<section id="valexira-production-portfolio" style="width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden; box-sizing: border-box; padding: 50px 20px; background: transparent; font-family: 'Segoe UI', sans-serif;">
-    
+<section id="valexira-production-portfolio">
     <div class="v-grid-wrapper">
         
         <div class="v-left-block">
@@ -225,10 +224,9 @@
 
                 <div class="v-content-wrap">
                     <h2 class="v-title">PORTFOLYO</h2>
-
                     <div class="v-arrow-container">
-                        <svg width="32" height="22" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
-                            <path d="M2 20H55M55 20L40 5M55 20L40 35" stroke="#00f2fe" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="28" height="20" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 20H55M55 20L40 5M55 20L40 35" stroke="#00f2fe" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
                                 <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" repeatCount="indefinite" />
                             </path>
                         </svg>
@@ -245,17 +243,17 @@
         <div class="v-right-cards">
             
             <div class="v-business-card">
-                <img src="images/slider1.jpeg" alt="Valexira Dijital Baskı Çalışmaları" onerror="this.style.display='none';">
+                <img src="images/portfolio1.jpg" alt="Valexira Dijital Baskı Çalışmaları" onerror="this.style.display='none';">
                 <div class="v-card-overlay">
-                    <span class="v-card-tag" style="color: #00f2fe;">PROJE // 01</span>
+                    <span class="v-card-tag" style="color: #00f2fe;">DİJİTAL BASKI</span>
                     <strong class="v-card-name">Endüstriyel Baskı & Cephe Giydirme</strong>
                 </div>
             </div>
 
             <div class="v-business-card">
-                <img src="images/slider2.jpeg" alt="Valexira Premium Matbaa Çözümleri" onerror="this.style.display='none';">
+                <img src="images/portfolio2.jpg" alt="Valexira Premium Matbaa Çözümleri" onerror="this.style.display='none';">
                 <div class="v-card-overlay">
-                    <span class="v-card-tag" style="color: #ff00ff;">PROJE // 02</span>
+                    <span class="v-card-tag" style="color: #ff00ff;">MATBAA</span>
                     <strong class="v-card-name">Premium Kurumsal Matbaa Tasarımları</strong>
                 </div>
             </div>
@@ -265,38 +263,40 @@
     </div>
 
     <style>
-        /* Tarayıcı Geçiş Optimizasyonu (Beyaz Parlama Koruması) */
-        @view-transition {
-            navigation: auto;
-        }
-        
-        html, body {
-            background-color: #06020f !important;
+        /* Dış Sayfa Elemanları ile Çakışmayı Önleyen İzole Çatı */
+        #valexira-production-portfolio {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            overflow: hidden;
+            box-sizing: border-box;
+            background: transparent;
+            font-family: 'Segoe UI', sans-serif;
+            clear: both; /* Üstteki elemanların taşmasını engeller */
         }
 
-        /* Güvenli Kutu Modeli */
         #valexira-production-portfolio *, 
         #valexira-production-portfolio *::before, 
         #valexira-production-portfolio *::after {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Matematiksel Olarak Dikeyde Tam Ortalamayı Sağlayan Grid Sistemi */
+        /* Milimetrik ve Dağılmayan Grid Sistemi */
         .v-grid-wrapper {
             display: grid;
-            grid-template-columns: 35% 65%;
-            align-items: center; /* Sol ve sağ bloğu dikeyde kusursuz ortalar */
-            gap: 50px;
+            grid-template-columns: 38% 62%;
+            align-items: center; /* Sağ ve solu dikey eksende kusursuz eşitler */
+            gap: 30px;
             width: 100%;
         }
 
-        /* Sol Alan Düzeni */
+        /* Sol Başlık Alanı Düzeni */
         .v-left-block {
             width: 100%;
             min-width: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .v-main-link {
@@ -312,65 +312,63 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: 15px;
-            margin: 22px 0;
+            gap: 12px;
+            margin: 15px 0;
             width: 100%;
         }
 
         .v-title {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(24px, 3.2vw, 42px);
-            font-weight: 200;
+            font-size: clamp(22px, 3vw, 38px);
+            font-weight: 300;
             color: #fff;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin: 0;
-            transition: all 0.4s ease;
+            line-height: 1.2;
             white-space: nowrap;
         }
 
         .v-arrow-container {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.3s ease;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
         }
 
         .v-main-link:hover .v-arrow-container {
-            transform: translateX(8px) scale(1.05);
+            transform: translateX(6px);
         }
 
         .v-main-link:hover .v-title {
             color: #ff00ff;
-            letter-spacing: 7px;
-            text-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
         }
 
-        /* Siber Lazer Hattı */
+        /* Siber Çizgi Yapısı */
         .v-work-line {
             width: 100%;
             height: 2px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
         }
 
         .v-laser-head {
             position: absolute;
-            width: 100px;
+            width: 80px;
             height: 100%;
             background: linear-gradient(90deg, transparent, #ff00ff, transparent);
-            box-shadow: 0 0 8px #ff00ff;
             animation: laserMove 4s infinite ease-in-out;
         }
 
-        /* Durum Metni Paneli */
+        /* Durum Metni */
         .v-status-bar {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: 10px;
-            opacity: 0.6;
+            gap: 8px;
+            opacity: 0.5;
             transition: opacity 0.3s ease;
-            width: 100%;
         }
 
         .v-main-link:hover .v-status-bar {
@@ -380,10 +378,8 @@
         .v-status-bar p {
             color: #00f2fe;
             font-size: 10px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             font-weight: 600;
-            margin: 0;
-            white-space: nowrap;
         }
 
         .v-status-dot {
@@ -391,92 +387,86 @@
             height: 6px;
             background: #00f2fe;
             border-radius: 50%;
-            flex-shrink: 0;
-            box-shadow: 0 0 8px #00f2fe;
+            box-shadow: 0 0 6px #00f2fe;
             animation: pulseFade 1.5s infinite;
         }
 
-        /* SAĞ BLOK: KARTVİZİT DİZİLİMİ VE MAKSİMUM DENGE */
+        /* SAĞ BLOK: KESİN SINIRLANDIRILMIŞ KART ALANI */
         .v-right-cards {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            align-items: flex-start; /* PC'de sola yaslayarak simetriyi korur */
+            gap: 16px;
         }
 
-        /* GERÇEK KARTVİZİT ORANI (85x55 Kalıbı) */
+        /* Sabit Korumalı Kartvizit Yapısı */
         .v-business-card {
             width: 100%;
-            max-width: 540px; /* PC ekranlarında taşmayı ve aşırı devasa durmayı engeller */
-            aspect-ratio: 85 / 55; /* Standart kartvizit en-boy oranı tam kilitlendi */
+            max-width: 520px;
+            height: 175px; /* Yüksekliği sabitleyerek taşma sorununu kökten çözüyoruz */
             position: relative;
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(0, 242, 254, 0.15);
+            border: 1px solid rgba(0, 242, 254, 0.12);
             background: #06020f;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s ease;
         }
 
         .v-business-card:nth-child(2) {
-            border-color: rgba(255, 0, 127, 0.15);
+            border-color: rgba(255, 0, 127, 0.12);
         }
 
         .v-business-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-2px);
             border-color: #00f2fe;
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
         }
 
         .v-business-card:nth-child(2):hover {
             border-color: #ff00ff;
-            box-shadow: 0 0 25px rgba(255, 0, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.15);
         }
 
         .v-business-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Tasarımların kenarlarda boşluk bırakmadan tam oturmasını sağlar */
+            object-fit: cover; /* Resmi kutunun dışına taşırmadan tam oturtur */
             object-position: center;
             display: block;
-            filter: brightness(88%) contrast(100%);
-            transition: all 0.5s ease;
+            filter: brightness(85%);
+            transition: filter 0.3s ease;
         }
 
         .v-business-card:hover img {
-            filter: brightness(100%) contrast(102%);
+            filter: brightness(95%);
         }
 
-        /* Kart İçeriği Türkçe Bilgi Paneli */
+        /* Kart Alt Bilgi Alanı */
         .v-card-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-            padding: 18px 20px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            justify-content: flex-end;
-            text-align: left;
             pointer-events: none;
         }
 
         .v-card-tag {
-            font-size: 10px;
+            font-size: 9px;
             font-weight: bold;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 5px;
+            letter-spacing: 1.5px;
+            margin-bottom: 3px;
         }
 
         .v-card-name {
-            font-size: clamp(13px, 1.5vw, 17px);
+            font-size: clamp(13px, 1.4vw, 16px);
             color: #fff;
             font-weight: 500;
-            display: block;
         }
 
-        /* Animasyon Döngüleri */
+        /* Animasyonlar */
         @keyframes laserMove {
             0% { left: -30%; }
             50% { left: 100%; }
@@ -485,35 +475,33 @@
 
         @keyframes pulseFade {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(1.2); }
+            50% { opacity: 0.4; transform: scale(1.1); }
         }
 
-        /* PC VE MOBİL İÇİN KESİNTİSİZ AKILLI GEÇİŞLER */
+        /* KESİNTİSİZ MOBİL UYUM */
         @media (max-width: 868px) {
-            .v-grid-wrapper {
-                grid-template-columns: 100%; /* Mobilde tam genişlikte alt alta dizilir */
-                gap: 35px;
+            #valexira-production-portfolio {
+                margin: 20px auto;
             }
-            .v-left-block {
-                align-items: center;
+            .v-grid-wrapper {
+                grid-template-columns: 100%;
+                gap: 25px;
             }
             .v-content-wrap, .v-status-bar {
                 justify-content: center;
             }
             .v-title {
-                font-size: clamp(28px, 6vw, 40px);
+                font-size: clamp(26px, 5vw, 36px);
             }
             .v-arrow-container svg {
-                transform: rotate(90deg); /* Mobilde ok yönü aşağı döner */
+                transform: rotate(90deg);
             }
             .v-main-link:hover .v-arrow-container {
-                transform: translateY(6px) scale(1.05);
-            }
-            .v-right-cards {
-                align-items: center; /* Mobilde kartvizitleri tam ortalar */
+                transform: translateY(4px);
             }
             .v-business-card {
-                max-width: 100%; /* Mobil cihaz genişliğine tam uyum sağlar */
+                max-width: 100%;
+                height: 160px; /* Mobilde dikey alanı daraltarak ekranı korur */
             }
         }
     </style>
