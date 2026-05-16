@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="tr" style="width: 100%; overflow-x: hidden; box-sizing: border-box;">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    
+
     <!-- SEO Temel Ayarları -->
     <title>Valexira Dijital | İstanbul Profesyonel Baskı, Matbaa ve Tasarım</title>
-    <meta name="description" content="Valexira Dijital; İstanbul'da profesyonel dijital baskı, matbaa ve tasarım çözümleri sunar.">
+    <meta name="description" content="Valexira Dijital; İstanbul Topkapı'da profesyonel dijital baskı, matbaa ve tasarım çözümleri sunar. Branda, folyo, kartvizit, tabela ve promosyon ürünleri.">
     <link rel="canonical" href="https://www.valexira.com/">
     <meta name="robots" content="index, follow">
 
@@ -17,7 +17,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Valexira Dijital | İstanbul Profesyonel Baskı, Matbaa ve Tasarım">
     <meta property="og:description" content="İstanbul'da dijital baskı, matbaa, promosyon ve tasarımda profesyonel çözümler.">
-    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:image" content="https://www.valexira.com/images/og-image.jpg">
     <meta property="og:url" content="https://www.valexira.com/">
     <meta property="og:type" content="website">
 
@@ -43,77 +43,404 @@
     }
     </script>
 
-    <!-- Performans ve Stil -->
+    <!-- Performans: Font Preload + Google Fonts -->
     <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Harici CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        *, *:before, *:after { box-sizing: border-box; }
-        html, body { 
-            width: 100% !important; 
-            margin: 0 !important; 
-            padding: 0 !important; 
-            overflow-x: hidden !important;
+        /* === TEMEL SIFIRLAMA === */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
             background-color: #19011d;
             color: #ffffff;
             -webkit-font-smoothing: antialiased;
         }
+
+        /* === DÖNEN BORDER ANİMASYONU (butonlar) === */
+        @keyframes v-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* === HERO BAŞLIK ANİMASYONLARI === */
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .hero-title {
+            opacity: 0;
+            transform: translateY(30px);
+            background: linear-gradient(to right, #fcc40e 20%, #00e5ff 40%, #ff007f 60%, #ff9c07 80%);
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out forwards, shine 4s linear infinite;
+        }
+
+        .subtitle {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        /* === DEMO BUTON ANİMASYONU === */
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* === PORTFOLİO SECTION LAZER / PULSE === */
+        @keyframes vLaser {
+            0%   { left: -30%; }
+            50%  { left: 100%; }
+            100% { left: -30%; }
+        }
+        @keyframes vPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.4; transform: scale(1.1); }
+        }
+
+        /* === BUTONLAR SECTION MOBİL === */
+        @media (max-width: 480px) {
+            .v-cta-buttons { flex-direction: column !important; align-items: center; }
+        }
+
+        /* === MOBİL MENÜ BUTONU — TEMA UYUMLU === */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+            transition: all 0.3s ease;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-menu-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(from 0deg, transparent 60%, rgba(0,242,254,0.15) 80%, transparent 100%);
+            animation: v-spin 4s linear infinite;
+            border-radius: 10px;
+        }
+
+        .mobile-menu-btn:hover {
+            border-color: #00f2fe;
+            box-shadow: 0 0 18px rgba(0, 242, 254, 0.35), inset 0 0 10px rgba(0, 242, 254, 0.08);
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #00f2fe;
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+                        opacity 0.25s ease,
+                        background 0.3s ease;
+            box-shadow: 0 0 6px rgba(0, 242, 254, 0.7);
+        }
+
+        /* Açık (X) durumu */
+        .mobile-menu-btn.open {
+            border-color: #ff007f;
+            box-shadow: 0 0 18px rgba(255, 0, 127, 0.35), inset 0 0 10px rgba(255, 0, 127, 0.08);
+            background: rgba(255, 0, 127, 0.06);
+        }
+
+        .mobile-menu-btn.open span {
+            background: #ff007f;
+            box-shadow: 0 0 6px rgba(255, 0, 127, 0.7);
+        }
+
+        .mobile-menu-btn.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .mobile-menu-btn.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .mobile-menu-btn.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (max-width: 1200px) {
+            .mobile-menu-btn { display: flex; }
+        }
+
+        /* === v-pro-portfolio-section === */
+        #v-pro-portfolio-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 10px 20px;
+            font-family: 'Segoe UI', -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #v-pro-portfolio-section *,
+        #v-pro-portfolio-section *::before,
+        #v-pro-portfolio-section *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .v-pro-container {
+            display: grid;
+            grid-template-columns: 32% 36% 32%;
+            align-items: center;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .v-pro-side-card { width: 100%; display: flex; }
+        .v-pro-side-card.left-side  { justify-content: flex-start; }
+        .v-pro-side-card.right-side { justify-content: flex-end; }
+
+        .v-pro-card {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 85 / 55;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #06020f;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .v-pro-card.cyan-border { border: 1px solid rgba(0, 242, 254, 0.2); }
+        .v-pro-card.pink-border { border: 1px solid rgba(255, 0, 127, 0.2); }
+        .v-pro-card:hover { transform: translateY(-5px); }
+        .v-pro-card.cyan-border:hover { border-color: #00f2fe; box-shadow: 0 0 25px rgba(0, 242, 254, 0.25); }
+        .v-pro-card.pink-border:hover { border-color: #ff00ff; box-shadow: 0 0 25px rgba(255, 0, 255, 0.25); }
+        .v-pro-card img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(85%); transition: filter 0.3s ease; }
+        .v-pro-card:hover img { filter: brightness(100%); }
+
+        .v-pro-center-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .v-pro-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .v-pro-laser-line {
+            width: 90%;
+            max-width: 240px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .v-pro-laser-glow {
+            position: absolute;
+            width: 60px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+            animation: vLaser 4s infinite ease-in-out;
+        }
+
+        .v-pro-title-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .v-pro-title {
+            font-size: 28px;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 5px;
+            line-height: 1;
+            text-indent: 5px;
+        }
+
+        .v-pro-arrow-box {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .v-pro-link:hover .v-pro-arrow-box { transform: translateX(6px); }
+        .v-pro-link:hover .v-pro-title { color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.4); }
+
+        .v-pro-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        .v-pro-link:hover .v-pro-status { opacity: 1; }
+
+        .v-pro-dot {
+            width: 6px;
+            height: 6px;
+            background: #00f2fe;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #00f2fe;
+            animation: vPulse 1.5s infinite;
+        }
+
+        .v-pro-status-text {
+            color: #00f2fe;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 868px) {
+            #v-pro-portfolio-section { margin: 20px auto; }
+            .v-pro-container { grid-template-columns: 100%; gap: 25px; }
+            .v-pro-side-card.left-side,
+            .v-pro-side-card.right-side { justify-content: center; }
+            .v-pro-card { max-width: 340px; }
+            .v-pro-center-content { padding: 15px 0; }
+            .v-pro-title { font-size: 26px; }
+        }
+
+        /* === v-cyber-services-section === */
+        #v-cyber-services-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Segoe UI', -apple-system, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .v-services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .v-service-card {
+            flex: 1;
+            min-width: min(100%, 260px);
+            max-width: 285px;
+            background: transparent;
+            padding: 22px 20px;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .v-service-card.light-cyan { border: 1px solid rgba(0, 242, 254, 0.15); }
+        .v-service-card.light-pink { border: 1px solid rgba(255, 0, 127, 0.15); }
+        .v-service-card.light-cyan:hover { transform: translateY(-3px); border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 0 15px rgba(0, 242, 254, 0.1); }
+        .v-service-card.light-pink:hover { transform: translateY(-3px); border-color: rgba(255, 0, 127, 0.4); box-shadow: 0 0 15px rgba(255, 0, 127, 0.1); }
+
+        .v-card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1.2px;
+            margin: 0 0 14px 0;
+            padding-bottom: 8px;
+            line-height: 1;
+        }
+        .v-service-card.light-cyan .v-card-title { color: #00f2fe; border-bottom: 1px solid rgba(0, 242, 254, 0.15); }
+        .v-service-card.light-pink .v-card-title { color: #ff007f; border-bottom: 1px solid rgba(255, 0, 127, 0.15); }
+        .v-card-title svg { flex-shrink: 0; }
+
+        .v-service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; }
+        .v-service-list li { font-size: 13px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 6px; line-height: 1.3; transition: color 0.2s ease; }
+        .v-service-list li:hover { color: #ffffff; }
+        .v-service-list li span { font-size: 8px; display: inline-block; opacity: 0.8; }
+        .v-service-card.light-cyan .v-service-list li span { color: #00f2fe; }
+        .v-service-card.light-pink .v-service-list li span { color: #ff007f; }
+
+        @media (max-width: 600px) {
+            #v-cyber-services-section { padding: 20px 10px; }
+            .v-services-grid { gap: 15px; }
+            .v-service-card { max-width: 100%; min-width: 100%; padding: 18px 16px; }
+        }
     </style>
 </head>
 
-<body style="width: 100%; overflow-x: hidden;">
+<body>
 
-    <div class="v-particles-container">
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
-        <div class="v-particle"></div>
+    <!-- ARK PLAN PARTİKÜLLERİ -->
+    <div class="v-particles-container" aria-hidden="true">
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
+        <div class="v-particle"></div><div class="v-particle"></div><div class="v-particle"></div>
     </div>
-    
-    <div class="v-site-main" style="width: 100%; overflow-x: hidden; position: relative; display: flex; flex-direction: column;">
 
-        <!-- HEADER -->
+    <div class="v-site-main">
+
+        <!-- ===================== HEADER / NAV ===================== -->
         <header class="navbar">
             <div class="container nav-container">
                 <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
-                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img">
+                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40">
                     <span class="logo-text">DİJİTAL</span>
                 </a>
-                
-                <nav class="nav-menu" id="navMenu">
+
+                <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
                     <ul class="nav-links">
                         <li><a href="/">Anasayfa</a></li>
                         <li><a href="dijital-baski">Dijital Baskı</a></li>
                         <li><a href="matbaa">Matbaa</a></li>
                         <li><a href="promosyon">Promosyon</a></li>
                         <li><a href="levha">Levha</a></li>
-                        <li><a href="Duba-Bayrak">Duba & Bayrak</a></li>
+                        <li><a href="Duba-Bayrak">Duba &amp; Bayrak</a></li>
                         <li><a href="tasarim">Tasarım</a></li>
                         <li><a href="portfolyo">Portfolyo</a></li>
                         <li><a href="hakkimizda">Hakkımızda</a></li>
@@ -123,991 +450,699 @@
                 </nav>
 
                 <div class="header-right">
-                    <div class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menüyü Aç">
+                    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="navMenu">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                     <a href="iletisim" class="btn-quote desktop-only">Teklif Al</a>
                 </div>
             </div>
         </header>
 
-        <!-- MOBİL MENÜ SCRIPTİ -->
-        <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            navMenu.classList.toggle('active');
-            menuBtn.classList.toggle('open');
-        }
-        document.addEventListener('click', function(event) {
-            const navMenu = document.getElementById('navMenu');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            if (!navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-                navMenu.classList.remove('active');
-                menuBtn.classList.remove('open');
-            }
-        });
-        </script>
+        <!-- ===================== ANA İÇERİK ===================== -->
+        <main>
 
-<!-- HERO -->
-<main class="hero">
-    <div class="container">
-        <!-- Hem h1 yapıldı, hem de dikkat çekici bir animasyon sınıfı eklendi -->
-        <h1 class="hero-title animated-title" style="font-family: 'Poppins', sans-serif;">
-            Dijital Baskı & Tasarım</h1>
-    </div>
-</main>
+            <!-- HERO -->
+            <section class="hero" aria-label="Öne çıkan başlık">
+                <div class="container">
+                    <h1 class="hero-title" style="font-family: 'Poppins', sans-serif;">
+                        Dijital Baskı &amp; Tasarım
+                    </h1>
+                </div>
+            </section>
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+            <!-- CTA BUTONLARI -->
+            <section class="v-cta-buttons" aria-label="Hızlı erişim butonları" style="width:100%; display:flex; flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:center; gap:20px; padding:30px 15px;">
+                <a href="https://valexira.com/dijital-baski" style="position:relative; width:clamp(160px,80vw,180px); height:50px; background:#02032c; display:flex; align-items:center; justify-content:center; text-decoration:none; border-radius:30px; overflow:hidden;">
+                    <div style="position:absolute; width:150%; height:150%; background:conic-gradient(from 0deg, transparent, #00f2fe, transparent 40%); animation:v-spin 3s linear infinite;" aria-hidden="true"></div>
+                    <div style="position:absolute; inset:2px; background:#02032c; border-radius:30px; z-index:1;" aria-hidden="true"></div>
+                    <span style="position:relative; z-index:2; color:#fff; font-weight:500; font-size:15px; letter-spacing:0.5px; font-family:'Poppins',sans-serif;">Ürünler</span>
+                </a>
+                <a href="https://valexira.com/iletisim" style="position:relative; width:clamp(160px,80vw,180px); height:50px; background:#02032c; display:flex; align-items:center; justify-content:center; text-decoration:none; border-radius:30px; overflow:hidden;">
+                    <div style="position:absolute; width:150%; height:150%; background:conic-gradient(from 0deg, transparent, #ff00ff, transparent 40%); animation:v-spin 3s linear infinite reverse;" aria-hidden="true"></div>
+                    <div style="position:absolute; inset:2px; background:#02032c; border-radius:30px; z-index:1;" aria-hidden="true"></div>
+                    <span style="position:relative; z-index:2; color:#fff; font-weight:500; font-size:15px; letter-spacing:0.5px; font-family:'Poppins',sans-serif;">İletişim</span>
+                </a>
+            </section>
 
-        <!-- BUTONLAR -->
-        <section style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; padding: 30px 0; background: transparent; overflow: hidden; box-sizing: border-box;">
-            <a href="https://valexira.com/dijital-baski" style="position: relative; width: clamp(160px, 80vw, 180px); height: 50px; background: #02032c; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 30px; overflow: hidden; border: none; outline: none; margin: 0 auto;">
-                <div style="position: absolute; width: 150%; height: 150%; background: conic-gradient(from 0deg, transparent, #00f2fe, transparent 40%); animation: v-spin 3s linear infinite;"></div>
-                <div style="position: absolute; inset: 2px; background: #02032c; border-radius: 30px; z-index: 1;"></div>
-                <span style="position: relative; z-index: 2; color: #ffffff !important; font-weight: 500; font-size: 15px; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">Ürünler</span>
-            </a>
-            <a href="https://valexira.com/iletisim" style="position: relative; width: clamp(160px, 80vw, 180px); height: 50px; background: #02032c; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 30px; overflow: hidden; border: none; outline: none; margin: 0 auto;">
-                <div style="position: absolute; width: 150%; height: 150%; background: conic-gradient(from 0deg, transparent, #ff00ff, transparent 40%); animation: v-spin 3s linear infinite reverse;"></div>
-                <div style="position: absolute; inset: 2px; background: #02032c; border-radius: 30px; z-index: 1;"></div>
-                <span style="position: relative; z-index: 2; color: #ffffff !important; font-weight: 500; font-size: 15px; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">İletişim</span>
-            </a>
-            <style>
-                @keyframes v-spin {
-                    from { transform: rotate(0deg); }
-                    to { transform: rotate(360deg); }
-                }
-                @media (max-width: 480px) {
-                    section { flex-direction: column !important; }
-                }
-            </style>
-        </section>
+            <!-- PROMO AÇIKLAMA -->
+            <section class="v-banner-wrapper" aria-label="Kısa tanıtım" style="width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:transparent; padding:clamp(15px,5vh,40px) clamp(20px,5vw,40px); font-family:'Segoe UI',sans-serif;">
+                <p class="promo-desc" style="text-align:center; margin:clamp(10px,3vh,20px) auto 0; max-width:min(100%,800px); font-size:clamp(14px,2.5vw,18px); padding:0 clamp(10px,3vw,20px);">
+                    İşletmeniz için <span class="highlight">dijital baskı</span>,
+                    <span class="highlight">tişört baskı</span> ve kurumsal
+                    <span class="highlight">matbaa</span> hizmetleri sunuyoruz.
+                    Yüksek kaliteli <strong>kartvizit</strong>, <strong>magnet</strong>,
+                    <strong>broşür</strong>, dayanıklı <strong>branda</strong> ve
+                    <strong>folyo</strong> <span class="highlight">tasarım</span> uygulamalarıyla markanızı zirveye taşıyoruz.
+                </p>
+            </section>
 
-<!-- PROMO AÇIKLAMA - Sadece HTML, harici CSS'e dokunmadan -->
-<section class="v-banner-wrapper" style="width: 100%; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; background: transparent; padding: clamp(15px, 5vh, 40px) clamp(20px, 5vw, 40px); box-sizing: border-box; font-family: 'Segoe UI', sans-serif; overflow-x: hidden;">
-    
-    <p class="promo-desc" style="text-align: center; margin: clamp(10px, 3vh, 20px) auto 0; max-width: min(100%, 800px); overflow-x: hidden; font-size: clamp(14px, 2.5vw, 18px); padding: 0 clamp(10px, 3vw, 20px); box-sizing: border-box; width: 100%;">
-        İşletmeniz için <span class="highlight">dijital baskı</span>, 
-        <span class="highlight">tişört baskı</span> ve kurumsal 
-        <span class="highlight">matbaa</span> hizmetleri sunuyoruz. 
-        Yüksek kaliteli <strong>kartvizit</strong>, <strong>magnet</strong>, 
-        <strong>broşür</strong>, dayanıklı <strong>branda</strong> ve 
-        <strong>folyo</strong> <span class="highlight">Tasarım</span> uygulamalarıyla markanızı zirveye taşıyoruz.
-    </p>
-</section>
+            <!-- DEMO BUTONLARI -->
+            <section class="demo-wrapper" aria-label="Canlı demolar" style="padding:40px 20px; gap:25px;">
+                <a href="https://tshirt-tasarla.netlify.app/" target="_blank" rel="noopener noreferrer" class="valexira-demo-btn">
+                    <span class="btn-text">SENİN TARZIN</span>
+                    <span class="btn-subtext">T-SHİRT TASARLA</span>
+                    <div class="btn-glow" aria-hidden="true"></div>
+                </a>
+                <a href="https://websiteler.netlify.app/" target="_blank" rel="noopener noreferrer" class="valexira-demo-btn">
+                    <span class="btn-text">WEB SİTELERİ</span>
+                    <span class="btn-subtext">CANLI DEMO İZLE</span>
+                    <div class="btn-glow" aria-hidden="true"></div>
+                </a>
+            </section>
 
-        <!-- DEMO BUTONLARI -->
-        <div class="demo-wrapper" style="display: flex; gap: 25px; justify-content: center; align-items: center; flex-wrap: wrap;">
-            <a href="https://tshirt-tasarla.netlify.app/" target="_blank" class="valexira-demo-btn">
-                <span class="btn-text">SENİN TARZIN</span>
-                <span class="btn-subtext">T-SHİRT TASARLA</span>
-                <div class="btn-glow"></div>
-            </a>
-            <a href="https://websiteler.netlify.app/" target="_blank" class="valexira-demo-btn">
-                <span class="btn-text">WEB SİTELERİ</span>
-                <span class="btn-subtext">CANLI DEMO İZLE</span>
-                <div class="btn-glow"></div>
-            </a>
-        </div>
+            <!-- PORTFOLİO TANITIM -->
+            <section id="v-pro-portfolio-section" aria-label="Portfolyo önizleme">
+                <div class="v-pro-container">
 
-<section id="v-pro-portfolio-section">
-    <div class="v-pro-container">
-        
-        <div class="v-pro-side-card left-side">
-            <div class="v-pro-card cyan-border">
-                <img src="images/slider1.jpeg" alt="Valexira Dijital Baskı" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'207\' style=\'background:%230c051c\'><text x=\'50%\' y=\'50%\' fill=\'%2300f2fe\' font-size=\'12\' font-family=\'sans-serif\' text-anchor=\'middle\'>GÖRSEL YÜKLENEMEDİ</text></svg>';">
-            </div>
-        </div>
+                    <div class="v-pro-side-card left-side">
+                        <div class="v-pro-card cyan-border">
+                            <img src="images/slider1.jpeg" alt="Valexira Dijital Baskı örnek çalışma" loading="lazy"
+                                 onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'207\' style=\'background:%230c051c\'><text x=\'50%\' y=\'50%\' fill=\'%2300f2fe\' font-size=\'12\' font-family=\'sans-serif\' text-anchor=\'middle\'>GÖRSEL YÜKLENEMEDİ</text></svg>'">
+                        </div>
+                    </div>
 
-        <div class="v-pro-center-content">
-            <a href="https://valexira.com/portfolyo" class="v-pro-link" rel="prefetch" aria-label="Valexira Portfolyo">
-                
-                <div class="v-pro-laser-line">
-                    <div class="v-pro-laser-glow"></div>
+                    <div class="v-pro-center-content">
+                        <a href="https://valexira.com/portfolyo" class="v-pro-link" rel="prefetch" aria-label="Valexira Portfolyo sayfasına git">
+                            <div class="v-pro-laser-line" aria-hidden="true">
+                                <div class="v-pro-laser-glow"></div>
+                            </div>
+                            <div class="v-pro-title-wrap">
+                                <p class="v-pro-title">PORTFOLYO</p>
+                                <div class="v-pro-arrow-box" aria-hidden="true">
+                                    <svg width="26" height="18" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 20H55M55 20L40 5M55 20L40 35" stroke="#00f2fe" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                                            <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" repeatCount="indefinite"/>
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="v-pro-status">
+                                <span class="v-pro-dot" aria-hidden="true"></span>
+                                <p class="v-pro-status-text">PROJELERİ İNCELEMEK İÇİN TIKLAYIN</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="v-pro-side-card right-side">
+                        <div class="v-pro-card pink-border">
+                            <img src="images/slider2.jpeg" alt="Valexira Matbaa örnek çalışma" loading="lazy"
+                                 onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'207\' style=\'background:%230c051c\'><text x=\'50%\' y=\'50%\' fill=\'%23ff00ff\' font-size=\'12\' font-family=\'sans-serif\' text-anchor=\'middle\'>GÖRSEL YÜKLENEMEDİ</text></svg>'">
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PROFESYONEL ÇÖZÜMLER -->
+            <section aria-labelledby="pro-solutions-heading" style="width:100%; padding:clamp(50px,8vh,100px) 0; background:transparent; font-family:'Segoe UI',sans-serif; color:#fff;">
+                <div style="max-width:1200px; margin:0 auto; padding:0 clamp(15px,4vw,25px);">
+
+                    <header style="text-align:center; margin-bottom:50px;">
+                        <p style="color:#00f2fe; text-transform:uppercase; letter-spacing:3px; font-weight:700; font-size:13px; margin:0 0 10px;">PROFESYONEL ÇÖZÜMLER</p>
+                        <h2 id="pro-solutions-heading" style="font-size:clamp(24px,5vw,36px); font-weight:900; margin:0; line-height:1.2;">
+                            Tasarım, Baskı ve <span style="color:#ff007f;">Yerinde Uygulama</span>
+                        </h2>
+                    </header>
+
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:25px;">
+
+                        <article style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); padding:30px; border-radius:25px; backdrop-filter:blur(5px); transition:0.3s;">
+                            <div style="margin-bottom:20px;" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19"></path><path d="M6 14C6 11.2386 8.23858 9 11 9C13.7614 9 16 11.2386 16 14"></path><ellipse cx="7.5" cy="10.5" rx="1.5" ry="1.5"></ellipse><ellipse cx="11.5" cy="7.5" rx="1.5" ry="1.5"></ellipse><ellipse cx="15.5" cy="10.5" rx="1.5" ry="1.5"></ellipse></svg>
+                            </div>
+                            <h3 style="color:#ffffff; font-size:22px; margin:0 0 15px; font-weight:800;">Yaratıcı Tasarım</h3>
+                            <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.6; margin:0;">
+                                Sıfırdan logo tasarımı, kurumsal kimlik ve mağaza görselleri. Fikirlerinizi dijital sanata ve baskıya hazır dosyalara dönüştürüyoruz.
+                            </p>
+                        </article>
+
+                        <article style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); padding:30px; border-radius:25px; backdrop-filter:blur(5px); transition:0.3s;">
+                            <div style="margin-bottom:20px;" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                            </div>
+                            <h3 style="color:#ffffff; font-size:22px; margin:0 0 15px; font-weight:800;">Yüksek Kalite Baskı</h3>
+                            <p style="font-size:14px; color:rgba(255,255,255,0.7); line-height:1.6; margin:0;">
+                                Folyo baskı, One Way Vision (Delikli Folyo), Branda ve Duratrans. En canlı renkler ve dayanıklı malzemelerle yüksek çözünürlüklü üretim.
+                            </p>
+                        </article>
+
+                        <article style="background:rgba(255,255,255,0.03); border:1px solid #ff007f; padding:30px; border-radius:25px; backdrop-filter:blur(5px); transition:0.3s; box-shadow:0 10px 30px rgba(255,0,127,0.1);">
+                            <div style="margin-bottom:20px;" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <h3 style="color:#ffffff; font-size:22px; margin:0 0 15px; font-weight:800;">Cam &amp; Mekan Uygulama</h3>
+                            <p style="font-size:14px; color:rgba(255,255,255,0.9); line-height:1.6; margin:0;">
+                                <strong>Vitrini sanata dönüştürüyoruz.</strong> Hazırladığımız baskıları uzman ekibimizle mağaza ve ofis camlarınıza profesyonelce uyguluyoruz.
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div style="margin-top:50px; text-align:center; background:rgba(255,255,255,0.05); padding:20px; border-radius:15px; border:1px solid rgba(0,242,254,0.2);">
+                        <p style="font-size:13px; color:rgba(255,255,255,0.6); margin:0; line-height:1.8;">
+                            Valexira; <strong>İstanbul Topkapı</strong> bölgesinde <strong>vitrin giydirme, cam folyo kaplama, kumlama folyo</strong> ve <strong>dijital baskı</strong> hizmetlerinde uzmandır. Tasarımdan baskıya, baskıdan <strong>yerinde uygulamaya</strong> kadar anahtar teslim çözümler sunuyoruz. <strong>Zeytinburnu ve Bayrampaşa</strong> başta olmak üzere tüm İstanbul'a profesyonel ekibimizle hizmet veriyoruz.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO İÇERİK -->
+            <section class="v-seo-content" aria-labelledby="seo-heading" style="max-width:1200px; margin:20px auto; padding:10px 20px; font-family:sans-serif; color:#ffffff;">
+
+                <h2 id="seo-heading" style="color:#00e5ff; font-size:clamp(20px,4vw,26px); border-bottom:2px solid rgba(0,229,255,0.2); padding-bottom:10px; margin-bottom:30px;">
+                    İstanbul Topkapı Dijital Baskı ve Matbaa Çözümleri
+                </h2>
+
+                <div style="display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+
+                    <div style="flex:1; min-width:min(100%,300px);">
+                        <h3 style="color:#00e5ff; font-size:19px; display:flex; align-items:center; gap:8px; margin:0 0 10px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                            Profesyonel Banner ve Broşür Basımı
+                        </h3>
+                        <p style="font-size:15px; line-height:1.6; color:#ffffff; margin:0;">
+                            Ürünlerinizi en iyi yansıtan <strong>banner tasarımı</strong> ve yüksek kaliteli <strong>broşür basımı</strong> ile markanızı öne çıkarın.
+                            Valexira olarak, dijital baskı hızını klasik matbaa kalitesiyle birleştiriyoruz.
+                        </p>
+                    </div>
+
+                    <div style="flex:1; min-width:min(100%,300px);">
+                        <h3 style="color:#00e5ff; font-size:19px; display:flex; align-items:center; gap:8px; margin:0 0 10px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="3" height="14" width="18" y="5" rx="2"></rect><line x1="3" x2="21" y1="10" y2="10"></line><line x1="7" x2="7.01" y1="15" y2="15"></line><line x1="11" x2="11.01" y1="15" y2="15"></line></svg>
+                            Özel Tasarım Kartvizit Modelleri
+                        </h3>
+                        <p style="font-size:15px; line-height:1.6; color:#ffffff; margin:0;">
+                            <strong>Kartvizit fiyatları</strong> ve kalitesinde denge arayanlar için; şeffaf, dokulu veya <strong>kabartma laklı kartvizit</strong> seçenekleri sunuyoruz.
+                            Hızlı teslimat avantajıyla, kurumsal kimliğinizi yansıtan en şık tasarımları Topkapı'daki merkezimizde hazırlıyoruz.
+                        </p>
+                    </div>
+
+                    <div style="flex:1; min-width:min(100%,300px);">
+                        <h3 style="color:#00e5ff; font-size:19px; display:flex; align-items:center; gap:8px; margin:0 0 10px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M11 5h11M11 9h11M11 13h11M11 17h11M2 6v12a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path></svg>
+                            El İlanı ve Tanıtım Materyalleri
+                        </h3>
+                        <p style="font-size:15px; line-height:1.6; color:#ffffff; margin:0;">
+                            Kampanyalarınızı geniş kitlelere duyurmak için <strong>ekonomik el ilanı</strong> ve <strong>afiş baskısı</strong> çözümlerimizi inceleyin.
+                            A5, A4 ve özel boyutlarda, yüksek adetli baskılarda <strong>en iyi fiyat garantisi</strong> ile markanızın görünürlüğünü artırıyoruz.
+                        </p>
+                    </div>
+
                 </div>
 
-                <div class="v-pro-title-wrap">
-                    <h2 class="v-pro-title">PORTFOLYO</h2>
-                    <div class="v-pro-arrow-box">
-                        <svg width="26" height="18" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 20H55M55 20L40 5M55 20L40 35" stroke="#00f2fe" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-                                <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" repeatCount="indefinite" />
-                            </path>
+                <div style="margin-top:40px; padding-top:20px; border-top:1px dashed #00e5ff;">
+                    <h3 style="font-size:clamp(17px,3vw,20px); color:#ffffff; margin:0 0 10px;">Dijital Baskı Hakkında Merak Edilenler</h3>
+                    <p style="font-size:15px; margin:0; line-height:1.8;">
+                        <strong>Dijital baskı fiyatları nasıl belirlenir?</strong><br>
+                        Baskı fiyatlarımız; adet, kağıt gramajı ve ekstra işçilik (lak, selefon, kesim) kriterlerine göre en rekabetçi şekilde hesaplanır.
+                        <br><br>
+                        <strong>Topkapı matbaa hizmetlerinizde teslimat süresi nedir?</strong><br>
+                        Birçok dijital işimizi (özellikle kartvizit ve el ilanı) <strong>aynı gün içerisinde</strong> veya en geç 24 saatte teslim ederek iş süreçlerinizi hızlandırıyoruz.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- HİZMET KARTLARI (SİBER STİL) -->
+            <section id="v-cyber-services-section" aria-labelledby="services-heading">
+                <h2 id="services-heading" class="sr-only" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);">Hizmetlerimiz</h2>
+                <div class="v-services-grid">
+
+                    <article class="v-service-card light-cyan">
+                        <h3 class="v-card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                            DİJİTAL BASKI
+                        </h3>
+                        <ul class="v-service-list">
+                            <li><span aria-hidden="true">▶</span> Branda Baskı Hizmetleri</li>
+                            <li><span aria-hidden="true">▶</span> Profesyonel Folyo Baskı</li>
+                            <li><span aria-hidden="true">▶</span> One Way Vision Kaplama</li>
+                            <li><span aria-hidden="true">▶</span> Dış Mekan Branda</li>
+                            <li><span aria-hidden="true">▶</span> Cam Kumlama Folyo</li>
+                            <li><span aria-hidden="true">▶</span> İndirimli Afiş Basımı</li>
+                            <li><span aria-hidden="true">▶</span> Reklam X Banner</li>
+                            <li><span aria-hidden="true">▶</span> Yüksek Kalite Poster</li>
+                        </ul>
+                    </article>
+
+                    <article class="v-service-card light-pink">
+                        <h3 class="v-card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff007f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="3" x2="12" y2="21"></line></svg>
+                            MATBAA
+                        </h3>
+                        <ul class="v-service-list">
+                            <li><span aria-hidden="true">▶</span> Renkli Broşür Basımı</li>
+                            <li><span aria-hidden="true">▶</span> Lüks Kartvizit Tasarımı</li>
+                            <li><span aria-hidden="true">▶</span> Özel Kesim Magnet</li>
+                            <li><span aria-hidden="true">▶</span> Toplu El İlanı</li>
+                            <li><span aria-hidden="true">▶</span> Restoran Menü Basımı</li>
+                            <li><span aria-hidden="true">▶</span> Diplomat Zarf Üretimi</li>
+                            <li><span aria-hidden="true">▶</span> Rulo Etiket Baskı</li>
+                            <li><span aria-hidden="true">▶</span> Özel Tasarım Stiker</li>
+                        </ul>
+                    </article>
+
+                    <article class="v-service-card light-cyan">
+                        <h3 class="v-card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V8H4v4"></path><path d="M22 4H2v4h20V4z"></path><path d="M4 12h16v8H4v-8z"></path><path d="M12 12v8"></path></svg>
+                            PROMOSYON
+                        </h3>
+                        <ul class="v-service-list">
+                            <li><span aria-hidden="true">▶</span> Logolu Kupa Baskı</li>
+                            <li><span aria-hidden="true">▶</span> Lazer Anahtarlık</li>
+                            <li><span aria-hidden="true">▶</span> Tarihli Ajanda</li>
+                            <li><span aria-hidden="true">▶</span> Baskılı Tişört</li>
+                            <li><span aria-hidden="true">▶</span> Promosyon Kalem</li>
+                            <li><span aria-hidden="true">▶</span> Logolu Sweatshirt</li>
+                            <li><span aria-hidden="true">▶</span> Özel Defter Baskı</li>
+                            <li><span aria-hidden="true">▶</span> Baskılı Duvar Saati</li>
+                        </ul>
+                    </article>
+
+                    <article class="v-service-card light-pink">
+                        <h3 class="v-card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff007f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                            TABELA &amp; BAYRAK
+                        </h3>
+                        <ul class="v-service-list">
+                            <li><span aria-hidden="true">▶</span> Plastik Reklam Duba</li>
+                            <li><span aria-hidden="true">▶</span> Levha ve Tabelalar</li>
+                            <li><span aria-hidden="true">▶</span> Olta Bayrak</li>
+                            <li><span aria-hidden="true">▶</span> Pleksi Kutu Harf</li>
+                            <li><span aria-hidden="true">▶</span> Dekota Üzeri Baskı</li>
+                            <li><span aria-hidden="true">▶</span> Kurumsal Işıklı Tabela</li>
+                            <li><span aria-hidden="true">▶</span> Ekonomik Işıksız Tabela</li>
+                            <li><span aria-hidden="true">▶</span> Reklam Totem Tabela</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- SÜREÇ ADIMLARI -->
+            <section class="workflow-section container" aria-labelledby="workflow-heading" style="padding:clamp(30px,5vw,60px) clamp(15px,4vw,30px); overflow-x:hidden;">
+                <h2 class="workflow-title" id="workflow-heading" style="text-align:center; font-size:clamp(24px,5vw,36px);">Süreç Nasıl İşliyor?</h2>
+                <p class="workflow-subtitle" style="text-align:center; opacity:0.8; margin-bottom:30px;">Projenizi hayata geçirirken izlediğimiz profesyonel adımlar.</p>
+
+                <div class="workflow-grid" style="display:flex; flex-wrap:wrap; gap:20px; width:100%; justify-content:center;">
+
+                    <div class="step-box" style="flex:1; min-width:min(100%,280px);">
+                        <div class="step-badge cyan-bg" aria-hidden="true">1</div>
+                        <h3 class="step-name">Analiz ve Keşif</h3>
+                        <p class="step-info">
+                            İhtiyacınız olan <strong>grafik tasarım</strong> veya <strong>dijital baskı</strong>
+                            projeleri için yerinde ölçüler alınır, uygun materyal analizi yapılır.
+                        </p>
+                    </div>
+
+                    <div class="step-box" style="flex:1; min-width:min(100%,280px);">
+                        <div class="step-badge pink-bg" aria-hidden="true">2</div>
+                        <h3 class="step-name">Dijital Tasarım</h3>
+                        <p class="step-info">
+                            Mevzuata uygun <strong>acil çıkış tahliye planı çizimi</strong> veya kurumsal kimlik
+                            çalışmaları uzman ekibimizce dijital ortamda titizlikle hazırlanır.
+                        </p>
+                    </div>
+
+                    <div class="step-box" style="flex:1; min-width:min(100%,280px);">
+                        <div class="step-badge cyan-bg" aria-hidden="true">3</div>
+                        <h3 class="step-name">Yüksek Kalite Baskı</h3>
+                        <p class="step-info">
+                            Onaylanan tasarımlar; <strong>dijital baskı</strong> ve makine parkurumuzla
+                            uzun ömürlü, dayanıklı materyallere işlenir.
+                        </p>
+                    </div>
+
+                    <div class="step-box full-width" style="flex:1; min-width:min(100%,280px);">
+                        <div class="step-badge pink-bg" aria-hidden="true">4</div>
+                        <h3 class="step-name" style="font-size:clamp(18px,4vw,24px);">Montaj ve Teslimat</h3>
+                        <p class="step-info" style="font-size:clamp(14px,2vw,16px);">
+                            Hazırlanan <strong>yönlendirme levhaları</strong> ve baskı ürünleri, hızlı lojistik
+                            ve profesyonel montaj desteğiyle anahtar teslim sunulur.
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="workflow-footer" style="text-align:center; margin-top:25px; font-size:13px; opacity:0.7;">
+                    * Valexira Dijital; İstanbul tahliye planı çizimi ve kurumsal baskı çözümlerinde stratejik iş ortağınızdır.
+                </p>
+            </section>
+
+            <!-- M² HESAPLA & MATERYAL SEÇİM -->
+            <section aria-labelledby="calculator-heading" style="width:100%; padding:clamp(20px,5vw,60px) 5%; overflow-x:hidden;">
+                <div style="text-align:center; padding:20px 0;">
+                    <h2 id="calculator-heading" style="font-size:clamp(22px,5vw,32px); line-height:1.3;">
+                        Dijital Baskı <span style="color:#00f2fe;">Çözüm Merkezi</span>
+                    </h2>
+                </div>
+
+                <div class="v-container" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; padding:20px clamp(15px,4vw,30px);">
+
+                    <article class="v-card" style="flex:1; min-width:min(100%,340px);">
+                        <h3 style="font-size:clamp(20px,4vw,24px); margin:0 0 15px;">M² Hesapla</h3>
+                        <div class="v-group">
+                            <label for="m2_en">En (cm)</label>
+                            <input type="number" id="m2_en" placeholder="Örn: 100" oninput="calculateM2()" min="0" inputmode="decimal">
+                        </div>
+                        <div class="v-group">
+                            <label for="m2_boy">Boy (cm)</label>
+                            <input type="number" id="m2_boy" placeholder="Örn: 200" oninput="calculateM2()" min="0" inputmode="decimal">
+                        </div>
+                        <div class="v-result" style="display:flex; justify-content:space-between; align-items:center;">
+                            <span>Toplam Alan:</span>
+                            <strong id="m2_sonuc" aria-live="polite">0.00 m²</strong>
+                        </div>
+                        <p class="v-note">* Ölçülerinizi girdikten sonra sağdaki formdan teklif alabilirsiniz.</p>
+                    </article>
+
+                    <div class="v-card" style="display:flex; flex-direction:column; gap:15px; flex:1; min-width:min(100%,340px);">
+                        <h3 style="margin:0 0 5px; color:#00e5ff;">Materyal Seçim Asistanı</h3>
+                        <p style="font-size:0.85rem; opacity:0.7; margin:0 0 10px;">Alan seçin, uzman önerimizi görün.</p>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                            <button type="button" onclick="pickProduct('cam')"   style="padding:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px; cursor:pointer; font-size:0.8rem;">🪟 Cam / Folyo</button>
+                            <button type="button" onclick="pickProduct('dekor')" style="padding:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px; cursor:pointer; font-size:0.8rem;">❄️ Cam Dekor</button>
+                            <button type="button" onclick="pickProduct('levha')" style="padding:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px; cursor:pointer; font-size:0.8rem;">🧱 Duvar / Levha</button>
+                            <button type="button" onclick="pickProduct('rehber')" style="padding:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:8px; cursor:pointer; font-size:0.8rem;">🧲 Magnet / Kartvizit</button>
+                        </div>
+                        <div id="asistan-sonuc" aria-live="polite" style="margin-top:10px; padding:12px; background:rgba(255,255,255,0.02); border-radius:10px; min-height:85px; display:flex; align-items:center; justify-content:center; text-align:center; border:1px dashed rgba(255,255,255,0.1);">
+                            <span style="opacity:0.5; font-size:0.85rem;">Seçim yapınız...</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ÜRÜN TEKNOLOJİLERİ -->
+            <section aria-labelledby="tech-heading" style="width:100%; overflow-x:hidden; padding:clamp(40px,6vw,80px) clamp(15px,4vw,30px); background:transparent;">
+                <div style="max-width:1200px; margin:0 auto;">
+                    <header style="text-align:center; margin-bottom:50px;">
+                        <h2 id="tech-heading" style="font-size:clamp(24px,5vw,38px); margin:0 0 15px; font-weight:900; color:#ffffff;">
+                            Ürün <span style="text-decoration:underline; text-underline-offset:8px; text-decoration-color:rgba(255,255,255,0.3);">Teknolojileri</span> ve Teknik Katalog
+                        </h2>
+                        <p style="opacity:0.8; font-size:clamp(14px,2vw,16px); max-width:850px; margin:0 auto; line-height:1.6; color:#ffffff;">Dijital baskı, ofset ve kurumsal çözüm materyallerimizin teknik analiz raporu.</p>
+                    </header>
+
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:20px;">
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                Kanvas Tablo (Art)
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> 380gr pamuklu doku, pigment baskı.<br><b>Kullanım:</b> İç mekan dekor ve sanatsal tablolar.</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                                Kurumsal Promosyon
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> Lazer kazıma, UV ve tampon baskı.<br><b>Kullanım:</b> Ajanda, kalem ve VIP kurumsal setler.</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                                Dijital Baskı Folyosu
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> 80-100 mikron PVC, monomerik yapı.<br><b>Kullanım:</b> Vitrin giydirme ve sticker üretimi.</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><line x1="3" x2="21" y1="10" y2="10"></line><line x1="7" x2="7.01" y1="15" y2="15"></line><line x1="11" x2="11.01" y1="15" y2="15"></line></svg>
+                                Kurumsal Kartvizit
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> 350gr mat kuşe, çift yön selefon kaplama.<br><b>Kullanım:</b> Profesyonel tanıtım materyalleri.</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                Tanıtım Broşürü
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> 170gr kuşe kağıt, tek/çift kırım seçenekli.<br><b>Kullanım:</b> Kampanya duyuruları ve ürün katalogları.</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+                                One Way Vision
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> %50 delikli yüzey alanı, optik folyo.<br><b>Kullanım:</b> Mağaza camları (içten dışarıyı görme).</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                Lüks Menü Çözümleri
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> PVC sıvama veya sert kapak taslama.<br><b>Kullanım:</b> Restoran, kafe ve otel işletmeleri.</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M3 6l3 18h12l3-18H3z"></path><path d="M19.34 11H4.66"></path></svg>
+                                Yazı Kesim Folyosu
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> Plotter ile vektörel harf/logo kesimi.<br><b>Kullanım:</b> Vitrin yazıları ve araç üzeri logolar.</p>
+                        </article>
+
+                        <article style="padding:25px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; transition:0.3s;">
+                            <h3 style="font-size:20px; margin:0 0 12px; color:#ffffff; display:flex; align-items:center; gap:10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                                Foreks &amp; Uyarı Levhası
+                            </h3>
+                            <p style="font-size:14px; line-height:1.7; opacity:0.9; margin:0; color:#ffffff;"><b>Teknik:</b> 3mm-5mm sert PVC panel veya kompozit.<br><b>Kullanım:</b> İSG levhaları ve yönlendirme tabelaları.</p>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARKANIZI YENİDEN TASARLIYORUZ -->
+            <section class="v-ultra-clean" aria-labelledby="rebrand-heading" style="width:100%; overflow-x:hidden; padding:clamp(30px,6vw,70px) 0;">
+                <div style="width:100%; max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:clamp(20px,5vw,50px); padding:0 clamp(15px,4vw,30px);">
+
+                    <div style="flex:1; min-width:min(100%,400px); display:flex; justify-content:center; align-items:center;">
+                        <svg viewBox="0 0 400 400" style="width:100%; max-width:400px; height:auto;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <defs>
+                                <linearGradient id="monitorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff007f;stop-opacity:1"/>
+                                    <stop offset="100%" style="stop-color:#9b59b6;stop-opacity:1"/>
+                                </linearGradient>
+                                <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1"/>
+                                    <stop offset="100%" style="stop-color:#02032c;stop-opacity:1"/>
+                                </linearGradient>
+                                <filter id="glowEffect">
+                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                            </defs>
+                            <circle cx="200" cy="200" r="180" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <circle cx="50" cy="80" r="3" fill="#ff007f" opacity="0.6"><animate attributeName="cy" values="80;90;80" dur="3s" repeatCount="indefinite"/></circle>
+                            <circle cx="350" cy="120" r="2" fill="#00e5ff" opacity="0.8"><animate attributeName="cy" values="120;110;120" dur="4s" repeatCount="indefinite"/></circle>
+                            <circle cx="80" cy="320" r="2.5" fill="#9b59b6" opacity="0.5"><animate attributeName="cy" values="320;310;320" dur="3.5s" repeatCount="indefinite"/></circle>
+                            <circle cx="320" cy="350" r="3" fill="#ff007f" opacity="0.7"><animate attributeName="cy" values="350;340;350" dur="5s" repeatCount="indefinite"/></circle>
+                            <g transform="translate(100,80)">
+                                <rect x="70" y="180" width="60" height="40" rx="5" fill="#533483" opacity="0.8"/>
+                                <rect x="50" y="220" width="100" height="10" rx="5" fill="#ff007f" opacity="0.9"/>
+                                <rect x="0" y="0" width="200" height="180" rx="15" fill="url(#monitorGrad)" filter="url(#glowEffect)"/>
+                                <rect x="10" y="10" width="180" height="160" rx="10" fill="url(#screenGrad)"/>
+                                <rect x="30" y="40" width="140" height="8" rx="4" fill="#fff" opacity="0.9"><animate attributeName="width" values="140;100;140" dur="3s" repeatCount="indefinite"/></rect>
+                                <rect x="30" y="60" width="100" height="8" rx="4" fill="#00e5ff" opacity="0.8"><animate attributeName="width" values="100;140;100" dur="3s" repeatCount="indefinite"/></rect>
+                                <rect x="30" y="80" width="120" height="8" rx="4" fill="#fff" opacity="0.6"><animate attributeName="width" values="120;80;120" dur="3s" repeatCount="indefinite"/></rect>
+                                <rect x="-20" y="10" width="40" height="160" fill="rgba(255,255,255,0.1)" rx="5"><animateTransform attributeName="transform" type="translate" values="-20,0;180,0;-20,0" dur="4s" repeatCount="indefinite"/></rect>
+                            </g>
+                            <g transform="translate(280,200)">
+                                <rect x="0" y="0" width="60" height="120" rx="10" fill="#ff007f" opacity="0.9" filter="url(#glowEffect)"/>
+                                <rect x="5" y="5" width="50" height="110" rx="8" fill="#02032c"/>
+                                <rect x="10" y="20" width="30" height="6" rx="3" fill="#fff" opacity="0.8"/>
+                                <rect x="10" y="35" width="20" height="6" rx="3" fill="#00e5ff" opacity="0.7"><animate attributeName="width" values="20;30;20" dur="2s" repeatCount="indefinite"/></rect>
+                                <rect x="10" y="50" width="25" height="6" rx="3" fill="#fff" opacity="0.5"/>
+                            </g>
                         </svg>
                     </div>
+
+                    <article style="flex:1.2; min-width:min(100%,320px);">
+                        <h2 id="rebrand-heading" class="v-heading" style="font-size:clamp(1.8rem,4vw,2.6rem); font-weight:900; line-height:1.1; margin:0 0 20px; color:#00e5ff;">
+                            Markanızı <span style="color:#ff007f;">Yeniden Tasarlıyoruz</span>
+                        </h2>
+                        <p style="font-size:clamp(0.95rem,2vw,1.1rem); line-height:1.6; color:#fff; margin:0 0 30px;">
+                            Sadece baskı değil, markanızın dijital ve fiziksel dünyadaki kimliğini inşa ediyoruz.
+                            <strong style="color:#00e5ff;">Web site arayüzlerinden</strong>, masanızdaki <strong style="color:#ff007f;">profesyonel kartvizit tasarımına</strong> kadar her detayda estetik ve fonksiyonellik sunuyoruz.
+                        </p>
+
+                        <ul style="width:100%; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:15px; list-style:none; margin:0 0 30px; padding:0;">
+                            <li style="font-size:0.9rem; color:#fff; display:flex; align-items:center; gap:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03); transition:all 0.3s;" onmouseover="this.style.background='rgba(255,0,127,0.1)';this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)';this.style.transform='translateX(0)'">
+                                <span aria-hidden="true" style="font-size:1.2rem;">🚀</span> <b style="color:#00e5ff;">Özgün Logo</b> Tasarımı
+                            </li>
+                            <li style="font-size:0.9rem; color:#fff; display:flex; align-items:center; gap:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03); transition:all 0.3s;" onmouseover="this.style.background='rgba(0,229,255,0.1)';this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)';this.style.transform='translateX(0)'">
+                                <span aria-hidden="true" style="font-size:1.2rem;">🌐</span> <b style="color:#ff007f;">Modern Web Site</b> Çözümleri
+                            </li>
+                            <li style="font-size:0.9rem; color:#fff; display:flex; align-items:center; gap:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03); transition:all 0.3s;" onmouseover="this.style.background='rgba(255,0,127,0.1)';this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)';this.style.transform='translateX(0)'">
+                                <span aria-hidden="true" style="font-size:1.2rem;">🎨</span> <b style="color:#00e5ff;">Etkileyici Afiş</b> ve Broşür
+                            </li>
+                            <li style="font-size:0.9rem; color:#fff; display:flex; align-items:center; gap:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03); transition:all 0.3s;" onmouseover="this.style.background='rgba(0,229,255,0.1)';this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)';this.style.transform='translateX(0)'">
+                                <span aria-hidden="true" style="font-size:1.2rem;">🎴</span> <b style="color:#ff007f;">Kurumsal Kartvizit</b>
+                            </li>
+                            <li style="font-size:0.9rem; color:#fff; display:flex; align-items:center; gap:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03); transition:all 0.3s;" onmouseover="this.style.background='rgba(255,0,127,0.1)';this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)';this.style.transform='translateX(0)'">
+                                <span aria-hidden="true" style="font-size:1.2rem;">🧲</span> <b style="color:#00e5ff;">Özel Kesim Magnet</b>
+                            </li>
+                            <li style="font-size:0.9rem; color:#fff; display:flex; align-items:center; gap:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03); transition:all 0.3s;" onmouseover="this.style.background='rgba(0,229,255,0.1)';this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)';this.style.transform='translateX(0)'">
+                                <span aria-hidden="true" style="font-size:1.2rem;">📝</span> <b style="color:#ff007f;">İrsaliye</b> ve Resmi Evrak
+                            </li>
+                        </ul>
+
+                        <div class="v-seo-footer">
+                            <p>Arama motoru görünürlüğünüzü artıran <strong style="color:#00e5ff;">SEO uyumlu altyapımız</strong> ve profesyonel <strong style="color:#ff007f;">grafik tasarım</strong> desteğimizle rakiplerinizin önüne geçin.</p>
+                        </div>
+                    </article>
+
                 </div>
+            </section>
 
-                <div class="v-pro-status">
-                    <span class="v-pro-dot"></span>
-                    <p class="v-pro-status-text">PROJELERİ İNCELEMEK İÇİN TIKLAYIN</p>
+            <!-- İSTATİSTİKLER -->
+            <section class="v-stats-row" aria-labelledby="stats-heading" style="width:100%; overflow-x:hidden; padding:clamp(40px,6vw,80px) 0;">
+                <h2 id="stats-heading" class="sr-only" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);">Rakamlarla Valexira</h2>
+                <div style="width:100%; max-width:1200px; margin:0 auto; padding:0 20px; display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(20px,4vw,40px);">
+
+                    <article class="v-stat-item" style="flex:1; min-width:min(100%,300px); text-align:center;">
+                        <div class="v-stat-icon" style="font-size:clamp(32px,5vw,48px); font-weight:800; color:#ff007f;" aria-label="Yüzde yüz">%100</div>
+                        <h3 class="v-stat-title" style="font-size:20px; margin:15px 0;">Mevzuat Uyumu</h3>
+                        <p class="v-stat-desc" style="opacity:0.8; font-size:15px; line-height:1.6;">Tüm acil çıkış krokileri ve <strong>İSG levhaları</strong> güncel yasal yönetmeliklere uygun çizilir.</p>
+                    </article>
+
+                    <article class="v-stat-item" style="flex:1; min-width:min(100%,300px); text-align:center;">
+                        <div class="v-stat-icon" style="font-size:clamp(32px,5vw,48px); font-weight:800; color:#00f2fe;" aria-label="24 ila 48 saat">24/48</div>
+                        <h3 class="v-stat-title" style="font-size:20px; margin:15px 0;">Hızlı Teslimat (Saat)</h3>
+                        <p class="v-stat-desc" style="opacity:0.8; font-size:15px; line-height:1.6;">Standart projelerde <strong>tasarım ve üretim</strong> süreçlerini en kısa sürede tamamlayıp teslim ediyoruz.</p>
+                    </article>
+
+                    <article class="v-stat-item" style="flex:1; min-width:min(100%,300px); text-align:center;">
+                        <div class="v-stat-icon" style="font-size:clamp(32px,5vw,48px); font-weight:800; color:#ff007f;" aria-label="1440 DPI">1440</div>
+                        <h3 class="v-stat-title" style="font-size:20px; margin:15px 0;">DPI Baskı Kalitesi</h3>
+                        <p class="v-stat-desc" style="opacity:0.8; font-size:15px; line-height:1.6;">Branda ve <strong>dijital baskı</strong> ürünlerinde en yüksek çözünürlük ile canlı ve kalıcı sonuçlar.</p>
+                    </article>
+
                 </div>
-            </a>
-        </div>
+            </section>
 
-        <div class="v-pro-side-card right-side">
-            <div class="v-pro-card pink-border">
-                <img src="images/slider2.jpeg" alt="Valexira Matbaa Solutions" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'207\' style=\'background:%230c051c\'><text x=\'50%\' y=\'50%\' fill=\'%23ff00ff\' font-size=\'12\' font-family=\'sans-serif\' text-anchor=\'middle\'>GÖRSEL YÜKLENEMEDİ</text></svg>';">
-            </div>
-        </div>
-
-    </div>
-
-    <style>
-        /* ÇAKIŞMA ENGELLEYİCİ PREMİUM DIŞ KAFES */
-        #v-pro-portfolio-section {
-            width: 100% !important;
-            max-width: 1200px !important;
-            margin: 40px auto !important;
-            padding: 10px 20px !important;
-            box-sizing: border-box !important;
-            background: transparent !important;
-            font-family: 'Segoe UI', -apple-system, sans-serif !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            clear: both !important;
-        }
-
-        /* Güvenli Stil Sıfırlama */
-        #v-pro-portfolio-section *,
-        #v-pro-portfolio-section *::before,
-        #v-pro-portfolio-section *::after {
-            box-sizing: border-box !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            list-style: none !important;
-            text-decoration: none !important;
-        }
-
-        /* 3 Sütunlu Sandviç Grid Yapısı (Sol Kart - Orta Yazı - Sağ Kart) */
-        .v-pro-container {
-            display: grid !important;
-            grid-template-columns: 32% 36% 32% !important;
-            align-items: center !important;
-            width: 100% !important;
-            gap: 20px !important;
-        }
-
-        /* Yan Blokların Genel Konumlandırması */
-        .v-pro-side-card {
-            width: 100% !important;
-            display: flex !important;
-        }
-        .v-pro-side-card.left-side {
-            justify-content: flex-start !important;
-        }
-        .v-pro-side-card.right-side {
-            justify-content: flex-end !important;
-        }
-
-        /* TERTEMİZ GÖRSEL KART YAPISI */
-        .v-pro-card {
-            width: 100% !important;
-            max-width: 320px !important;
-            aspect-ratio: 85 / 55 !important;
-            position: relative !important;
-            border-radius: 12px !important;
-            overflow: hidden !important;
-            background: #06020f !important;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        }
-
-        /* Kart Neon Sınır Renkleri */
-        .v-pro-card.cyan-border {
-            border: 1px solid rgba(0, 242, 254, 0.2) !important;
-        }
-        .v-pro-card.pink-border {
-            border: 1px solid rgba(255, 0, 127, 0.2) !important;
-        }
-
-        /* Kartların Hover Reaksiyonları */
-        .v-pro-card:hover {
-            transform: translateY(-5px) !important;
-        }
-        .v-pro-card.cyan-border:hover {
-            border-color: #00f2fe !important;
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.25) !important;
-        }
-        .v-pro-card.pink-border:hover {
-            border-color: #ff00ff !important;
-            box-shadow: 0 0 25px rgba(255, 0, 255, 0.25) !important;
-        }
-
-        .v-pro-card img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            display: block !important;
-            filter: brightness(85%) !important;
-            transition: filter 0.3s ease !important;
-        }
-
-        .v-pro-card:hover img {
-            filter: brightness(100%) !important;
-        }
-
-        /* ORTA ALAN: TAMAMEN ORTALANMIŞ İÇERİK PANELİ */
-        .v-pro-center-content {
-            width: 100% !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center !important;
-            padding: 0 10px !important;
-        }
-
-        .v-pro-link {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            width: 100% !important;
-            cursor: pointer !important;
-            -webkit-tap-highlight-color: transparent !important;
-        }
-
-        /* Üst Siber Çizgi */
-        .v-pro-laser-line {
-            width: 90% !important;
-            max-width: 240px !important;
-            height: 2px !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            position: relative !important;
-            overflow: hidden !important;
-            margin-bottom: 16px !important;
-        }
-
-        .v-pro-laser-glow {
-            position: absolute !important;
-            width: 60px !important;
-            height: 100% !important;
-            background: linear-gradient(90deg, transparent, #ff00ff, transparent) !important;
-            animation: vLaser 4s infinite ease-in-out !important;
-        }
-
-        /* Başlık ve SVG Ok Alanı Yatayda Yan Yana ve Merkezde */
-        .v-pro-title-wrap {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 12px !important;
-            margin-bottom: 14px !important;
-        }
-
-        .v-pro-title {
-            font-size: 28px !important; /* Ortaya bindiği için font dengelendi */
-            font-weight: 300 !important;
-            color: #ffffff !important;
-            letter-spacing: 5px !important;
-            line-height: 1 !important;
-            text-indent: 5px !important; /* Sağdaki harf boşluğunu dengelemek için */
-        }
-
-        .v-pro-arrow-box {
-            display: flex !important;
-            align-items: center !important;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        }
-
-        /* Hover Etkileşimleri */
-        .v-pro-link:hover .v-pro-arrow-box {
-            transform: translateX(6px) !important;
-        }
-
-        .v-pro-link:hover .v-pro-title {
-            color: #ff00ff !important;
-            text-shadow: 0 0 15px rgba(255, 0, 255, 0.4) !important;
-        }
-
-        /* Alt Durum Metni Merkezleme */
-        .v-pro-status {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 8px !important;
-            opacity: 0.5 !important;
-            transition: opacity 0.3s ease !important;
-        }
-
-        .v-pro-link:hover .v-pro-status {
-            opacity: 1 !important;
-        }
-
-        .v-pro-dot {
-            width: 6px !important;
-            height: 6px !important;
-            background: #00f2fe !important;
-            border-radius: 50% !important;
-            box-shadow: 0 0 6px #00f2fe !important;
-            animation: vPulse 1.5s infinite !important;
-        }
-
-        .v-pro-status-text {
-            color: #00f2fe !important;
-            font-size: 10px !important;
-            letter-spacing: 1.5px !important;
-            font-weight: 600 !important;
-        }
-
-        /* Sonsuz Siber Efekt Animasyonları */
-        @keyframes vLaser {
-            0% { left: -30%; }
-            50% { left: 100%; }
-            100% { left: -30%; }
-        }
-
-        @keyframes vPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.1); }
-        }
-
-        /* AKILLI RESPONSIVE MOBİL DÜZEN */
-        @media (max-width: 868px) {
-            #v-pro-portfolio-section {
-                margin: 20px auto !important;
-            }
-            .v-pro-container {
-                grid-template-columns: 100% !important;
-                gap: 25px !important;
-            }
-            /* Mobilde sırasıyla: Sol görsel üstte, yazı ortada, sağ görsel altta kalır */
-            .v-pro-side-card.left-side, 
-            .v-pro-side-card.right-side {
-                justify-content: center !important;
-            }
-            .v-pro-card {
-                width: 100% !important;
-                max-width: 340px !important;
-            }
-            .v-pro-center-content {
-                padding: 15px 0 !important;
-            }
-            .v-pro-title {
-                font-size: 26px !important;
-            }
-        }
-    </style>
-</section>
-
-        <section style="width: 100%; padding: clamp(50px, 8vh, 100px) 0; background: transparent; font-family: 'Segoe UI', sans-serif; color: #fff;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(15px, 4vw, 25px); box-sizing: border-box;">
-        
-        <header style="text-align: center; margin-bottom: 50px;">
-            <span style="color: #00f2fe; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; font-size: 13px; display: block; margin-bottom: 10px;">PROFESYONEL ÇÖZÜMLER</span>
-            <h2 style="font-size: clamp(24px, 5vw, 36px); font-weight: 900; margin: 0; line-height: 1.2;">
-                Tasarım, Baskı ve <span style="color: #ff007f;">Yerinde Uygulama</span>
-            </h2>
-        </header>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 25px;">
-            
-            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 25px; backdrop-filter: blur(5px); transition: 0.3s;">
-                <div style="margin-bottom: 20px; display: inline-block;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19"></path><path d="M6 14C6 11.2386 8.23858 9 11 9C13.7614 9 16 11.2386 16 14"></path><ellipse cx="7.5" cy="10.5" rx="1.5" ry="1.5"></ellipse><ellipse cx="11.5" cy="7.5" rx="1.5" ry="1.5"></ellipse><ellipse cx="15.5" cy="10.5" rx="1.5" ry="1.5"></ellipse></svg>
-                </div>
-                <h3 style="color: #ffffff; font-size: 22px; margin-top: 0; margin-bottom: 15px; font-weight: 800;">Yaratıcı Tasarım</h3>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0;">
-                    Sıfırdan logo tasarımı, kurumsal kimlik ve mağaza görselleri. Fikirlerinizi dijital sanata ve baskıya hazır dosyalara dönüştürüyoruz.
-                </p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 25px; backdrop-filter: blur(5px); transition: 0.3s;">
-                <div style="margin-bottom: 20px; display: inline-block;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-                </div>
-                <h3 style="color: #ffffff; font-size: 22px; margin-top: 0; margin-bottom: 15px; font-weight: 800;">Yüksek Kalite Baskı</h3>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0;">
-                    Folyo baskı, One Way Vision (Delikli Folyo), Branda ve Duratrans. En canlı renkler ve dayanıklı malzemelerle yüksek çözünürlüklü üretim.
-                </p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid #ff007f; padding: 30px; border-radius: 25px; backdrop-filter: blur(5px); transition: 0.3s; box-shadow: 0 10px 30px rgba(255, 0, 127, 0.1);">
-                <div style="margin-bottom: 20px; display: inline-block;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                </div>
-                <h3 style="color: #ffffff; font-size: 22px; margin-top: 0; margin-bottom: 15px; font-weight: 800;">Cam & Mekan Uygulama</h3>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0;">
-                    <strong>Vitrini sanata dönüştürüyoruz.</strong> Hazırladığımız baskıları uzman ekibimizle mağaza ve ofis camlarınıza profesyonelce uyguluyoruz.
-                </p>
-            </div>
-
-        </div>
-
-        <div style="margin-top: 50px; text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border: 1px inset rgba(0, 242, 254, 0.2);">
-            <p style="font-size: 13px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.8;">
-                Valexira; <strong>İstanbul Topkapı</strong> bölgesinde <strong>vitrin giydirme, cam folyo kaplama, kumlama folyo</strong> ve <strong>dijital baskı</strong> hizmetlerinde uzmandır. Tasarımdan baskıya, baskıdan <strong>yerinde uygulamaya</strong> kadar anahtar teslim çözümler sunuyoruz. <strong>Zeytinburnu ve Bayrampaşa</strong> başta olmak üzere tüm İstanbul'a profesyonel ekibimizle hizmet veriyoruz.
-            </p>
-        </div>
-
-    </div>
-</section>
-        
- <section class="v-seo-content" style="max-width: 1200px; margin: 20px auto; padding: 10px; font-family: sans-serif; color: #ffffff;"
-
-    <h2 style="color: #00e5ff; font-size: 26px; border-bottom: 2px solid rgba(0, 229, 255, 0.2); padding-bottom: 10px; margin-bottom: 30px;">
-        İstanbul Topkapı Dijital Baskı ve Matbaa Çözümleri
-    </h2>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;">
-        
-        <div style="flex: 1; min-width: 300px;">
-            <h3 style="color: #00e5ff; font-size: 19px; display: flex; align-items: center; gap: 8px; margin-top: 0; margin-bottom: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                Profesyonel Banner ve Broşür Basımı
-            </h3>
-            <p style="font-size: 15px; line-height: 1.6; color: #ffffff; margin: 0;">
-                Ürünlerinizi en iyi yansıtan <strong>banner tasarımı</strong> ve yüksek kaliteli <strong>broşür basımı</strong> ile markanızı öne çıkarın. 
-                Valexira olarak, dijital baskı hızını klasik matbaa kalitesiyle birleştiriyoruz. 
-            </p>
-        </div>
-
-        <div style="flex: 1; min-width: 300px;">
-            <h3 style="color: #00e5ff; font-size: 19px; display: flex; align-items: center; gap: 8px; margin-top: 0; margin-bottom: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="3" height="14" width="18" y="5" rx="2"></rect><line x1="3" x2="21" y1="10" y2="10"></line><line x1="7" x2="7.01" y1="15" y2="15"></line><line x1="11" x2="11.01" y1="15" y2="15"></line></svg>
-                Özel Tasarım Kartvizit Modelleri
-            </h3>
-            <p style="font-size: 15px; line-height: 1.6; color: #ffffff; margin: 0;">
-                <strong>Kartvizit fiyatları</strong> ve kalitesinde denge arayanlar için; şeffaf, dokulu veya <strong>kabartma laklı kartvizit</strong> seçenekleri sunuyoruz. 
-                Hızlı teslimat avantajıyla, kurumsal kimliğinizi yansıtan en şık tasarımları Topkapı'daki merkezimizde hazırlıyoruz.
-            </p>
-        </div>
-
-        <div style="flex: 1; min-width: 300px;">
-            <h3 style="color: #00e5ff; font-size: 19px; display: flex; align-items: center; gap: 8px; margin-top: 0; margin-bottom: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M11 5h11M11 9h11M11 13h11M11 17h11M2 6v12a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path></svg>
-                El İlanı ve Tanıtım Materyalleri
-            </h3>
-            <p style="font-size: 15px; line-height: 1.6; color: #ffffff; margin: 0;">
-                Kampanyalarınızı geniş kitlelere duyurmak için <strong>ekonomik el ilanı</strong> ve <strong>afiş baskısı</strong> çözümlerimizi inceleyin. 
-                A5, A4 ve özel boyutlarda, yüksek adetli baskılarda <strong>en iyi fiyat garantisi</strong> ile markanızın görünürlüğünü artırıyoruz.
-            </p>
-        </div>
-
-    </div>
-
-    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px dashed #00e5ff;">
-        <h3 style="font-size: 20px; color: #ffffff;">Dijital Baskı Hakkında Merak Edilenler</h3>
-        <p style="font-size: 15px; margin-top: 10px;">
-            <strong>Dijital baskı fiyatları nasıl belirlenir?</strong><br>
-            Baskı fiyatlarımız; adet, kağıt gramajı ve ekstra işçilik (lak, selefon, kesim) kriterlerine göre en rekabetçi şekilde hesaplanır. 
-            <br><br>
-            <strong>Topkapı matbaa hizmetlerinizde teslimat süresi nedir?</strong><br>
-            Birçok dijital işimizi (özellikle kartvizit ve el ilanı) <strong>aynı gün içerisinde</strong> veya en geç 24 saatte teslim ederek iş süreçlerinizi hızlandırıyoruz.
-        </p>
-    </div>
-
-</section>
-
-        <!-- SERVICES GRID - DÜZELTİLMİŞ -->
-<section class="services-grid container" style="width: 100%; overflow-x: hidden; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 30px); font-family: 'Segoe UI', sans-serif;">
-    
-    <article class="service-card light-cyan" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box; background: transparent; border: 1px solid rgba(0, 242, 254, 0.2); padding: 30px 25px; border-radius: 20px;">
-        <span class="card-title" style="display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; letter-spacing: 1.5px; color: #00f2fe; margin-bottom: 20px; border-bottom: 1px solid rgba(0, 242, 254, 0.2); padding-bottom: 12px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-            DİJİTAL BASKI
-        </span>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Branda Baskı Hizmetleri</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Profesyonel Folyo Baskı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> One Way Vision Kaplama</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Dış Mekan Branda</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Cam Kumlama Folyo</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> İndirimli Afiş Basımı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Reklam X Banner</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Yüksek Kalite Poster</li>
-        </ul>
-    </article>
-
-    <article class="service-card light-pink" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box; background: transparent; border: 1px solid rgba(255, 0, 127, 0.2); padding: 30px 25px; border-radius: 20px;">
-        <span class="card-title" style="display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; letter-spacing: 1.5px; color: #ff007f; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 0, 127, 0.2); padding-bottom: 12px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff007f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="3" x2="12" y2="21"></line></svg>
-            MATBAA
-        </span>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Renkli Broşür Basımı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Lüks Kartvizit Tasarımı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Özel Kesim Magnet</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Toplu El İlanı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Restoran Menü Basımı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Diplomat Zarf Üretimi</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Rulo Etiket Baskı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Özel Tasarım Stiker</li>
-        </ul>
-    </article>
-
-    <article class="service-card light-cyan" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box; background: transparent; border: 1px solid rgba(0, 242, 254, 0.2); padding: 30px 25px; border-radius: 20px;">
-        <span class="card-title" style="display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; letter-spacing: 1.5px; color: #00f2fe; margin-bottom: 20px; border-bottom: 1px solid rgba(0, 242, 254, 0.2); padding-bottom: 12px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M20 12V8H4v4"></path><path d="M22 4H2v4h20V4z"></path><path d="M4 12h16v8H4v-8z"></path><path d="M12 12v8"></path></svg>
-            PROMOSYON
-        </span>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Logolu Kupa Baskı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Lazer Anahtarlık</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Tarihli Ajanda</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Baskılı Tişört</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Promosyon Kalem</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Logolu Sweatshirt</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Özel Defter Baskı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #00f2fe; font-size: 10px;">▶</span> Baskılı Duvar Saati</li>
-        </ul>
-    </article>
-
-    <article class="service-card light-pink" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box; background: transparent; border: 1px solid rgba(255, 0, 127, 0.2); padding: 30px 25px; border-radius: 20px;">
-        <span class="card-title" style="display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; letter-spacing: 1.5px; color: #ff007f; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 0, 127, 0.2); padding-bottom: 12px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff007f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
-            TABELA & BAYRAK
-        </span>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Plastik Reklam Duba</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Levha ve Tabelalar</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Olta Bayrak</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Pleksi Kutu Harf</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Dekota Üzeri Baskı</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Kurumsal Işıklı Tabela</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Ekonomik Işıksız Tabela</li>
-            <li style="font-size: 14px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px;"><span style="color: #ff007f; font-size: 10px;">▶</span> Reklam Totem Tabela</li>
-        </ul>
-    </article>
-</section>
-
-        <!-- WORKFLOW SECTION - DÜZELTİLMİŞ -->
-        <section class="workflow-section container" style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 30px);">
-            <h2 class="workflow-title" style="text-align: center; font-size: clamp(24px, 5vw, 36px);">Süreç Nasıl İşliyor?</h2>
-            <p class="workflow-subtitle" style="text-align: center; opacity: 0.8; margin-bottom: 30px;">Projenizi hayata geçirirken izlediğimiz profesyonel adımlar.</p>
-
-            <div class="workflow-grid" style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%; box-sizing: border-box; justify-content: center;">
-                <div class="step-box" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box;">
-                    <div class="step-badge cyan-bg">1</div>
-                    <span class="step-name">Analiz ve Keşif</span>
-                    <p class="step-info">
-                        İhtiyacınız olan <strong>grafik tasarım</strong> veya <strong>dijital baskı</strong> 
-                        projeleri için yerinde ölçüler alınır, uygun materyal analizi yapılır.
-                    </p>
-                </div>
-
-                <div class="step-box" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box;">
-                    <div class="step-badge pink-bg">2</div>
-                    <span class="step-name">Dijital Tasarım</span>
-                    <p class="step-info">
-                        Mevzuata uygun <strong>acil çıkış tahliye planı çizimi</strong> veya kurumsal kimlik 
-                        çalışmaları uzman ekibimizce dijital ortamda titizlikle hazırlanır.
-                    </p>
-                </div>
-
-                <div class="step-box" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box;">
-                    <div class="step-badge cyan-bg">3</div>
-                    <span class="step-name">Yüksek Kalite Baskı</span>
-                    <p class="step-info">
-                        Onaylanan tasarımlar; <strong>Dijital baskı</strong> ve makine parkurumuzla 
-                        uzun ömürlü, dayanıklı materyallere işlenir.
-                    </p>
-                </div>
-
-                <div class="step-box full-width" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box; overflow-x: hidden;">
-                    <div class="step-badge pink-bg">4</div>
-                    <h3 class="step-name" style="font-size: clamp(18px, 4vw, 24px); word-wrap: break-word;">Montaj ve Teslimat</h3>
-                    <p class="step-info" style="font-size: clamp(14px, 2vw, 16px); word-wrap: break-word;">
-                        Hazırlanan <strong>yönlendirme levhaları</strong> ve baskı ürünleri, hızlı lojistik 
-                        ve profesyonel montaj desteğiyle anahtar teslim sunulur.
-                    </p>
-                </div>
-            </div>
-
-            <p class="workflow-footer" style="text-align: center; margin-top: 25px; font-size: 13px; opacity: 0.7;">* Valexira Dijital; İstanbul tahliye planı çizimi ve kurumsal baskı çözümlerinde stratejik iş ortağınızdır.</p>
-        </section>
-
-        <!-- M² HESAPLA & MATERyAL SEÇİM -->
-        <main class="v-wrapper" style="width: 100%; box-sizing: border-box; overflow: hidden;">
-            <div class="v-main-title" style="text-align: center; padding: 20px 0;">
-                <h2 style="font-size: clamp(22px, 5vw, 32px); line-height: 1.3;">Dijital Baskı <span style="color: #00f2fe;">Çözüm Merkezi</span></h2>
-            </div>
         </main>
 
-        <section class="v-container" style="width: 100%; overflow-x: hidden; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px clamp(15px, 4vw, 30px);">
-            <article class="v-card" style="flex: 1; min-width: min(100%, 340px); width: 100%; box-sizing: border-box;">
-                <h3 style="font-size: clamp(20px, 4vw, 24px);">📏 M² Hesapla</h3>
-                <div class="v-group" style="width: 100%; box-sizing: border-box;">
-                    <label style="display: block; margin-bottom: 5px;">En (cm)</label>
-                    <input type="number" id="m2_en" placeholder="Örn: 100" oninput="calculateM2()" style="width: 100%; box-sizing: border-box; padding: 10px;">
-                </div>
-                <div class="v-group" style="width: 100%; box-sizing: border-box;">
-                    <label style="display: block; margin-bottom: 5px;">Boy (cm)</label>
-                    <input type="number" id="m2_boy" placeholder="Örn: 200" oninput="calculateM2()" style="width: 100%; box-sizing: border-box; padding: 10px;">
-                </div>
-                <div class="v-result" style="width: 100%; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center;">
-                    <span>Toplam Alan:</span>
-                    <strong id="m2_sonuc">0.00 m²</strong>
-                </div>
-                <p class="v-note" style="font-size: 12px; opacity: 0.7;">* Ölçülerinizi girdikten sonra sağdaki formdan teklif alabilirsiniz.</p>
-            </article>
+        <!-- ===================== FOOTER ===================== -->
+        <footer class="v-footer" style="width:100%; overflow-x:hidden; position:relative;">
+            <div class="v-footer-glow" aria-hidden="true"></div>
 
-            <script>
-            function calculateM2() {
-                var en = parseFloat(document.getElementById('m2_en').value) || 0;
-                var boy = parseFloat(document.getElementById('m2_boy').value) || 0;
-                var alan = (en / 100) * (boy / 100);
-                document.getElementById('m2_sonuc').textContent = alan.toFixed(2) + ' m²';
-            }
-            </script>
+            <div style="width:100%; max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; padding:0 clamp(15px,4vw,30px);">
 
-            <div class="v-card" style="display: flex; flex-direction: column; gap: 15px; flex: 1; min-width: min(100%, 340px); width: 100%; box-sizing: border-box; overflow-x: hidden;">
-                <h3 style="margin-bottom: 5px; color: #00e5ff;">🛠️ Materyal Seçim Asistanı</h3>
-                <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 10px;">Alan seçin, uzman önerimizi görün.</p>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%;">
-                    <button type="button" onclick="pickProduct('cam')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🪟 Cam / Folyo</button>
-                    <button type="button" onclick="pickProduct('dekor')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">❄️ Cam Dekor</button>
-                    <button type="button" onclick="pickProduct('levha')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🧱 Duvar / Levha</button>
-                    <button type="button" onclick="pickProduct('rehber')" style="padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🧲 Magnet / Kartvizit</button>
-                </div>
-
-                <div id="asistan-sonuc" style="margin-top: 10px; padding: 12px; background: rgba(255,255,255,0.02); border-radius: 10px; min-height: 85px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px dashed rgba(255,255,255,0.1); box-sizing: border-box;">
-                    <span style="opacity: 0.5; font-size: 0.85rem;">Seçim yapınız...</span>
-                </div>
-            </div>
-
-            <script>
-            function pickProduct(val) {
-                const res = document.getElementById('asistan-sonuc');
-                const data = {
-                    'cam': "<b>Öneri: One Way Vision / Folyo</b><br><small>Camlarda dıştan reklam, içten net görüş sağlar.</small>",
-                    'dekor': "<b>Öneri: Kumlu / Kesim Folyo</b><br><small>Ofis ve vitrinlerde şık dekoratif çözümler.</small>",
-                    'levha': "<b>Öneri: Foreks Üzeri Folyo</b><br><small>Yönlendirme ve İSG için en dayanıklı sert zemin.</small>",
-                    'rehber': "<b>Hangi Ürün Daha Yararlı?</b><br><small><b>Kartvizit:</b> Prestij ve tanışma. <br><b>Magnet:</b> Buzdolabında kalıcı reklam.</small>"
-                };
-                res.innerHTML = `<span style="color: #00e5ff; animation: fadeInUp 0.5s ease-out forwards; display:block; width:100%;">${data[val]}</span>`;
-            }
-            </script>
-        </section>
-
-<section style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(40px, 6vw, 80px) clamp(15px, 4vw, 30px); background: transparent;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <header style="text-align: center; margin-bottom: 50px;">
-            <h2 style="font-size: clamp(24px, 5vw, 38px); margin-bottom: 15px; font-weight: 900; color: #ffffff;">Ürün <span style="text-decoration: underline; text-underline-offset: 8px; text-decoration-color: rgba(255,255,255,0.3);">Teknolojileri</span> ve Teknik Katalog</h2>
-            <p style="opacity: 0.8; font-size: clamp(14px, 2vw, 16px); max-width: 850px; margin: 0 auto; line-height: 1.6; color: #ffffff;">Dijital baskı, ofset ve kurumsal çözüm materyallerimizin teknik analiz raporu.</p>
-        </header>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; width: 100%; box-sizing: border-box;">
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; transition: 0.3s; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                    Kanvas Tablo (Art)
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> 380gr pamuklu doku, pigment baskı.<br>
-                    <b>Kullanım:</b> İç mekan dekor ve sanatsal tablolar.
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
-                    Kurumsal Promosyon
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> Lazer kazıma, UV ve tampon baskı.<br>
-                    <b>Kullanım:</b> Ajanda, kalem ve VIP kurumsal setler.
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
-                    Dijital Baskı Folyosu
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> 80-100 mikron PVC, monomerik yapı.<br>
-                    <b>Kullanım:</b> Vitrin giydirme ve sticker üretimi.
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><line x1="3" x2="21" y1="10" y2="10"></line><line x1="7" x2="7.01" y1="15" y2="15"></line><line x1="11" x2="11.01" y1="15" y2="15"></line></svg>
-                    Kurumsal Kartvizit
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> 350gr mat kuşe, çift yön selefon kaplama.<br>
-                    <b>Kullanım:</b> Profesyonel tanıtım materyalleri.
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    Tanıtım Broşürü
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> 170gr kuşe kağıt, tek/çift kırım seçenekli.<br>
-                    <b>Kullanım:</b> Kampanya duyuruları ve ürün katalogları.
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
-                    One Way Vision
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> %50 delikli yüzey alanı, optik folyo.<br>
-                    <b>Kullanım:</b> Mağaza camları (içten dışarıyı görme).
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                    Lüks Menü Çözümleri
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> PVC sıvama veya sert kapak taslama.<br>
-                    <b>Kullanım:</b> Restoran, kafe ve otel işletmeleri.
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M3 6l3 18h12l3-18H3z"></path><path d="M19.34 11H4.66"></path></svg>
-                    Yazı Kesim Folyosu
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> Plotter ile vektörel harf/logo kesimi.<br>
-                    <b>Kullanım:</b> Vitrin yazıları ve araç üzeri logolar.
-                </p>
-            </article>
-
-            <article style="padding: 25px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-sizing: border-box; width: 100%;">
-                <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
-                    Foreks & Uyarı Levhası
-                </h3>
-                <p style="font-size: 14px; line-height: 1.7; opacity: 0.9; margin: 0; color: #ffffff;">
-                    <b>Teknik:</b> 3mm-5mm sert PVC panel veya kompozit.<br>
-                    <b>Kullanım:</b> İSG levhaları ve yönlendirme tabelaları.
-                </p>
-            </article>
-        </div>
-    </div>
-</section>
-
-        <!-- MARKANIZI YENİDEN TASARLIYORUZ - DÜZELTİLMİŞ -->
-        <section class="v-ultra-clean" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative; padding: clamp(30px, 6vw, 70px) 0;">
-            <div class="v-main-grid" style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(20px, 5vw, 50px); box-sizing: border-box; padding: 0 clamp(15px, 4vw, 30px);">
-                
-                <div class="v-media-side" style="flex: 1; min-width: min(100%, 400px); width: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: center;">
-                    <!-- SVG GÖRSEL -->
-                    <svg viewBox="0 0 400 400" style="width: 100%; max-width: 400px; height: auto;" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="monitorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#ff007f;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#9b59b6;stop-opacity:1" />
-                            </linearGradient>
-                            <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#02032c;stop-opacity:1" />
-                            </linearGradient>
-                            <filter id="glowEffect">
-                                <feGaussianBlur stdDeviation="4" result="blur"/>
-                                <feMerge>
-                                    <feMergeNode in="blur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <circle cx="200" cy="200" r="180" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                        <circle cx="50" cy="80" r="3" fill="#ff007f" opacity="0.6">
-                            <animate attributeName="cy" values="80;90;80" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="350" cy="120" r="2" fill="#00e5ff" opacity="0.8">
-                            <animate attributeName="cy" values="120;110;120" dur="4s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="80" cy="320" r="2.5" fill="#9b59b6" opacity="0.5">
-                            <animate attributeName="cy" values="320;310;320" dur="3.5s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="320" cy="350" r="3" fill="#ff007f" opacity="0.7">
-                            <animate attributeName="cy" values="350;340;350" dur="5s" repeatCount="indefinite"/>
-                        </circle>
-                        <g transform="translate(100, 80)">
-                            <rect x="70" y="180" width="60" height="40" rx="5" fill="#533483" opacity="0.8"/>
-                            <rect x="50" y="220" width="100" height="10" rx="5" fill="#ff007f" opacity="0.9"/>
-                            <rect x="0" y="0" width="200" height="180" rx="15" fill="url(#monitorGrad)" filter="url(#glowEffect)"/>
-                            <rect x="10" y="10" width="180" height="160" rx="10" fill="url(#screenGrad)"/>
-                            <rect x="30" y="40" width="140" height="8" rx="4" fill="#fff" opacity="0.9">
-                                <animate attributeName="width" values="140;100;140" dur="3s" repeatCount="indefinite"/>
-                            </rect>
-                            <rect x="30" y="60" width="100" height="8" rx="4" fill="#00e5ff" opacity="0.8">
-                                <animate attributeName="width" values="100;140;100" dur="3s" repeatCount="indefinite"/>
-                            </rect>
-                            <rect x="30" y="80" width="120" height="8" rx="4" fill="#fff" opacity="0.6">
-                                <animate attributeName="width" values="120;80;120" dur="3s" repeatCount="indefinite"/>
-                            </rect>
-                            <rect x="-20" y="10" width="40" height="160" fill="rgba(255,255,255,0.1)" rx="5">
-                                <animateTransform attributeName="transform" type="translate" values="-20,0; 180,0; -20,0" dur="4s" repeatCount="indefinite"/>
-                            </rect>
-                        </g>
-                        <g transform="translate(280, 200)">
-                            <rect x="0" y="0" width="60" height="120" rx="10" fill="#ff007f" opacity="0.9" filter="url(#glowEffect)"/>
-                            <rect x="5" y="5" width="50" height="110" rx="8" fill="#02032c"/>
-                            <rect x="10" y="20" width="30" height="6" rx="3" fill="#fff" opacity="0.8"/>
-                            <rect x="10" y="35" width="20" height="6" rx="3" fill="#00e5ff" opacity="0.7">
-                                <animate attributeName="width" values="20;30;20" dur="2s" repeatCount="indefinite"/>
-                            </rect>
-                            <rect x="10" y="50" width="25" height="6" rx="3" fill="#fff" opacity="0.5"/>
-                        </g>
-                        <g transform="translate(60, 250) rotate(-30)">
-                            <rect x="0" y="0" width="80" height="12" rx="6" fill="#00e5ff" opacity="0.9"/>
-                            <polygon points="80,0 100,6 80,12" fill="#ff007f"/>
-                            <animateTransform attributeName="transform" type="translate" values="60,250; 65,245; 60,250" dur="3s" repeatCount="indefinite" additive="sum"/>
-                        </g>
-                        <g transform="translate(150, 50)">
-                            <ellipse cx="30" cy="20" rx="25" ry="15" fill="#fff" opacity="0.9"/>
-                            <ellipse cx="50" cy="25" rx="20" ry="12" fill="#fff" opacity="0.9"/>
-                            <ellipse cx="20" cy="25" rx="15" ry="10" fill="#fff" opacity="0.9"/>
-                            <animateTransform attributeName="transform" type="translate" values="150,50; 155,50; 150,50" dur="4s" repeatCount="indefinite"/>
-                        </g>
-                        <g transform="translate(300, 60)">
-                            <circle cx="0" cy="0" r="20" fill="#ff007f" opacity="0.9">
-                                <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="0" cy="0" r="15" fill="#ffcc00" opacity="0.8"/>
-                        </g>
-                        <g transform="translate(80, 150)">
-                            <circle cx="0" cy="0" r="15" fill="#ff007f" opacity="0.8"/>
-                            <circle cx="25" cy="10" r="12" fill="#00e5ff" opacity="0.8"/>
-                            <circle cx="15" cy="30" r="10" fill="#9b59b6" opacity="0.8"/>
-                            <animateTransform attributeName="transform" type="rotate" values="0 80 150; 360 80 150" dur="20s" repeatCount="indefinite"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <article class="v-text-side" style="flex: 1.2; min-width: min(100%, 320px); width: 100%; box-sizing: border-box;">
-                    <h2 class="v-heading" style="font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; color: #00e5ff;">
-                        Markanızı <span style="color: #ff007f;">Yeniden Tasarlıyoruz</span>
-                    </h2>
-                    <p class="v-subtext" style="font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.6; color: #fff; margin-bottom: 30px;">
-                        Sadece baskı değil, markanızın dijital ve fiziksel dünyadaki kimliğini inşa ediyoruz. 
-                        <strong style="color: #00e5ff;">Web site arayüzlerinden</strong>, masanızdaki <strong style="color: #ff007f;">profesyonel kartvizit tasarımına</strong> kadar her detayda estetik ve fonksiyonellik sunuyoruz.
-                    </p>
-
-                    <ul class="v-feature-grid" style="width: 100%; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 15px; list-style: none; margin-bottom: 30px; padding: 0;">
-                        <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(255,0,127,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
-                            <span style="font-size: 1.2rem;">🚀</span> <b style="color: #00e5ff;">Özgün Logo</b> Tasarımı
-                        </li>
-                        <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(0,229,255,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
-                            <span style="font-size: 1.2rem;">🌐</span> <b style="color: #ff007f;">Modern Web Site</b> Çözümleri
-                        </li>
-                        <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(255,0,127,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
-                            <span style="font-size: 1.2rem;">🎨</span> <b style="color: #00e5ff;">Etkileyici Afiş</b> ve Broşür
-                        </li>
-                        <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(0,229,255,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
-                            <span style="font-size: 1.2rem;">🎴</span> <b style="color: #ff007f;">Kurumsal Kartvizit</b>
-                        </li>
-                        <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(255,0,127,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
-                            <span style="font-size: 1.2rem;">🧲</span> <b style="color: #00e5ff;">Özel Kesim Magnet</b>
-                        </li>
-                        <li style="font-size: 0.9rem; color: #fff; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: all 0.3s; background: rgba(255,255,255,0.03);" onmouseover="this.style.background='rgba(0,229,255,0.1)'; this.style.transform='translateX(5px)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.transform='translateX(0)'">
-                            <span style="font-size: 1.2rem;">📝</span> <b style="color: #ff007f;">İrsaliye</b> ve Resmi Evrak
-                        </li>
-                    </ul>
-
-                    <div class="v-seo-footer" style="width: 100%; box-sizing: border-box; border-left: 3px solid #ff007f; padding-left: 20px; font-size: 0.85rem; color: #ccc; line-height: 1.5;">
-                        <p>Arama motoru görünürlüğünüzü artıran <strong style="color: #00e5ff;">SEO uyumlu altyapımız</strong> ve profesyonel <strong style="color: #ff007f;">grafik tasarım</strong> desteğimizle rakiplerinizin önüne geçin.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- STATS ROW - DÜZELTİLMİŞ -->
-        <section class="v-stats-row" style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(40px, 6vw, 80px) 0;">
-            <div class="v-container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px, 4vw, 40px); box-sizing: border-box;">
-                
-                <article class="v-stat-item" style="flex: 1; min-width: min(100%, 300px); width: 100%; text-align: center; box-sizing: border-box;">
-                    <div class="v-stat-icon" style="font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: #ff007f;">%100</div>
-                    <h3 class="v-stat-title" style="font-size: 20px; margin: 15px 0;">Mevzuat Uyumu</h3>
-                    <p class="v-stat-desc" style="opacity: 0.8; font-size: 15px; line-height: 1.6;">Tüm acil çıkış krokileri ve <strong>İSG levhaları</strong> güncel yasal yönetmeliklere uygun çizilir.</p>
-                </article>
-
-                <article class="v-stat-item" style="flex: 1; min-width: min(100%, 300px); width: 100%; text-align: center; box-sizing: border-box;">
-                    <div class="v-stat-icon" style="font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: #00f2fe;">24/48</div>
-                    <h3 class="v-stat-title" style="font-size: 20px; margin: 15px 0;">Hızlı Teslimat (Saat)</h3>
-                    <p class="v-stat-desc" style="opacity: 0.8; font-size: 15px; line-height: 1.6;">Standart projelerde <strong>tasarım ve üretim</strong> süreçlerini en kısa sürede tamamlayıp teslim ediyoruz.</p>
-                </article>
-
-                <article class="v-stat-item" style="flex: 1; min-width: min(100%, 300px); width: 100%; text-align: center; box-sizing: border-box;">
-                    <div class="v-stat-icon" style="font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: #ff007f;">1440</div>
-                    <h3 class="v-stat-title" style="font-size: 20px; margin: 15px 0;">DPI Baskı Kalitesi</h3>
-                    <p class="v-stat-desc" style="opacity: 0.8; font-size: 15px; line-height: 1.6;">Branda ve <strong>dijital baskı</strong> ürünlerinde en yüksek çözünürlük ile canlı ve kalıcı sonuçlar.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="v-footer" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative;">
-            <div class="v-footer-glow" style="max-width: 100%; pointer-events: none;"></div>
-
-            <div class="v-footer-container" style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; box-sizing: border-box; padding: 0 clamp(15px, 4vw, 30px);">
-                <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box;">
-                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" style="max-width: 100%; height: auto;" loading="lazy">
-                    <p class="v-footer-desc" style="font-size: clamp(14px, 2vw, 16px); line-height: 1.6;">
+                <div style="flex:1; min-width:min(100%,280px);">
+                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" loading="lazy" width="180">
+                    <p class="v-footer-desc">
                         Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.
                     </p>
                 </div>
 
-                <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); width: 100%; box-sizing: border-box;">
-                    <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Kreatif</h3>
-                    <ul class="v-footer-list" style="list-style: none; padding: 0;">
+                <nav aria-label="Kreatif hizmetler" style="flex:1; min-width:min(100%,150px);">
+                    <h3 class="v-footer-head pink">Kreatif</h3>
+                    <ul class="v-footer-list">
                         <li>Logo Tasarımı</li>
                         <li>Web Site Tasarımı</li>
-                        <li>Afiş & Broşür</li>
+                        <li>Afiş &amp; Broşür</li>
                         <li>Kurumsal Kimlik</li>
                     </ul>
                 </nav>
 
-                <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); width: 100%; box-sizing: border-box;">
-                    <h3 class="v-footer-head cyan" style="font-size: clamp(18px, 3vw, 22px);">Üretim</h3>
-                    <ul class="v-footer-list" style="list-style: none; padding: 0;">
+                <nav aria-label="Üretim hizmetleri" style="flex:1; min-width:min(100%,150px);">
+                    <h3 class="v-footer-head cyan">Üretim</h3>
+                    <ul class="v-footer-list">
                         <li>Branda Baskı</li>
                         <li>Folyo Uygulama</li>
-                        <li>Kartvizit & Magnet</li>
+                        <li>Kartvizit &amp; Magnet</li>
                         <li>Işıklı Tabela</li>
                     </ul>
                 </nav>
 
-                <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 120px); width: 100%; box-sizing: border-box;">
-                    <h3 class="v-footer-head cyan" style="font-size: clamp(18px, 3vw, 22px);">Lokasyonlar</h3>
-                    <ul class="v-footer-list" style="list-style: none; padding: 0; font-size: 13px;">
-                        <li><a href="https://valexira.com/aksaray-reklamci" style="text-decoration: none; color: inherit;">Aksaray</a></li>
-                        <li><a href="https://valexira.com/bagcilar-reklamci" style="text-decoration: none; color: inherit;">Bağcılar</a></li>
-                        <li><a href="https://valexira.com/bakirkoy-reklamci" style="text-decoration: none; color: inherit;">Bakırköy</a></li>
-                        <li><a href="https://valexira.com/esenler-reklamci" style="text-decoration: none; color: inherit;">Esenler</a></li>
-                        <li><a href="https://valexira.com/kadikoy-reklamci" style="text-decoration: none; color: inherit;">Kadıköy</a></li>
-                        <li><a href="https://valexira.com/sirinevler-reklamci" style="text-decoration: none; color: inherit;">Şirinevler</a></li>
+                <nav aria-label="Hizmet verilen lokasyonlar" style="flex:1; min-width:min(100%,120px);">
+                    <h3 class="v-footer-head cyan">Lokasyonlar</h3>
+                    <ul class="v-footer-list" style="font-size:13px;">
+                        <li><a href="https://valexira.com/aksaray-reklamci" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Aksaray</a></li>
+                        <li><a href="https://valexira.com/bagcilar-reklamci" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Bağcılar</a></li>
+                        <li><a href="https://valexira.com/bakirkoy-reklamci" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Bakırköy</a></li>
+                        <li><a href="https://valexira.com/esenler-reklamci" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Esenler</a></li>
+                        <li><a href="https://valexira.com/kadikoy-reklamci" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Kadıköy</a></li>
+                        <li><a href="https://valexira.com/sirinevler-reklamci" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#00f2fe'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Şirinevler</a></li>
                     </ul>
                 </nav>
 
-                <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); width: 100%; box-sizing: border-box;">
-                    <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Bize Ulaşın</h3>
-                    <div class="v-footer-contact" style="font-size: clamp(14px, 2vw, 15px);">
-                        <p>Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İST.</p>
-                        <p><a href="tel:+905427412994" style="text-decoration: none; color: inherit; font-weight: bold;">+90 542 741 29 94</a></p>
-                        <p>valexiradijital@gmail.com</p>
-                    </div>
-                    
-                    <a href="https://wa.me/905427412994" target="_blank" rel="noopener" class="v-whatsapp-link" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
+                <div style="flex:1; min-width:min(100%,280px);">
+                    <h3 class="v-footer-head pink">Bize Ulaşın</h3>
+                    <address class="v-footer-contact" style="font-style:normal; font-size:clamp(14px,2vw,15px);">
+                        <p>Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İstanbul</p>
+                        <p><a href="tel:+905427412994">+90 542 741 29 94</a></p>
+                        <p><a href="mailto:valexiradijital@gmail.com">valexiradijital@gmail.com</a></p>
+                    </address>
+                    <a href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer" class="v-whatsapp-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="20" height="20" aria-hidden="true">
                         WhatsApp ile Yazın
                     </a>
                 </div>
+
             </div>
 
-            <div class="v-footer-bottom" style="width: 100%; text-align: center; padding: 20px 0; font-size: clamp(12px, 1.5vw, 14px); box-sizing: border-box; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px;">
-                © 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
+            <div class="v-footer-bottom" style="padding:20px 0; font-size:clamp(12px,1.5vw,14px); margin-top:40px;">
+                &copy; 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
             </div>
         </footer>
 
-    </div>
+    </div><!-- /v-site-main -->
+
+    <!-- ===================== SCRIPTS (body sonu) ===================== -->
+    <script src="js/main.js" defer></script>
+    <script>
+        /* Mobil menü aç/kapat */
+        function toggleMenu() {
+            var navMenu = document.getElementById('navMenu');
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            var isOpen  = navMenu.classList.toggle('active');
+            menuBtn.classList.toggle('open', isOpen);
+            menuBtn.setAttribute('aria-expanded', isOpen);
+        }
+
+        document.addEventListener('click', function(e) {
+            var navMenu = document.getElementById('navMenu');
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuBtn.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        /* M² Hesaplama */
+        function calculateM2() {
+            var en   = parseFloat(document.getElementById('m2_en').value)  || 0;
+            var boy  = parseFloat(document.getElementById('m2_boy').value) || 0;
+            var alan = (en / 100) * (boy / 100);
+            document.getElementById('m2_sonuc').textContent = alan.toFixed(2) + ' m²';
+        }
+
+        /* Materyal Seçim Asistanı */
+        function pickProduct(val) {
+            var res  = document.getElementById('asistan-sonuc');
+            var data = {
+                cam:    '<b>Öneri: One Way Vision / Folyo</b><br><small>Camlarda dıştan reklam, içten net görüş sağlar.</small>',
+                dekor:  '<b>Öneri: Kumlu / Kesim Folyo</b><br><small>Ofis ve vitrinlerde şık dekoratif çözümler.</small>',
+                levha:  '<b>Öneri: Foreks Üzeri Folyo</b><br><small>Yönlendirme ve İSG için en dayanıklı sert zemin.</small>',
+                rehber: '<b>Hangi Ürün Daha Yararlı?</b><br><small><b>Kartvizit:</b> Prestij ve tanışma.<br><b>Magnet:</b> Buzdolabında kalıcı reklam.</small>'
+            };
+            res.innerHTML = '<span style="color:#00e5ff; display:block; width:100%;">' + data[val] + '</span>';
+        }
+    </script>
+
 </body>
 </html>
