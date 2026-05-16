@@ -1,134 +1,418 @@
 <!DOCTYPE html>
-<html lang="tr" style="width: 100%; overflow-x: hidden; box-sizing: border-box;">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Valexira Dijital | Profesyonel Baskı ve Tasarım Çözümleri</title>
-    
-    <meta name="description" content="Valexira Dijital; dijital baskı, matbaa, promosyon, levha ve tasarım hizmetlerinde profesyonel çözümler sunar.">
-    <meta name="keywords" content="dijital baskı, matbaa, promosyon, tasarım, istanbul baskı">
-    <link rel="canonical" href="https://www.valexira.com/">
 
-    <meta property="og:title" content="Valexira Dijital | Teknik Çizim ve Reklam Merkezi">
-    <meta property="og:description" content="Kroki çiziminden matbaa ürünlerine kadar profesyonel baskı çözümleri.">
+    <title>Folyo, Kartvizit ve Baskı Dosyası Rehberi | Valexira Dijital Blog</title>
+    <meta name="description" content="Arkası örtücü folyo, yazı kesim folyo, delikli folyo, kartvizit kalınlıkları ve PDF-AI-CDR dosya formatlarının baskıda nasıl davrandığını öğrenin. Valexira Dijital Blog.">
+    <meta name="keywords" content="arkası örtücü folyo, yazı kesim folyo, delikli folyo, kartvizit modelleri, kartvizit kalınlık, pdf baskı, ai dosya baskı, cdr baskı, tif baskı, dekota, reklam folyo, m2 hesaplama, dijital baskı istanbul">
+    <link rel="canonical" href="https://www.valexira.com/blog/folyo-rehberi">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <meta property="og:title" content="Folyo, Kartvizit ve Baskı Dosyası Rehberi | Valexira Dijital">
+    <meta property="og:description" content="Arkası örtücü folyo, yazı kesim folyo, delikli folyo, kartvizit kalınlıkları ve baskı dosyası formatları hakkında kapsamlı rehber.">
     <meta property="og:image" content="images/og-image.jpg">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
 
-    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Folyo Çeşitleri, Kartvizit Kalınlıkları ve Baskı Dosyası Formatları Rehberi",
+      "description": "Arkası örtücü folyo, yazı kesim folyo, delikli folyo, kartvizit modelleri ve PDF/AI/CDR/TIF dosyalarının baskıda nasıl davrandığını anlatan kapsamlı rehber.",
+      "author": {"@type": "Organization", "name": "Valexira Dijital"},
+      "publisher": {"@type": "Organization", "name": "Valexira Dijital"},
+      "datePublished": "2026-05-16",
+      "url": "https://www.valexira.com/blog/folyo-rehberi"
+    }
+    </script>
+
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        *, *:before, *:after { box-sizing: border-box; }
-        html, body { 
-            width: 100% !important; 
-            margin: 0 !important; 
-            padding: 0 !important; 
-            overflow-x: hidden !important; /* Sağa kaymayı %100 bitirir */
-            background-color: #19011d; /* Belirlediğin ana gövde rengi */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #19011d;
             color: #ffffff;
             -webkit-font-smoothing: antialiased;
         }
-    </style>
-</head>
-<body style="width: 100%; overflow-x: hidden;">
-    
-    <div class="v-site-main" style="width: 100%; overflow-x: hidden; position: relative; display: flex; flex-direction: column;">
 
-<header class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;">
-    <div class="container nav-container">
-        <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
-            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img">
-            <span class="logo-text">DİJİTAL</span>
-        </a>
-        
-            <nav class="nav-menu" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="/">Anasayfa</a></li>
-                    <li><a href="dijital-baski">Dijital Baskı</a></li>
-                    <li><a href="matbaa">Matbaa</a></li>
-                    <li><a href="promosyon">Promosyon</a></li>
-                    <li><a href="levha">Levha</a></li>
-                    <li><a href="Duba-Bayrak">Duba & Bayrak</a></li>
-                    <li><a href="tasarim">Tasarım</a></li>
-                    <li><a href="portfolyo">Portfolyo</a></li>
-                    <li><a href="hakkimizda">Hakkımızda</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="iletisim">İletişim</a></li>
-                </ul>
-            </nav>
+        /* === DÖNEN BORDER ANİMASYONU === */
+        @keyframes v-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        @keyframes vLaser {
+            0%   { left: -30%; }
+            50%  { left: 100%; }
+            100% { left: -30%; }
+        }
+        @keyframes vPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.4; transform: scale(1.1); }
+        }
 
-        <div class="header-right">
-            <div class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menüyü Aç">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <a href="iletisim.html" class="btn-quote desktop-only">Teklif Al</a>
-        </div>
-    </div>
+        /* === MOBİL MENÜ BUTONU === */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+            transition: all 0.3s ease;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .mobile-menu-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(from 0deg, transparent 60%, rgba(0,242,254,0.15) 80%, transparent 100%);
+            animation: v-spin 4s linear infinite;
+            border-radius: 10px;
+        }
+        .mobile-menu-btn:hover {
+            border-color: #00f2fe;
+            box-shadow: 0 0 18px rgba(0, 242, 254, 0.35), inset 0 0 10px rgba(0, 242, 254, 0.08);
+        }
+        .mobile-menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #00f2fe;
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease, background 0.3s ease;
+            box-shadow: 0 0 6px rgba(0, 242, 254, 0.7);
+        }
+        .mobile-menu-btn.open {
+            border-color: #ff007f;
+            box-shadow: 0 0 18px rgba(255, 0, 127, 0.35), inset 0 0 10px rgba(255, 0, 127, 0.08);
+            background: rgba(255, 0, 127, 0.06);
+        }
+        .mobile-menu-btn.open span { background: #ff007f; box-shadow: 0 0 6px rgba(255, 0, 127, 0.7); }
+        .mobile-menu-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    <style>
+        @media (max-width: 1200px) {
+            .mobile-menu-btn { display: flex; }
+        }
         @media (max-width: 1024px) {
-            .nav-menu.active { 
-                display: block !important; 
+            .nav-menu.active {
+                display: block !important;
                 transform: translateX(0) !important;
                 opacity: 1 !important;
                 visibility: visible !important;
             }
         }
+
+        /* === BLOG TABLO STİLLERİ === */
+        .folyo-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            font-size: clamp(12px, 1.6vw, 14px);
+        }
+        .folyo-info-table th {
+            background: rgba(0,242,254,0.12);
+            color: #00f2fe;
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,242,254,0.25);
+            font-weight: 700;
+        }
+        .folyo-info-table td {
+            padding: 9px 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.8);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        .folyo-info-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+        .tip-box {
+            background: rgba(0,242,254,0.06);
+            border-left: 3px solid #00f2fe;
+            border-radius: 0 12px 12px 0;
+            padding: 13px 17px;
+            margin: 16px 0;
+            font-size: clamp(13px, 1.7vw, 15px);
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+        }
+        .tip-box strong { color: #00f2fe; }
+        .warn-box {
+            background: rgba(255,0,127,0.06);
+            border-left: 3px solid #ff007f;
+            border-radius: 0 12px 12px 0;
+            padding: 13px 17px;
+            margin: 16px 0;
+            font-size: clamp(13px, 1.7vw, 15px);
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+        }
+        .warn-box strong { color: #ff007f; }
+        .good-box {
+            background: rgba(0,255,136,0.06);
+            border-left: 3px solid #00ff88;
+            border-radius: 0 12px 12px 0;
+            padding: 13px 17px;
+            margin: 16px 0;
+            font-size: clamp(13px, 1.7vw, 15px);
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+        }
+        .good-box strong { color: #00ff88; }
+        .calc-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        .calc-formula {
+            font-size: clamp(16px, 2.8vw, 24px);
+            font-weight: 900;
+            color: #00f2fe;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .folyo-toc {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 26px;
+        }
+        .folyo-toc h4 { color: #ff007f; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 12px 0; }
+        .folyo-toc ol { margin: 0; padding-left: 18px; }
+        .folyo-toc li { color: rgba(255,255,255,0.65); font-size: 13px; margin-bottom: 7px; line-height: 1.5; }
+        .folyo-toc li a { color: #00f2fe; text-decoration: none; }
+        .folyo-toc li a:hover { text-decoration: underline; }
+        .section-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 26px 0; }
+        .modal-h2 { font-size: clamp(18px, 3.5vw, 28px); font-weight: 900; margin: 0 0 6px 0; line-height: 1.2; padding-right: 44px; }
+        .modal-sub { font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 18px; display: block; }
+        .modal-h3 { font-size: clamp(15px, 2.3vw, 19px); font-weight: 800; color: #ff007f; margin: 24px 0 9px 0; }
+        .modal-p { font-size: clamp(13px, 1.8vw, 15px); line-height: 1.8; color: rgba(255,255,255,0.78); margin-bottom: 12px; }
+        .modal-ul { padding-left: 18px; margin-bottom: 12px; }
+        .modal-ul li { font-size: clamp(13px, 1.8vw, 15px); line-height: 1.8; color: rgba(255,255,255,0.73); margin-bottom: 5px; }
+
+        /* Format badge */
+        .fmt-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+        .fmt-green  { background: rgba(0,255,136,0.15); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); }
+        .fmt-yellow { background: rgba(255,200,0,0.15); color: #ffc800; border: 1px solid rgba(255,200,0,0.3); }
+        .fmt-red    { background: rgba(255,0,127,0.15); color: #ff007f; border: 1px solid rgba(255,0,127,0.3); }
+        .fmt-cyan   { background: rgba(0,242,254,0.15); color: #00f2fe; border: 1px solid rgba(0,242,254,0.3); }
     </style>
+</head>
+<body>
+
+<div class="v-site-main">
+
+<!-- ===================== HEADER / NAV ===================== -->
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
+            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40">
+            <span class="logo-text">DİJİTAL</span>
+        </a>
+
+        <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
+            <ul class="nav-links">
+                <li><a href="/">Anasayfa</a></li>
+                <li><a href="dijital-baski">Dijital Baskı</a></li>
+                <li><a href="matbaa">Matbaa</a></li>
+                <li><a href="promosyon">Promosyon</a></li>
+                <li><a href="levha">Levha</a></li>
+                <li><a href="Duba-Bayrak">Duba &amp; Bayrak</a></li>
+                <li><a href="tasarim">Tasarım</a></li>
+                <li><a href="portfolyo">Portfolyo</a></li>
+                <li><a href="hakkimizda">Hakkımızda</a></li>
+                <li><a href="blog">Blog</a></li>
+                <li><a href="iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="iletisim" class="btn-quote desktop-only">Teklif Al</a>
+        </div>
+    </div>
 </header>
 
-<section class="v-blog-hero" style="width: 100%; padding-top: clamp(100px, 15vh, 180px); overflow-x: hidden; display: block; background: transparent; box-sizing: border-box;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(20px, 5vh, 40px) 20px; text-align: center; box-sizing: border-box;">
-        
-        <h1 style="font-family: 'Poppins', sans-serif; font-size: clamp(2.2rem, 8vw, 5.5rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -1px; margin: 0; line-height: 1; display: block;">
-            BLOG <br>
-            <span style="font-size: clamp(0.9rem, 2.5vw, 1.3rem); letter-spacing: 4px; color: #00f2fe; display: block; margin-top: 10px;">VALEXIRA DIJITAL</span>
+<!-- ===================== HERO ===================== -->
+<section class="v-blog-hero" style="width:100%; padding-top:clamp(100px,15vh,180px); overflow-x:hidden; display:block; background:transparent; box-sizing:border-box;">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(20px,5vh,40px) 20px; text-align:center; box-sizing:border-box;">
+        <h1 style="font-family:'Poppins',sans-serif; font-size:clamp(2.2rem,8vw,5.5rem); font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:-1px; margin:0; line-height:1;">
+            BLOG<br>
+            <span style="font-size:clamp(0.9rem,2.5vw,1.3rem); letter-spacing:4px; color:#00f2fe; display:block; margin-top:10px;">VALEXIRA DİJİTAL</span>
         </h1>
-
-        <nav aria-label="Breadcrumb" style="margin-top: 20px;">
-            <p style="color: rgba(255,255,255,0.5); font-size: 13px; text-transform: uppercase; margin: 0;">
-                Anasayfa / <strong style="color: #fff;">Blog & Güncel Çözümler</strong>
+        <nav aria-label="Breadcrumb" style="margin-top:20px;">
+            <p style="color:rgba(255,255,255,0.5); font-size:13px; text-transform:uppercase; margin:0;">
+                Anasayfa / Blog / <strong style="color:#fff;">Folyo &amp; Reklam Rehberi</strong>
             </p>
         </nav>
-        
     </div>
 </section>
 
-<section class="v-blog-section" style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(30px, 6vh, 60px) 0; background: transparent; font-family: 'Segoe UI', sans-serif; color: #fff; display: block;">
-    <div class="v-blog-container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(15px, 4vw, 30px); box-sizing: border-box;">
-        
-        <header style="text-align: center; margin-bottom: clamp(30px, 6vw, 50px); width: 100%;">
-            <span style="color: #ff007f; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 12px; display: block; margin-bottom: 8px;">VALEXIRA VİZYON</span>
-            <h2 style="font-size: clamp(24px, 5vw, 38px); font-weight: 800; margin: 0; line-height: 1.2; word-wrap: break-word;">
-                Dijital Baskıda <span style="color: #00f2fe;">Gelecek</span>
-            </h2>
+<div id="print-modal" style="display:none; position:fixed; z-index:100001; inset:0; background:rgba(2,3,44,0.98); backdrop-filter:blur(15px); align-items:center; justify-content:center; padding:clamp(10px,3vw,20px); overflow-x:hidden;" onclick="closePrintModal()">
+    <div style="background:#19011d; border:1px solid rgba(255,255,255,0.1); width:100%; max-width:800px; max-height:90vh; border-radius:clamp(20px,4vw,35px); overflow-y:auto; padding:clamp(25px,6vw,60px); position:relative; box-shadow:0 50px 100px rgba(0,0,0,0.8); box-sizing:border-box;" onclick="event.stopPropagation()">
+        <button onclick="closePrintModal()" style="position:sticky; top:0; float:right; background:none; border:none; color:#fff; font-size:clamp(30px,8vw,45px); cursor:pointer; line-height:0.5; z-index:100; padding:5px;">&times;</button>
+        <div id="print-modal-content" style="width:100%; box-sizing:border-box; overflow-wrap:break-word;"></div>
+    </div>
+</div>
+<script>
+const printBlogData = {
+    print1: { title:"Dijital Baskı mı, Ofset Baskı mı?", content:"<p>Baskı seçiminde adet en belirleyici faktördür. Az adetli ve acil işlerde <strong>dijital baskı</strong>, yüksek adetli katalog ve broşür üretimlerinde ise birim maliyeti düşüren <strong>ofset baskı</strong> tercih edilmelidir. Valexira olarak her iki yöntemde de en yüksek renk doğruluğunu garanti ediyoruz.</p>" },
+    print2: { title:"Matbaa Dosyası Hazırlama Sırları", content:"<p>Ekranda gördüğünüz tasarımın kağıtta aynı kalitede çıkması için dosyanız mutlaka <strong>CMYK</strong> modunda olmalıdır. Görsellerin en az 300 DPI çözünürlükte olması, taşma paylarının (bleed) verilmesi ve metinlerin vektörel hale getirilmesi, profesyonel bir baskı için kritiktir.</p>" }
+};
+function openPrintModal(id) {
+    const modal = document.getElementById('print-modal');
+    const content = document.getElementById('print-modal-content');
+    const post = printBlogData[id];
+    content.innerHTML = `<h2 style="font-size:clamp(22px,5vw,36px); font-weight:900; color:#ff007f; margin-bottom:clamp(15px,4vw,25px); line-height:1.2; padding-right:30px;">${post.title}</h2><div style="font-size:clamp(15px,2.2vw,18px); line-height:1.8; color:rgba(255,255,255,0.8); word-wrap:break-word;">${post.content}</div>`;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closePrintModal() {
+    document.getElementById('print-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+</script>
+
+
+<!-- ===================== FOLYO & REKLAM KARTI BLOĞU ===================== -->
+<section style="width:100%; overflow-x:hidden; box-sizing:border-box; padding:clamp(50px,8vh,100px) 0; background:transparent; font-family:'Segoe UI',sans-serif; color:#fff;">
+    <div style="width:100%; max-width:1200px; margin:0 auto; padding:0 clamp(15px,4vw,25px); box-sizing:border-box;">
+
+        <header style="text-align:center; margin-bottom:clamp(35px,5vw,60px);">
+            <span style="color:#ff007f; text-transform:uppercase; letter-spacing:3px; font-weight:700; font-size:13px; display:block; margin-bottom:10px;">TEKNİK REHBER</span>
+            <h2 style="font-size:clamp(26px,5vw,42px); font-weight:900; margin:0; line-height:1.1;">Folyo, Kartvizit &amp; <span style="color:#00f2fe;">Baskı Rehberleri</span></h2>
+            <p style="font-size:clamp(14px,2vw,17px); opacity:0.6; margin-top:14px; max-width:620px; margin-left:auto; margin-right:auto; line-height:1.6;">Arkası örtücü folyodan delikli cam folyoya, kartvizit kalınlıklarından PDF/AI/CDR dosya formatlarına kadar sektörün tüm teknik rehberi.</p>
         </header>
 
-        <div class="v-blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 4vw, 30px); width: 100%;">
-            
-            <article style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; width: 100%;">
-                <div style="height: clamp(160px, 20vh, 210px); width: 100%; overflow: hidden;">
-                    <img src="images/blog-1.jpg" alt="2026 Dijital Tasarım Trendleri" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,280px),1fr)); gap:clamp(20px,4vw,30px); width:100%;">
+
+            <!-- Kart 1: Arkası Örtücü Folyo -->
+            <article style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,242,254,0.2); border-radius:30px; overflow:hidden; display:flex; flex-direction:column; box-sizing:border-box;">
+                <div style="height:clamp(160px,18vh,200px); background:linear-gradient(135deg,rgba(0,242,254,0.12),rgba(25,1,29,0.9)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
+                    <div style="font-size:44px;">🪟</div>
+                    <span style="font-size:10px; letter-spacing:3px; color:#00f2fe; text-transform:uppercase; font-weight:700;">OPAK YÜZEY</span>
                 </div>
-                <div style="padding: clamp(15px, 4vw, 25px); flex-grow: 1; display: flex; flex-direction: column;">
-                    <time datetime="2026-01-01" style="font-size: 11px; opacity: 0.5; margin-bottom: 10px;">1 OCAK 2026</time>
-                    <h3 style="font-size: clamp(18px, 3vw, 21px); font-weight: 700; margin-bottom: 12px; line-height: 1.3;">2026 Tasarım Trendleri</h3>
-                    <p style="font-size: 14px; opacity: 0.7; line-height: 1.5; margin-bottom: 20px;">Siber estetik, minimal hatlar ve yeni nesil premium kartvizit vizyonu...</p>
-                    <button onclick="openBlogModal('blog1')" style="margin-top: auto; background: transparent; border: 1px solid #00f2fe; color: #00f2fe; padding: 10px 20px; border-radius: 50px; font-weight: 600; cursor: pointer; align-self: flex-start;">Devamını Oku</button>
+                <div style="padding:clamp(18px,4vw,28px); flex-grow:1; display:flex; flex-direction:column;">
+                    <time datetime="2026-05-16" style="font-size:11px; opacity:0.5; margin-bottom:10px; display:block;">16 MAYIS 2026</time>
+                    <h3 style="font-size:clamp(17px,3vw,21px); font-weight:800; margin-bottom:12px; color:#fff; line-height:1.3;">Arkası Örtücü Folyo Nedir?</h3>
+                    <p style="font-size:14px; opacity:0.7; line-height:1.6; margin-bottom:22px;">Işık ve görüntüyü tamamen bloke eden opak vinil; katman yapısı, kullanım alanları ve uygulama teknikleri...</p>
+                    <button onclick="openFolyoModal('folyo1')" style="margin-top:auto; background:transparent; border:1px solid #00f2fe; color:#00f2fe; padding:11px 22px; border-radius:50px; font-weight:700; cursor:pointer; align-self:flex-start;">Detaylı Oku</button>
                 </div>
             </article>
 
-            <article style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; width: 100%;">
-                <div style="height: clamp(160px, 20vh, 210px); width: 100%; overflow: hidden;">
-                    <img src="images/blog-2.jpg" alt="İstanbul Topkapı Acil Matbaa" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            <!-- Kart 2: Yazı Kesim Folyo -->
+            <article style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,0,127,0.2); border-radius:30px; overflow:hidden; display:flex; flex-direction:column; box-sizing:border-box;">
+                <div style="height:clamp(160px,18vh,200px); background:linear-gradient(135deg,rgba(255,0,127,0.12),rgba(25,1,29,0.9)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
+                    <div style="font-size:44px;">✂️</div>
+                    <span style="font-size:10px; letter-spacing:3px; color:#ff007f; text-transform:uppercase; font-weight:700;">PLOTTER KESİM</span>
                 </div>
-                <div style="padding: clamp(15px, 4vw, 25px); flex-grow: 1; display: flex; flex-direction: column;">
-                    <time datetime="2025-12-28" style="font-size: 11px; opacity: 0.5; margin-bottom: 10px;">28 ARALIK 2025</time>
-                    <h3 style="font-size: clamp(18px, 3vw, 21px); font-weight: 700; margin-bottom: 12px; line-height: 1.3;">Acil Matbaa Çözümleri</h3>
-                    <p style="font-size: 14px; opacity: 0.7; line-height: 1.5; margin-bottom: 20px;">Topkapı'da aynı gün teslim profesyonel baskı ve tasarım süreçleri...</p>
-                    <button onclick="openBlogModal('blog2')" style="margin-top: auto; background: transparent; border: 1px solid #ff007f; color: #ff007f; padding: 10px 20px; border-radius: 50px; font-weight: 600; cursor: pointer; align-self: flex-start;">Devamını Oku</button>
+                <div style="padding:clamp(18px,4vw,28px); flex-grow:1; display:flex; flex-direction:column;">
+                    <time datetime="2026-05-16" style="font-size:11px; opacity:0.5; margin-bottom:10px; display:block;">16 MAYIS 2026</time>
+                    <h3 style="font-size:clamp(17px,3vw,21px); font-weight:800; margin-bottom:12px; color:#fff; line-height:1.3;">Yazı Kesim Folyo Nedir?</h3>
+                    <p style="font-size:14px; opacity:0.7; line-height:1.6; margin-bottom:22px;">Plotter ile hassas kesilen vinil harfler; Oracal serileri, kalınlıklar ve uygulama yöntemleri...</p>
+                    <button onclick="openFolyoModal('folyo2')" style="margin-top:auto; background:transparent; border:1px solid #ff007f; color:#ff007f; padding:11px 22px; border-radius:50px; font-weight:700; cursor:pointer; align-self:flex-start;">Detaylı Oku</button>
+                </div>
+            </article>
+
+            <!-- Kart 3: Delikli Folyo -->
+            <article style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,255,136,0.2); border-radius:30px; overflow:hidden; display:flex; flex-direction:column; box-sizing:border-box;">
+                <div style="height:clamp(160px,18vh,200px); background:linear-gradient(135deg,rgba(0,255,136,0.1),rgba(25,1,29,0.9)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
+                    <div style="font-size:44px; line-height:1;">⬡</div>
+                    <span style="font-size:10px; letter-spacing:3px; color:#00ff88; text-transform:uppercase; font-weight:700;">ONE WAY VİZİON</span>
+                </div>
+                <div style="padding:clamp(18px,4vw,28px); flex-grow:1; display:flex; flex-direction:column;">
+                    <time datetime="2026-05-16" style="font-size:11px; opacity:0.5; margin-bottom:10px; display:block;">16 MAYIS 2026</time>
+                    <h3 style="font-size:clamp(17px,3vw,21px); font-weight:800; margin-bottom:12px; color:#fff; line-height:1.3;">Delikli Folyo (One-Way Vision)</h3>
+                    <p style="font-size:14px; opacity:0.7; line-height:1.6; margin-bottom:22px;">Dışarıdan baskı görünür, içeriden şeffaf; araç arkası, vitrin ve cam uygulamaları...</p>
+                    <button onclick="openFolyoModal('folyo3')" style="margin-top:auto; background:transparent; border:1px solid #00ff88; color:#00ff88; padding:11px 22px; border-radius:50px; font-weight:700; cursor:pointer; align-self:flex-start;">Detaylı Oku</button>
+                </div>
+            </article>
+
+            <!-- Kart 4: Dekota & M² Hesaplama -->
+            <article style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,165,0,0.2); border-radius:30px; overflow:hidden; display:flex; flex-direction:column; box-sizing:border-box;">
+                <div style="height:clamp(160px,18vh,200px); background:linear-gradient(135deg,rgba(255,165,0,0.1),rgba(25,1,29,0.9)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
+                    <div style="font-size:44px;">📐</div>
+                    <span style="font-size:10px; letter-spacing:3px; color:#ffa500; text-transform:uppercase; font-weight:700;">ÖLÇÜ &amp; HESAP</span>
+                </div>
+                <div style="padding:clamp(18px,4vw,28px); flex-grow:1; display:flex; flex-direction:column;">
+                    <time datetime="2026-05-16" style="font-size:11px; opacity:0.5; margin-bottom:10px; display:block;">16 MAYIS 2026</time>
+                    <h3 style="font-size:clamp(17px,3vw,21px); font-weight:800; margin-bottom:12px; color:#fff; line-height:1.3;">Dekota Ölçüleri &amp; M² Hesaplama</h3>
+                    <p style="font-size:14px; opacity:0.7; line-height:1.6; margin-bottom:22px;">Dekota tabaka kalınlıkları, mm cinsinden katman yapısı ve doğru metre kare hesaplama...</p>
+                    <button onclick="openFolyoModal('folyo4')" style="margin-top:auto; background:transparent; border:1px solid #ffa500; color:#ffa500; padding:11px 22px; border-radius:50px; font-weight:700; cursor:pointer; align-self:flex-start;">Detaylı Oku</button>
+                </div>
+            </article>
+
+            <!-- Kart 5: Kartvizit Modelleri -->
+            <article style="background:rgba(255,255,255,0.03); border:1px solid rgba(200,100,255,0.2); border-radius:30px; overflow:hidden; display:flex; flex-direction:column; box-sizing:border-box;">
+                <div style="height:clamp(160px,18vh,200px); background:linear-gradient(135deg,rgba(200,100,255,0.12),rgba(25,1,29,0.9)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
+                    <div style="font-size:44px;">💳</div>
+                    <span style="font-size:10px; letter-spacing:3px; color:#c864ff; text-transform:uppercase; font-weight:700;">KARTVİZİT</span>
+                </div>
+                <div style="padding:clamp(18px,4vw,28px); flex-grow:1; display:flex; flex-direction:column;">
+                    <time datetime="2026-05-16" style="font-size:11px; opacity:0.5; margin-bottom:10px; display:block;">16 MAYIS 2026</time>
+                    <h3 style="font-size:clamp(17px,3vw,21px); font-weight:800; margin-bottom:12px; color:#fff; line-height:1.3;">Kartvizit Modelleri &amp; Kalınlıklar</h3>
+                    <p style="font-size:14px; opacity:0.7; line-height:1.6; margin-bottom:22px;">Kuşe, sert karton, lak, selefon, UV spot; gr/m², kalınlık, köşe seçenekleri ve hangi model nerede kullanılır...</p>
+                    <button onclick="openFolyoModal('folyo5')" style="margin-top:auto; background:transparent; border:1px solid #c864ff; color:#c864ff; padding:11px 22px; border-radius:50px; font-weight:700; cursor:pointer; align-self:flex-start;">Detaylı Oku</button>
+                </div>
+            </article>
+
+            <!-- Kart 6: Dosya Formatları -->
+            <article style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,200,255,0.2); border-radius:30px; overflow:hidden; display:flex; flex-direction:column; box-sizing:border-box;">
+                <div style="height:clamp(160px,18vh,200px); background:linear-gradient(135deg,rgba(0,200,255,0.12),rgba(25,1,29,0.9)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
+                    <div style="font-size:44px;">🗂️</div>
+                    <span style="font-size:10px; letter-spacing:3px; color:#00c8ff; text-transform:uppercase; font-weight:700;">DOSYA FORMATLARI</span>
+                </div>
+                <div style="padding:clamp(18px,4vw,28px); flex-grow:1; display:flex; flex-direction:column;">
+                    <time datetime="2026-05-16" style="font-size:11px; opacity:0.5; margin-bottom:10px; display:block;">16 MAYIS 2026</time>
+                    <h3 style="font-size:clamp(17px,3vw,21px); font-weight:800; margin-bottom:12px; color:#fff; line-height:1.3;">PDF, JPEG, AI, CDR, TIF Baskıda Nasıl Çıkar?</h3>
+                    <p style="font-size:14px; opacity:0.7; line-height:1.6; margin-bottom:22px;">Hangi format baskıda bozulur, hangisi mükemmel sonuç verir? Her formatın güçlü ve zayıf yanları...</p>
+                    <button onclick="openFolyoModal('folyo6')" style="margin-top:auto; background:transparent; border:1px solid #00c8ff; color:#00c8ff; padding:11px 22px; border-radius:50px; font-weight:700; cursor:pointer; align-self:flex-start;">Detaylı Oku</button>
                 </div>
             </article>
 
@@ -136,195 +420,576 @@
     </div>
 </section>
 
-<div id="blog-modal" style="display: none; position: fixed; z-index: 999999; inset: 0; background: rgba(2, 3, 44, 0.95); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 15px; overflow: hidden;" onclick="closeBlogModal()">
-    <div style="background: #19011d; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 700px; max-height: 80vh; border-radius: 25px; overflow-y: auto; padding: clamp(20px, 5vw, 40px); position: relative; box-sizing: border-box;" onclick="event.stopPropagation()">
-        <button onclick="closeBlogModal()" style="position: sticky; top: 0; float: right; background: none; border: none; color: #fff; font-size: 30px; cursor: pointer; line-height: 1;">&times;</button>
-        <div id="modal-content" style="width: 100%; box-sizing: border-box; overflow-x: hidden;"></div>
+
+<!-- ===================== FOLYO MODAL ===================== -->
+<div id="folyo-modal" style="display:none; position:fixed; z-index:100002; inset:0; background:rgba(2,3,44,0.98); backdrop-filter:blur(18px); align-items:center; justify-content:center; padding:clamp(10px,3vw,20px); overflow-x:hidden;" onclick="closeFolyoModal()">
+    <div style="background:#19011d; border:1px solid rgba(255,255,255,0.1); width:100%; max-width:880px; max-height:93vh; border-radius:clamp(20px,4vw,35px); overflow-y:auto; padding:clamp(22px,6vw,52px); position:relative; box-shadow:0 60px 120px rgba(0,0,0,0.9); box-sizing:border-box;" onclick="event.stopPropagation()">
+        <button onclick="closeFolyoModal()" style="position:sticky; top:0; float:right; background:none; border:none; color:#fff; font-size:clamp(28px,8vw,42px); cursor:pointer; line-height:0.5; z-index:100; padding:5px;">&times;</button>
+        <div id="folyo-modal-content" style="width:100%; box-sizing:border-box; overflow-wrap:break-word;"></div>
     </div>
 </div>
 
 <script>
-    const blogData = {
-        blog1: { 
-            title: "2026 Tasarım Trendleri ve Siber Estetik", 
-            content: "2026 yılında kartvizit ve katalog tasarımlarında teknolojik dokunuşlar ön planda olacak. Valexira olarak siber estetiği, minimalist hatlar ve fütüristik renk paletleriyle birleştiriyoruz. Markanızın vizyonunu dijital çağa uygun, premium detaylarla yeniden şekillendiriyoruz." 
-        },
-        blog2: { 
-            title: "İstanbul Topkapı Acil Matbaa Rehberi", 
-            content: "Zamanın en büyük maliyet olduğu iş dünyasında, İstanbul Topkapı bölgesindeki üretim hızımızı dijital sistemlerle optimize ediyoruz. Acil kartvizit, broşür ve matbaa ihtiyaçlarınızda tasarım onayından itibaren saatler içinde teslimat sağlıyoruz." 
-        }
-    };
+const folyoData = {
 
-    function openBlogModal(id) {
-        const modal = document.getElementById('blog-modal');
-        const content = document.getElementById('modal-content');
-        const data = blogData[id];
-        
-        if (data) {
-            content.innerHTML = `
-                <h2 style="font-size: clamp(20px, 4vw, 28px); color: #00f2fe; margin-bottom: 15px;">${data.title}</h2>
-                <div style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.8);">${data.content}</div>
-            `;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    }
+    folyo1: {
+        title: "Arkası Örtücü Folyo Nedir? Tam Teknik Rehber",
+        color: "#00f2fe",
+        content: `
+        <span class="modal-sub">Reklam & Baskı Malzeme Rehberi — Opak Vinil</span>
+        <div class="folyo-toc"><h4>İçindekiler</h4><ol>
+            <li><a href="#">Arkası Örtücü Folyo Tanımı</a></li>
+            <li><a href="#">Katman Yapısı ve Kalınlıklar</a></li>
+            <li><a href="#">Kullanım Alanları</a></li>
+            <li><a href="#">Çeşitleri ve Renkler</a></li>
+            <li><a href="#">Uygulama Teknikleri</a></li>
+            <li><a href="#">Ömür ve Bakım</a></li>
+        </ol></div>
 
-    function closeBlogModal() {
-        document.getElementById('blog-modal').style.display = 'none';
-        document.body.style.overflow = 'auto';
+        <h3 class="modal-h3">Arkası Örtücü Folyo Nedir?</h3>
+        <p class="modal-p">Arkası örtücü folyo, ışık geçirmez (opak) yapısıyla her iki yüzden de görüntü ve ışığı tamamen bloke eden kendinden yapışkanlı vinil filmdir. Uygulandığında arkadaki yüzey tamamen örtülür; ne ışık geçer ne de altındaki renk, desen veya nesne görünür hale gelir.</p>
+        <div class="tip-box"><strong>Önemli Fark:</strong> Şeffaf baskılı folyoda alttaki yüzey görünmeye devam eder. Arkası örtücü folyoda ise alt yüzey %100 görünmez hale gelir.</div>
+
+        <h3 class="modal-h3">Katman Yapısı ve Fiziksel Özellikler</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Katman</th><th>Açıklama</th><th>Kalınlık</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Yüzey Filmi (PVC)</strong></td><td>Baskının yapıldığı dış yüzey. Mat, parlak veya dokulu.</td><td>70–100 µm</td></tr>
+                <tr><td><strong>Opak Bariyer</strong></td><td>Işık ve görüntüyü bloke eden pigmentli katman.</td><td>20–40 µm</td></tr>
+                <tr><td><strong>Yapışkan</strong></td><td>Akrodik veya solvent bazlı; kalıcı veya çıkarılabilir.</td><td>25–50 µm</td></tr>
+                <tr><td><strong>Silikonlu Liner</strong></td><td>Yapışkanı koruyan ve uygulamada soyulan kağıt.</td><td>80–120 µm</td></tr>
+            </tbody>
+        </table>
+        <p class="modal-p">Toplam kalınlık (liner dahil) <strong>195–310 µm</strong> arasındadır. Liner soyulduğunda 95–190 µm inceliğe gelir.</p>
+
+        <h3 class="modal-h3">Kullanım Alanları</h3>
+        <ul class="modal-ul">
+            <li><strong>Mağaza vitrin kaplamaları:</strong> Güneş kesimi, mahremiyet veya marka rengi için.</li>
+            <li><strong>Araç gövde giydirme:</strong> Tam renk değişikliği, mat veya parlak finish.</li>
+            <li><strong>Ofis cam bölmeler:</strong> Görsel mahremiyet + kurumsal görünüm.</li>
+            <li><strong>Fuar stand panelleri:</strong> Hızlı kurulum ve söküm.</li>
+            <li><strong>AVM yenileme çalışmaları:</strong> İnşaat sürecinde geçici örtme.</li>
+        </ul>
+
+        <h3 class="modal-h3">Çeşitleri</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Tür</th><th>Yüzey</th><th>Kullanım</th></tr></thead>
+            <tbody>
+                <tr><td>Mat Opak</td><td>Pürüzsüz mat</td><td>Araç, duvar, zemin</td></tr>
+                <tr><td>Parlak Opak</td><td>Yüksek parlaklık</td><td>Araç, vitrin, dekor</td></tr>
+                <tr><td>Saten / Yarı Mat</td><td>Saten görünüm</td><td>Lüks araç, ofis</td></tr>
+                <tr><td>Doku Baskılı</td><td>Karbon, deri, fırçalı metal</td><td>Özel araç giydirme</td></tr>
+                <tr><td>Beyaz Opak (baskı altı)</td><td>Parlak beyaz</td><td>Dijital baskı altlığı</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="modal-h3">Uygulama Teknikleri</h3>
+        <ul class="modal-ul">
+            <li>Yüzey izopropil alkol ile temizlenir ve kurutulur.</li>
+            <li>Uygulama <strong>+10°C – +35°C</strong> arasında yapılmalıdır.</li>
+            <li>Wet (ıslak) teknikte sabun-su ile konumlandırma kolaylaşır.</li>
+            <li>Rakle (squeegee) ile hava kabarcıkları dışarı bastırılır.</li>
+            <li>Kenarlar ısı tabancasıyla ısıtılarak yapıştırılır.</li>
+        </ul>
+
+        <h3 class="modal-h3">Ömür</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Koşul</th><th>Ömür</th></tr></thead>
+            <tbody>
+                <tr><td>İç mekân</td><td>7–12 yıl</td></tr>
+                <tr><td>Dış mekân</td><td>5–8 yıl</td></tr>
+                <tr><td>Araç uygulaması</td><td>3–7 yıl</td></tr>
+                <tr><td>Zemin (yoğun trafik)</td><td>1–3 yıl</td></tr>
+            </tbody>
+        </table>`
+    },
+
+    folyo2: {
+        title: "Yazı Kesim Folyo Nedir? Plotter Kesim Rehberi",
+        color: "#ff007f",
+        content: `
+        <span class="modal-sub">Reklam & Baskı Malzeme Rehberi — Kesim Vinil</span>
+        <h3 class="modal-h3">Yazı Kesim Folyo Nedir?</h3>
+        <p class="modal-p">Plotter adı verilen özel kesim makineleriyle istenilen harf, logo veya şekle hassas biçimde kesilen kendinden yapışkanlı PVC filmdir. Baskı gerektirmez; renk folyo rulosunun kendisindedir. Tek renk ve düz formlar için son derece ekonomik ve dayanıklı bir çözümdür.</p>
+
+        <h3 class="modal-h3">Oracal Serileri Karşılaştırması</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Seri</th><th>Kalınlık</th><th>Dış Ömür</th><th>Özellik</th></tr></thead>
+            <tbody>
+                <tr><td>Oracal 631</td><td>~75 µm</td><td>1–2 yıl</td><td>Çıkarılabilir yapışkan, duvar</td></tr>
+                <tr><td>Oracal 651</td><td>~80 µm</td><td>6 yıl</td><td>Kalıcı, cam-araç-tabela</td></tr>
+                <tr><td>Oracal 751</td><td>~80 µm</td><td>8 yıl</td><td>Araç gövdesi, kurvilineer</td></tr>
+                <tr><td>Oracal 951</td><td>~100 µm</td><td>10+ yıl</td><td>Conform, 3D yüzeyler</td></tr>
+                <tr><td>Oracal 970</td><td>~100 µm</td><td>10 yıl</td><td>Araç giydirme, doku efektleri</td></tr>
+                <tr><td>3M 1080</td><td>~130 µm</td><td>10 yıl</td><td>Profesyonel araç giydirme</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="modal-h3">Kullanım Alanları</h3>
+        <ul class="modal-ul">
+            <li>Mağaza ve tabela yazıları</li>
+            <li>Araç kapı, kaput ve gövde yazıları</li>
+            <li>Ofis, ev ve çocuk odası duvar yazıları (Oracal 631)</li>
+            <li>Laptop, tablet, konsol kaplamaları</li>
+            <li>Kask, bot, alet çantası branding</li>
+        </ul>
+
+        <h3 class="modal-h3">Kesim Süreci</h3>
+        <ul class="modal-ul">
+            <li>Tasarım Adobe Illustrator / CorelDRAW'da vektöre çevrilir.</li>
+            <li>Plotter yalnızca folyo yüzeyini keser (liner sağlam kalır).</li>
+            <li>Gereksiz alanlar spatula ile soyulur (weeding).</li>
+            <li>Şeffaf transfer bandıyla yüzeye aktarılır.</li>
+        </ul>
+
+        <div class="warn-box"><strong>Uyarı:</strong> Minimum harf yüksekliği 10–15 mm olmalıdır. Dosya mutlaka vektörel (AI, EPS, CDR, SVG) formatta teslim edilmelidir; JPEG/PNG kabul edilmez.</div>`
+    },
+
+    folyo3: {
+        title: "Delikli Folyo (One-Way Vision) Tam Rehber",
+        color: "#00ff88",
+        content: `
+        <span class="modal-sub">Reklam & Baskı Malzeme Rehberi — Perforeli Vinil</span>
+        <h3 class="modal-h3">Delikli Folyo Nedir?</h3>
+        <p class="modal-p">Mikro delikli yapısıyla tek yönlü görüş sağlayan özel baskı vinilidir. Dışarıdan renkli baskı görünür; içeriden camın şeffaflığı korunur. Bu etki gündüz ışığı farkından kaynaklanır.</p>
+
+        <div class="calc-box">
+            <div class="calc-formula">%50 BASKI + %50 DELİK = Standart</div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.45); margin:0;">Endüstri standardı 50/50 oranı</p>
+        </div>
+
+        <h3 class="modal-h3">Delik Oranları</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Oran</th><th>Delik %</th><th>İçeriden Görüş</th><th>Kullanım</th></tr></thead>
+            <tbody>
+                <tr><td>60/40</td><td>%40</td><td>Kısıtlı</td><td>Vitrin, güneş yönü</td></tr>
+                <tr><td>50/50</td><td>%50</td><td>İyi</td><td>Genel kullanım (standart)</td></tr>
+                <tr><td>40/60</td><td>%60</td><td>Çok iyi</td><td>Araç arka camı</td></tr>
+                <tr><td>30/70</td><td>%70</td><td>Mükemmel</td><td>Sürücü görüşü kritik araçlar</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box"><strong>Araç arka camı:</strong> Türkiye trafik mevzuatında tam opak kaplama yasaktır. Delikli folyo (%50+ delikli) araç arka camında hem yasal hem pratik tek seçenektir.</div>
+
+        <h3 class="modal-h3">Kullanım Alanları</h3>
+        <ul class="modal-ul">
+            <li>Araç arka camları (kamyon, minibüs, otobüs)</li>
+            <li>AVM ve mağaza vitrin camları</li>
+            <li>Otobüs yan camları — büyük format reklam</li>
+            <li>Bina dış cephe camları</li>
+            <li>Ofis cam bölmeler</li>
+        </ul>
+
+        <h3 class="modal-h3">SSS</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Soru</th><th>Yanıt</th></tr></thead>
+            <tbody>
+                <tr><td>Gece içeriden görünür mü?</td><td>İç aydınlatma varsa görünebilir. Etki gündüz ışığına dayanır.</td></tr>
+                <tr><td>Yıkanabilir mi?</td><td>Evet, araç yıkamaya dayanıklıdır.</td></tr>
+                <tr><td>Ömrü?</td><td>UV laminasyon ile 3–5 yıl.</td></tr>
+                <tr><td>Trafik için yasal mı?</td><td>%50+ delikli modeller Türkiye'de yasal.</td></tr>
+            </tbody>
+        </table>`
+    },
+
+    folyo4: {
+        title: "Dekota Nedir? Ölçüler, Tabakalar ve M² Hesaplama",
+        color: "#ffa500",
+        content: `
+        <span class="modal-sub">Reklam & Baskı Malzeme Rehberi — Teknik Ölçüler</span>
+        <h3 class="modal-h3">Dekota Nedir?</h3>
+        <p class="modal-p">%100 saf PVC'den üretilen hafif, sert ve işlenebilir köpük levha malzemesidir. Direkt dijital baskıya ve folyo uygulamasına uygun pürüzsüz yüzeyi sayesinde reklam sektörünün vazgeçilmez malzemesidir.</p>
+
+        <h3 class="modal-h3">Kalınlık ve Tabaka Ölçüleri</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Kalınlık</th><th>Ağırlık (kg/m²)</th><th>Tipik Kullanım</th></tr></thead>
+            <tbody>
+                <tr><td><strong>1 mm</strong></td><td>1,2–1,4</td><td>İnce etiketler, raf tabakaları</td></tr>
+                <tr><td><strong>2 mm</strong></td><td>2,4–2,8</td><td>İç mekân tabelaları, broşür standları</td></tr>
+                <tr><td><strong>3 mm</strong></td><td>3,6–4,2</td><td>Reklam panoları, vitrin ekranlar</td></tr>
+                <tr><td><strong>5 mm</strong></td><td>6,0–7,0</td><td>Stand baskı, sergi duvarları</td></tr>
+                <tr><td><strong>8 mm</strong></td><td>9,6–11</td><td>Dış mekân panoları</td></tr>
+                <tr><td><strong>10 mm</strong></td><td>12–14</td><td>Hacimli harf tabanları</td></tr>
+                <tr><td><strong>19 mm</strong></td><td>22–26</td><td>Yapısal paneller, cephe</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>Standart levha boyutu:</strong> 122 × 244 cm. En yaygın kullanılan kalınlıklar <strong>3 mm</strong> (iç mekân) ve <strong>5 mm</strong> (direkt baskı) olarak bilinir.</div>
+
+        <hr class="section-divider">
+        <h3 class="modal-h3">Metre Kare (m²) Nasıl Hesaplanır?</h3>
+        <div class="calc-box">
+            <div class="calc-formula">EN (m) × BOY (m) = ALAN (m²)</div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.45); margin:6px 0 0;">Santimetreyi 100'e, milimetreyi 1000'e bölerek metreye çevirin.</p>
+        </div>
+
+        <p class="modal-p"><strong>Pratik örnekler:</strong></p>
+        <table class="folyo-info-table">
+            <thead><tr><th>Malzeme</th><th>Ölçü</th><th>Hesap</th><th>Sonuç</th></tr></thead>
+            <tbody>
+                <tr><td>Vitrin brandası</td><td>3,5 m × 2,2 m</td><td>3,5 × 2,2</td><td><strong>7,70 m²</strong></td></tr>
+                <tr><td>Araç arka camı</td><td>150 cm × 60 cm</td><td>1,50 × 0,60</td><td><strong>0,90 m²</strong></td></tr>
+                <tr><td>Tabela levhası</td><td>850 mm × 400 mm</td><td>0,85 × 0,40</td><td><strong>0,34 m²</strong></td></tr>
+                <tr><td>4 adet tabela</td><td>1,50 × 0,60 × 4</td><td>0,90 × 4</td><td><strong>3,60 m²</strong></td></tr>
+            </tbody>
+        </table>
+        <div class="warn-box"><strong>Sektör notu:</strong> Çoğu firmada minimum sipariş 0,5 m²'dir. 0,5 m²'nin altındaki işler de 0,5 m² üzerinden fiyatlandırılır.</div>`
+    },
+
+    /* ===============================================================
+       FOLYO 5 — KARTVİZİT MODELLERİ & KALINLIKLAR
+    =============================================================== */
+    folyo5: {
+        title: "Kartvizit Modelleri, Kalınlıklar ve Kağıt Seçimi",
+        color: "#c864ff",
+        content: `
+        <span class="modal-sub">Matbaa Teknik Rehberi — Kartvizit</span>
+
+        <div class="folyo-toc"><h4>İçindekiler</h4><ol>
+            <li><a href="#">Standart Kartvizit Boyutları</a></li>
+            <li><a href="#">Kağıt Türleri ve Gramaj</a></li>
+            <li><a href="#">Kalınlık (µm / mm) Tablosu</a></li>
+            <li><a href="#">Yüzey İşlemleri</a></li>
+            <li><a href="#">Özel Kartvizit Modelleri</a></li>
+            <li><a href="#">Hangi Model Nerede Kullanılır?</a></li>
+            <li><a href="#">Dosya Hazırlama</a></li>
+        </ol></div>
+
+        <h3 class="modal-h3">Standart Kartvizit Boyutları</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Format</th><th>Ölçü (mm)</th><th>Kullanım</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Standart (TR/EU)</strong></td><td>85 × 55 mm</td><td>En yaygın; cüzdan, kartvizit kutusu uyumlu</td></tr>
+                <tr><td>Geniş</td><td>90 × 55 mm</td><td>Biraz daha fazla alan, aynı yükseklik</td></tr>
+                <tr><td>Kare</td><td>55 × 55 mm</td><td>Yaratıcı, dikkat çekici format</td></tr>
+                <tr><td>Uzun İnce</td><td>90 × 45 mm</td><td>Minimalist ve modern görünüm</td></tr>
+                <tr><td>ABD Standardı</td><td>88,9 × 50,8 mm</td><td>Amerika pazarı için</td></tr>
+                <tr><td>Mini Kartvizit</td><td>70 × 45 mm</td><td>Marka kartı, sadakat kartı</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="modal-h3">Kağıt Türleri ve Gramaj</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Kağıt Türü</th><th>Gramaj</th><th>Kalınlık (yaklaşık)</th><th>Özellik</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Kuşe Parlak</strong></td><td>300 gr/m²</td><td>~270 µm</td><td>Ekonomik, parlak yüzey, en yaygın</td></tr>
+                <tr><td><strong>Kuşe Mat</strong></td><td>300 gr/m²</td><td>~300 µm</td><td>Şık mat görünüm, parmak izi göstermez</td></tr>
+                <tr><td>Kuşe Parlak</td><td>350 gr/m²</td><td>~320 µm</td><td>Daha sert tutum, premium his</td></tr>
+                <tr><td><strong>Sert Karton</strong></td><td>400 gr/m²</td><td>~380–400 µm</td><td>Yüksek kalınlık hissi, dayanıklı</td></tr>
+                <tr><td>Duplex (çift kat)</td><td>600–700 gr/m²</td><td>~600–700 µm</td><td>İki katman yapıştırılmış, en sert</td></tr>
+                <tr><td>Kraft Karton</td><td>300–350 gr/m²</td><td>~320–360 µm</td><td>Doğal kahverengi görünüm, organik hissiyat</td></tr>
+                <tr><td>Transparan PVC</td><td>—</td><td>~350–500 µm</td><td>Şeffaf plastik, modern ve lüks</td></tr>
+                <tr><td>Metal Folyo Karton</td><td>300–350 gr/m²</td><td>~320 µm</td><td>Altın/gümüş folyo kaplı, göz alıcı</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box"><strong>Kalınlık hissi:</strong> Kartviziti eline alan kişinin "bu kaliteli" demesi için <strong>en az 350 µm (350 gr kuşe veya 400 gr sert karton)</strong> tercih edilmesi önerilir. 270 µm ve altı ucuz ve ince hissini verir.</div>
+
+        <h3 class="modal-h3">Yüzey İşlemleri (Laminasyon ve Özel Teknikler)</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>İşlem</th><th>Görünüm</th><th>Avantaj</th><th>Dezavantaj</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Parlak Selefon</strong></td><td>Yüksek parlaklık</td><td>Ekonomik, renkleri canlı gösterir</td><td>Parmak izi bırakır</td></tr>
+                <tr><td><strong>Mat Selefon</strong></td><td>Ipeksi mat</td><td>Şık, profesyonel, parmak izi az</td><td>Renkler biraz söner</td></tr>
+                <tr><td><strong>Soft Touch (Kadife)</strong></td><td>Kadifemsi mat</td><td>Dokunuşta premium his, lüks görünüm</td><td>Maliyeti yüksek</td></tr>
+                <tr><td><strong>UV Spot Lak</strong></td><td>Seçili alanlarda parlaklık</td><td>Logo veya öğeler üzerinde etkileyici kontrast</td><td>Yüksek maliyet, ayrı film gerektirir</td></tr>
+                <tr><td><strong>Kabartma (Emboss)</strong></td><td>3D yükseltilmiş desen</td><td>Dokunsal etki, prestige görünüm</td><td>En yüksek maliyet</td></tr>
+                <tr><td><strong>Folyo Yaldız</strong></td><td>Altın/gümüş/renkli metalik</td><td>Logo ve metinlerde parlak metalik etki</td><td>Ayrı kalıp gerektirir</td></tr>
+                <tr><td>Aqua Lak</td><td>Hafif parlak koruma</td><td>Suya karşı dayanım, renk parlaklığı</td><td>Selefona göre daha az etkili</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="modal-h3">Özel Kartvizit Modelleri</h3>
+        <ul class="modal-ul">
+            <li><strong>Köşe Kesim (Yuvarlatılmış Köşe):</strong> R = 3 mm veya R = 5 mm köşe yarıçapı ile yuvarlatılmış kartlar. Modern ve şık görünüm, cüzdana daha iyi oturur.</li>
+            <li><strong>Şekil Kesim (Die-Cut):</strong> Standart dikdörtgen dışında özel şekil (dairesel, kalp, ev vb.). CNC kesim ile gerçekleştirilir.</li>
+            <li><strong>Delikli Kartvizit:</strong> Ortasında veya köşesinde delik bulunan model; anahtarlık, askı ambalajı entegrasyonu için.</li>
+            <li><strong>Katlanır (Folded) Kartvizit:</strong> Açıldığında A6 veya A7 boyutuna ulaşan katlanabilir model; mini broşür işlevi görür.</li>
+            <li><strong>Lentikular (3D Efektli):</strong> Hafif kıpırdatıldığında değişen görsel; teknolojik sektörler için.</li>
+            <li><strong>QR Kodlu Kartvizit:</strong> Dijital profil veya web sitesine yönlendiren QR kod entegrasyonu. Standart baskı tekniğiyle yapılır.</li>
+            <li><strong>NFC Kartvizit:</strong> İçine yerleştirilen NFC çip ile akıllı telefona dokunulduğunda bilgi aktarır. PVC veya sert karton gövde gerektirir.</li>
+        </ul>
+
+        <h3 class="modal-h3">Hangi Model Nerede Kullanılır?</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Sektör / Kullanım</th><th>Önerilen Model</th></tr></thead>
+            <tbody>
+                <tr><td>Kurumsal şirket, avukat, muhasebeci</td><td>300–350 gr kuşe mat + mat selefon veya soft touch</td></tr>
+                <tr><td>Yaratıcı ajans, tasarımcı, fotoğrafçı</td><td>400 gr sert karton + UV spot lak veya folyo yaldız</td></tr>
+                <tr><td>Lüks marka, kuyumcu, butik otel</td><td>Duplex veya soft touch + kabartma + altın folyo</td></tr>
+                <tr><td>Restoran, kafe, esnaf</td><td>300 gr kuşe parlak, ekonomik adet baskı</td></tr>
+                <tr><td>Teknoloji / startup</td><td>Transparan PVC veya NFC kartvizit</td></tr>
+                <tr><td>Organik / doğal ürün markası</td><td>Kraft karton, mat selefon, yuvarlatılmış köşe</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="modal-h3">Dosya Hazırlama (Kartvizit)</h3>
+        <ul class="modal-ul">
+            <li>Boyut: <strong>85 × 55 mm</strong> + her kenardan <strong>3 mm bleed</strong> = dosya boyutu 91 × 61 mm</li>
+            <li>Metin ve logolar kenara en az <strong>3–4 mm</strong> uzakta olmalıdır (güvenli alan).</li>
+            <li>Renk modu: <strong>CMYK</strong> (RGB ile tasarım yapıldıysa mutlaka dönüştürülmeli)</li>
+            <li>Çözünürlük: <strong>300 DPI minimum</strong> (350 DPI önerilir)</li>
+            <li>Fontlar mutlaka <strong>eğrilere çevrilmeli</strong> (Create Outlines / Convert to Curves)</li>
+            <li>Dosya formatı: <strong>PDF/X-1a veya PDF/X-4</strong> (şeffaflık düzleştirilmiş)</li>
+        </ul>
+
+        <div class="warn-box"><strong>Siyah renk uyarısı:</strong> Kartvizitte siyah alanlar için <strong>C:0 M:0 Y:0 K:100</strong> (saf siyah) kullanın. Büyük siyah alanlar için <strong>Zengin Siyah (C:60 M:40 Y:40 K:100)</strong> tercih edilebilir; ancak ince metin ve çizgilerde kesinlikle saf siyah (K:100) kullanılmalıdır.</div>
+        `
+    },
+
+    /* ===============================================================
+       FOLYO 6 — DOSYA FORMATLARI
+    =============================================================== */
+    folyo6: {
+        title: "PDF, JPEG, AI, CDR, TIF Baskıda Nasıl Çıkar?",
+        color: "#00c8ff",
+        content: `
+        <span class="modal-sub">Baskı Teknik Rehberi — Dosya Formatları</span>
+
+        <div class="folyo-toc"><h4>İçindekiler</h4><ol>
+            <li><a href="#">Neden Format Bu Kadar Önemli?</a></li>
+            <li><a href="#">PDF — Altın Standart</a></li>
+            <li><a href="#">AI (Adobe Illustrator)</a></li>
+            <li><a href="#">CDR (CorelDRAW)</a></li>
+            <li><a href="#">EPS Formatı</a></li>
+            <li><a href="#">TIFF — Piksel Formatların En İyisi</a></li>
+            <li><a href="#">JPEG — Dikkatli Kullanın</a></li>
+            <li><a href="#">PNG ve Şeffaflık Tuzağı</a></li>
+            <li><a href="#">Genel Baskı Kuralları</a></li>
+        </ol></div>
+
+        <h3 class="modal-h3">Neden Format Bu Kadar Önemli?</h3>
+        <p class="modal-p">Ekranda mükemmel görünen bir tasarım baskıda bozulabilir, soluk çıkabilir veya pikselli görünebilir. Bunun tek nedeni dosya formatı ve hazırlık hatasıdır. Baskı makineleri ekran gibi RGB ışığıyla değil, CMYK mürekkepleriyle çalışır. Bu farkı anlamak sizi ciddi para ve zaman kaybından korur.</p>
+
+        <div class="warn-box"><strong>En sık yapılan hata:</strong> Tasarımı ekranda RGB modunda yapıp JPEG olarak kaydetmek. Baskıda renkler %20–40 oranında farklı (daha mat, daha koyu veya daha soluk) çıkabilir.</div>
+
+        <h3 class="modal-h3">PDF — Baskının Altın Standardı</h3>
+        <p class="modal-p"><span class="fmt-badge fmt-green">EN İYİ</span> Profesyonel baskı için PDF bugün dünyada kabul gören tek evrensel standarttır. Vektör verilerini, resimleri, fontları ve renk profillerini tek bir dosyada taşır.</p>
+        <table class="folyo-info-table">
+            <thead><tr><th>PDF Türü</th><th>Kullanım</th><th>Not</th></tr></thead>
+            <tbody>
+                <tr><td><strong>PDF/X-1a</strong></td><td>Ofset baskı, matbaa</td><td>Şeffaflık düzleştirilmiş, CMYK zorunlu. En güvenli seçenek.</td></tr>
+                <tr><td><strong>PDF/X-4</strong></td><td>Dijital baskı, geniş format</td><td>Şeffaflık destekli, daha modern standart.</td></tr>
+                <tr><td>PDF (genel)</td><td>Orta kalite</td><td>RGB içerebilir; renk kaymaları yaşanabilir.</td></tr>
+            </tbody>
+        </table>
+        <div class="good-box"><strong>Doğru PDF nasıl kaydedilir:</strong> Illustrator'da File → Save As → Adobe PDF → PDF/X-1a seçeneğini seçin. "Marks and Bleeds" bölümünden bleed paylarını (3 mm) ekleyin.</div>
+
+        <h3 class="modal-h3">AI (Adobe Illustrator) — Vektörün Kalesi</h3>
+        <p class="modal-p"><span class="fmt-badge fmt-green">PROFESYONEL</span> AI formatı saf vektör verisini barındırır. Sonsuz büyütülüp küçültülebilir; kalite hiç düşmez. Logo, yazı kesim folyo, tabela ve kartvizit tasarımları için ideal formattır.</p>
+        <ul class="modal-ul">
+            <li><strong>Avantaj:</strong> Sonsuz ölçeklenebilir, en küçük detaylar dahi kayıpsız korunur.</li>
+            <li><strong>Avantaj:</strong> Plotter kesim makineleri AI dosyasını doğrudan işleyebilir.</li>
+            <li><strong>Dikkat:</strong> Gömülmemiş fontlar başka bilgisayarda açıldığında kayar. Mutlaka fontları eğrilere çevirin.</li>
+            <li><strong>Dikkat:</strong> Renk modu CMYK ayarlanmış olmalıdır (Document Color Mode → CMYK).</li>
+            <li><strong>Dikkat:</strong> Gömülmemiş görseller dosya boyutunu düşürür ancak baskıda eksik görsel hatası verir.</li>
+        </ul>
+
+        <h3 class="modal-h3">CDR (CorelDRAW) — Türkiye'nin Favorisi</h3>
+        <p class="modal-p"><span class="fmt-badge fmt-yellow">KOŞULLU</span> Türkiye'deki matbaa ve tabela sektöründe CorelDRAW son derece yaygındır. CDR formatı vektörel olmakla birlikte dikkat edilmesi gereken birkaç kritik nokta vardır.</p>
+        <ul class="modal-ul">
+            <li><strong>Versiyon uyumsuzluğu:</strong> CDR dosyaları geriye dönük uyumsuzdur. CorelDRAW X8'de hazırlanan dosya CorelDRAW X5'te açılmaz. Baskıya göndermeden önce hangi versiyonun kullanıldığını sorun.</li>
+            <li><strong>Font sorunu:</strong> Fontlar eğrilere çevrilmezse (Convert to Curves) alıcı bilgisayarda farklı font yüklüyse tasarım bozulur.</li>
+            <li><strong>Renk sorunu:</strong> CorelDRAW'da spot renkler (Pantone) yanlış tanımlanırsa baskıda beklenmedik renk çıkabilir.</li>
+            <li><strong>Önerimiz:</strong> CDR'ı PDF/X-1a veya EPS olarak dışa aktarıp o şekilde gönderin.</li>
+        </ul>
+        <div class="warn-box"><strong>CDR tuzağı:</strong> "Baskıya hazır CDR gönderiyorum" diyenlerin %60'ı font eğriye çevirmemiş, %40'ı RGB renk modu bırakmıştır. Baskı firması bu hatayı fark etmeyebilir ve bozuk çıktı üretilir.</div>
+
+        <h3 class="modal-h3">EPS — Eski Ama Güvenilir</h3>
+        <p class="modal-p"><span class="fmt-badge fmt-cyan">UYGUN</span> EPS (Encapsulated PostScript) hem vektör hem de piksel verisi taşıyabilen köklü bir formattır. Logo transferlerinde ve eski RIP sistemlerinde hâlâ kullanılır.</p>
+        <ul class="modal-ul">
+            <li>Vektörel logolar için idealdir; her ölçekte keskin kalır.</li>
+            <li>AI veya CDR'dan EPS olarak dışa aktarılan dosyalar çoğu baskı firmasında sorunsuz açılır.</li>
+            <li>Şeffaflık desteği sınırlıdır; şeffaflık içeren tasarımlarda düzleştirme gerekebilir.</li>
+        </ul>
+
+        <h3 class="modal-h3">TIFF — Piksel Formatların En İyisi</h3>
+        <p class="modal-p"><span class="fmt-badge fmt-green">FOTOĞRAF İÇİN EN İYİ</span> TIFF (Tagged Image File Format), sıkıştırmasız veya kayıpsız sıkıştırma ile piksel kalitesini tam korur. Fotoğraf baskılarında, büyük format görsel aktarımlarında ve baskı öncesi iş akışlarında tercih edilir.</p>
+        <table class="folyo-info-table">
+            <thead><tr><th>Parametre</th><th>Değer</th></tr></thead>
+            <tbody>
+                <tr><td>Renk modu</td><td>CMYK (8-bit veya 16-bit)</td></tr>
+                <tr><td>Sıkıştırma</td><td>LZW (kayıpsız) veya sıkıştırmasız</td></tr>
+                <tr><td>Küçük format çözünürlük</td><td>300 DPI minimum</td></tr>
+                <tr><td>Büyük format çözünürlük</td><td>72–150 DPI (ölçeklenmiş boyutta)</td></tr>
+                <tr><td>Katmanlar</td><td>Düzleştirilmiş (flatten) gönderilmeli</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>TIFF avantajı:</strong> JPEG gibi her kayıt ettiğinizde kalite düşmez. Üzerinde tekrar tekrar çalışmanız gereken dosyalar için TIFF'i tercih edin.</div>
+
+        <h3 class="modal-h3">JPEG — Dikkatli Kullanın</h3>
+        <p class="modal-p"><span class="fmt-badge fmt-red">RİSKLİ</span> JPEG en yaygın kullanılan format olmakla birlikte baskı için ciddi riskleri vardır.</p>
+        <ul class="modal-ul">
+            <li><strong>Kayıplı sıkıştırma:</strong> Her kayıtta kalite düşer. Birçok kez kayıt edilmiş JPEG'ler pikselleşir ve bloklu görünür.</li>
+            <li><strong>RGB renk modu:</strong> JPEG'ler genellikle RGB kaydedilir. CMYK'ya dönüşümde renk kaymaları yaşanır.</li>
+            <li><strong>Şeffaflık yok:</strong> JPEG şeffaflığı desteklemez; şeffaf alanlar beyaz arka planla doldurulur.</li>
+            <li><strong>Kenar yumuşaması:</strong> Keskin kenarlı metin ve logolar JPEG sıkıştırmasında bulanıklaşır.</li>
+        </ul>
+        <div class="warn-box"><strong>JPEG ne zaman kabul edilir?</strong> Yalnızca büyük format baskılarda (branda, araç giydirme) ve çözünürlük baskı boyutuna göre yeterliyse (1:1 boyutunda minimum 100 DPI) sorunsuz kullanılabilir. Kartvizit, broşür ve küçük format baskılarda JPEG'den kaçının.</div>
+
+        <h3 class="modal-h3">PNG ve Şeffaflık Tuzağı</h3>
+        <p class="modal-p"><span class="fmt-badge fmt-yellow">DİKKATLİ</span> PNG şeffaflığı destekler ve web için mükemmeldir; ancak baskıda tuzaklar barındırır.</p>
+        <ul class="modal-ul">
+            <li>PNG dosyaları RGB renk modundadır; CMYK desteği yoktur. Baskıda renk kayması garantilidir.</li>
+            <li>Şeffaf arka planı olan logo PNG'leri matbaalarda beyaz veya siyah arka planla basılabilir.</li>
+            <li>Logo gönderirken PNG yerine <strong>AI veya EPS</strong> tercih edin.</li>
+        </ul>
+
+        <hr class="section-divider">
+        <h3 class="modal-h3">Genel Baskı Kuralları — Özet Tablo</h3>
+        <table class="folyo-info-table">
+            <thead><tr><th>Kural</th><th>Açıklama</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Renk modu</strong></td><td>CMYK (RGB kesinlikle kullanmayın)</td></tr>
+                <tr><td><strong>Bleed (taşma payı)</strong></td><td>Her kenara 3–5 mm</td></tr>
+                <tr><td><strong>Güvenli alan</strong></td><td>Kenara 3–5 mm içerisi</td></tr>
+                <tr><td><strong>Çözünürlük (küçük format)</strong></td><td>300 DPI minimum</td></tr>
+                <tr><td><strong>Çözünürlük (büyük format)</strong></td><td>72–150 DPI (gerçek boyutta)</td></tr>
+                <tr><td><strong>Font durumu</strong></td><td>Eğrilere çevrilmiş (outline/curves)</td></tr>
+                <tr><td><strong>Siyah metin rengi</strong></td><td>K:100 (diğer kanallar 0)</td></tr>
+                <tr><td><strong>Siyah büyük alan</strong></td><td>C:60 M:40 Y:40 K:100 (zengin siyah)</td></tr>
+                <tr><td><strong>Görseller</strong></td><td>Dosyaya gömülmüş olmalı (embed)</td></tr>
+                <tr><td><strong>Tercih edilen format</strong></td><td>PDF/X-1a veya PDF/X-4</td></tr>
+                <tr><td><strong>Vektörel logo için</strong></td><td>AI veya EPS (CDR ise outline yapılmış)</td></tr>
+                <tr><td><strong>Fotoğraf için</strong></td><td>TIFF (CMYK, LZW sıkıştırma)</td></tr>
+            </tbody>
+        </table>
+
+        <div class="good-box"><strong>Altın kural:</strong> Baskıya gönderdiğiniz dosyada her şeyi kendiniz bir kez kontrol edin: renk modu, DPI, bleed, fontlar. Bir hata 500 adet kartviziti çöpe atmak demektir. Valexira Dijital olarak her dosyayı baskı öncesi ücretsiz olarak kontrol ediyoruz.</div>
+        `
     }
+};
+
+function openFolyoModal(id) {
+    const modal = document.getElementById('folyo-modal');
+    const content = document.getElementById('folyo-modal-content');
+    const post = folyoData[id];
+    if (!post) return;
+    content.innerHTML = `<h2 class="modal-h2" style="color:${post.color};">${post.title}</h2><div style="width:100%; box-sizing:border-box;">${post.content}</div>`;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeFolyoModal() {
+    document.getElementById('folyo-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
 </script>
 
-<section style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(50px, 8vh, 100px) 0; background: transparent; font-family: 'Segoe UI', sans-serif; color: #fff;">
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(15px, 4vw, 25px); box-sizing: border-box;">
-        
-        <header style="text-align: center; margin-bottom: clamp(35px, 5vw, 60px);">
-            <span style="color: #00f2fe; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; font-size: 13px; display: block; margin-bottom: 10px;">SANAT VE TEKNİK</span>
-            <h2 style="font-size: clamp(26px, 5vw, 42px); font-weight: 900; margin: 0; line-height: 1.1;">Baskı & <span style="color: #ff007f;">Matbaa Rehberi</span></h2>
+
+<!-- ===================== SEO METİN BLOĞU ===================== -->
+<section style="width:100%; overflow-x:hidden; box-sizing:border-box; padding:clamp(50px,8vh,90px) 0; background:rgba(255,255,255,0.015); font-family:'Segoe UI',sans-serif; color:#fff; border-top:1px solid rgba(255,255,255,0.06);">
+    <div style="width:100%; max-width:960px; margin:0 auto; padding:0 clamp(15px,4vw,30px); box-sizing:border-box;">
+
+        <header style="text-align:center; margin-bottom:clamp(35px,5vw,55px);">
+            <span style="color:#00f2fe; text-transform:uppercase; letter-spacing:3px; font-weight:700; font-size:13px; display:block; margin-bottom:10px;">KAPSAMLI REHBER</span>
+            <h2 style="font-size:clamp(24px,5vw,40px); font-weight:900; margin:0 0 14px; line-height:1.15;">Reklam &amp; Baskı Sektörünün<br><span style="color:#ff007f;">Tüm Teknik Bilgileri</span></h2>
+            <p style="font-size:clamp(14px,1.8vw,16px); color:rgba(255,255,255,0.55); max-width:680px; margin:0 auto; line-height:1.7;">Arkası örtücü folyodan yazı kesim folyoya, kartvizit kalınlıklarından PDF/AI/CDR dosya formatlarına kadar sektörün her teknik sorusuna yanıt.</p>
         </header>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(20px, 4vw, 30px); width: 100%; box-sizing: border-box;">
-            
-            <article style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 30px; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; transition: 0.4s;">
-                <div style="height: clamp(180px, 20vh, 220px); overflow: hidden;">
-                    <img src="images/blog-3.jpg" alt="Dijital ve Ofset Baskı Farkları" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <div style="padding: clamp(20px, 4vw, 30px); flex-grow: 1; display: flex; flex-direction: column; box-sizing: border-box;">
-                    <time datetime="2025-12-31" style="font-size: 12px; opacity: 0.5; margin-bottom: 10px; display: block;">31 ARALIK 2025</time>
-                    <h3 style="font-size: clamp(18px, 3vw, 22px); font-weight: 800; margin-bottom: 15px; color: #fff; line-height: 1.3;">Dijital mi, Ofset mi?</h3>
-                    <p style="font-size: 15px; opacity: 0.7; line-height: 1.6; margin-bottom: 25px;">İş hacminize göre en ekonomik ve kaliteli baskı yöntemini seçin...</p>
-                    <button onclick="openPrintModal('print1')" style="margin-top: auto; background: transparent; border: 1px solid #00f2fe; color: #00f2fe; padding: 12px 25px; border-radius: 50px; font-weight: 700; cursor: pointer; align-self: flex-start; transition: 0.3s;">Devamını Oku</button>
-                </div>
-            </article>
+        <article style="font-size:clamp(15px,2vw,17px); line-height:1.85; color:rgba(255,255,255,0.78);">
 
-            <article style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 30px; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; transition: 0.4s;">
-                <div style="height: clamp(180px, 20vh, 220px); overflow: hidden;">
-                    <img src="images/blog-4.jpg" alt="Baskıya Dosya Hazırlama Rehberi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <div style="padding: clamp(20px, 4vw, 30px); flex-grow: 1; display: flex; flex-direction: column; box-sizing: border-box;">
-                    <time datetime="2025-12-30" style="font-size: 12px; opacity: 0.5; margin-bottom: 10px; display: block;">30 ARALIK 2025</time>
-                    <h3 style="font-size: clamp(18px, 3vw, 22px); font-weight: 800; margin-bottom: 15px; color: #fff; line-height: 1.3;">Hatasız Baskı Rehberi</h3>
-                    <p style="font-size: 15px; opacity: 0.7; line-height: 1.6; margin-bottom: 25px;">PDF, AI ve CMYK formatlarında baskıya kusursuz dosya hazırlama tüyoları...</p>
-                    <button onclick="openPrintModal('print2')" style="margin-top: auto; background: transparent; border: 1px solid #ff007f; color: #ff007f; padding: 12px 25px; border-radius: 50px; font-weight: 700; cursor: pointer; align-self: flex-start; transition: 0.3s;">Devamını Oku</button>
-                </div>
-            </article>
+            <h2 style="font-size:clamp(19px,3vw,26px); font-weight:800; color:#00f2fe; margin:0 0 14px;">Arkası Örtücü Folyo Nedir?</h2>
+            <p>Arkası örtücü folyo; ışık geçirmez, kendinden yapışkanlı bir PVC vinil filmdir. Bu malzeme uygulandığı yüzeyin altındaki her şeyi tamamen örter. Özellikle <strong>mağaza vitrinlerinde</strong>, <strong>araç gövde kaplamalarında</strong> ve <strong>ofis cam bölmelerinde</strong> kullanılır. 70–100 µm PVC yüzey filmi, 20–40 µm opak bariyer ve 25–50 µm yapışkan katmandan oluşur. Dış mekânda UV laminasyon ile ömrü 5–8 yıldır.</p>
 
+            <h2 style="font-size:clamp(19px,3vw,26px); font-weight:800; color:#ff007f; margin:36px 0 14px;">Yazı Kesim Folyo Nedir?</h2>
+            <p>Plotter makinelerinde vektörel tasarımın hassas kesildiği, tek renk için ideal PVC vinildir. Baskı gerektirmez. En yaygın seri <strong>Oracal 651</strong> (6 yıl, ~80 µm) ve araç için <strong>Oracal 751</strong> (8 yıl). Minimum kesim detayı 10–15 mm yükseklik; dosya vektörel formatta (AI, EPS, CDR, SVG) olmalıdır.</p>
+
+            <h2 style="font-size:clamp(19px,3vw,26px); font-weight:800; color:#00ff88; margin:36px 0 14px;">Delikli Folyo (One-Way Vision) Nedir?</h2>
+            <p>Mikro delikli yapısıyla tek yönlü görüş sağlar. Dışarıdan renkli baskı görünür, içeriden cam şeffaf kalır. Standart <strong>%50/50 oran</strong> (1,5 mm delik çapı) endüstri standardıdır. <strong>Araç arka camı</strong>, AVM vitrini ve otobüs uygulamalarında kullanılır. Türkiye'de araç arka camında yasal seçenektir.</p>
+
+            <h2 style="font-size:clamp(19px,3vw,26px); font-weight:800; color:#ffa500; margin:36px 0 14px;">Dekota Nedir ve M² Nasıl Hesaplanır?</h2>
+            <p>Dekota %100 PVC köpük levhadır. Standart boyut <strong>122 × 244 cm</strong>; en yaygın kalınlıklar 3 mm (iç mekân) ve 5 mm (direkt baskı). M² hesabı: <strong>En (m) × Boy (m) = Alan (m²)</strong>. Örnek: 150 cm × 60 cm = 1,50 × 0,60 = 0,90 m². Sektörde minimum 0,5 m² uygulaması yaygındır.</p>
+
+            <h2 style="font-size:clamp(19px,3vw,26px); font-weight:800; color:#c864ff; margin:36px 0 14px;">Kartvizit Kalınlıkları ve Modelleri</h2>
+            <p>Standart kartvizit boyutu <strong>85 × 55 mm</strong>'dir. Kağıt kalınlığı baskı kalitesini doğrudan etkiler: <strong>300 gr kuşe (~270 µm)</strong> ekonomik; <strong>400 gr sert karton (~400 µm)</strong> profesyonel; <strong>Duplex (~650 µm)</strong> lüks hissiyat verir. Yüzey işlemleri arasında mat selefon, soft touch (kadife), UV spot lak ve folyo yaldız öne çıkar. Fontlar eğrilere çevrilmeli, renk modu CMYK, çözünürlük 300 DPI olmalıdır.</p>
+
+            <h2 style="font-size:clamp(19px,3vw,26px); font-weight:800; color:#00c8ff; margin:36px 0 14px;">PDF, JPEG, AI, CDR, TIF Baskıda Nasıl Davranır?</h2>
+            <p><strong>PDF/X-1a</strong> baskının altın standardıdır; vektör, fontlar ve renk profili tek dosyada taşınır. <strong>AI</strong> sonsuz ölçeklenebilir vektörel formattır; plotter için idealdir. <strong>CDR</strong> Türkiye'de yaygındır ancak font outline yapılmadan gönderilirse bozulur; PDF olarak aktarılarak gönderilmesi önerilir. <strong>TIFF</strong> kayıpsız piksel formatıdır; fotoğraf baskıları için CMYK 300 DPI ile mükemmeldir. <strong>JPEG</strong> her kayıtta kalite kaybeder, RGB modundadır ve şeffaflığı desteklemez; büyük format dışında önerilmez. <strong>PNG</strong> şeffaf arka plan tuzağı nedeniyle baskıda beklenmedik beyaz/siyah alan bırakabilir.</p>
+
+        </article>
+
+        <div style="text-align:center; margin-top:clamp(35px,5vw,60px);">
+            <p style="font-size:15px; color:rgba(255,255,255,0.5); margin-bottom:20px;">Projeniz için doğru malzemeyi birlikte belirleyelim.</p>
+            <a href="iletisim" style="display:inline-block; background:linear-gradient(90deg,#ff007f,#00f2fe); color:#fff; font-weight:800; font-size:15px; padding:15px 40px; border-radius:50px; text-decoration:none; letter-spacing:1px; text-transform:uppercase;">Ücretsiz Teklif Al</a>
         </div>
+
     </div>
 </section>
 
-<div id="print-modal" style="display: none; position: fixed; z-index: 100001; inset: 0; background: rgba(2, 3, 44, 0.98); backdrop-filter: blur(15px); align-items: center; justify-content: center; padding: clamp(10px, 3vw, 20px); overflow-x: hidden;" onclick="closePrintModal()">
-    <div style="background: #19011d; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 800px; max-height: 90vh; border-radius: clamp(20px, 4vw, 35px); overflow-y: auto; padding: clamp(25px, 6vw, 60px); position: relative; box-shadow: 0 50px 100px rgba(0,0,0,0.8); box-sizing: border-box;" onclick="event.stopPropagation()">
-        <button onclick="closePrintModal()" style="position: sticky; top: 0; float: right; background: none; border: none; color: #fff; font-size: clamp(30px, 8vw, 45px); cursor: pointer; line-height: 0.5; z-index: 100; padding: 5px;">&times;</button>
-        <div id="print-modal-content" style="width: 100%; box-sizing: border-box; overflow-wrap: break-word;"></div>
-    </div>
-</div>
 
-<script>
-    const printBlogData = {
-        print1: {
-            title: "Dijital Baskı mı, Ofset Baskı mı?",
-            content: "<p>Baskı seçiminde adet en belirleyici faktördür. Az adetli ve acil işlerde <strong>dijital baskı</strong>, yüksek adetli katalog ve broşür üretimlerinde ise birim maliyeti düşüren <strong>ofset baskı</strong> tercih edilmelidir. Valexira olarak her iki yöntemde de en yüksek renk doğruluğunu garanti ediyoruz.</p>"
-        },
-        print2: {
-            title: "Matbaa Dosyası Hazırlama Sırları",
-            content: "<p>Ekranda gördüğünüz tasarımın kağıtta aynı kalitede çıkması için dosyanız mutlaka <strong>CMYK</strong> modunda olmalıdır. Görsellerin en az 300 DPI çözünürlükte olması, taşma paylarının (bleed) verilmesi ve metinlerin vektörel hale getirilmesi, profesyonel bir baskı için kritiktir.</p>"
-        }
-    };
+<!-- ===================== FOOTER ===================== -->
+<footer class="v-footer" style="width:100%; overflow-x:hidden; box-sizing:border-box; position:relative;">
 
-    function openPrintModal(id) {
-        const modal = document.getElementById('print-modal');
-        const content = document.getElementById('print-modal-content');
-        const post = printBlogData[id];
-        
-        content.innerHTML = `
-            <h2 style="font-size: clamp(22px, 5vw, 36px); font-weight: 900; color: #ff007f; margin-bottom: clamp(15px, 4vw, 25px); line-height: 1.2; padding-right: 30px;">${post.title}</h2>
-            <div style="font-size: clamp(15px, 2.2vw, 18px); line-height: 1.8; color: rgba(255,255,255,0.8); word-wrap: break-word;">${post.content}</div>
-        `;
-        
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
+    <div class="v-footer-glow" style="max-width:100%; pointer-events:none;"></div>
 
-    function closePrintModal() {
-        document.getElementById('print-modal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-</script>
-
-
-
-<footer class="v-footer" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative;">
-    
-    <div class="v-footer-glow" style="max-width: 100%; pointer-events: none;"></div>
-
-    <div class="v-footer-container" style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; box-sizing: border-box; padding: 0 clamp(15px, 4vw, 30px);">
-        <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); box-sizing: border-box;">
-            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" style="max-width: 100%; height: auto;" loading="lazy">
-            <p class="v-footer-desc" style="font-size: clamp(14px, 2vw, 16px); line-height: 1.6;">
+    <div class="v-footer-container" style="width:100%; max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; box-sizing:border-box; padding:0 clamp(15px,4vw,30px);">
+        <div class="v-footer-col" style="flex:1; min-width:min(100%,280px); box-sizing:border-box;">
+            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" style="max-width:100%; height:auto;" loading="lazy">
+            <p class="v-footer-desc" style="font-size:clamp(14px,2vw,16px); line-height:1.6;">
                 Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.
             </p>
         </div>
 
-        <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); box-sizing: border-box;">
-            <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Kreatif</h3>
-            <ul class="v-footer-list" style="list-style: none; padding: 0;">
+        <nav class="v-footer-col" style="flex:1; min-width:min(100%,150px); box-sizing:border-box;">
+            <h3 class="v-footer-head pink" style="font-size:clamp(18px,3vw,22px);">Kreatif</h3>
+            <ul class="v-footer-list" style="list-style:none; padding:0;">
                 <li>Logo Tasarımı</li>
                 <li>Web Site Tasarımı</li>
-                <li>Afiş & Broşür</li>
+                <li>Afiş &amp; Broşür</li>
                 <li>Kurumsal Kimlik</li>
             </ul>
         </nav>
 
-        <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); box-sizing: border-box;">
-            <h3 class="v-footer-head cyan" style="font-size: clamp(18px, 3vw, 22px);">Üretim</h3>
-            <ul class="v-footer-list" style="list-style: none; padding: 0;">
+        <nav class="v-footer-col" style="flex:1; min-width:min(100%,150px); box-sizing:border-box;">
+            <h3 class="v-footer-head cyan" style="font-size:clamp(18px,3vw,22px);">Üretim</h3>
+            <ul class="v-footer-list" style="list-style:none; padding:0;">
                 <li>Branda Baskı</li>
                 <li>Folyo Uygulama</li>
-                <li>Kartvizit & Magnet</li>
+                <li>Kartvizit &amp; Magnet</li>
                 <li>Işıklı Tabela</li>
             </ul>
         </nav>
 
-        <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); box-sizing: border-box;">
-            <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Bize Ulaşın</h3>
-            <div class="v-footer-contact" style="font-size: clamp(14px, 2vw, 15px);">
+        <div class="v-footer-col" style="flex:1; min-width:min(100%,280px); box-sizing:border-box;">
+            <h3 class="v-footer-head pink" style="font-size:clamp(18px,3vw,22px);">Bize Ulaşın</h3>
+            <div class="v-footer-contact" style="font-size:clamp(14px,2vw,15px);">
                 <p>Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İST.</p>
-                <p><a href="tel:+905427412994" style="text-decoration: none; color: inherit; font-weight: bold;">+90 542 741 29 94</a></p>
+                <p><a href="tel:+905427412994" style="text-decoration:none; color:inherit; font-weight:bold;">+90 542 741 29 94</a></p>
                 <p>valexiradijital@gmail.com</p>
             </div>
-            
-            <a href="https://wa.me/905427412994" target="_blank" rel="noopener" class="v-whatsapp-link" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
+            <a href="https://wa.me/905427412994" target="_blank" rel="noopener" class="v-whatsapp-link" style="display:inline-flex; align-items:center; text-decoration:none; gap:8px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">
                 WhatsApp ile Yazın
             </a>
         </div>
     </div>
 
-    <div class="v-footer-bottom" style="width: 100%; text-align: center; padding: 20px 0; font-size: clamp(12px, 1.5vw, 14px); box-sizing: border-box; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px;">
-        © 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
+    <div class="v-footer-bottom" style="width:100%; text-align:center; padding:20px 0; font-size:clamp(12px,1.5vw,14px); box-sizing:border-box; border-top:1px solid rgba(255,255,255,0.05); margin-top:40px;">
+        © 2026 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
     </div>
 </footer>
+
+</div>
 
 <script>
 function toggleMenu() {
     const navMenu = document.getElementById('navMenu');
-    // CSS'deki .active class'ını ekleyip çıkarır
-    navMenu.classList.toggle('active');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const isOpen = navMenu.classList.toggle('active');
+    menuBtn.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', isOpen);
 }
 
-// Menü açıkken sayfa dışına tıklandığında menüyü kapatır
 document.addEventListener('click', function(event) {
     const navMenu = document.getElementById('navMenu');
     const menuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (!navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+    if (navMenu && menuBtn && !navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
         navMenu.classList.remove('active');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
     }
 });
 </script>
-        
+
 <script src="js/main.js"></script>
 
 </body>
