@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-
-    <!-- SEO Temel Ayarları -->
-<title>Valexira Dijital | İstanbul Profesyonel Baskı, Matbaa ve Tasarım</title>
-<meta name="description" content="Valexira Dijital: İstanbul'da dijital baskı, matbaa, promosyon ve tasarımda profesyonel çözümler. Kaliteli baskı ve hızlı teslimat için hemen teklif alın!">
-<meta name="keywords" content="dijital baskı, matbaa, promosyon, tasarım, istanbul baskı, ajanda, tişört baskı, one way vision, kumlu folyo, folyo baskı, cam reklam kaplama, branda, afiş, menü tasarım, broşür, kartvizit, valexira">
-<link rel="canonical" href="https://www.valexira.com/">
-<meta name="robots" content="index, follow">
+    <title>Valexira Dijital | Profesyonel Baskı ve Tasarım Çözümleri</title>
+    
+    <meta name="description" content="Valexira Dijital; dijital baskı, matbaa, promosyon, levha ve tasarım hizmetlerinde profesyonel çözümler sunar.">
+    <meta name="keywords" content="dijital baskı, matbaa, promosyon, tasarım, istanbul baskı">
+    <link rel="canonical" href="https://www.valexira.com/">
 
     <meta property="og:title" content="Valexira Dijital | Teknik Çizim ve Reklam Merkezi">
     <meta property="og:description" content="Kroki çiziminden matbaa ürünlerine kadar profesyonel baskı çözümleri.">
@@ -38,26 +36,26 @@
 
 <header class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;">
     <div class="container nav-container">
-        <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
+        <a href="index.html" class="logo-area" title="Valexira Dijital Ana Sayfa">
             <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img">
             <span class="logo-text">DİJİTAL</span>
         </a>
         
-            <nav class="nav-menu" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="/">Anasayfa</a></li>
-                    <li><a href="dijital-baski">Dijital Baskı</a></li>
-                    <li><a href="matbaa">Matbaa</a></li>
-                    <li><a href="promosyon">Promosyon</a></li>
-                    <li><a href="levha">Levha</a></li>
-                    <li><a href="Duba-Bayrak">Duba & Bayrak</a></li>
-                    <li><a href="tasarim">Tasarım</a></li>
-                    <li><a href="portfolyo">Portfolyo</a></li>
-                    <li><a href="hakkimizda">Hakkımızda</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="iletisim">İletişim</a></li>
-                </ul>
-            </nav>
+        <nav class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="dijital-baski.html">Dijital Baskı</a></li>
+                <li><a href="matbaa.html">Matbaa</a></li>
+                <li><a href="promosyon.html">Promosyon</a></li>
+                <li><a href="levha.html">Levha</a></li>
+                <li><a href="Duba-Bayrak.html">Duba & Bayrak</a></li>
+                <li><a href="tasarim.html">Tasarım</a></li>
+                <li><a href="portfolyo.html">Portfolyo</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
 
         <div class="header-right">
             <div class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menüyü Aç">
@@ -135,10 +133,7 @@
     </div>
 </section>
 
-<div id="v-portfolio-lightbox" style="display: none; position: fixed; z-index: 999999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 3, 44, 0.98); justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(12px); box-sizing: border-box; padding: 20px;" onclick="this.style.display='none'">
-    <span style="position: absolute; top: clamp(10px, 4vh, 30px); right: clamp(10px, 4vw, 30px); color: white; font-size: clamp(30px, 8vw, 60px); font-weight: 200; cursor: pointer; line-height: 1;">&times;</span>
-    <img id="v-portfolio-img" src="" alt="Valexira Detay Görsel" style="max-width: 100%; max-height: 85%; border-radius: 12px; border: 1px solid #00f2ff; box-shadow: 0 0 50px rgba(0, 242, 254, 0.2); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); object-fit: contain; box-sizing: border-box;">
-</div>
+<img src="images/port8.jpg" alt="Valexira Dijital — Geniş Format Baskı ve Uygulama Çalışması" loading="lazy">
 
 <script>
     function openValexiraGallery(element) {
@@ -208,29 +203,7 @@
     </div>
 </footer>
 
-        <script>
-function toggleMenu() {
-    const navMenu = document.getElementById('navMenu');
-    // CSS'deki .active class'ını ekleyip çıkarır
-    navMenu.classList.toggle('active');
-}
-
-// Menü açıkken sayfa dışına tıklandığında menüyü kapatır
-document.addEventListener('click', function(event) {
-    const navMenu = document.getElementById('navMenu');
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (!navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-        navMenu.classList.remove('active');
-    }
-});
-</script>
-
 <script src="js/main.js"></script>
 
 </body>
-
 </html>
-
-
-
