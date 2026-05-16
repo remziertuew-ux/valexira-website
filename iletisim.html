@@ -1,259 +1,424 @@
-++++++<!DOCTYPE html>
-<html lang="tr" style="width: 100%; overflow-x: hidden; box-sizing: border-box;">
+<!DOCTYPE html>
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Valexira Dijital | Profesyonel Baskı ve Tasarım Çözümleri</title>
-    
-    <meta name="description" content="Valexira Dijital; dijital baskı, matbaa, promosyon, levha ve tasarım hizmetlerinde profesyonel çözümler sunar.">
-    <meta name="keywords" content="dijital baskı, matbaa, promosyon, tasarım, istanbul baskı">
-    <link rel="canonical" href="https://www.valexira.com/">
 
-    <meta property="og:title" content="Valexira Dijital | Teknik Çizim ve Reklam Merkezi">
-    <meta property="og:description" content="Kroki çiziminden matbaa ürünlerine kadar profesyonel baskı çözümleri.">
-    <meta property="og:image" content="images/og-image.jpg">
+    <!-- SEO -->
+    <title>İletişim | Teklif Al ve Bize Ulaşın — Valexira Dijital İstanbul</title>
+    <meta name="description" content="Valexira Dijital ile iletişime geçin. Dijital baskı, matbaa, promosyon ve tasarım projeleriniz için hızlı fiyat teklifi alın. İstanbul Topkapı ofisimizi ziyaret edin.">
+    <link rel="canonical" href="https://www.valexira.com/iletisim">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="İletişim | Teklif Al — Valexira Dijital İstanbul">
+    <meta property="og:description" content="Dijital baskı, matbaa, promosyon ve tasarım projeleriniz için Valexira Dijital ile iletişime geçin.">
+    <meta property="og:image" content="https://www.valexira.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.valexira.com/iletisim">
     <meta property="og:type" content="website">
 
-    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Valexira Dijital",
+      "url": "https://www.valexira.com/",
+      "telephone": "+90-542-741-2994",
+      "email": "valexiradijital@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
+        "addressLocality": "Topkapı",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "13:00"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        *, *:before, *:after { box-sizing: border-box; }
-        html, body { 
-            width: 100% !important; 
-            margin: 0 !important; 
-            padding: 0 !important; 
-            overflow-x: hidden !important; /* Sağa kaymayı %100 bitirir */
-            background-color: #19011d; /* Belirlediğin ana gövde rengi */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #19011d;
             color: #ffffff;
             -webkit-font-smoothing: antialiased;
         }
+
+        @keyframes v-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* === MOBİL MENÜ BUTONU — TEMA UYUMLU === */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+            transition: all 0.3s ease;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-menu-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(from 0deg, transparent 60%, rgba(0,242,254,0.15) 80%, transparent 100%);
+            animation: v-spin 4s linear infinite;
+            border-radius: 10px;
+        }
+
+        .mobile-menu-btn:hover {
+            border-color: #00f2fe;
+            box-shadow: 0 0 18px rgba(0,242,254,0.35), inset 0 0 10px rgba(0,242,254,0.08);
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #00f2fe;
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+                        opacity 0.25s ease,
+                        background 0.3s ease;
+            box-shadow: 0 0 6px rgba(0, 242, 254, 0.7);
+        }
+
+        .mobile-menu-btn.open {
+            border-color: #ff007f;
+            box-shadow: 0 0 18px rgba(255,0,127,0.35), inset 0 0 10px rgba(255,0,127,0.08);
+            background: rgba(255, 0, 127, 0.06);
+        }
+
+        .mobile-menu-btn.open span {
+            background: #ff007f;
+            box-shadow: 0 0 6px rgba(255, 0, 127, 0.7);
+        }
+
+        .mobile-menu-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        @media (max-width: 1200px) {
+            .mobile-menu-btn { display: flex; }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 85px;
+                left: 0;
+                width: 100%;
+                background: radial-gradient(circle at 20% 20%, #3d0050 0%, #02032c 60%, #0a0020 100%);
+                padding: 30px 0;
+                border-bottom: 4px solid #ff007f;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                z-index: 9999;
+            }
+
+            .nav-menu.active { display: block; }
+            .nav-links { flex-direction: column; align-items: center; gap: 20px; }
+            .nav-links a { font-size: 1.1rem; }
+            .desktop-only { display: none; }
+        }
+
+        /* Form focus stilleri */
+        input:focus, textarea:focus, select:focus {
+            border-color: #00f2fe !important;
+            background: rgba(255,255,255,0.08) !important;
+            box-shadow: 0 0 15px rgba(0,242,254,0.1);
+        }
+
+        select::-ms-expand { display: none; }
+
+        /* Form elemanı placeholder rengi */
+        ::placeholder { color: rgba(255,255,255,0.4); }
     </style>
 </head>
-<body style="width: 100%; overflow-x: hidden;">
-    
-    <div class="v-site-main" style="width: 100%; overflow-x: hidden; position: relative; display: flex; flex-direction: column;">
 
-<header class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;">
-    <div class="container nav-container">
-        <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
-            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img">
-            <span class="logo-text">DİJİTAL</span>
-        </a>
-        
-            <nav class="nav-menu" id="navMenu">
-                <ul class="nav-links">
-                    <li><a href="/">Anasayfa</a></li>
-                    <li><a href="dijital-baski">Dijital Baskı</a></li>
-                    <li><a href="matbaa">Matbaa</a></li>
-                    <li><a href="promosyon">Promosyon</a></li>
-                    <li><a href="levha">Levha</a></li>
-                    <li><a href="Duba-Bayrak">Duba & Bayrak</a></li>
-                    <li><a href="tasarim">Tasarım</a></li>
-                    <li><a href="portfolyo">Portfolyo</a></li>
-                    <li><a href="hakkimizda">Hakkımızda</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="iletisim">İletişim</a></li>
-                </ul>
-            </nav>
+<body>
 
-        <div class="header-right">
-            <div class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menüyü Aç">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="v-site-main">
+
+        <!-- ===== HEADER ===== -->
+        <header class="navbar" style="position:fixed; top:0; left:0; width:100%; z-index:99999;">
+            <div class="container nav-container">
+                <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
+                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40">
+                    <span class="logo-text">DİJİTAL</span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
+                    <ul class="nav-links">
+                        <li><a href="/">Anasayfa</a></li>
+                        <li><a href="dijital-baski">Dijital Baskı</a></li>
+                        <li><a href="matbaa">Matbaa</a></li>
+                        <li><a href="promosyon">Promosyon</a></li>
+                        <li><a href="levha">Levha</a></li>
+                        <li><a href="Duba-Bayrak">Duba &amp; Bayrak</a></li>
+                        <li><a href="tasarim">Tasarım</a></li>
+                        <li><a href="portfolyo">Portfolyo</a></li>
+                        <li><a href="hakkimizda">Hakkımızda</a></li>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="iletisim" aria-current="page">İletişim</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-right">
+                    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="navMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <a href="iletisim" class="btn-quote desktop-only">Teklif Al</a>
+                </div>
             </div>
-            <a href="iletisim.html" class="btn-quote desktop-only">Teklif Al</a>
-        </div>
-    </div>
-
-    <style>
-        @media (max-width: 1024px) {
-            .nav-menu.active { 
-                display: block !important; 
-                transform: translateX(0) !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-            }
-        }
-    </style>
-</header>
-
-<section style="width: 100%; padding-top: clamp(60px, 10vh, 100px); overflow-x: hidden; display: block; box-sizing: border-box; background: transparent;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(20px, 5vh, 40px) clamp(15px, 4vw, 30px); text-align: center; box-sizing: border-box;">
-        
-        <h1 style="font-family: 'Poppins', sans-serif; font-size: clamp(2.2rem, 9vw, 5rem); font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: clamp(-1px, -0.2vw, -2px); margin: 0; line-height: 1.1; display: block; word-wrap: break-word; overflow-wrap: break-word; box-sizing: border-box;">
-            İLETİŞİM
-        </h1>
-
-    </div>
-</section>
-
-<section id="iletisim" style="width: 100%; overflow-x: hidden; box-sizing: border-box; padding: clamp(60px, 10vh, 100px) 0; background: transparent; color: #fff; font-family: 'Segoe UI', sans-serif; display: block;">
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); box-sizing: border-box;">
-        
-        <header style="margin-bottom: clamp(40px, 8vh, 60px); text-align: left; box-sizing: border-box;">
-            <h2 style="font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; color: #ffffff; line-height: 1.1;">Bize Ulaşın</h2>
-            <div style="width: 60px; height: 4px; background: #ff007f; border-radius: 2px; margin-bottom: 15px;"></div>
-            <p style="font-size: clamp(16px, 2vw, 18px); opacity: 0.6; max-width: 600px; line-height: 1.6;">Size yardımcı olmak için buradayız. Reklam ve tasarım projelerinizi birlikte hayata geçirelim.</p>
         </header>
 
-        <div style="display: flex; flex-wrap: wrap; gap: clamp(30px, 5vw, 50px); align-items: flex-start; width: 100%; box-sizing: border-box;">
-            
-            <aside style="flex: 1; min-width: min(100%, 320px); box-sizing: border-box;">
-                
-                <article style="background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px; box-sizing: border-box;">
-                    <h3 style="color: #00f2fe; font-weight: 700; margin: 0 0 10px 0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">İLETİŞİM BİLGİLERİ</h3>
-                    <div style="font-size: clamp(20px, 3vw, 24px); font-weight: 800; margin-bottom: 5px;">+90 542 741 29 94</div>
-                    <div style="font-size: 15px; opacity: 0.7;">valexiradijital@gmail.com</div>
-                </article>
+        <!-- ===== ANA İÇERİK ===== -->
+        <main>
 
-                <article style="background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px; box-sizing: border-box;">
-                    <h3 style="color: #ff007f; font-weight: 700; margin: 0 0 15px 0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">ÇALIŞMA SAATLERİ</h3>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 15px;">
-                        <span style="opacity: 0.8;">Pazartesi - Cuma</span>
-                        <span style="font-weight: 700;">09:00 - 18:00</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 15px;">
-                        <span style="opacity: 0.8;">Cumartesi</span>
-                        <span style="font-weight: 700;">10:00 - 13:00</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; opacity: 0.4; font-size: 15px;">
-                        <span>Pazar</span>
-                        <span>Kapalı</span>
-                    </div>
-                </article>
-
-                <article style="background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); box-sizing: border-box;">
-                    <h3 style="color: #00f2fe; font-weight: 700; margin: 0 0 10px 0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">MERKEZ OFİS</h3>
-                    <p style="opacity: 0.8; font-size: 15px; line-height: 1.6; margin: 0;">
-                        Maltepe Cd. 2. Matbaacılar Sit. <br>
-                        B/Blok No:44 Topkapı / İST.
+            <!-- HERO / SAYFA BAŞLIĞI -->
+            <section aria-label="Sayfa başlığı" style="width:100%; padding-top:clamp(60px,10vh,100px); overflow-x:hidden; background:transparent;">
+                <div style="max-width:1200px; margin:0 auto; padding:clamp(20px,5vh,40px) clamp(15px,4vw,30px); text-align:center;">
+                    <h1 style="font-family:'Poppins',sans-serif; font-size:clamp(2.2rem,9vw,5rem); font-weight:900; color:#ffffff; text-transform:uppercase; letter-spacing:clamp(-1px,-0.2vw,-2px); margin:0; line-height:1.1; word-wrap:break-word; overflow-wrap:break-word;">
+                        İLETİŞİM
+                    </h1>
+                    <p style="color:#00f2fe; letter-spacing:3px; font-weight:600; font-size:14px; margin-top:10px; text-transform:uppercase;">
+                        Valexira Dijital ile Hemen İletişime Geçin
                     </p>
-                </article>
-            </aside>
+                </div>
+            </section>
 
-            <div style="flex: 1.5; min-width: min(100%, 320px); background: rgba(255,255,255,0.02); padding: clamp(25px, 5%, 50px); border-radius: 35px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px); box-sizing: border-box;">
-                <form action="https://formspree.io/f/mkowalvq" method="POST" style="width: 100%; box-sizing: border-box;">
-                    <div style="margin-bottom: 20px;">
-                        <input type="text" name="name" required placeholder="Adınız Soyadınız" 
-                            style="width: 100%; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; color: white; outline: none; transition: 0.3s; font-size: 15px; box-sizing: border-box;">
+            <!-- İLETİŞİM FORMU + BİLGİLER -->
+            <section id="iletisim-formu" aria-labelledby="iletisim-heading" style="width:100%; overflow-x:hidden; padding:clamp(60px,10vh,100px) 0; background:transparent; color:#fff; font-family:'Poppins',sans-serif;">
+                <div style="width:100%; max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,40px);">
+
+                    <header style="margin-bottom:clamp(40px,8vh,60px); text-align:left;">
+                        <h2 id="iletisim-heading" style="font-family:'Poppins',sans-serif; font-size:clamp(32px,5vw,48px); font-weight:800; margin:0 0 15px; letter-spacing:-1px; color:#ffffff; line-height:1.1;">Bize Ulaşın</h2>
+                        <div style="width:60px; height:4px; background:#ff007f; border-radius:2px; margin-bottom:15px;" aria-hidden="true"></div>
+                        <p style="font-family:'Poppins',sans-serif; font-size:clamp(16px,2vw,18px); opacity:0.6; max-width:600px; line-height:1.6; margin:0;">Size yardımcı olmak için buradayız. Reklam ve tasarım projelerinizi birlikte hayata geçirelim.</p>
+                    </header>
+
+                    <div style="display:flex; flex-wrap:wrap; gap:clamp(30px,5vw,50px); align-items:flex-start; width:100%;">
+
+                        <!-- SOL: İletişim Bilgileri -->
+                        <aside style="flex:1; min-width:min(100%,320px);">
+
+                            <article style="background:rgba(255,255,255,0.03); padding:30px; border-radius:25px; border:1px solid rgba(255,255,255,0.05); margin-bottom:20px;">
+                                <h3 style="color:#00f2fe; font-weight:700; margin:0 0 10px; font-size:14px; letter-spacing:1px; text-transform:uppercase;">İletişim Bilgileri</h3>
+                                <address style="font-style:normal;">
+                                    <p style="font-size:clamp(20px,3vw,24px); font-weight:800; margin:0 0 5px;">
+                                        <a href="tel:+905427412994" style="color:inherit; text-decoration:none;">+90 542 741 29 94</a>
+                                    </p>
+                                    <p style="font-size:15px; opacity:0.7; margin:0;">
+                                        <a href="mailto:valexiradijital@gmail.com" style="color:inherit; text-decoration:none;">valexiradijital@gmail.com</a>
+                                    </p>
+                                </address>
+                            </article>
+
+                            <article style="background:rgba(255,255,255,0.03); padding:30px; border-radius:25px; border:1px solid rgba(255,255,255,0.05); margin-bottom:20px;">
+                                <h3 style="color:#ff007f; font-weight:700; margin:0 0 15px; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Çalışma Saatleri</h3>
+                                <dl style="margin:0; font-size:15px;">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                                        <dt style="opacity:0.8;">Pazartesi – Cuma</dt>
+                                        <dd style="font-weight:700; margin:0;">09:00 – 18:00</dd>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                                        <dt style="opacity:0.8;">Cumartesi</dt>
+                                        <dd style="font-weight:700; margin:0;">10:00 – 13:00</dd>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; opacity:0.4;">
+                                        <dt>Pazar</dt>
+                                        <dd style="margin:0;">Kapalı</dd>
+                                    </div>
+                                </dl>
+                            </article>
+
+                            <article style="background:rgba(255,255,255,0.03); padding:30px; border-radius:25px; border:1px solid rgba(255,255,255,0.05);">
+                                <h3 style="color:#00f2fe; font-weight:700; margin:0 0 10px; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Merkez Ofis</h3>
+                                <address style="font-style:normal; opacity:0.8; font-size:15px; line-height:1.6; margin:0;">
+                                    Maltepe Cd. 2. Matbaacılar Sit.<br>
+                                    B/Blok No:44 Topkapı / İstanbul
+                                </address>
+                            </article>
+
+                        </aside>
+
+                        <!-- SAĞ: İletişim Formu (Formspree entegrasyonu korundu) -->
+                        <div style="flex:1.5; min-width:min(100%,320px); background:rgba(255,255,255,0.02); padding:clamp(25px,5%,50px); border-radius:35px; border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);">
+                            <form action="https://formspree.io/f/mkowalvq" method="POST" aria-label="İletişim formu" novalidate>
+
+                                <div style="margin-bottom:20px;">
+                                    <label for="form-name" style="display:block; font-size:13px; font-weight:600; color:rgba(255,255,255,0.6); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Ad Soyad</label>
+                                    <input type="text" id="form-name" name="name" required autocomplete="name"
+                                        placeholder="Adınız Soyadınız"
+                                        style="width:100%; padding:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:15px; color:white; outline:none; transition:0.3s; font-size:15px; font-family:'Poppins',sans-serif;">
+                                </div>
+
+                                <div style="margin-bottom:20px;">
+                                    <label for="form-email" style="display:block; font-size:13px; font-weight:600; color:rgba(255,255,255,0.6); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">E-Posta</label>
+                                    <input type="email" id="form-email" name="_replyto" required autocomplete="email"
+                                        placeholder="E-Posta Adresiniz"
+                                        style="width:100%; padding:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:15px; color:white; outline:none; transition:0.3s; font-size:15px; font-family:'Poppins',sans-serif;">
+                                </div>
+
+                                <div style="margin-bottom:20px; position:relative;">
+                                    <label for="form-subject" style="display:block; font-size:13px; font-weight:600; color:rgba(255,255,255,0.6); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Konu</label>
+                                    <select id="form-subject" name="subject" required
+                                        style="width:100%; padding:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:15px; color:#a0a0a0; outline:none; appearance:none; -webkit-appearance:none; -moz-appearance:none; font-size:15px; cursor:pointer; font-family:'Poppins',sans-serif;">
+                                        <option value="" disabled selected>Hangi konuda yardımcı olabiliriz?</option>
+                                        <option value="Teklif">Fiyat Teklifi Almak İstiyorum</option>
+                                        <option value="Siparis">Yeni Sipariş Oluşturmak İstiyorum</option>
+                                        <option value="Diger">Diğer Sorularım</option>
+                                    </select>
+                                    <div style="position:absolute; right:20px; bottom:17px; pointer-events:none; color:#00f2fe;" aria-hidden="true">▼</div>
+                                </div>
+
+                                <div style="margin-bottom:30px;">
+                                    <label for="form-message" style="display:block; font-size:13px; font-weight:600; color:rgba(255,255,255,0.6); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Mesaj</label>
+                                    <textarea id="form-message" name="message" rows="5" required
+                                        placeholder="Mesajınızın detaylarını buraya yazabilirsiniz..."
+                                        style="width:100%; padding:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:15px; color:white; outline:none; resize:none; transition:0.3s; font-size:15px; line-height:1.6; font-family:'Poppins',sans-serif;"></textarea>
+                                </div>
+
+                                <!-- Formspree honeypot — spam koruması -->
+                                <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
+
+                                <button type="submit"
+                                    style="width:100%; padding:20px; background:linear-gradient(45deg,#00f2fe,#0072ff); border:none; border-radius:15px; color:#000; font-weight:800; cursor:pointer; text-transform:uppercase; letter-spacing:2px; transition:0.4s; box-shadow:0 10px 20px rgba(0,242,254,0.2); font-family:'Poppins',sans-serif; font-size:15px;">
+                                    Mesajı Gönder
+                                </button>
+
+                            </form>
+                        </div>
+
                     </div>
-                    <div style="margin-bottom: 20px;">
-                        <input type="email" name="_replyto" required placeholder="E-Posta Adresiniz" 
-                            style="width: 100%; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; color: white; outline: none; transition: 0.3s; font-size: 15px; box-sizing: border-box;">
-                    </div>
-                    <div style="margin-bottom: 20px; position: relative;">
-                        <select name="subject" required 
-                            style="width: 100%; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; color: #a0a0a0; outline: none; appearance: none; font-size: 15px; cursor: pointer; box-sizing: border-box; -webkit-appearance: none; -moz-appearance: none;">
-                            <option value="" disabled selected>Hangi konuda yardımcı olabiliriz?</option>
-                            <option value="Teklif">Fiyat Teklifi Almak İstiyorum</option>
-                            <option value="Siparis">Yeni Sipariş Oluşturmak İstiyorum</option>
-                            <option value="Diger">Diğer Sorularım</option>
-                        </select>
-                        <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #00f2fe;">▼</div>
-                    </div>
-                    <div style="margin-bottom: 30px;">
-                        <textarea name="message" rows="5" required placeholder="Mesajınızın detaylarını buraya yazabilirsiniz..." 
-                            style="width: 100%; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; color: white; outline: none; resize: none; transition: 0.3s; font-size: 15px; line-height: 1.6; box-sizing: border-box;"></textarea>
-                    </div>
-                    <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit" 
-                        style="width: 100%; padding: 20px; background: linear-gradient(45deg, #00f2fe, #0072ff); border: none; border-radius: 15px; color: #000; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,242,254,0.2);">
-                        Mesajı Gönder
-                    </button>
-                </form>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="v-footer" style="width:100%; overflow-x:hidden; position:relative;">
+            <div class="v-footer-glow" aria-hidden="true"></div>
+
+            <div style="width:100%; max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; padding:0 clamp(15px,4vw,30px);">
+
+                <div style="flex:1; min-width:min(100%,280px);">
+                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" loading="lazy" width="180">
+                    <p class="v-footer-desc">
+                        Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.
+                    </p>
+                </div>
+
+                <nav aria-label="Kreatif hizmetler" style="flex:1; min-width:min(100%,150px);">
+                    <h3 class="v-footer-head pink">Kreatif</h3>
+                    <ul class="v-footer-list">
+                        <li>Logo Tasarımı</li>
+                        <li>Web Site Tasarımı</li>
+                        <li>Afiş &amp; Broşür</li>
+                        <li>Kurumsal Kimlik</li>
+                    </ul>
+                </nav>
+
+                <nav aria-label="Üretim hizmetleri" style="flex:1; min-width:min(100%,150px);">
+                    <h3 class="v-footer-head cyan">Üretim</h3>
+                    <ul class="v-footer-list">
+                        <li>Branda Baskı</li>
+                        <li>Folyo Uygulama</li>
+                        <li>Kartvizit &amp; Magnet</li>
+                        <li>Işıklı Tabela</li>
+                    </ul>
+                </nav>
+
+                <div style="flex:1; min-width:min(100%,280px);">
+                    <h3 class="v-footer-head pink">Bize Ulaşın</h3>
+                    <address class="v-footer-contact" style="font-style:normal; font-size:clamp(14px,2vw,15px);">
+                        <p>Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İstanbul</p>
+                        <p><a href="tel:+905427412994">+90 542 741 29 94</a></p>
+                        <p><a href="mailto:valexiradijital@gmail.com">valexiradijital@gmail.com</a></p>
+                    </address>
+                    <a href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer" class="v-whatsapp-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="20" height="20" aria-hidden="true">
+                        WhatsApp ile Yazın
+                    </a>
+                </div>
+
             </div>
-        </div>
-    </div>
-</section>
 
-<style>
-/* Global Focus & Form Zırhı */
-input:focus, textarea:focus, select:focus {
-    border-color: #00f2fe !important;
-    background: rgba(255,255,255,0.08) !important;
-    box-shadow: 0 0 15px rgba(0,242,254,0.1);
-}
-/* Select kutusu oklarını mobil tarayıcılarda temizlemek için */
-select::-ms-expand { display: none; }
-</style>
-
-<footer class="v-footer" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative;">
-    
-    <div class="v-footer-glow" style="max-width: 100%; pointer-events: none;"></div>
-
-    <div class="v-footer-container" style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; box-sizing: border-box; padding: 0 clamp(15px, 4vw, 30px);">
-        <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); box-sizing: border-box;">
-            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" style="max-width: 100%; height: auto;" loading="lazy">
-            <p class="v-footer-desc" style="font-size: clamp(14px, 2vw, 16px); line-height: 1.6;">
-                Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.
-            </p>
-        </div>
-
-        <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); box-sizing: border-box;">
-            <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Kreatif</h3>
-            <ul class="v-footer-list" style="list-style: none; padding: 0;">
-                <li>Logo Tasarımı</li>
-                <li>Web Site Tasarımı</li>
-                <li>Afiş & Broşür</li>
-                <li>Kurumsal Kimlik</li>
-            </ul>
-        </nav>
-
-        <nav class="v-footer-col" style="flex: 1; min-width: min(100%, 150px); box-sizing: border-box;">
-            <h3 class="v-footer-head cyan" style="font-size: clamp(18px, 3vw, 22px);">Üretim</h3>
-            <ul class="v-footer-list" style="list-style: none; padding: 0;">
-                <li>Branda Baskı</li>
-                <li>Folyo Uygulama</li>
-                <li>Kartvizit & Magnet</li>
-                <li>Işıklı Tabela</li>
-            </ul>
-        </nav>
-
-        <div class="v-footer-col" style="flex: 1; min-width: min(100%, 280px); box-sizing: border-box;">
-            <h3 class="v-footer-head pink" style="font-size: clamp(18px, 3vw, 22px);">Bize Ulaşın</h3>
-            <div class="v-footer-contact" style="font-size: clamp(14px, 2vw, 15px);">
-                <p>Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İST.</p>
-                <p><a href="tel:+905427412994" style="text-decoration: none; color: inherit; font-weight: bold;">+90 542 741 29 94</a></p>
-                <p>valexiradijital@gmail.com</p>
+            <div class="v-footer-bottom" style="padding:20px 0; font-size:clamp(12px,1.5vw,14px); margin-top:40px;">
+                &copy; 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
             </div>
-            
-            <a href="https://wa.me/905427412994" target="_blank" rel="noopener" class="v-whatsapp-link" style="display: inline-flex; align-items: center; text-decoration: none; gap: 8px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
-                WhatsApp ile Yazın
-            </a>
-        </div>
-    </div>
+        </footer>
 
-    <div class="v-footer-bottom" style="width: 100%; text-align: center; padding: 20px 0; font-size: clamp(12px, 1.5vw, 14px); box-sizing: border-box; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px;">
-        © 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
-    </div>
-</footer>
+    </div><!-- /v-site-main -->
 
-        <script>
-function toggleMenu() {
-    const navMenu = document.getElementById('navMenu');
-    // CSS'deki .active class'ını ekleyip çıkarır
-    navMenu.classList.toggle('active');
-}
+    <!-- ===== SCRIPTS (body sonu) ===== -->
+    <script src="js/main.js" defer></script>
+    <script>
+        function toggleMenu() {
+            var navMenu = document.getElementById('navMenu');
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            var isOpen  = navMenu.classList.toggle('active');
+            menuBtn.classList.toggle('open', isOpen);
+            menuBtn.setAttribute('aria-expanded', isOpen);
+        }
 
-// Menü açıkken sayfa dışına tıklandığında menüyü kapatır
-document.addEventListener('click', function(event) {
-    const navMenu = document.getElementById('navMenu');
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (!navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-        navMenu.classList.remove('active');
-    }
-});
-</script>
-
-<script src="js/main.js"></script>
+        document.addEventListener('click', function(e) {
+            var navMenu = document.getElementById('navMenu');
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuBtn.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 
 </body>
-
 </html>
-
-
-
