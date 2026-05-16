@@ -1,222 +1,917 @@
 <!DOCTYPE html>
-<html lang="tr" style="width: 100%; overflow-x: hidden; box-sizing: border-box;">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-<!-- Schema Markup - Şirinevler Dijital Baskı Hizmeti -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Dijital Baskı",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Valexira Dijital",
-    "telephone": "+90-542-741-2994",
-    "email": "valexiradijital@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
-      "addressLocality": "Topkapı",
-      "addressRegion": "İstanbul",
-      "addressCountry": "TR"
-    },
-    "url": "https://www.valexira.com/"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Şirinevler"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Şirinevler Dijital Baskı Hizmetleri",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Branda Baskı"
-        }
+    <!-- ═══ SCHEMA MARKUP ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Valexira Dijital",
+      "url": "https://www.valexira.com/",
+      "telephone": "+90-542-741-2994",
+      "email": "valexiradijital@gmail.com",
+      "image": "https://www.valexira.com/images/og-image.jpg",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
+        "addressLocality": "Topkapı",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Folyo Baskı"
-        }
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "41.0186",
+        "longitude": "28.9088"
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "One Way Vision"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Afiş Baskı"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Kumlu Folyo"
-        }
+      "openingHours": "Mo-Sa 08:00-19:00",
+      "areaServed": [
+        "Şirinevler", "Bağcılar", "Bahçelievler", "Güngören", "Zeytinburnu", "Topkapı", "İstanbul"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Şirinevler Dijital Baskı ve Reklam Hizmetleri",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branda Baskı" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Folyo Baskı" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afiş Baskı" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kartvizit Baskı" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Magnet Baskı" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Broşür Baskı" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Levha ve Tabela" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "One Way Vision" } }
+        ]
       }
-    ]
-  }
-}
-</script>
+    }
+    </script>
 
-<!-- SEO Temel Ayarları -->
-<title>Şirinevler Dijital Baskı | Valexira Dijital - Hızlı Teslimat</title>
-<meta name="description" content="Şirinevler'de profesyonel dijital baskı hizmetleri. Branda, folyo, afiş, one way vision ve kumlu folyo baskı. Şirinevler reklamcı matbaacı olarak hızlı teslimat ve uygun fiyat.">
-<link rel="canonical" href="https://www.valexira.com/sirinevler-dijital-baski.html">
-<meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Şirinevler'e teslimat yapıyor musunuz?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Evet, Şirinevler ve çevre ilçelere aynı gün veya ertesi gün teslimat seçeneğimiz mevcuttur." }
+        },
+        {
+          "@type": "Question",
+          "name": "Kartvizit baskı fiyatları nedir?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Kartvizit fiyatları adet ve kaplama türüne göre değişmektedir. Güncel fiyat için 0542 741 29 94 numaralı hattı arayabilirsiniz." }
+        },
+        {
+          "@type": "Question",
+          "name": "Dijital baskıda minimum sipariş adedi var mı?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Dijital baskıda minimum sipariş adedi yoktur; tek adet de sipariş verebilirsiniz." }
+        },
+        {
+          "@type": "Question",
+          "name": "Branda baskı ne kadar sürede hazır olur?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Standart siparişler 1-2 iş günü içinde hazırlanır; acil siparişlerde aynı gün teslimat imkânı sunmaktayız." }
+        }
+      ]
+    }
+    </script>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <!-- ═══ SEO ═══ -->
+    <title>Şirinevler Dijital Baskı ve Reklamcı | Branda, Folyo, Kartvizit, Afiş — Valexira Dijital</title>
+    <meta name="description" content="Şirinevler'de profesyonel dijital baskı hizmetleri: branda baskı, folyo, afiş, kartvizit, magnet, broşür, levha ve tabela. Şirinevler reklamcı ve matbaacı olarak hızlı teslimat, uygun fiyat garantisi. Valexira Dijital.">
+    <meta name="keywords" content="Şirinevler dijital baskı, Şirinevler reklamcı, Şirinevler matbaacı, Şirinevler branda baskı, Şirinevler folyo baskı, Şirinevler kartvizit baskı, Şirinevler afiş baskı, Şirinevler magnet baskı, Şirinevler broşür baskı, Şirinevler levha tabela, Şirinevler one way vision, İstanbul dijital baskı">
+    <link rel="canonical" href="https://www.valexira.com/sirinevler-reklamci">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Valexira Dijital">
 
-<!-- Sosyal Medya Görünümü (Open Graph) -->
-<meta property="og:title" content="Şirinevler Dijital Baskı | Valexira Dijital - Hızlı Teslimat">
-<meta property="og:description" content="Şirinevler'de dijital baskı, folyo, branda, afiş ve cam reklam kaplama hizmetleri. Hemen teklif alın!">
-<meta property="og:image" content="images/og-image.jpg">
-<meta property="og:url" content="https://www.valexira.com/sirinevler-dijital-baski.html">
-<meta property="og:type" content="website">
+    <!-- ═══ FAVİCON ═══ -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-<!-- Performans ve Stil -->
-<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
+    <!-- ═══ OPEN GRAPH ═══ -->
+    <meta property="og:title" content="Şirinevler Dijital Baskı ve Reklamcı | Valexira Dijital">
+    <meta property="og:description" content="Şirinevler'de branda, folyo, afiş, kartvizit, magnet, broşür, levha ve tabela baskı hizmetleri. Hızlı teslimat, uygun fiyat!">
+    <meta property="og:image" content="https://www.valexira.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.valexira.com/sirinevler-reklamci">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Valexira Dijital">
+
+    <!-- ═══ TWITTER CARD ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Şirinevler Dijital Baskı | Valexira Dijital">
+    <meta name="twitter:description" content="Branda, folyo, kartvizit, broşür, levha ve afiş baskı. Şirinevler'e hızlı teslimat.">
+    <meta name="twitter:image" content="https://www.valexira.com/images/og-image.jpg">
+
+    <!-- ═══ FONT & PRELOAD ═══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <!-- ═══ CSS ═══ -->
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
-        *, *:before, *:after { box-sizing: border-box; }
-        html, body { 
-            width: 100% !important; 
-            margin: 0 !important; 
-            padding: 0 !important; 
-            overflow-x: hidden !important;
-            background-color: #19011d;
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: radial-gradient(circle at 20% 20%, #3d0050 0%, #02032c 60%, #0a0020 100%);
+            background-attachment: fixed;
             color: #ffffff;
+            font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
+
+        /* ───── MOBİL MENÜ BUTONU (Levha stili) ───── */
+        @keyframes v-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+            transition: all 0.3s ease;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-menu-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(from 0deg, transparent 60%, rgba(0,242,254,0.15) 80%, transparent 100%);
+            animation: v-spin 4s linear infinite;
+            border-radius: 10px;
+        }
+
+        .mobile-menu-btn:hover {
+            border-color: #00f2fe;
+            box-shadow: 0 0 18px rgba(0,242,254,0.35), inset 0 0 10px rgba(0,242,254,0.08);
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #00f2fe;
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.35s cubic-bezier(0.23,1,0.32,1),
+                        opacity 0.25s ease,
+                        background 0.3s ease;
+            box-shadow: 0 0 6px rgba(0,242,254,0.7);
+        }
+
+        .mobile-menu-btn.open {
+            border-color: #ff007f;
+            box-shadow: 0 0 18px rgba(255,0,127,0.35), inset 0 0 10px rgba(255,0,127,0.08);
+            background: rgba(255,0,127,0.06);
+        }
+
+        .mobile-menu-btn.open span {
+            background: #ff007f;
+            box-shadow: 0 0 6px rgba(255,0,127,0.7);
+        }
+
+        .mobile-menu-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        @media (max-width: 1200px) {
+            .mobile-menu-btn { display: flex; }
+            .desktop-only { display: none !important; }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 85px;
+                left: 0;
+                width: 100%;
+                background: radial-gradient(circle at 20% 20%, #3d0050 0%, #02032c 60%, #0a0020 100%);
+                padding: 30px 0;
+                border-bottom: 4px solid #ff007f;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                z-index: 9999;
+            }
+            .nav-menu.active { display: block; }
+            .nav-links { flex-direction: column; align-items: center; gap: 20px; }
+            .nav-links a { font-size: 1.1rem; }
+        }
+
+        /* ───── SAYFA ALANLARI ───── */
+        .page-section {
+            width: 100%;
+            padding: clamp(40px, 7vh, 80px) clamp(15px, 5vw, 40px);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 900;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-h2.cyan { color: #00f2fe; }
+        .section-h2.pink { color: #ff007f; }
+
+        .section-p {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            line-height: 1.85;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 18px;
+        }
+
+        /* ───── HİZMET KARTLARİ ───── */
+        .services-grid-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .svc-card {
+            border-radius: 18px;
+            padding: 28px 24px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .svc-card.cyan {
+            border: 1.5px solid rgba(0,242,254,0.35);
+            background: rgba(0,242,254,0.04);
+        }
+        .svc-card.pink {
+            border: 1.5px solid rgba(255,0,127,0.35);
+            background: rgba(255,0,127,0.04);
+        }
+        .svc-card:hover { transform: translateY(-6px); }
+        .svc-card.cyan:hover { box-shadow: 0 8px 30px rgba(0,242,254,0.2); }
+        .svc-card.pink:hover { box-shadow: 0 8px 30px rgba(255,0,127,0.2); }
+
+        .svc-icon {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+        .svc-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin: 0;
+        }
+        .svc-card.cyan .svc-title { color: #00f2fe; }
+        .svc-card.pink .svc-title { color: #ff007f; }
+
+        .svc-desc {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.78);
+            margin: 0;
+        }
+
+        /* ───── HİZMET DETAY SATIRI (2 kolon) ───── */
+        .detail-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+            gap: clamp(30px, 5vw, 60px);
+            align-items: center;
+        }
+
+        .detail-box {
+            border-radius: 18px;
+            padding: 32px 30px;
+        }
+        .detail-box.cyan { border: 1px solid rgba(0,242,254,0.2); background: rgba(0,242,254,0.04); }
+        .detail-box.pink { border: 1px solid rgba(255,0,127,0.2); background: rgba(255,0,127,0.04); }
+
+        .detail-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .detail-box ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            font-size: 0.93rem;
+            color: rgba(255,255,255,0.85);
+        }
+        .detail-box ul li:last-child { border-bottom: none; }
+        .detail-box ul li::before {
+            content: '▸ ';
+            color: #00f2fe;
+        }
+        .detail-box.pink ul li::before { color: #ff007f; }
+
+        /* ───── SSS ───── */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(0,229,255,0.12);
+            border-radius: 16px;
+            padding: 24px 26px;
+            transition: background 0.3s;
+        }
+        .faq-item:hover { background: rgba(255,255,255,0.03); }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            color: #ff007f;
+            margin: 0 0 10px;
+            font-weight: 800;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .faq-item h3::before { content: '?'; color: #00f2fe; font-size: 1.2rem; flex-shrink: 0; }
+        .faq-item p { font-size: 0.9rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin: 0; }
+
+        /* ───── CTA ───── */
+        .cta-section {
+            text-align: center;
+            padding: clamp(50px, 8vw, 90px) 20px;
+        }
+        .cta-section p {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 50px;
+            background: linear-gradient(135deg, #00f2fe, #00b4d8);
+            color: #0a0020;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: clamp(16px, 3vw, 19px);
+            transition: 0.3s ease;
+            box-shadow: 0 4px 25px rgba(0,242,254,0.3);
+        }
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #ff007f, #c0006a);
+            box-shadow: 0 4px 25px rgba(255,0,127,0.35);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ───── AYIRICI ───── */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,242,254,0.3), transparent);
+            margin: 0;
+        }
+
+        /* ───── FOOTER ───── */
+        address { font-style: normal; }
     </style>
 </head>
-<body style="width: 100%; overflow-x: hidden;">
-    
-    <div class="v-site-main" style="width: 100%; overflow-x: hidden; position: relative; display: flex; flex-direction: column;">
 
-<header class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 99999;">
-    <div class="container nav-container">
-        <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
-            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img">
-            <span class="logo-text">DİJİTAL</span>
-        </a>
-        
-            <nav class="nav-menu" id="navMenu">
+<body>
+<div class="v-site-main" style="width:100%; overflow-x:hidden; position:relative; display:flex; flex-direction:column;">
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="navbar" style="position:fixed; top:0; left:0; width:100%; z-index:99999;">
+        <div class="container nav-container">
+            <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
+                <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40" loading="eager">
+                <span class="logo-text">DİJİTAL</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
                 <ul class="nav-links">
                     <li><a href="/">Anasayfa</a></li>
                     <li><a href="dijital-baski">Dijital Baskı</a></li>
                     <li><a href="matbaa">Matbaa</a></li>
                     <li><a href="promosyon">Promosyon</a></li>
                     <li><a href="levha">Levha</a></li>
-                    <li><a href="Duba-Bayrak">Duba & Bayrak</a></li>
+                    <li><a href="Duba-Bayrak">Duba &amp; Bayrak</a></li>
                     <li><a href="tasarim">Tasarım</a></li>
                     <li><a href="portfolyo">Portfolyo</a></li>
                     <li><a href="hakkimizda">Hakkımızda</a></li>
                     <li><a href="blog">Blog</a></li>
-                    <li><a href="iletisim">İletişim</a></li>
+                    <li><a href="iletisim" aria-current="page">İletişim</a></li>
                 </ul>
             </nav>
 
-        <div class="header-right">
-            <div class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menüyü Aç">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="header-right">
+                <button
+                    type="button"
+                    class="mobile-menu-btn"
+                    onclick="toggleMenu()"
+                    aria-label="Menüyü Aç/Kapat"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="iletisim" class="btn-quote desktop-only">Teklif Al</a>
             </div>
-            <a href="iletisim.html" class="btn-quote desktop-only">Teklif Al</a>
         </div>
-    </div>
+    </header>
 
-    <style>
-        @media (max-width: 1024px) {
-            .nav-menu.active { 
-                display: block !important; 
-                transform: translateX(0) !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-            }
-        }
-    </style>
-</header>
+    <!-- ═══════════════ MAIN ═══════════════ -->
+    <main style="padding-top: 110px;">
 
-<main style="margin-top: 100px; padding: 40px 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
-    
-    <h1 style="font-size: clamp(28px, 5vw, 42px); margin-bottom: 20px; color: #ffffff;">Şirinevler Dijital Baskı Hizmetleri</h1>
-    
-    <p style="font-size: clamp(16px, 2vw, 18px); line-height: 1.8; margin-bottom: 30px; color: rgba(255,255,255,0.9);">
-        <strong>Şirinevler</strong> bölgesinde profesyonel <strong>dijital baskı</strong> çözümleri sunuyoruz. 
-        İşletmenizin vitrin görünürlüğünü artırmak, reklam kampanyalarınızı güçlendirmek ve 
-        kurumsal kimliğinizi yansıtmak için <strong>Valexira Dijital</strong> olarak hizmetinizdeyiz. 
-        Şirinevler'de <strong>branda baskı</strong>, <strong>folyo uygulama</strong>, <strong>afiş baskı</strong>, 
-        <strong>one way vision</strong> ve <strong>kumlu folyo</strong> hizmetlerimizle tanınırlığınızı artırıyoruz.
-    </p>
+        <!-- ── HERO ── -->
+        <section aria-label="Sayfa başlığı" style="text-align:center; padding: clamp(30px,6vw,70px) 20px clamp(20px,4vw,50px);">
+            <h1 style="font-size:clamp(2rem,8vw,4rem); font-weight:900; line-height:1.15; margin-bottom:18px;
+                        background:linear-gradient(to right,#fcc40e 10%,#00e5ff 40%,#ff007f 65%,#ff9c07 90%);
+                        background-size:200% auto; color:#fff;
+                        background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+                        animation:shine 5s linear infinite;">
+                Şirinevler Dijital Baskı<br>ve Reklam Hizmetleri
+            </h1>
+            <p style="font-size:clamp(1rem,3vw,1.25rem); color:rgba(255,255,255,0.82); max-width:720px; margin:0 auto 30px; line-height:1.75;">
+                <strong style="color:#00f2fe;">Valexira Dijital</strong> olarak Şirinevler ve çevre bölgelerine
+                profesyonel baskı, tabela ve reklam çözümleri sunuyoruz. Hızlı teslimat, uygun fiyat garantisi.
+            </p>
+            <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+                <a href="iletisim" style="padding:14px 36px; border:2px solid #00f2fe; border-radius:50px; color:#fff; text-decoration:none; font-weight:700; font-size:0.95rem; transition:0.3s;"
+                   onmouseover="this.style.background='#00f2fe'; this.style.color='#0a0020';"
+                   onmouseout="this.style.background='transparent'; this.style.color='#fff';">
+                    Teklif Al
+                </a>
+                <a href="tel:+905427412994" style="padding:14px 36px; border:2px solid #ff007f; border-radius:50px; color:#fff; text-decoration:none; font-weight:700; font-size:0.95rem; transition:0.3s;"
+                   onmouseover="this.style.background='#ff007f';"
+                   onmouseout="this.style.background='transparent';">
+                    0542 741 29 94
+                </a>
+            </div>
+        </section>
 
-    <h2 style="font-size: clamp(22px, 4vw, 32px); margin: 40px 0 20px; color: #00f2fe;">Şirinevler'de Sunduğumuz Baskı Hizmetleri</h2>
-    
-    <ul style="font-size: 16px; line-height: 2; margin-bottom: 30px; padding-left: 20px; color: rgba(255,255,255,0.9);">
-        <li><strong>Branda Baskı:</strong> Dış mekan dayanıklı, yüksek çözünürlüklü branda baskısı</li>
-        <li><strong>Folyo Baskı:</strong> Vitrin giydirme, cam kaplama ve iç mekan dekorasyonu</li>
-        <li><strong>One Way Vision:</strong> Dışarıdan reklam, içeriden net görüş sağlayan perforasyonlu folyo</li>
-        <li><strong>Afiş Baskı:</strong> Kampanya ve tanıtım afişleri, X-banner ve roll-up çözümleri</li>
-        <li><strong>Kumlu Folyo:</strong> Ofis bölme ve camlarda şık dekoratif kaplama</li>
-    </ul>
+        <div class="divider"></div>
 
-    <h2 style="font-size: clamp(22px, 4vw, 32px); margin: 40px 0 20px; color: #00f2fe;">Neden Şirinevler'de Valexira Dijital?</h2>
-    
-    <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: rgba(255,255,255,0.9);">
-        Şirinevler merkezli işletmeler için <strong>hızlı teslimat</strong> ve <strong>uygun fiyat</strong> garantisi sunuyoruz. 
-        Matbaacılar Sitesi'ndeki üretim tesisimizden Şirinevler'e kısa sürede ulaşım sağlıyor, 
-        acil projelerinizde aynı gün teslimat imkanı tanıyoruz. 
-        Şirinevler <strong>reklamcı</strong> ve <strong>matbaacı</strong> arayan firmalar için 
-        tek adres: <strong>Valexira Dijital</strong>.
-    </p>
+        <!-- ══════════════════════════════════════
+             1. BRANDA BASKI
+        ══════════════════════════════════════ -->
+        <section aria-labelledby="branda-h2" class="page-section">
+            <h2 id="branda-h2" class="section-h2 cyan">Şirinevler Branda Baskı</h2>
+            <p class="section-p">
+                <strong>Şirinevler branda baskı</strong> ihtiyaçlarınız için Valexira Dijital yanınızda.
+                Dış mekân koşullarına dayanıklı, UV baskılı, yüksek çözünürlüklü branda baskısı ile
+                işletmenizin cadde ve vitrin görünürlüğünü maksimuma taşıyın.
+                Solvent ve eko-solvent baskı teknolojimizle <strong>gergi branda</strong>,
+                <strong>tente baskı</strong>, <strong>pankart</strong> ve <strong>çevre brandası</strong>
+                üretiminde güvenilir çözümler sunuyoruz.
+            </p>
+            <div class="detail-row">
+                <div class="detail-box cyan">
+                    <p class="section-p" style="margin-bottom:14px;"><strong>Branda Baskı Özellikleri:</strong></p>
+                    <ul>
+                        <li>500 gr / 650 gr / 900 gr seçenekleri</li>
+                        <li>UV dayanımlı, solmayan renkler</li>
+                        <li>Gergi branda ve tente baskı</li>
+                        <li>Pankart, afiş branda, çevre brandası</li>
+                        <li>Halkalama ve dikiş seçenekleri</li>
+                        <li>Aynı gün üretim imkânı</li>
+                    </ul>
+                </div>
+                <div style="text-align:center;">
+                    <p class="section-p">
+                        Şirinevler'deki inşaat çevre brandalarından mağaza tente baskılarına kadar
+                        her ölçüde, her metrajda hızlı üretim. İstanbul geneli kurulum ve teslimat yapılmaktadır.
+                    </p>
+                    <a href="iletisim" class="cta-btn" style="font-size:0.95rem; padding:13px 35px;">Branda Fiyatı Öğren</a>
+                </div>
+            </div>
+        </section>
 
-    <div style="text-align: center; margin: 50px 0;">
-        <a href="iletisim.html" style="display: inline-block; padding: 15px 40px; background: #00f2fe; color: #19011d; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 18px;">Şirinevler'de Teklif Al</a>
-    </div>
+        <div class="divider"></div>
 
-    <p style="font-size: 14px; opacity: 0.7; text-align: center; margin-top: 40px;">
-        Valexira Dijital | Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İstanbul<br>
-        <a href="tel:+905427412994" style="color: #00f2fe; text-decoration: none;">+90 542 741 29 94</a>
-    </p>
+        <!-- ══════════════════════════════════════
+             2. FOLYO BASKI & DİJİTAL BASKI FOLYO
+        ══════════════════════════════════════ -->
+        <section aria-labelledby="folyo-h2" class="page-section">
+            <h2 id="folyo-h2" class="section-h2 pink">Dijital Baskı Folyo & Cam Kaplama</h2>
+            <p class="section-p">
+                <strong>Dijital baskı folyo</strong> uygulamalarımız ile vitrinlerinizi,
+                araçlarınızı ve ofis camlarınızı profesyonel reklam yüzeylerine dönüştürün.
+                <strong>One way vision</strong>, <strong>kumlu folyo</strong>, <strong>renk folyo</strong>
+                ve <strong>araç giydirme</strong> başta olmak üzere her türlü folyo baskı ve uygulama
+                hizmetini Şirinevler ve çevresine sunmaktayız.
+            </p>
+            <div class="services-grid-main" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));">
+                <div class="svc-card cyan">
+                    <span class="svc-icon">🪟</span>
+                    <p class="svc-title">One Way Vision</p>
+                    <p class="svc-desc">Dışarıdan reklam görünümü, içeriden tam şeffaflık sağlayan perforasyonlu folyo uygulaması.</p>
+                </div>
+                <div class="svc-card pink">
+                    <span class="svc-icon">❄️</span>
+                    <p class="svc-title">Kumlu Folyo</p>
+                    <p class="svc-desc">Ofis, mağaza ve bölme camlarında dekoratif buzlu cam görünümü sunan mat folyo uygulaması.</p>
+                </div>
+                <div class="svc-card cyan">
+                    <span class="svc-icon">🚗</span>
+                    <p class="svc-title">Araç Giydirme</p>
+                    <p class="svc-desc">Araç folyo kaplama ve araç üzeri baskı ile markanızı yollarda gezdir.</p>
+                </div>
+                <div class="svc-card pink">
+                    <span class="svc-icon">🏪</span>
+                    <p class="svc-title">Vitrin Giydirme</p>
+                    <p class="svc-desc">Mağaza vitrinlerinizi kampanya görselleri ve kurumsal tasarımlarla dönüştürün.</p>
+                </div>
+            </div>
+        </section>
 
-</main>
+        <div class="divider"></div>
 
-<footer class="v-footer" style="width: 100%; overflow-x: hidden; box-sizing: border-box; position: relative; margin-top: 50px;">
-    <div class="v-footer-bottom" style="width: 100%; text-align: center; padding: 20px 0; font-size: clamp(12px, 1.5vw, 14px); box-sizing: border-box; border-top: 1px solid rgba(255,255,255,0.05);">
-        © 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
-    </div>
-</footer>
+        <!-- ══════════════════════════════════════
+             3. AFİŞ BASKI
+        ══════════════════════════════════════ -->
+        <section aria-labelledby="afis-h2" class="page-section">
+            <h2 id="afis-h2" class="section-h2 cyan">Şirinevler Afiş Baskı</h2>
+            <p class="section-p">
+                <strong>Afiş baskı</strong> hizmetimizle kampanyalarınızı, etkinliklerinizi ve
+                promosyonlarınızı güçlü görsel çözümlerle duyurun.
+                A4'ten dev boy afişe kadar her boyutta <strong>poster baskı</strong>,
+                <strong>roll-up baskı</strong>, <strong>X-banner</strong> ve
+                <strong>çerçeveli afiş</strong> üretimi yapılmaktadır.
+                Şirinevler'e hızlı teslimat garantisi.
+            </p>
+            <div class="detail-row">
+                <div class="detail-box cyan">
+                    <p class="section-p" style="margin-bottom:14px;"><strong>Afiş Ürün Seçenekleri:</strong></p>
+                    <ul>
+                        <li>A3 / A2 / A1 / A0 afiş baskı</li>
+                        <li>Dev boy poster baskı (her boyut)</li>
+                        <li>Roll-up stand baskı (85x200, 100x200)</li>
+                        <li>X-banner baskı (60x160, 80x180)</li>
+                        <li>Mat / parlak laminasyon seçeneği</li>
+                        <li>Forex ve karton askı afişler</li>
+                    </ul>
+                </div>
+                <div class="detail-box pink">
+                    <p class="section-p" style="margin-bottom:14px;"><strong>Neden Valexira?</strong></p>
+                    <ul>
+                        <li>Yüksek çözünürlüklü baskı teknolojisi</li>
+                        <li>Canlı renk, keskin detay</li>
+                        <li>Tasarım desteği mevcuttur</li>
+                        <li>Aynı gün üretim ve teslimat</li>
+                        <li>Minimum sipariş adedi yok</li>
+                        <li>Toplu siparişlerde özel fiyat</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ══════════════════════════════════════
+             4. KARTVİZİT BASKI
+        ══════════════════════════════════════ -->
+        <section aria-labelledby="kartvizit-h2" class="page-section">
+            <h2 id="kartvizit-h2" class="section-h2 pink">Kartvizit Baskı</h2>
+            <p class="section-p">
+                Kurumsal kimliğinizin en küçük ama en etkili parçası olan <strong>kartvizit baskı</strong>
+                hizmetimizle ilk izlenimi kalıcı bırakın. Selofanlı, lakeli, spot UV ve kabartmalı
+                kartvizit seçeneklerimizle markanızı dokunsal bir deneyime dönüştürüyoruz.
+                Şirinevler ve tüm İstanbul'a hızlı teslimat.
+            </p>
+            <div class="services-grid-main">
+                <div class="svc-card pink">
+                    <span class="svc-icon">✨</span>
+                    <p class="svc-title">Selofanlı Kartvizit</p>
+                    <p class="svc-desc">Mat veya parlak selofan kaplama ile dayanıklı, profesyonel görünüm.</p>
+                </div>
+                <div class="svc-card cyan">
+                    <span class="svc-icon">💎</span>
+                    <p class="svc-title">Spot UV Kartvizit</p>
+                    <p class="svc-desc">Seçili alanlarda parlak UV kaplama ile lüks ve çarpıcı etki.</p>
+                </div>
+                <div class="svc-card pink">
+                    <span class="svc-icon">🖋️</span>
+                    <p class="svc-title">Kabartma Baskı</p>
+                    <p class="svc-desc">Emboss (kabartma) ile logo ve metinlerde üç boyutlu, dokunsal etki.</p>
+                </div>
+                <div class="svc-card cyan">
+                    <span class="svc-icon">🪙</span>
+                    <p class="svc-title">Altın / Gümüş Varak</p>
+                    <p class="svc-desc">Folyo yaldız baskı ile kurumsal kartvizitlerde premium görünüm.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ══════════════════════════════════════
+             5. MAGNET BASKI
+        ══════════════════════════════════════ -->
+        <section aria-labelledby="magnet-h2" class="page-section">
+            <h2 id="magnet-h2" class="section-h2 cyan">Magnet Baskı</h2>
+            <p class="section-p">
+                <strong>Magnet baskı</strong> ile markanızı müşterilerinizin evine, arabasına ve ofisine taşıyın.
+                Buzdolabı magneti, araç magneti ve tanıtım magneti üretiminde yüksek baskı kalitesi
+                ve uzun ömürlü mıknatıs malzeme kullanılmaktadır. Promosyon kampanyalarınız için
+                ideal; ekonomik birim fiyat, hızlı üretim.
+            </p>
+            <div class="detail-row">
+                <div class="detail-box cyan">
+                    <p class="section-p" style="margin-bottom:14px;"><strong>Magnet Çeşitleri:</strong></p>
+                    <ul>
+                        <li>Buzdolabı magneti (özel kesim)</li>
+                        <li>Araç magneti (A4, A3 ve özel boyut)</li>
+                        <li>Promosyon magneti (şirket logolu)</li>
+                        <li>Kart boyutlu magnet (kredi kartı ölçüsü)</li>
+                        <li>Kartvizit magnet kombinasyonu</li>
+                        <li>Laminasyonlu, su geçirmez yüzey</li>
+                    </ul>
+                </div>
+                <div style="text-align:center; padding:20px 0;">
+                    <p class="section-p">
+                        Şirinevler, Bağcılar, Bahçelievler ve Güngören bölgelerine
+                        toplu magnet baskı siparişlerinde <strong style="color:#00f2fe;">özel indirim</strong> uygulanmaktadır.
+                        Hemen teklif alın.
+                    </p>
+                    <a href="iletisim" class="cta-btn" style="font-size:0.92rem; padding:12px 32px;">Magnet Teklifi Al</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ══════════════════════════════════════
+             6. BROŞÜR BASKI
+        ══════════════════════════════════════ -->
+        <section aria-labelledby="brosur-h2" class="page-section">
+            <h2 id="brosur-h2" class="section-h2 pink">Broşür Baskı</h2>
+            <p class="section-p">
+                Ürün ve hizmetlerinizi etkili biçimde tanıtmak için <strong>broşür baskı</strong>,
+                <strong>katalog baskı</strong> ve <strong>el ilanı baskı</strong> hizmetlerimizden yararlanın.
+                A4, A5, A6, trifold (üçe katlama), bifold ve özel boyutlu broşürler üretilmektedir.
+                Mat, parlak ve kuşe kâğıt seçenekleriyle kurumsal kalitenizi yansıtın.
+            </p>
+            <div class="services-grid-main">
+                <div class="svc-card pink">
+                    <span class="svc-icon">📄</span>
+                    <p class="svc-title">A4 / A5 Broşür</p>
+                    <p class="svc-desc">Tek veya çift taraflı, mat/parlak seçenekli standart broşür baskısı.</p>
+                </div>
+                <div class="svc-card cyan">
+                    <span class="svc-icon">📂</span>
+                    <p class="svc-title">Trifold Broşür</p>
+                    <p class="svc-desc">Üçe katlama ile kompakt ve şık sunum. Restoran, klinik, otel broşürleri.</p>
+                </div>
+                <div class="svc-card pink">
+                    <span class="svc-icon">📚</span>
+                    <p class="svc-title">Ürün Kataloğu</p>
+                    <p class="svc-desc">Ciltli veya spiralli ürün katalogları. 4 sayfadan 100 sayfaya kadar.</p>
+                </div>
+                <div class="svc-card cyan">
+                    <span class="svc-icon">📰</span>
+                    <p class="svc-title">El İlanı (Flyer)</p>
+                    <p class="svc-desc">Kampanya duyuruları için ekonomik A5 / A6 tek sayfa flyer baskısı.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ══════════════════════════════════════
+             7. LEVHA & TABELA
+        ══════════════════════════════════════ -->
+        <section aria-labelledby="levha-h2" class="page-section">
+            <h2 id="levha-h2" class="section-h2 cyan">Levha ve Tabela Baskı</h2>
+            <p class="section-p">
+                İşletmenizin cadde ve bina girişindeki ilk izlenimini güçlendirin.
+                <strong>Dekota (forex) levha</strong>, <strong>pleksi levha</strong>,
+                <strong>alüminyum kompozit panel</strong>, <strong>KT board</strong> ve
+                <strong>elips tabela</strong> üretiminde Valexira Dijital olarak
+                CNC ve lazer kesim teknolojisiyle hassas, kaliteli çözümler sunuyoruz.
+                ISG uyarı levhaları ve tahliye planı da hizmetlerimiz arasındadır.
+            </p>
+            <div class="detail-row">
+                <div class="detail-box cyan">
+                    <p class="section-p" style="margin-bottom:14px;"><strong>Levha Ürün Çeşitleri:</strong></p>
+                    <ul>
+                        <li>Dekota (Forex) levha — 3mm / 5mm / 10mm</li>
+                        <li>Alüminyum kompozit panel (AKP)</li>
+                        <li>Şeffaf ve renkli pleksi levha</li>
+                        <li>KT board (hafif köpük levha)</li>
+                        <li>Elips ve yumurta tabela</li>
+                        <li>ISG uyarı levhası ve tahliye planı</li>
+                    </ul>
+                </div>
+                <div class="detail-box pink">
+                    <p class="section-p" style="margin-bottom:14px;"><strong>Üretim Teknolojileri:</strong></p>
+                    <ul>
+                        <li>CNC Router kesim (hassas kenarlı)</li>
+                        <li>Lazer kesim (ince detaylı)</li>
+                        <li>UV direkt baskı (yüksek renk doygunluğu)</li>
+                        <li>Vidalı ve yapışkanlı montaj seçenekleri</li>
+                        <li>İç mekan ve dış mekan uygulamaları</li>
+                        <li>Işıklı tabela bağlantı hazırlığı</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ══════════════════════════════════════
+             NEDEN VALEXİRA?
+        ══════════════════════════════════════ -->
+        <section aria-label="Neden Valexira" class="page-section">
+            <h2 class="section-h2 pink" style="text-align:center; margin-bottom:30px;">Neden Şirinevler'de Valexira Dijital?</h2>
+            <div class="services-grid-main" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));">
+                <div class="svc-card cyan" style="align-items:flex-start;">
+                    <span class="svc-icon">⚡</span>
+                    <p class="svc-title">Aynı Gün Teslimat</p>
+                    <p class="svc-desc">Acil siparişlerde Şirinevler'e aynı gün teslimat imkânı sunuyoruz.</p>
+                </div>
+                <div class="svc-card pink" style="align-items:flex-start;">
+                    <span class="svc-icon">💰</span>
+                    <p class="svc-title">Uygun Fiyat</p>
+                    <p class="svc-desc">Matbaacılar Sitesi'ndeki tesisimiz sayesinde aracısız, rekabetçi fiyat garantisi.</p>
+                </div>
+                <div class="svc-card cyan" style="align-items:flex-start;">
+                    <span class="svc-icon">🎨</span>
+                    <p class="svc-title">Tasarım Desteği</p>
+                    <p class="svc-desc">Profesyonel grafik tasarım ekibimiz ile sıfırdan tasarım hizmeti.</p>
+                </div>
+                <div class="svc-card pink" style="align-items:flex-start;">
+                    <span class="svc-icon">🏆</span>
+                    <p class="svc-title">Profesyonel Ekip</p>
+                    <p class="svc-desc">10+ yıllık sektör deneyimi ile her projede en yüksek kalite standardı.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ══════════════════════════════════════
+             SSS
+        ══════════════════════════════════════ -->
+        <section aria-label="Sık Sorulan Sorular" class="page-section">
+            <h2 class="section-h2 cyan" style="text-align:center; margin-bottom:10px;">Sık Sorulan Sorular</h2>
+            <p class="section-p" style="text-align:center; margin-bottom:30px; opacity:0.7;">Şirinevler dijital baskı ve reklam hakkında merak edilenler</p>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Şirinevler'e teslimat yapıyor musunuz?</h3>
+                    <p>Evet. Şirinevler, Bağcılar, Bahçelievler, Güngören ve Zeytinburnu dahil tüm İstanbul'a teslimat yapılmaktadır. Acil siparişlerde aynı gün teslimat imkânı mevcuttur.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Minimum sipariş adedi var mı?</h3>
+                    <p>Dijital baskıda minimum sipariş şartı yoktur. Tek adet kartvizit, tek adet afiş veya küçük ebatlı folyo siparişi verebilirsiniz.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Branda baskı ne kadar sürer?</h3>
+                    <p>Standart siparişler 1-2 iş günü içinde hazırlanır. Acil talepler için aynı gün üretim seçeneği de bulunmaktadır.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Tasarımım yoksa ne yapacağım?</h3>
+                    <p>Endişelenmeyin. Profesyonel grafik tasarım ekibimiz bilgi ve ürünlerinizi alarak tasarımı sizin için hazırlar. Tasarım hizmetimiz ücrete tabidir.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Kartvizit baskı fiyatları nedir?</h3>
+                    <p>Fiyatlar adet, kâğıt cinsi ve kaplama türüne göre değişmektedir. WhatsApp veya telefon üzerinden anlık fiyat alabilirsiniz.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Kurumsal fatura kesiyor musunuz?</h3>
+                    <p>Evet. Tüm siparişlerimiz için KDV dahil fatura düzenlenmektedir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             CTA
+        ══════════════════════════════════════ -->
+        <section class="cta-section" aria-label="İletişim çağrısı">
+            <h2 style="font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; margin-bottom:15px;">
+                Şirinevler'de <span style="color:#00f2fe;">Teklif Almak</span> İster misiniz?
+            </h2>
+            <p>Branda, folyo, afiş, kartvizit, magnet, broşür veya levha — hangi ürün olursa olsun hemen iletişime geçin.</p>
+            <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+                <a href="iletisim" class="cta-btn">Ücretsiz Teklif Al</a>
+                <a href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer"
+                   style="display:inline-flex; align-items:center; gap:8px; padding:16px 38px;
+                          background:#25d366; color:#000; border-radius:50px; font-weight:800;
+                          font-size:clamp(15px,2.5vw,18px); text-decoration:none;
+                          transition:0.3s; box-shadow:0 4px 20px rgba(37,211,102,0.3);">
+                    WhatsApp ile Yaz
+                </a>
+            </div>
+            <p style="margin-top:30px; font-size:13px; opacity:0.55;">
+                Valexira Dijital | Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İstanbul |
+                <a href="tel:+905427412994" style="color:#00f2fe; text-decoration:none;">+90 542 741 29 94</a>
+            </p>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="v-footer" style="width:100%; overflow-x:hidden; position:relative;">
+        <div class="v-footer-glow" aria-hidden="true"></div>
+
+        <div style="width:100%; max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; padding:clamp(40px,6vw,70px) clamp(15px,4vw,30px) 0;">
+
+            <div style="flex:1; min-width:min(100%,260px);">
+                <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" loading="lazy" width="170">
+                <p class="v-footer-desc">
+                    Profesyonel <strong>dijital baskı</strong>, <strong>grafik tasarım</strong>
+                    ve <strong>reklam çözümleri</strong> ile markanızı güçlendiriyoruz.
+                    İstanbul Topkapı'dan Şirinevler ve tüm İstanbul'a hizmet.
+                </p>
+            </div>
+
+            <nav aria-label="Dijital baskı hizmetleri" style="flex:1; min-width:min(100%,150px);">
+                <h3 class="v-footer-head cyan">Baskı &amp; Reklam</h3>
+                <ul class="v-footer-list">
+                    <li>Branda Baskı</li>
+                    <li>Folyo &amp; One Way Vision</li>
+                    <li>Afiş &amp; Poster Baskı</li>
+                    <li>Kartvizit Baskı</li>
+                    <li>Magnet Baskı</li>
+                    <li>Broşür &amp; Katalog</li>
+                    <li>Levha &amp; Tabela</li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Hizmet bölgeleri" style="flex:1; min-width:min(100%,150px);">
+                <h3 class="v-footer-head pink">Hizmet Bölgelerimiz</h3>
+                <ul class="v-footer-list">
+                    <li>Şirinevler</li>
+                    <li>Bağcılar</li>
+                    <li>Bahçelievler</li>
+                    <li>Güngören</li>
+                    <li>Zeytinburnu</li>
+                    <li>Topkapı &amp; Çevre</li>
+                </ul>
+            </nav>
+
+            <div style="flex:1; min-width:min(100%,250px);">
+                <h3 class="v-footer-head pink">Bize Ulaşın</h3>
+                <address class="v-footer-contact">
+                    <p>Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44 Topkapı / İstanbul</p>
+                    <p><a href="tel:+905427412994">+90 542 741 29 94</a></p>
+                    <p><a href="mailto:valexiradijital@gmail.com">valexiradijital@gmail.com</a></p>
+                </address>
+                <a href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer" class="v-whatsapp-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="20" height="20" aria-hidden="true">
+                    WhatsApp ile Yazın
+                </a>
+            </div>
+        </div>
+
+        <div class="v-footer-bottom" style="margin-top:40px; padding:22px 20px; font-size:clamp(12px,1.5vw,14px);">
+            &copy; 2025 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır. |
+            <a href="/" style="color:rgba(255,255,255,0.5); text-decoration:none;">valexira.com</a>
+        </div>
+    </footer>
+
+</div>
 
 <script>
-function toggleMenu() {
-    const navMenu = document.getElementById('navMenu');
-    navMenu.classList.toggle('active');
-}
-document.addEventListener('click', function(event) {
-    const navMenu = document.getElementById('navMenu');
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    if (!navMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-        navMenu.classList.remove('active');
+    /* ── Mobil menü ── */
+    function toggleMenu() {
+        var nav = document.getElementById('navMenu');
+        var btn = document.querySelector('.mobile-menu-btn');
+        var isOpen = nav.classList.toggle('active');
+        btn.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
     }
-});
-</script>
 
+    document.addEventListener('click', function(e) {
+        var nav = document.getElementById('navMenu');
+        var btn = document.querySelector('.mobile-menu-btn');
+        if (nav && btn && !nav.contains(e.target) && !btn.contains(e.target)) {
+            nav.classList.remove('active');
+            btn.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    /* ── Shine animasyonu (başlık için) ── */
+    var style = document.createElement('style');
+    style.textContent = '@keyframes shine { to { background-position: 200% center; } }';
+    document.head.appendChild(style);
+</script>
 </body>
 </html>
