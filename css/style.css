@@ -1271,7 +1271,7 @@ html, body {
     }
 
     .nav-menu .nav-links li:first-child {
-        border-top: 1px solid rgba(0, 242, 254, 0.07);
+        border-top: 1px solid rgba(2, 3, 44, 0.98)
     }
 
     .nav-menu .nav-links li a {
