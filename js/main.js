@@ -257,3 +257,21 @@ function pickProduct(val) {
         });
     }
 })();
+
+function openLightbox(src) {
+    var lb  = document.getElementById('v-portfolio-lightbox');
+    var img = document.getElementById('lightbox-img');
+    if (lb && img) {
+        img.src = src;
+        lb.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    var lb = document.getElementById('v-portfolio-lightbox');
+    if (lb) {
+        lb.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
