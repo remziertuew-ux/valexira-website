@@ -1702,3 +1702,874 @@ html, body {
     #ai-wa-btn     { width: 54px; height: 54px; }
     #ai-wa-btn svg { width: 28px; height: 28px; }
 }
+/* ===================== LOTTIE TARZI PROFESYONEL ILLUSTRASYON ===================== */
+.v-brand-hero-section {
+    width: 100%;
+    padding: clamp(40px, 6vw, 80px) 0;
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.v-brand-grid {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- SOL: PROFESYONEL CİHAZ ILLUSTRASYONU --- */
+.v-brand-visual {
+    position: relative;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* Halo Ring Efekti */
+.v-halo-ring {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 242, 254, 0.08);
+    animation: v-halo-pulse 4s ease-in-out infinite;
+}
+
+.v-halo-ring::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 0, 127, 0.06);
+    animation: v-halo-pulse 4s ease-in-out infinite reverse;
+}
+
+.v-halo-delay {
+    animation-delay: -2s;
+    width: 420px;
+    height: 420px;
+}
+
+@keyframes v-halo-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Uçan Parçacıklar */
+.v-float-particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.fp1 { width: 4px; height: 4px; background: #00f2fe; top: 15%; left: 10%; animation: v-float1 8s ease-in-out infinite; box-shadow: 0 0 10px #00f2fe; }
+.fp2 { width: 6px; height: 6px; background: #ff007f; top: 20%; right: 15%; animation: v-float2 10s ease-in-out infinite; box-shadow: 0 0 12px #ff007f; }
+.fp3 { width: 3px; height: 3px; background: #fbbf24; bottom: 25%; left: 8%; animation: v-float3 7s ease-in-out infinite; box-shadow: 0 0 8px #fbbf24; }
+.fp4 { width: 5px; height: 5px; background: #00f2fe; bottom: 20%; right: 10%; animation: v-float4 9s ease-in-out infinite; box-shadow: 0 0 10px #00f2fe; }
+.fp5 { width: 4px; height: 4px; background: #ff007f; top: 40%; left: 5%; animation: v-float1 11s ease-in-out infinite reverse; box-shadow: 0 0 10px #ff007f; }
+.fp6 { width: 3px; height: 3px; background: #a855f7; top: 60%; right: 5%; animation: v-float2 8s ease-in-out infinite reverse; box-shadow: 0 0 8px #a855f7; }
+.fp7 { width: 5px; height: 5px; background: #00f2fe; top: 8%; left: 50%; animation: v-float3 12s ease-in-out infinite; box-shadow: 0 0 10px #00f2fe; }
+.fp8 { width: 4px; height: 4px; background: #ff007f; bottom: 10%; left: 45%; animation: v-float4 9s ease-in-out infinite reverse; box-shadow: 0 0 10px #ff007f; }
+
+@keyframes v-float1 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+    25% { transform: translate(30px, -40px) scale(1.3); opacity: 1; }
+    50% { transform: translate(-20px, 30px) scale(0.8); opacity: 0.6; }
+    75% { transform: translate(40px, 20px) scale(1.1); opacity: 0.8; }
+}
+
+@keyframes v-float2 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+    33% { transform: translate(-40px, 30px) scale(1.2); opacity: 0.9; }
+    66% { transform: translate(25px, -35px) scale(0.9); opacity: 0.7; }
+}
+
+@keyframes v-float3 {
+    0%, 100% { transform: translate(0, 0) scale(0.9); opacity: 0.6; }
+    50% { transform: translate(35px, -25px) scale(1.3); opacity: 1; }
+}
+
+@keyframes v-float4 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+    25% { transform: translate(-30px, -30px) scale(1.2); opacity: 0.8; }
+    75% { transform: translate(20px, 40px) scale(0.9); opacity: 0.6; }
+}
+
+/* Ana Cihaz Grubu */
+.v-devices-group {
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    animation: v-device-float 6s ease-in-out infinite;
+}
+
+@keyframes v-device-float {
+    0%, 100% { transform: translateY(0) rotateY(-5deg); }
+    50% { transform: translateY(-15px) rotateY(5deg); }
+}
+
+/* ===== MONITOR ===== */
+.v-lottie-monitor {
+    position: relative;
+    transform: translateX(-20px);
+}
+
+.v-screen-glow {
+    position: absolute;
+    inset: -15px;
+    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+    border-radius: 20px;
+    animation: v-screen-pulse 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes v-screen-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+.v-monitor-body {
+    position: relative;
+    width: 200px;
+    background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1e 100%);
+    border-radius: 12px;
+    padding: 8px 8px 0 8px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.v-monitor-display {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0c4a6e 100%);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.v-display-content {
+    padding: 15px;
+    position: relative;
+    height: 100%;
+}
+
+.v-code-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: v-code-appear 0.5s ease-out forwards;
+}
+
+.v-line1 { animation-delay: 0.2s; }
+.v-line2 { animation-delay: 0.7s; }
+.v-line3 { animation-delay: 1.2s; }
+.v-line4 { animation-delay: 1.7s; }
+
+@keyframes v-code-appear {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.v-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: v-dot-glow 2s ease-in-out infinite;
+}
+
+.v-dot.cyan { background: #00f2fe; box-shadow: 0 0 8px #00f2fe; }
+.v-dot.pink { background: #ff007f; box-shadow: 0 0 8px #ff007f; }
+.v-dot.yellow { background: #fbbf24; box-shadow: 0 0 8px #fbbf24; }
+
+@keyframes v-dot-glow {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.v-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+    flex: 1;
+    animation: v-bar-pulse 3s ease-in-out infinite;
+}
+
+.v-bar.short {
+    flex: 0.5;
+}
+
+@keyframes v-bar-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+.v-cursor-blink {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    width: 10px;
+    height: 14px;
+    background: #00f2fe;
+    border-radius: 2px;
+    animation: v-cursor-blink 1s step-end infinite;
+    box-shadow: 0 0 10px #00f2fe;
+}
+
+@keyframes v-cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.v-screen-reflection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.03) 50%, transparent 60%);
+    pointer-events: none;
+}
+
+.v-monitor-bezel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    height: 24px;
+}
+
+.v-monitor-logo {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+}
+
+.v-monitor-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00f2fe;
+    box-shadow: 0 0 6px #00f2fe;
+    animation: v-led-pulse 2s ease-in-out infinite;
+}
+
+@keyframes v-led-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.v-monitor-neck {
+    width: 24px;
+    height: 30px;
+    background: linear-gradient(180deg, #2a2a3e 0%, #1a1a2e 100%);
+    margin: 0 auto;
+    position: relative;
+    border-radius: 0 0 4px 4px;
+}
+
+.v-neck-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 242, 254, 0.1), transparent);
+    border-radius: inherit;
+}
+
+.v-monitor-stand-base {
+    width: 90px;
+    height: 10px;
+    background: linear-gradient(145deg, #2a2a3e 0%, #1a1a2e 100%);
+    margin: 0 auto;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.v-base-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.1), transparent);
+}
+
+.v-monitor-shadow {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* ===== TELEFON ===== */
+.v-lottie-phone {
+    position: absolute;
+    right: -40px;
+    bottom: 20px;
+    z-index: 3;
+    animation: v-phone-tilt 4s ease-in-out infinite;
+}
+
+@keyframes v-phone-tilt {
+    0%, 100% { transform: rotateZ(-3deg) translateY(0); }
+    50% { transform: rotateZ(3deg) translateY(-8px); }
+}
+
+.v-phone-outer-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse at center, rgba(255, 0, 127, 0.1) 0%, transparent 70%);
+    border-radius: 30px;
+    animation: v-phone-glow 3s ease-in-out infinite;
+}
+
+@keyframes v-phone-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.03); }
+}
+
+.v-phone-body {
+    position: relative;
+    width: 75px;
+    height: 150px;
+    background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1e 100%);
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 20px rgba(255, 0, 127, 0.1);
+}
+
+.v-phone-notch {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 14px;
+    background: #0f0f1e;
+    border-radius: 0 0 10px 10px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.v-notch-speaker {
+    width: 16px;
+    height: 3px;
+    background: #2a2a3e;
+    border-radius: 2px;
+}
+
+.v-notch-cam {
+    width: 5px;
+    height: 5px;
+    background: #1a1a2e;
+    border-radius: 50%;
+    border: 1px solid #2a2a3e;
+}
+
+.v-phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 0, 127, 0.15);
+}
+
+.v-phone-content {
+    padding: 20px 8px 8px;
+    position: relative;
+    height: 100%;
+}
+
+.v-phone-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    animation: v-card-pop 2s ease-in-out infinite;
+}
+
+@keyframes v-card-pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.v-card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.v-card-avatar {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00f2fe, #ff007f);
+    flex-shrink: 0;
+}
+
+.v-card-lines {
+    flex: 1;
+}
+
+.v-card-line {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-bottom: 3px;
+}
+
+.v-card-line.short {
+    width: 60%;
+}
+
+.v-card-image {
+    height: 40px;
+    background: rgba(0, 242, 254, 0.05);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    border: 1px dashed rgba(0, 242, 254, 0.15);
+}
+
+.v-img-placeholder {
+    opacity: 0.5;
+}
+
+.v-card-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.v-action-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: v-action-bounce 1.5s ease-in-out infinite;
+}
+
+.v-action-dot:nth-child(2) { animation-delay: 0.2s; }
+.v-action-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes v-action-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.v-float-heart {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    font-size: 12px;
+    animation: v-float-up 3s ease-out infinite;
+    opacity: 0;
+}
+
+.v-float-star {
+    position: absolute;
+    bottom: 30px;
+    left: 5px;
+    font-size: 10px;
+    animation: v-float-up 3s ease-out infinite 1.5s;
+    opacity: 0;
+}
+
+@keyframes v-float-up {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
+}
+
+.v-home-indicator {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.v-phone-button {
+    position: absolute;
+    width: 2px;
+    background: #2a2a3e;
+    border-radius: 1px;
+}
+
+.v-vol-up {
+    left: -2px;
+    top: 30px;
+    height: 18px;
+}
+
+.v-vol-down {
+    left: -2px;
+    top: 52px;
+    height: 18px;
+}
+
+.v-power {
+    right: -2px;
+    top: 40px;
+    height: 25px;
+}
+
+.v-phone-shadow {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 15px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* ===== BAĞLANTI ÇİZGİLERİ ===== */
+.v-connection-lines {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 60px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.v-conn-path {
+    fill: none;
+    stroke: #00f2fe;
+    stroke-width: 1.5;
+    stroke-dasharray: 5, 5;
+    animation: v-conn-flow 2s linear infinite;
+    filter: drop-shadow(0 0 4px #00f2fe);
+}
+
+.v-conn-delay {
+    animation-delay: -1s;
+    stroke: #ff007f;
+    filter: drop-shadow(0 0 4px #ff007f);
+}
+
+.v-conn-dot {
+    fill: #00f2fe;
+    animation: v-conn-dot-pulse 1s ease-in-out infinite;
+}
+
+.v-conn-dot.v-conn-delay {
+    fill: #ff007f;
+    animation-delay: 0.5s;
+}
+
+@keyframes v-conn-flow {
+    to { stroke-dashoffset: -20; }
+}
+
+@keyframes v-conn-dot-pulse {
+    0%, 100% { r: 2; opacity: 1; }
+    50% { r: 3; opacity: 0.5; }
+}
+
+/* ===== DEKORATİF GÜNEŞ ===== */
+.v-deco-sun {
+    position: absolute;
+    top: 30px;
+    right: 60px;
+    z-index: 1;
+    animation: v-sun-rotate 20s linear infinite;
+}
+
+@keyframes v-sun-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.v-sun-rays {
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    border: 2px dashed rgba(251, 191, 36, 0.2);
+    animation: v-rays-spin 10s linear infinite reverse;
+}
+
+@keyframes v-rays-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.v-sun-core {
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle at 30% 30%, #fcd34d, #fbbf24);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(251, 191, 36, 0.2);
+    position: relative;
+}
+
+.v-sun-core::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(251, 191, 36, 0.3);
+}
+
+/* ===== DEKORATİF BULUT ===== */
+.v-deco-cloud {
+    position: absolute;
+    top: 40px;
+    left: 70px;
+    z-index: 1;
+    animation: v-cloud-drift 8s ease-in-out infinite;
+}
+
+@keyframes v-cloud-drift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(15px); }
+}
+
+.v-cloud-puff {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+}
+
+.v-puff1 { width: 35px; height: 35px; top: 0; left: 0; }
+.v-puff2 { width: 28px; height: 28px; top: -12px; left: 18px; }
+.v-puff3 { width: 22px; height: 22px; top: 5px; left: 35px; }
+
+/* ===== AMBIENT PARÇACIKLAR ===== */
+.v-ambient-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: v-ambient-float 6s ease-in-out infinite;
+}
+
+.ap1 { width: 2px; height: 2px; top: 30%; left: 20%; animation-delay: 0s; }
+.ap2 { width: 3px; height: 3px; top: 70%; left: 80%; animation-delay: 1s; }
+.ap3 { width: 2px; height: 2px; top: 50%; left: 90%; animation-delay: 2s; }
+.ap4 { width: 2px; height: 2px; top: 80%; left: 30%; animation-delay: 3s; }
+.ap5 { width: 3px; height: 3px; top: 20%; left: 70%; animation-delay: 4s; }
+
+@keyframes v-ambient-float {
+    0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+    50% { transform: translate(10px, -20px); opacity: 0.8; }
+}
+
+/* ===== GEOMETRİK ŞEKİLLER ===== */
+.v-geo-shape {
+    position: absolute;
+    animation: v-geo-morph 4s ease-in-out infinite;
+}
+
+.v-geo-triangle {
+    bottom: 60px;
+    right: 80px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid rgba(0, 242, 254, 0.4);
+    filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.3));
+    animation-delay: 0s;
+}
+
+.v-geo-square {
+    top: 50%;
+    left: 30px;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 0, 127, 0.3);
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.3));
+    animation-delay: 1s;
+    border-radius: 2px;
+}
+
+.v-geo-circle {
+    bottom: 30%;
+    left: 60px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid rgba(251, 191, 36, 0.4);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.3));
+    animation-delay: 2s;
+}
+
+@keyframes v-geo-morph {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    50% { transform: scale(1.3) rotate(15deg); opacity: 1; }
+}
+
+/* --- SAĞ: METİN İÇERİK (Mevcut ile aynı) --- */
+.v-brand-content {
+    color: white;
+}
+
+.v-brand-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: #06b6d4;
+    font-family: 'Poppins', sans-serif;
+}
+
+.v-brand-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin-bottom: 25px;
+    max-width: 520px;
+}
+
+.v-brand-services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.v-brand-chip {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+}
+
+.v-brand-chip:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(236, 72, 153, 0.25);
+    transform: translateY(-2px);
+}
+
+.v-chip-icon {
+    font-size: 15px;
+}
+
+.v-brand-seo-line {
+    border-left: 3px solid #ec4899;
+    padding-left: 15px;
+}
+
+.v-brand-seo-line p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+/* Renk yardımcıları */
+.text-cyan { color: #00e5ff; font-weight: 600; }
+.text-pink { color: #ff007f; font-weight: 600; }
+
+/* --- MOBİL UYUMLULUK --- */
+@media (max-width: 768px) {
+    .v-brand-grid {
+        grid-template-columns: 100%;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .v-brand-visual {
+        height: 400px;
+        order: -1;
+    }
+    
+    .v-halo-ring {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .v-halo-delay {
+        width: 340px;
+        height: 340px;
+    }
+    
+    .v-monitor-body {
+        width: 170px;
+    }
+    
+    .v-monitor-display {
+        height: 110px;
+    }
+    
+    .v-lottie-phone {
+        right: -20px;
+        bottom: 10px;
+    }
+    
+    .v-phone-body {
+        width: 65px;
+        height: 130px;
+    }
+    
+    .v-brand-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .v-brand-services {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .v-brand-seo-line {
+        border-left: none;
+        border-top: 2px solid #ec4899;
+        padding-left: 0;
+        padding-top: 15px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .v-deco-sun {
+        top: 20px;
+        right: 40px;
+    }
+    
+    .v-deco-cloud {
+        top: 30px;
+        left: 40px;
+    }
+}
