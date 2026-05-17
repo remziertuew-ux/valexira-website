@@ -1069,214 +1069,505 @@
 
 </div><!-- /v-site-main -->
 
-    <!-- ===================== SCRIPTS (body sonu) ===================== -->
+<!-- ===================== AI ROBOT WHATSAPP BUTONU ===================== -->
+<style>
+  /* === AI Robot WA Butonu === */
+  #ai-wa-wrapper {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    font-family: inherit;
+  }
 
-    <!-- === UZAY YILDIZ ANİMASYONU === -->
-    <script>
-    (function () {
-        var canvas = document.getElementById('space-canvas');
-        if (!canvas) return;
-        var ctx = canvas.getContext('2d');
+  /* Konuşma balonu */
+  #ai-wa-bubble {
+    background: linear-gradient(135deg, #0d0d1a 0%, #111830 100%);
+    border: 1px solid rgba(0, 242, 254, 0.35);
+    border-radius: 18px 18px 4px 18px;
+    padding: 12px 16px;
+    max-width: 240px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 20px rgba(0,242,254,0.12);
+    animation: ai-bubble-in 0.45s cubic-bezier(0.34,1.56,0.64,1) both;
+    transform-origin: bottom right;
+    position: relative;
+  }
 
-        var NUM  = 450;
-        var W, H, cx, cy;
-        var stars = [];
-        var warp  = 0;
-        var lastY = window.scrollY || 0;
+  #ai-wa-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(0,242,254,0.35);
+  }
 
-        function resize() {
-            W = canvas.width  = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-            cx = W / 2; cy = H / 2;
-        }
+  #ai-wa-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 21px;
+    width: 0; height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #111830;
+    z-index: 1;
+  }
 
-        function mkStar(fresh) {
-            var maxZ = 1800;
-            return {
-                x    : (Math.random() - 0.5) * W  * 5,
-                y    : (Math.random() - 0.5) * H  * 5,
-                z    : fresh ? Math.random() * maxZ : maxZ,
-                spd  : 0.4 + Math.random() * 1.8,
-                szmul: 0.5 + Math.random() * 1.5,
-                twinkPhase : Math.random() * Math.PI * 2,
-                twinkSpeed : 0.015 + Math.random() * 0.04,
-                col  : Math.random() < 0.80 ? 0 : (Math.random() < 0.60 ? 1 : 2),
-                maxZ : maxZ,
-                px:0, py:0
-            };
-        }
+  #ai-wa-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #00f2fe;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 
-        function init() {
-            stars = [];
-            for (var i = 0; i < NUM; i++) stars.push(mkStar(true));
-        }
+  #ai-wa-label span.ai-dot {
+    width: 6px; height: 6px;
+    background: #25d366;
+    border-radius: 50%;
+    display: inline-block;
+    animation: ai-pulse-dot 1.4s ease-in-out infinite;
+    box-shadow: 0 0 6px #25d366;
+  }
 
-        function draw() {
-            ctx.clearRect(0, 0, W, H);
+  #ai-wa-text {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.5;
+    min-height: 22px;
+  }
 
-            var warping   = warp >  2.5;
-            var reversing = warp < -1;
+  #ai-wa-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    background: #00f2fe;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-radius: 1px;
+    animation: ai-blink 0.75s step-end infinite;
+  }
 
-            for (var i = 0; i < stars.length; i++) {
-                var s = stars[i];
-                var prevPX = s.px, prevPY = s.py;
+  /* Ana buton */
+  #ai-wa-btn {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0a0a1f 0%, #1a1a3e 50%, #0a1628 100%);
+    border: 2px solid rgba(0,242,254,0.5);
+    box-shadow:
+      0 6px 24px rgba(0,0,0,0.6),
+      0 0 0 0 rgba(0,242,254,0.4),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    animation: ai-robot-float 3s ease-in-out infinite, ai-ring-pulse 2.5s ease-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
 
-                s.z -= s.spd + warp * (0.5 + s.spd * 0.3);
-                s.twinkPhase += s.twinkSpeed;
+  #ai-wa-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(0,242,254,0.15), transparent 70%);
+  }
 
-                if (s.z <= 1 || s.z > s.maxZ) {
-                    stars[i] = mkStar(false);
-                    continue;
-                }
+  #ai-wa-btn:hover {
+    transform: scale(1.1);
+    border-color: rgba(0,242,254,0.9);
+    box-shadow:
+      0 10px 36px rgba(0,0,0,0.7),
+      0 0 28px rgba(0,242,254,0.35),
+      inset 0 1px 0 rgba(255,255,255,0.12);
+    animation: none;
+  }
 
-                var f  = 500;
-                var sx = (s.x / s.z) * f + cx;
-                var sy = (s.y / s.z) * f + cy;
-                s.px = sx; s.py = sy;
+  /* Robot SVG içinde */
+  #ai-wa-btn svg {
+    width: 34px;
+    height: 34px;
+    filter: drop-shadow(0 0 6px rgba(0,242,254,0.7));
+  }
 
-                if (sx < -100 || sx > W+100 || sy < -100 || sy > H+100) continue;
+  /* Glow halkası */
+  #ai-wa-glow-ring {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,242,254,0.25);
+    animation: ai-ring-expand 2.5s ease-out infinite;
+    pointer-events: none;
+  }
 
-                var t      = 1 - s.z / s.maxZ;
-                var twink  = 0.7 + 0.3 * Math.sin(s.twinkPhase);
-                var size   = Math.max(0.3, t * 3.2 * s.szmul);
-                var alpha  = Math.min(1, (0.1 + t * 1.4) * twink);
+  /* Animasyonlar */
+  @keyframes ai-bubble-in {
+    from { opacity:0; transform: scale(0.7) translateY(10px); }
+    to   { opacity:1; transform: scale(1) translateY(0); }
+  }
+  @keyframes ai-blink {
+    0%,100% { opacity:1; } 50% { opacity:0; }
+  }
+  @keyframes ai-pulse-dot {
+    0%,100% { transform:scale(1); opacity:1; }
+    50%      { transform:scale(1.5); opacity:0.6; }
+  }
+  @keyframes ai-robot-float {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
+  }
+  @keyframes ai-ring-pulse {
+    0%,100% {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 0 0 rgba(0,242,254,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    50% {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 0 10px rgba(0,242,254,0), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+  }
+  @keyframes ai-ring-expand {
+    0%   { transform:scale(1); opacity:0.5; }
+    100% { transform:scale(1.6); opacity:0; }
+  }
 
-                var r, g, b;
-                if      (s.col === 1) { r=80;  g=220; b=255; }
-                else if (s.col === 2) { r=255; g=80;  b=190; }
-                else {
-                    r = Math.floor(170 + t*85);
-                    g = Math.floor(175 + t*80);
-                    b = Math.floor(215 + t*40);
-                }
+  /* Robot anten titremesi */
+  @keyframes ai-antenna {
+    0%,100% { transform: rotate(0deg); }
+    25%      { transform: rotate(8deg); }
+    75%      { transform: rotate(-8deg); }
+  }
+  #ai-robot-antenna { animation: ai-antenna 2s ease-in-out infinite; transform-origin: 50% 100%; }
 
-                if ((warping || reversing) && prevPX !== 0) {
-                    var dx=sx-prevPX, dy=sy-prevPY;
-                    if (dx*dx+dy*dy > 1) {
-                        ctx.beginPath();
-                        ctx.moveTo(prevPX, prevPY);
-                        ctx.lineTo(sx, sy);
-                        ctx.strokeStyle='rgba('+r+','+g+','+b+','+(alpha*0.5)+')';
-                        ctx.lineWidth = size * 0.55;
-                        ctx.stroke();
-                    }
-                }
+  /* Robot göz yanıp sönme */
+  @keyframes ai-eye-blink {
+    0%,90%,100% { transform: scaleY(1); }
+    95%          { transform: scaleY(0.1); }
+  }
+  .ai-robot-eye { animation: ai-eye-blink 3.5s ease-in-out infinite; transform-origin: center; }
 
-                ctx.beginPath();
-                ctx.arc(sx, sy, size, 0, 6.2832);
-                ctx.fillStyle='rgba('+r+','+g+','+b+','+alpha+')';
-                ctx.fill();
+  @media (max-width: 480px) {
+    #ai-wa-wrapper { bottom: 18px; right: 16px; }
+    #ai-wa-bubble  { max-width: 200px; }
+    #ai-wa-btn     { width: 54px; height: 54px; }
+    #ai-wa-btn svg { width: 28px; height: 28px; }
+  }
+</style>
 
-                if (t > 0.5) {
+<div id="ai-wa-wrapper" role="complementary" aria-label="AI Asistan ile WhatsApp">
+
+  <!-- Konuşma balonu -->
+  <div id="ai-wa-bubble" aria-live="polite">
+    <div id="ai-wa-label">
+      <span class="ai-dot"></span> WhatsApp
+    </div>
+    <div id="ai-wa-text"><span id="ai-wa-typed"></span><span id="ai-wa-cursor"></span></div>
+  </div>
+
+  <!-- AI Robot Butonu -->
+  <a id="ai-wa-btn"
+     href="https://wa.me/905427412994"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="WhatsApp ile Yazın"
+     aria-label="AI Asistan ile WhatsApp'ta iletişime geçin">
+    <div id="ai-wa-glow-ring"></div>
+    <!-- AI Robot SVG -->
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Anten -->
+      <g id="ai-robot-antenna">
+        <line x1="32" y1="6" x2="32" y2="14" stroke="#00f2fe" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="32" cy="4" r="3" fill="#00f2fe" opacity="0.9"/>
+        <circle cx="32" cy="4" r="5" fill="rgba(0,242,254,0.2)"/>
+      </g>
+      <!-- Kafa -->
+      <rect x="12" y="14" width="40" height="28" rx="8" fill="url(#robotHeadGrad)" stroke="rgba(0,242,254,0.6)" stroke-width="1.5"/>
+      <!-- Ekran yüzey parlaması -->
+      <rect x="14" y="15" width="36" height="8" rx="4" fill="rgba(255,255,255,0.05)"/>
+      <!-- Sol Göz -->
+      <g class="ai-robot-eye">
+        <rect x="17" y="22" width="10" height="10" rx="3" fill="#001a33"/>
+        <rect x="19" y="24" width="6" height="6" rx="2" fill="#00f2fe" opacity="0.9"/>
+        <rect x="21" y="26" width="2" height="2" rx="1" fill="white" opacity="0.9"/>
+      </g>
+      <!-- Sağ Göz -->
+      <g class="ai-robot-eye" style="animation-delay:0.3s">
+        <rect x="37" y="22" width="10" height="10" rx="3" fill="#001a33"/>
+        <rect x="39" y="24" width="6" height="6" rx="2" fill="#00f2fe" opacity="0.9"/>
+        <rect x="41" y="26" width="2" height="2" rx="1" fill="white" opacity="0.9"/>
+      </g>
+      <!-- Ağız (gülümseme çizgisi) -->
+      <path d="M22 37 Q32 43 42 37" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+      <!-- Boyun -->
+      <rect x="26" y="42" width="12" height="5" rx="2" fill="rgba(0,242,254,0.3)" stroke="rgba(0,242,254,0.4)" stroke-width="1"/>
+      <!-- Gövde -->
+      <rect x="16" y="47" width="32" height="16" rx="6" fill="url(#robotBodyGrad)" stroke="rgba(0,242,254,0.4)" stroke-width="1.5"/>
+      <!-- Gövde detay noktaları -->
+      <circle cx="24" cy="55" r="2.5" fill="#00f2fe" opacity="0.7"/>
+      <circle cx="32" cy="55" r="2.5" fill="#ff50be" opacity="0.7"/>
+      <circle cx="40" cy="55" r="2.5" fill="#00f2fe" opacity="0.7"/>
+      <!-- Gradyanlar -->
+      <defs>
+        <linearGradient id="robotHeadGrad" x1="12" y1="14" x2="52" y2="42" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0d1f3c"/>
+          <stop offset="100%" stop-color="#051020"/>
+        </linearGradient>
+        <linearGradient id="robotBodyGrad" x1="16" y1="47" x2="48" y2="63" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0a1a30"/>
+          <stop offset="100%" stop-color="#030c18"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </a>
+
+</div>
+
+<!-- ===================== SCRIPTS (body sonu) ===================== -->
+
+<!-- === UZAY YILDIZ ANİMASYONU === -->
+<script>
+(function () {
+    var canvas = document.getElementById('space-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+
+    var NUM  = 450;
+    var W, H, cx, cy;
+    var stars = [];
+    var warp  = 0;
+    var lastY = window.scrollY || 0;
+
+    function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        cx = W / 2; cy = H / 2;
+    }
+
+    function mkStar(fresh) {
+        var maxZ = 1800;
+        return {
+            x    : (Math.random() - 0.5) * W  * 5,
+            y    : (Math.random() - 0.5) * H  * 5,
+            z    : fresh ? Math.random() * maxZ : maxZ,
+            spd  : 0.4 + Math.random() * 1.8,
+            szmul: 0.5 + Math.random() * 1.5,
+            twinkPhase : Math.random() * Math.PI * 2,
+            twinkSpeed : 0.015 + Math.random() * 0.04,
+            col  : Math.random() < 0.80 ? 0 : (Math.random() < 0.60 ? 1 : 2),
+            maxZ : maxZ,
+            px:0, py:0
+        };
+    }
+
+    function init() {
+        stars = [];
+        for (var i = 0; i < NUM; i++) stars.push(mkStar(true));
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        var warping   = warp >  2.5;
+        var reversing = warp < -1;
+
+        for (var i = 0; i < stars.length; i++) {
+            var s = stars[i];
+            var prevPX = s.px, prevPY = s.py;
+
+            s.z -= s.spd + warp * (0.5 + s.spd * 0.3);
+            s.twinkPhase += s.twinkSpeed;
+
+            if (s.z <= 1 || s.z > s.maxZ) {
+                stars[i] = mkStar(false);
+                continue;
+            }
+
+            var f  = 500;
+            var sx = (s.x / s.z) * f + cx;
+            var sy = (s.y / s.z) * f + cy;
+            s.px = sx; s.py = sy;
+
+            if (sx < -100 || sx > W+100 || sy < -100 || sy > H+100) continue;
+
+            var t      = 1 - s.z / s.maxZ;
+            var twink  = 0.7 + 0.3 * Math.sin(s.twinkPhase);
+            var size   = Math.max(0.3, t * 3.2 * s.szmul);
+            var alpha  = Math.min(1, (0.1 + t * 1.4) * twink);
+
+            var r, g, b;
+            if      (s.col === 1) { r=80;  g=220; b=255; }
+            else if (s.col === 2) { r=255; g=80;  b=190; }
+            else {
+                r = Math.floor(170 + t*85);
+                g = Math.floor(175 + t*80);
+                b = Math.floor(215 + t*40);
+            }
+
+            if ((warping || reversing) && prevPX !== 0) {
+                var dx=sx-prevPX, dy=sy-prevPY;
+                if (dx*dx+dy*dy > 1) {
                     ctx.beginPath();
-                    ctx.arc(sx, sy, size * 2.8, 0, 6.2832);
-                    ctx.fillStyle='rgba('+r+','+g+','+b+','+(alpha*0.13)+')';
-                    ctx.fill();
+                    ctx.moveTo(prevPX, prevPY);
+                    ctx.lineTo(sx, sy);
+                    ctx.strokeStyle='rgba('+r+','+g+','+b+','+(alpha*0.5)+')';
+                    ctx.lineWidth = size * 0.55;
+                    ctx.stroke();
                 }
             }
 
-            warp *= 0.88;
-            if (Math.abs(warp) < 0.05) warp = 0;
-            requestAnimationFrame(draw);
+            ctx.beginPath();
+            ctx.arc(sx, sy, size, 0, 6.2832);
+            ctx.fillStyle='rgba('+r+','+g+','+b+','+alpha+')';
+            ctx.fill();
+
+            if (t > 0.5) {
+                ctx.beginPath();
+                ctx.arc(sx, sy, size * 2.8, 0, 6.2832);
+                ctx.fillStyle='rgba('+r+','+g+','+b+','+(alpha*0.13)+')';
+                ctx.fill();
+            }
         }
 
-        var tick = false;
-        window.addEventListener('scroll', function () {
-            if (!tick) {
-                requestAnimationFrame(function () {
-                    var y = window.scrollY || document.documentElement.scrollTop || 0;
-                    var d = y - lastY;
-                    lastY = y;
-                    warp += d * 0.5;
-                    if (warp >  32) warp =  32;
-                    if (warp < -18) warp = -18;
-                    tick = false;
-                });
-                tick = true;
-            }
-        }, {passive:true});
+        warp *= 0.88;
+        if (Math.abs(warp) < 0.05) warp = 0;
+        requestAnimationFrame(draw);
+    }
 
-        window.addEventListener('resize', function () { resize(); init(); });
-        resize(); init(); draw();
+    var tick = false;
+    window.addEventListener('scroll', function () {
+        if (!tick) {
+            requestAnimationFrame(function () {
+                var y = window.scrollY || document.documentElement.scrollTop || 0;
+                var d = y - lastY;
+                lastY = y;
+                warp += d * 0.5;
+                if (warp >  32) warp =  32;
+                if (warp < -18) warp = -18;
+                tick = false;
+            });
+            tick = true;
+        }
+    }, {passive:true});
+
+    window.addEventListener('resize', function () { resize(); init(); });
+    resize(); init(); draw();
+})();
+</script>
+
+<script src="js/main.js" defer></script>
+<script>
+    /* Mobil menü aç/kapat */
+    function toggleMenu() {
+        var navMenu = document.getElementById('navMenu');
+        var menuBtn = document.getElementById('mobileMenuBtn');
+        var isOpen  = navMenu.classList.toggle('active');
+        menuBtn.classList.toggle('open', isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+
+        /* Açıkken body scroll'u kilitle */
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    /* Menü dışına tıklanınca kapat */
+    document.addEventListener('click', function(e) {
+        var navMenu = document.getElementById('navMenu');
+        var menuBtn = document.getElementById('mobileMenuBtn');
+        if (
+            navMenu.classList.contains('active') &&
+            !navMenu.contains(e.target) &&
+            !menuBtn.contains(e.target)
+        ) {
+            navMenu.classList.remove('active');
+            menuBtn.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    });
+
+    /* Menü linkine tıklanınca kapat */
+    document.getElementById('navMenu').addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+            var navMenu = document.getElementById('navMenu');
+            var menuBtn = document.getElementById('mobileMenuBtn');
+            navMenu.classList.remove('active');
+            menuBtn.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    });
+
+    /* ESC tuşuyla kapat */
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            var navMenu = document.getElementById('navMenu');
+            var menuBtn = document.getElementById('mobileMenuBtn');
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuBtn.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+
+    /* M² Hesaplama */
+    function calculateM2() {
+        var en   = parseFloat(document.getElementById('m2_en').value)  || 0;
+        var boy  = parseFloat(document.getElementById('m2_boy').value) || 0;
+        var alan = (en / 100) * (boy / 100);
+        document.getElementById('m2_sonuc').textContent = alan.toFixed(2) + ' m²';
+    }
+
+    /* Materyal Seçim Asistanı */
+    function pickProduct(val) {
+        var res  = document.getElementById('asistan-sonuc');
+        var data = {
+            cam:    '<b>Öneri: One Way Vision / Folyo</b><br><small>Camlarda dıştan reklam, içten net görüş sağlar.</small>',
+            dekor:  '<b>Öneri: Kumlu / Kesim Folyo</b><br><small>Ofis ve vitrinlerde şık dekoratif çözümler.</small>',
+            levha:  '<b>Öneri: Foreks Üzeri Folyo</b><br><small>Yönlendirme ve İSG için en dayanıklı sert zemin.</small>',
+            rehber: '<b>Hangi Ürün Daha Yararlı?</b><br><small><b>Kartvizit:</b> Prestij ve tanışma.<br><b>Magnet:</b> Buzdolabında kalıcı reklam.</small>'
+        };
+        res.innerHTML = '<span style="color:#00e5ff; display:block; width:100%;">' + data[val] + '</span>';
+    }
+
+    /* === AI ROBOT TYPEWRITER YAZISI (tek seferlik) === */
+    (function () {
+        var msg       = ' Gezegenimize hoşgeldiniz, nasıl yardımcı olabiliriz?';
+        var el        = document.getElementById('ai-wa-typed');
+        var cursor    = document.getElementById('ai-wa-cursor');
+        if (!el) return;
+
+        var idx = 0;
+
+        function typeChar() {
+            if (idx < msg.length) {
+                el.textContent += msg[idx];
+                idx++;
+                setTimeout(typeChar, 55 + Math.random() * 30);
+            } else {
+                /* Yazı tamamlandı — imleci gizle */
+                if (cursor) cursor.style.display = 'none';
+            }
+        }
+
+        /* Sayfa yüklendikten 1 saniye sonra başla */
+        setTimeout(typeChar, 1000);
     })();
-    </script>
-
-    <script src="js/main.js" defer></script>
-    <script>
-        /* Mobil menü aç/kapat */
-        function toggleMenu() {
-            var navMenu = document.getElementById('navMenu');
-            var menuBtn = document.getElementById('mobileMenuBtn');
-            var isOpen  = navMenu.classList.toggle('active');
-            menuBtn.classList.toggle('open', isOpen);
-            menuBtn.setAttribute('aria-expanded', String(isOpen));
-
-            /* Açıkken body scroll'u kilitle */
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
-
-        /* Menü dışına tıklanınca kapat */
-        document.addEventListener('click', function(e) {
-            var navMenu = document.getElementById('navMenu');
-            var menuBtn = document.getElementById('mobileMenuBtn');
-            if (
-                navMenu.classList.contains('active') &&
-                !navMenu.contains(e.target) &&
-                !menuBtn.contains(e.target)
-            ) {
-                navMenu.classList.remove('active');
-                menuBtn.classList.remove('open');
-                menuBtn.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-        });
-
-        /* Menü linkine tıklanınca kapat */
-        document.getElementById('navMenu').addEventListener('click', function(e) {
-            if (e.target.tagName === 'A') {
-                var navMenu = document.getElementById('navMenu');
-                var menuBtn = document.getElementById('mobileMenuBtn');
-                navMenu.classList.remove('active');
-                menuBtn.classList.remove('open');
-                menuBtn.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-        });
-
-        /* ESC tuşuyla kapat */
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                var navMenu = document.getElementById('navMenu');
-                var menuBtn = document.getElementById('mobileMenuBtn');
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    menuBtn.classList.remove('open');
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            }
-        });
-
-        /* M² Hesaplama */
-        function calculateM2() {
-            var en   = parseFloat(document.getElementById('m2_en').value)  || 0;
-            var boy  = parseFloat(document.getElementById('m2_boy').value) || 0;
-            var alan = (en / 100) * (boy / 100);
-            document.getElementById('m2_sonuc').textContent = alan.toFixed(2) + ' m²';
-        }
-
-        /* Materyal Seçim Asistanı */
-        function pickProduct(val) {
-            var res  = document.getElementById('asistan-sonuc');
-            var data = {
-                cam:    '<b>Öneri: One Way Vision / Folyo</b><br><small>Camlarda dıştan reklam, içten net görüş sağlar.</small>',
-                dekor:  '<b>Öneri: Kumlu / Kesim Folyo</b><br><small>Ofis ve vitrinlerde şık dekoratif çözümler.</small>',
-                levha:  '<b>Öneri: Foreks Üzeri Folyo</b><br><small>Yönlendirme ve İSG için en dayanıklı sert zemin.</small>',
-                rehber: '<b>Hangi Ürün Daha Yararlı?</b><br><small><b>Kartvizit:</b> Prestij ve tanışma.<br><b>Magnet:</b> Buzdolabında kalıcı reklam.</small>'
-            };
-            res.innerHTML = '<span style="color:#00e5ff; display:block; width:100%;">' + data[val] + '</span>';
-        }
-    </script>
+</script>
 
 </body>
 </html>
