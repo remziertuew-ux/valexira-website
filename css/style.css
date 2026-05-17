@@ -1235,7 +1235,7 @@ html, body {
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(25, 1, 29, 0.97);
+        background: rgba(2, 3, 44, 0.98);  /* Koyu mavi */
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         z-index: 10000;
