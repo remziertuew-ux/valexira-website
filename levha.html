@@ -65,165 +65,46 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-
-        html, body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: #19011d;
-            color: #ffffff;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        @keyframes v-spin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-
-        /* === MOBİL MENÜ BUTONU — TEMA UYUMLU === */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(0, 242, 254, 0.05);
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
-            transition: all 0.3s ease;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mobile-menu-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: conic-gradient(from 0deg, transparent 60%, rgba(0,242,254,0.15) 80%, transparent 100%);
-            animation: v-spin 4s linear infinite;
-            border-radius: 10px;
-        }
-
-        .mobile-menu-btn:hover {
-            border-color: #00f2fe;
-            box-shadow: 0 0 18px rgba(0, 242, 254, 0.35), inset 0 0 10px rgba(0, 242, 254, 0.08);
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: #00f2fe;
-            border-radius: 2px;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-                        opacity 0.25s ease,
-                        background 0.3s ease;
-            box-shadow: 0 0 6px rgba(0, 242, 254, 0.7);
-        }
-
-        .mobile-menu-btn.open {
-            border-color: #ff007f;
-            box-shadow: 0 0 18px rgba(255, 0, 127, 0.35), inset 0 0 10px rgba(255, 0, 127, 0.08);
-            background: rgba(255, 0, 127, 0.06);
-        }
-
-        .mobile-menu-btn.open span {
-            background: #ff007f;
-            box-shadow: 0 0 6px rgba(255, 0, 127, 0.7);
-        }
-
-        .mobile-menu-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-        @media (max-width: 1200px) {
-            .mobile-menu-btn { display: flex; }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 85px;
-                left: 0;
-                width: 100%;
-                background: radial-gradient(circle at 20% 20%, #3d0050 0%, #02032c 60%, #0a0020 100%);
-                padding: 30px 0;
-                border-bottom: 4px solid #ff007f;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-                z-index: 9999;
-            }
-
-            .nav-menu.active { display: block; }
-            .nav-links { flex-direction: column; align-items: center; gap: 20px; }
-            .nav-links a { font-size: 1.1rem; }
-            .desktop-only { display: none; }
-        }
-
-        /* Lightbox */
-        .lightbox-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); display: none; align-items: center;
-            justify-content: center; z-index: 1000000; cursor: zoom-out;
-            padding: 20px;
-        }
-
-        .lightbox-overlay img {
-            max-width: 100%; max-height: 90%;
-            border: 2px solid #00f2fe; border-radius: 10px; object-fit: contain;
-        }
-
-        .clickable-img { cursor: zoom-in; transition: transform 0.3s ease; }
-        .clickable-img:hover { transform: scale(1.02); }
-    </style>
 </head>
 
 <body>
 
     <div class="v-site-main">
 
-        <!-- ===== HEADER ===== -->
-        <header class="navbar" style="position:fixed; top:0; left:0; width:100%; z-index:99999;">
-            <div class="container nav-container">
-                <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
-                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40">
-                    <span class="logo-text">DİJİTAL</span>
-                </a>
+<!-- ===== HEADER ===== -->
+<header class="navbar">
+  <div class="container nav-container">
+      <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
+          <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40">
+          <span class="logo-text">DİJİTAL</span>
+      </a>
 
-                <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
-                    <ul class="nav-links">
-                        <li><a href="/">Anasayfa</a></li>
-                        <li><a href="dijital-baski">Dijital Baskı</a></li>
-                        <li><a href="matbaa">Matbaa</a></li>
-                        <li><a href="promosyon">Promosyon</a></li>
-                        <li><a href="levha" aria-current="page">Levha</a></li>
-                        <li><a href="Duba-Bayrak">Duba &amp; Bayrak</a></li>
-                        <li><a href="tasarim">Tasarım</a></li>
-                        <li><a href="portfolyo">Portfolyo</a></li>
-                        <li><a href="hakkimizda">Hakkımızda</a></li>
-                        <li><a href="blog">Blog</a></li>
-                        <li><a href="iletisim">İletişim</a></li>
-                    </ul>
-                </nav>
+      <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
+          <ul class="nav-links">
+              <li><a href="/">Anasayfa</a></li>
+              <li><a href="dijital-baski">Dijital Baskı</a></li>
+              <li><a href="matbaa">Matbaa</a></li>
+              <li><a href="promosyon">Promosyon</a></li>
+              <li><a href="levha" aria-current="page">Levha</a></li>
+              <li><a href="Duba-Bayrak">Duba &amp; Bayrak</a></li>
+              <li><a href="tasarim">Tasarım</a></li>
+              <li><a href="portfolyo">Portfolyo</a></li>
+              <li><a href="hakkimizda">Hakkımızda</a></li>
+              <li><a href="blog">Blog</a></li>
+              <li><a href="iletisim">İletişim</a></li>
+          </ul>
+      </nav>
 
-                <div class="header-right">
-                    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="navMenu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <a href="iletisim" class="btn-quote desktop-only">Teklif Al</a>
-                </div>
-            </div>
-        </header>
+      <div class="header-right">
+          <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="navMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+          <a href="iletisim" class="btn-quote desktop-only">Teklif Al</a>
+      </div>
+  </div>
+</header>
 
         <!-- ===== ANA İÇERİK ===== -->
         <main>
