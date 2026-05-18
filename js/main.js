@@ -202,7 +202,7 @@ function pickProduct(val) {
 
 // === AI ROBOT TYPEWRITER ===
 (function () {
-    var msg    = ' "\u0130leti\u015fim \u00dcs\u00fc Ba\u011flant\u0131s\u0131 Haz\u0131r. Tasar\u0131m yolculu\u011funu ba\u015flat\u0131n."';
+    var msg    = ' \u0130leti\u015fim \u00dcs\u00fc Ba\u011flant\u0131s\u0131 Haz\u0131r. Tasar\u0131m yolculu\u011funu ba\u015flat\u0131n.';
     var el     = document.getElementById('ai-wa-typed');
     var cursor = document.getElementById('ai-wa-cursor');
     if (!el) return;
