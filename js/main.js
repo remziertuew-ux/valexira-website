@@ -275,3 +275,114 @@ function closeLightbox() {
         document.body.style.overflow = 'auto';
     }
 }
+const canvas = document.getElementById('cursor-canvas');
+const ctx = canvas.getContext('2d');
+
+// Ekran boyutlandırma fonksiyonu
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const particles = [];
+
+/* Sitenin kozmik ve siber renk paleti:
+  Neon Macenta, Camgöbeği, Kozmik Mor ve Parlak Yıldız Beyazı
+*/
+const colors = [
+    'rgba(255, 0, 128, ',   
+    'rgba(0, 229, 255, ',   
+    'rgba(157, 0, 255, ',   
+    'rgba(255, 255, 255, '  
+];
+
+// Fare konum takibi için obje
+const mouse = {
+    x: undefined,
+    y: undefined
+};
+
+// Fare hareket ettikçe parçacık tetikleyici
+window.addEventListener('mousemove', function(event) {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+    
+    // Her harekette arkada kalacak 2 adet kozmik parçacık üretir
+    for (let i = 0; i < 2; i++) {
+        particles.push(new Particle(mouse.x, mouse.y));
+    }
+});
+
+// Mobil cihazlar ve dokunmatik ekranlar için iz takibi
+window.addEventListener('touchmove', function(event) {
+    if (event.touches.length > 0) {
+        mouse.x = event.touches[0].clientX;
+        mouse.y = event.touches[0].clientY;
+        particles.push(new Particle(mouse.x, mouse.y));
+    }
+});
+
+// Parçacık (Yıldız) Sınıfı Yapısı
+class Particle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        // Parçacık boyutu (Rastgele küçük kozmik noktalar)
+        this.size = Math.random() * 3 + 1; 
+        // Hafifçe saçılma yönü ve hızı
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+        // Havuzdan rastgele renk seçimi
+        this.colorBase = colors[Math.floor(Math.random() * colors.length)];
+        // Başlangıç opaklığı
+        this.alpha = 1;
+        // Sönerek kaybolma hızı
+        this.decay = Math.random() * 0.015 + 0.01;
+    }
+
+    // Pozisyon ve görünürlük güncelleme
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha -= this.decay; // Zamanla şeffaflaşma
+        if (this.size > 0.1) this.size -= 0.02; // Zamanla küçülme
+    }
+
+    // Ekrana çizme ve parlama (Glow) verme alanı
+    draw() {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.colorBase + this.alpha + ')';
+        
+        // Siber parlama efekti (Glow)
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.colorBase + '1)';
+        
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+// Akıcı animasyon döngüsü (60 FPS Çalışır)
+function animate() {
+    // Katmanı her karede temizler
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        
+        // Tamamen sönen (görünmez olan) parçacıkları silerek hafızayı temiz tutar
+        if (particles[i].alpha <= 0) {
+            particles.splice(i, 1);
+            i--;
+        }
+    }
+    requestAnimationFrame(animate);
+}
+
+// Döngüyü başlat
+animate();
