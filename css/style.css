@@ -2718,3 +2718,16 @@ html, body {
     color: #ff007f;
     transform: scale(1.2);
 }
+
+/* Canvas elementinin tüm ekranı kaplaması ve üstte kararlı durması için */
+#cursor-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Altındaki butonlara tıklanabilmesini sağlar */
+    z-index: 9999; /* Efektin her zaman en üst katmanda görünmesi için */
+    margin: 0;
+    padding: 0;
+}
