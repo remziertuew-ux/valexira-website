@@ -386,3 +386,157 @@ function animate() {
 
 // Döngüyü başlat
 animate();
+
+document.addEventListener("DOMContentLoaded", function() {
+    const preloader = document.getElementById("preloader");
+    const wave = document.getElementById("wave");
+    const canvas = document.getElementById("fluid-canvas");
+    const ctx = canvas.getContext("2d");
+
+    if (sessionStorage.getItem("valexira_visited")) {
+        preloader.style.display = "none";
+        return;
+    }
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Akışkan simülasyon hücreleri (Grid tabanlı sıvı dinamiği)
+    const numColumns = Math.floor(canvas.width / 20);
+    const numRows = Math.floor(canvas.height / 20);
+    let flowField = new Array(numColumns * numRows);
+    let time = 0;
+
+    // Gelişmiş akışkan gürültü fonksiyonu (Sıvı girdapları yaratır)
+    function generateFlowField() {
+        for (let x = 0; x < numColumns; x++) {
+            for (let y = 0; y < numRows; y++) {
+                const index = x + y * numColumns;
+                // Matematiksel sinüs dalgalarının kesişimi ile türbülans yaratma
+                const angle = (Math.sin(x * 0.08 + time) + Math.cos(y * 0.08 + time)) * Math.PI * 2;
+                flowField[index] = { x: Math.cos(angle), y: Math.sin(angle) };
+            }
+        }
+    }
+
+    // Enerji akış çizgileri (Plazma dumanı oluşturmak için)
+    class FluidStream {
+        constructor() {
+            this.reset();
+            // Açılışta dumanın ekrana oturması için rastgele ömürle başlat
+            this.age = Math.random() * 100;
+        }
+
+        reset() {
+            // Enerji merkezi (Ekranın ortası)
+            this.x = canvas.width / 2 + (Math.random() - 0.5) * 150;
+            this.y = canvas.height / 2 + (Math.random() - 0.5) * 150;
+            this.prevX = this.x;
+            this.prevY = this.y;
+            this.speed = Math.random() * 2 + 1;
+            this.maxAge = Math.random() * 80 + 40;
+            this.age = 0;
+            this.lineWidth = Math.random() * 4 + 1.5;
+
+            // Siber neon renk geçişleri (Görseldeki palet)
+            const colors = ["#00f2fe", "#4facfe", "#ff007f", "#7928ca"];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        update(stage) {
+            this.age++;
+            this.prevX = this.x;
+            this.prevY = this.y;
+
+            const col = Math.floor(this.x / 20);
+            const row = Math.floor(this.y / 20);
+
+            if (col >= 0 && col < numColumns && row >= 0 && row < numRows) {
+                const index = col + row * numColumns;
+                const force = flowField[index];
+                
+                if (force) {
+                    // SAHNE 1 VE 2: Sıvının girdap çizerek genişlemesi
+                    if (stage < 3) {
+                        this.x += force.x * this.speed * (1 + stage * 0.5);
+                        this.y += force.y * this.speed * (1 + stage * 0.5);
+                    } 
+                    // SAHNE 3: Patlama öncesi merkeze ani çöküş emilimi
+                    else {
+                        this.x += (canvas.width / 2 - this.x) * 0.15;
+                        this.y += (canvas.height / 2 - this.y) * 0.15;
+                    }
+                }
+            } else {
+                this.reset();
+                return;
+            }
+
+            if (this.age >= this.maxAge) {
+                this.reset();
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.moveTo(this.prevX, this.prevY);
+            ctx.lineTo(this.x, this.y);
+            ctx.strokeStyle = this.color;
+            ctx.lineWidth = this.lineWidth;
+            ctx.globalAlpha = Math.sin((this.age / this.maxAge) * Math.PI) * 0.25; // Yumuşak duman geçişi
+            ctx.stroke();
+        }
+    }
+
+    const streams = [];
+    const totalStreams = 450; // Kesintisiz, ipeksi bir sıvı katmanı için yüksek sayı
+
+    for (let i = 0; i < totalStreams; i++) {
+        streams.push(new FluidStream());
+    }
+
+    let currentStage = 1;
+    const startAnimationTime = Date.now();
+
+    function loop() {
+        // After Effects ekoları gibi arkada ışık izi bırakması için pürüzsüz boyama
+        ctx.fillStyle = "rgba(2, 0, 5, 0.04)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        time += 0.015; // Akışkanlık hızı katsayısı
+        generateFlowField();
+
+        const duration = Date.now() - startAnimationTime;
+        if (duration < 2200) currentStage = 1; // Yavaş akış
+        else if (duration < 3700) currentStage = 2; // Hızlı türbülans
+        else currentStage = 3; // Kütleçekim çöküşü
+
+        ctx.save();
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = "#00f2fe";
+        for (let i = 0; i < streams.length; i++) {
+            streams[i].update(currentStage);
+            streams[i].draw();
+        }
+        ctx.restore();
+
+        requestAnimationFrame(loop);
+    }
+    loop();
+
+    // 4.0. Saniyede: Tüm dumanın tek bir noktada eriyip şok dalgasıyla patlaması
+    setTimeout(() => {
+        wave.style.animation = "shockwaveTrigger 1.3s cubic-bezier(0.1, 0.8, 0.1, 1) forwards";
+    }, 4000);
+
+    // 5.0. Saniyede: Ekranın tamamen eriyerek sitenin ana yüzeyine kavuşması
+    setTimeout(() => {
+        preloader.style.opacity = "0";
+        preloader.style.visibility = "hidden";
+        sessionStorage.setItem("valexira_visited", "true");
+    }, 5000);
+});
