@@ -373,7 +373,7 @@
 
 body {
     overflow-x: hidden;
-    background: linear-gradient(to left, #000227 0%, #36014e 100%);
+    background: linear-gradient(to left, #0b162e 0%, #060507 100%);
     font-family: 'Inter', sans-serif;
     color: #fff;
 }
@@ -783,8 +783,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1a0033 0%, #4b0082 100%); /* Mor tema */
-    border: 2px solid #ff00ff; /* Neon pembe çerçeve */
+    background: linear-gradient(135deg, #150e1b 0%, #090c3d 100%); /* Mor tema */
+    border: 2px solid #bdaebd; /* Neon pembe çerçeve */
     padding: clamp(15px, 3vh, 25px) clamp(30px, 5vw, 60px); /* Esnek padding */
     border-radius: 20px;
     cursor: pointer;
