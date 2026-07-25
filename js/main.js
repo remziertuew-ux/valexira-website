@@ -4,14 +4,11 @@
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
 
-    // Azaltıldı: 450 → 200 yıldız (CPU %55 daha az)
-    var NUM  = 200;
+    var NUM  = 450;
     var W, H, cx, cy;
     var stars = [];
     var warp  = 0;
     var lastY = window.scrollY || 0;
-    var rafId = null;
-    var paused = false;
 
     function resize() {
         W = canvas.width  = window.innerWidth;
@@ -41,7 +38,6 @@
     }
 
     function draw() {
-        if (paused) { rafId = null; return; }
         ctx.clearRect(0, 0, W, H);
 
         var warping   = warp >  2.5;
@@ -80,7 +76,6 @@
                 b = Math.floor(215 + t*40);
             }
 
-            // Warp izleri
             if ((warping || reversing) && prevPX !== 0) {
                 var dx=sx-prevPX, dy=sy-prevPY;
                 if (dx*dx+dy*dy > 1) {
@@ -98,29 +93,18 @@
             ctx.fillStyle='rgba('+r+','+g+','+b+','+alpha+')';
             ctx.fill();
 
-            // Parlama — sadece öne yakın, BÜYÜK yıldızlar (t > 0.65) — overdraw azaltır
-            if (t > 0.65 && size > 1.2) {
+            if (t > 0.5) {
                 ctx.beginPath();
-                ctx.arc(sx, sy, size * 2.5, 0, 6.2832);
-                ctx.fillStyle='rgba('+r+','+g+','+b+','+(alpha*0.10)+')';
+                ctx.arc(sx, sy, size * 2.8, 0, 6.2832);
+                ctx.fillStyle='rgba('+r+','+g+','+b+','+(alpha*0.13)+')';
                 ctx.fill();
             }
         }
 
         warp *= 0.88;
         if (Math.abs(warp) < 0.05) warp = 0;
-        rafId = requestAnimationFrame(draw);
+        requestAnimationFrame(draw);
     }
-
-    // Sayfa gizlenince animasyonu durdur, görününce devam et
-    document.addEventListener('visibilitychange', function () {
-        if (document.hidden) {
-            paused = true;
-        } else {
-            paused = false;
-            if (!rafId) { rafId = requestAnimationFrame(draw); }
-        }
-    });
 
     var tick = false;
     window.addEventListener('scroll', function () {
@@ -139,8 +123,7 @@
     }, {passive:true});
 
     window.addEventListener('resize', function () { resize(); init(); });
-    resize(); init();
-    rafId = requestAnimationFrame(draw);
+    resize(); init(); draw();
 })();
 
 // === MOBİL MENÜ ===
@@ -163,9 +146,11 @@ function toggleMenu() {
     menuBtn.classList.toggle('open', isOpen);
     menuBtn.setAttribute('aria-expanded', String(isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    // Menü açıkken WhatsApp butonunu gizle, kapanınca geri getir
     if (waWidget) { waWidget.style.display = isOpen ? 'none' : ''; }
 }
 
+// Menü dışına tıklanınca kapat
 document.addEventListener('click', function (e) {
     var navMenu = document.getElementById('navMenu');
     var menuBtn = document.getElementById('mobileMenuBtn');
@@ -177,6 +162,7 @@ document.addEventListener('click', function (e) {
     ) { _menuClose(); }
 });
 
+// Menü linkine tıklanınca kapat
 (function () {
     var navMenu = document.getElementById('navMenu');
     if (!navMenu) return;
@@ -185,6 +171,7 @@ document.addEventListener('click', function (e) {
     });
 })();
 
+// ESC tuşuyla kapat
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         var navMenu = document.getElementById('navMenu');
@@ -271,7 +258,6 @@ function pickProduct(val) {
     }
 })();
 
-// === LIGHTBOX ===
 function openLightbox(src) {
     var lb  = document.getElementById('v-portfolio-lightbox');
     var img = document.getElementById('lightbox-img');
@@ -290,94 +276,114 @@ function closeLightbox() {
     }
 }
 
-// === İMZEÇ KURSÖRİ (CURSOR TRAIL) ===
-// Cursor canvas ve space canvas aynı RAF döngüsüne alındı — ikinci bir RAF döngüsü kaldırıldı
-(function () {
-    var cursorCanvas = document.getElementById('cursor-canvas');
-    if (!cursorCanvas) return;
-    var cctx = cursorCanvas.getContext('2d');
+const canvas = document.getElementById('cursor-canvas');
+const ctx = canvas.getContext('2d');
 
-    function resizeCursor() {
-        cursorCanvas.width  = window.innerWidth;
-        cursorCanvas.height = window.innerHeight;
+// Ekran boyutlandırma fonksiyonu
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const particles = [];
+
+/* Sitenin kozmik ve siber renk paleti:
+  Neon Macenta, Camgöbeği, Kozmik Mor ve Parlak Yıldız Beyazı
+*/
+const colors = [
+    'rgba(255, 0, 128, ',   
+    'rgba(0, 229, 255, ',   
+    'rgba(157, 0, 255, ',   
+    'rgba(255, 255, 255, '  
+];
+
+// Fare konum takibi için obje
+const mouse = {
+    x: undefined,
+    y: undefined
+};
+
+// Fare hareket ettikçe parçacık tetikleyici
+window.addEventListener('mousemove', function(event) {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+    
+    // Her harekette arkada kalacak 2 adet kozmik parçacık üretir
+    for (let i = 0; i < 2; i++) {
+        particles.push(new Particle(mouse.x, mouse.y));
     }
-    resizeCursor();
-    window.addEventListener('resize', resizeCursor, { passive: true });
+});
 
-    var particles = [];
-    var MAX_PARTICLES = 120; // Sınır eklendi — bellek koruması
+// Mobil cihazlar ve dokunmatik ekranlar için iz takibi
+window.addEventListener('touchmove', function(event) {
+    if (event.touches.length > 0) {
+        mouse.x = event.touches[0].clientX;
+        mouse.y = event.touches[0].clientY;
+        particles.push(new Particle(mouse.x, mouse.y));
+    }
+});
 
-    var colors = [
-        'rgba(255, 0, 128, ',
-        'rgba(0, 229, 255, ',
-        'rgba(157, 0, 255, ',
-        'rgba(255, 255, 255, '
-    ];
-
-    var mx, my;
-
-    window.addEventListener('mousemove', function (e) {
-        mx = e.clientX; my = e.clientY;
-        // MAX_PARTICLES aşıldıysa yeni parçacık ekleme
-        if (particles.length < MAX_PARTICLES) {
-            particles.push(new Particle(mx, my));
-            particles.push(new Particle(mx, my));
-        }
-    }, { passive: true });
-
-    window.addEventListener('touchmove', function (e) {
-        if (e.touches.length > 0 && particles.length < MAX_PARTICLES) {
-            mx = e.touches[0].clientX; my = e.touches[0].clientY;
-            particles.push(new Particle(mx, my));
-        }
-    }, { passive: true });
-
-    function Particle(x, y) {
-        this.x = x; this.y = y;
-        this.size      = Math.random() * 3 + 1;
-        this.speedX    = (Math.random() - 0.5) * 1.5;
-        this.speedY    = (Math.random() - 0.5) * 1.5;
+// Parçacık (Yıldız) Sınıfı Yapısı
+class Particle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        // Parçacık boyutu (Rastgele küçük kozmik noktalar)
+        this.size = Math.random() * 3 + 1; 
+        // Hafifçe saçılma yönü ve hızı
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+        // Havuzdan rastgele renk seçimi
         this.colorBase = colors[Math.floor(Math.random() * colors.length)];
-        this.alpha     = 1;
-        this.decay     = Math.random() * 0.015 + 0.01;
+        // Başlangıç opaklığı
+        this.alpha = 1;
+        // Sönerek kaybolma hızı
+        this.decay = Math.random() * 0.015 + 0.01;
     }
 
-    Particle.prototype.update = function () {
+    // Pozisyon ve görünürlük güncelleme
+    update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        this.alpha -= this.decay;
-        if (this.size > 0.1) this.size -= 0.02;
-    };
+        this.alpha -= this.decay; // Zamanla şeffaflaşma
+        if (this.size > 0.1) this.size -= 0.02; // Zamanla küçülme
+    }
 
-    Particle.prototype.draw = function () {
-        cctx.save();
-        cctx.beginPath();
-        cctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        cctx.fillStyle = this.colorBase + this.alpha + ')';
-        cctx.shadowBlur  = 8;  // 10 → 8 (hafif azaltma)
-        cctx.shadowColor = this.colorBase + '1)';
-        cctx.fill();
-        cctx.restore();
-    };
+    // Ekrana çizme ve parlama (Glow) verme alanı
+    draw() {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.colorBase + this.alpha + ')';
+        
+        // Siber parlama efekti (Glow)
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.colorBase + '1)';
+        
+        ctx.fill();
+        ctx.restore();
+    }
+}
 
-    var rafPaused = false;
-    document.addEventListener('visibilitychange', function () {
-        rafPaused = document.hidden;
-        if (!rafPaused) requestAnimationFrame(animate);
-    });
-
-    function animate() {
-        if (rafPaused) return;
-        cctx.clearRect(0, 0, cursorCanvas.width, cursorCanvas.height);
-        for (var i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-            if (particles[i].alpha <= 0) {
-                particles.splice(i, 1);
-                i--;
-            }
+// Akıcı animasyon döngüsü (60 FPS Çalışır)
+function animate() {
+    // Katmanı her karede temizler
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        
+        // Tamamen sönen (görünmez olan) parçacıkları silerek hafızayı temiz tutar
+        if (particles[i].alpha <= 0) {
+            particles.splice(i, 1);
+            i--;
         }
-        requestAnimationFrame(animate);
     }
     requestAnimationFrame(animate);
-})();
+}
+
+// Döngüyü başlat
+animate();
