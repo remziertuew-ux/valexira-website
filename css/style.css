@@ -111,6 +111,41 @@
     line-height: 1.2;
 }
 
+.subtitle {
+    color: #ffffff;
+    margin-bottom: 45px;
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: clamp(40px, 8vw, 80px);
+    flex-wrap: wrap; /* Mobilde alt alta gelmesini sağlar */
+}
+
+.btn {
+    padding: 14px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    min-width: 170px;
+    transition: 0.3s ease;
+}
+
+.btn-cyan { border: 2px solid #00e5ff; color: #fff; box-shadow: 0 0 20px rgba(0, 229, 255, 0.1); }
+.btn-pink { border: 2px solid #ff007f; color: #fff; }
+
+.promo-title {
+    color: #ff007f;
+    font-size: clamp(1.5rem, 6vw, 2.6rem);
+    margin-bottom: 20px;
+}
+
 .highlight { color: #00e5ff; font-weight: bold; }
 
 /* --- 4. RESPONSIVE (MOBIL UYUM) --- */
@@ -119,8 +154,9 @@
 }
 
 @media (max-width: 480px) {
-    .logo-text { font-size: 0.9rem; }
-} /* Dar ekranda yazıyı küçült */
+    .hero-btns { flex-direction: column; align-items: center; width: 100%; }
+    .btn { width: 100%; max-width: 100%; } /* Mobilde tam genişlik */
+    .logo-text { font-size: 0.9rem; } /* Dar ekranda yazıyı küçült */
 }
 
 /* --- BAŞLIK ANİMASYONU --- */
@@ -152,6 +188,96 @@
 @keyframes shine {
     to {
         background-position: 200% center;
+    }
+}
+
+/* Alt başlık (subtitle) için de küçük bir gecikmeli giriş ekleyelim */
+.subtitle {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.5s; /* Başlıktan yarım saniye sonra gelir */
+}
+
+/* --- HİZMET KARTLARI GENEL --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 25px;
+    padding: clamp(30px, 6vw, 60px) 0;
+    width: 100%;
+}
+
+.service-card {
+    background: rgba(25, 1, 29, 0);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* İçeriği kartın ortasına toplar */
+}
+
+/* --- SPAN BAŞLIK STİLLERİ --- */
+.card-title {
+    display: block;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+/* --- LIGHT (NEON) ÇERÇEVE VE RENKLER --- */
+.light-cyan {
+    border: 1.5px solid #00e5ff;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+.light-cyan .card-title { 
+    color: #00e5ff; 
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.4); 
+}
+
+.light-pink {
+    border: 1.5px solid #ff007f;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+}
+.light-pink .card-title { 
+    color: #ff007f; 
+    text-shadow: 0 0 8px rgba(255, 0, 127, 0.4); 
+}
+
+/* Hover Durumunda Işığı Artır */
+.service-card:hover {
+    transform: translateY(-8px);
+    background: #02032c
+}
+.light-cyan:hover { box-shadow: 0 0 20px rgba(0, 229, 255, 0.5); }
+.light-pink:hover { box-shadow: 0 0 20px rgba(255, 0, 127, 0.5); }
+
+/* Liste Elemanları - Düzeltildi */
+.service-card ul { 
+    list-style: none; 
+    width: fit-content; /* Genişliği içeriği kadar yapar */
+    margin: 0 auto; /* Listeyi kartın ortasına hizalar */
+    padding: 0;
+}
+.service-card ul li {
+    color: #e0e0e0;
+    font-size: 0.92rem;
+    padding: 9px 0;
+    text-align: left; /* Yazıları sola yaslayarak hizayı korur */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: nowrap; /* Yazıların kırılmasını engeller */
+}
+.service-card ul li:last-child { border-bottom: none; }
+
+/* --- MOBİL KORUMA (TAŞMA VE BÜYÜME ENGELİ) --- */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        padding: 40px 10px;
     }
 }
 
@@ -801,6 +927,7 @@ body {
     .v-whatsapp-link { justify-content: center; }
 }
 
+/* Ana Sitenin style.css dosyasına ekle */
 .demo-wrapper {
     display: flex;
     justify-content: center;
@@ -808,7 +935,49 @@ body {
     overflow: hidden; /* Dışa taşmaları engelle */
 }
 
+.valexira-demo-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #150e1b 0%, #090c3d 100%); /* Mor tema */
+    border: 2px solid #bdaebd; /* Neon pembe çerçeve */
+    padding: clamp(15px, 3vh, 25px) clamp(30px, 5vw, 60px); /* Esnek padding */
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: clamp(180px, 30vw, 260px); /* Minimum genişlik */
+}
 
+.valexira-demo-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(255, 0, 255, 0.4);
+}
+
+.btn-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.btn-subtext {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Dönen halkalar efekti */
 .btn-glow {
     position: absolute;
     inset: -50%;
