@@ -1336,9 +1336,70 @@ html, body {
 .v-pro-card:hover img { filter: brightness(100%); }
 
 /* Banner haline gelen büyük slider2 */
+/* Banner haline gelen büyük slider */
 .v-pro-card-banner {
     max-width: 1000px;
     aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.v-pro-banner-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1.2s ease, transform 6s ease-out;
+    filter: brightness(85%);
+}
+
+.v-pro-banner-img.active {
+    opacity: 1;
+    transform: scale(1.12);
+    z-index: 1;
+}
+
+.v-pro-banner-progress {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.v-pro-banner-progress span {
+    flex: 1;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.v-pro-banner-progress span::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #00f2fe, #ff00ff);
+    width: 0%;
+}
+
+.v-pro-banner-progress span.filled::after {
+    width: 100%;
+}
+
+.v-pro-banner-progress span.filling::after {
+    animation: vProFill 5s linear forwards;
+}
+
+@keyframes vProFill {
+    from { width: 0%; }
+    to { width: 100%; }
 }
 
 .v-pro-center-content {
