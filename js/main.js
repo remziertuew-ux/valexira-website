@@ -387,3 +387,29 @@ function animate() {
 
 // Döngüyü başlat
 animate();
+// Portfolyo banner slider
+(function () {
+    const banner = document.getElementById('vProBanner');
+    if (!banner) return;
+
+    const imgs = banner.querySelectorAll('.v-pro-banner-img');
+    const dots = banner.querySelectorAll('.v-pro-banner-progress span');
+    let i = 0;
+    const DURATION = 5000;
+
+    function goTo(index) {
+        imgs.forEach((img, idx) => img.classList.toggle('active', idx === index));
+        dots.forEach((dot, idx) => {
+            dot.classList.remove('filling');
+            dot.classList.toggle('filled', idx < index);
+            void dot.offsetWidth;
+            if (idx === index) dot.classList.add('filling');
+        });
+    }
+
+    goTo(0);
+    setInterval(() => {
+        i = (i + 1) % imgs.length;
+        goTo(i);
+    }, DURATION);
+})();
