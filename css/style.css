@@ -784,8 +784,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1a0033 0%, #4b0082 100%); /* Mor tema */
-    border: 2px solid #ff00ff; /* Neon pembe çerçeve */
+    background: linear-gradient(135deg, #001a33 0%, #15181a 100%); /* Mor tema */
+    border: 2px solid #0b2141; /* Neon pembe çerçeve */
     padding: clamp(15px, 3vh, 25px) clamp(30px, 5vw, 60px); /* Esnek padding */
     border-radius: 20px;
     cursor: pointer;
@@ -797,7 +797,7 @@ body {
 
 .valexira-demo-btn:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 35px rgba(255, 0, 255, 0.4);
+    box-shadow: 0 0 35px rgb(1, 46, 63);
 }
 
 .btn-text {
@@ -814,7 +814,7 @@ body {
     font-size: clamp(1rem, 3vw, 1.4rem);
     font-weight: 900;
     color: #ffffff;
-    text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+    text-shadow: 0 0 15px rgba(3, 46, 59, 0.7);
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
