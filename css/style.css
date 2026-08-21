@@ -1429,10 +1429,8 @@ html, body {
 
 @media (max-width: 868px) {
     #v-pro-portfolio-section { margin: 20px auto; }
-    .v-pro-container { grid-template-columns: 100%; gap: 25px; }
-    .v-pro-side-card.left-side,
-    .v-pro-side-card.right-side { justify-content: center; }
-    .v-pro-card { max-width: 340px; }
+    .v-pro-container { gap: 20px; }
+    .v-pro-card-banner { max-width: 100%; }
     .v-pro-center-content { padding: 15px 0; }
     .v-pro-title { font-size: 26px; }
 }
