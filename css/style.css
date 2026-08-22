@@ -2800,3 +2800,21 @@ html, body {
         cursor: auto;
     }
 }
+/* Sayfa başlangıçta solda ve görünmez */
+body {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Sayfa yüklendiğinde kendi yerine yumuşakça oturur */
+body.loaded {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Menüye tıklandığında sayfadan çıkış yönü (sola doğru kayarak kaybolur) */
+body.fade-out {
+    opacity: 0;
+    transform: translateX(50px);
+}
