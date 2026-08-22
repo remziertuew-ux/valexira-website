@@ -413,30 +413,3 @@ animate();
         goTo(i);
     }, DURATION);
 })();
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Sayfa açılır açılmaz animasyonu tetikle
-    document.body.classList.add("loaded");
-
-    // Tüm menü linklerini seç
-    const links = document.querySelectorAll("nav a, .nav-links a");
-
-    links.forEach(link => {
-        link.addEventListener("click", function(e) {
-            const targetUrl = this.getAttribute("href");
-
-            // Dahili bir link mi kontrol et
-            if (targetUrl && !targetUrl.startsWith("#") && !targetUrl.startsWith("http") && !targetUrl.startsWith("mailto:")) {
-                e.preventDefault();
-                
-                // Çıkış animasyonu sınıfını ekle
-                document.body.classList.add("fade-out");
-
-                // Animasyon süresi bitince (0.5 saniye sonra) yeni sayfaya yönlendir
-                setTimeout(() => {
-                    window.location.href = targetUrl;
-                }, 500); // CSS transition süresi ile birebir aynı olmalı
-            }
-        });
-    });
-});
