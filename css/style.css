@@ -2799,4 +2799,165 @@ html, body {
     html, body, a, button {
         cursor: auto;
     }
+
+    .v-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 42px 0 26px;
+    margin: 0 0 20px;
+    border-top: 1px solid rgba(157, 200, 230, .12);
+    border-bottom: 1px solid rgba(157, 200, 230, .12);
+}
+
+/* Baskı kesim işaretleri (crop marks) */
+.v-marquee::before,
+.v-marquee::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+}
+.v-marquee::before {
+    top: 10px;
+    left: 12px;
+    border-top: 1px solid #00e5ff;
+    border-left: 1px solid #00e5ff;
+}
+.v-marquee::after {
+    bottom: 10px;
+    right: 12px;
+    border-bottom: 1px solid #ff007f;
+    border-right: 1px solid #ff007f;
+}
+
+.v-marquee-view {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.v-marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: vLTR 36s linear infinite;
+}
+
+.v-marquee-list {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: vItem;
+}
+
+/* Sade, ince, sakin yazı */
+.v-marquee-list li {
+    counter-increment: vItem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.1rem, 4.5vw, 1.7rem);
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #a9bccd;
+}
+
+/* Küçük sıra numarası: 01, 02... */
+.v-marquee-list li::before {
+    content: counter(vItem, decimal-leading-zero);
+    align-self: flex-start;
+    margin: -6px 10px 0 0;
+    font-size: .38em;
+    letter-spacing: 1px;
+    color: #00e5ff;
+    opacity: .65;
+}
+
+/* Ayraç: 4 minik CMYK noktası */
+.v-marquee-list li::after {
+    content: "";
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    margin: 0 72px 0 36px;
+    border-radius: 50%;
+    background: #00e5ff;
+    box-shadow:
+        12px 0 0 0 #ff007f,
+        24px 0 0 0 #ffe600,
+        36px 0 0 0 #000,
+        36px 0 0 1px rgba(255, 255, 255, .75);
+}
+
+/* Yazıcı kafası */
+.v-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    pointer-events: none;
+    will-change: transform;
+    animation: vHead 7s ease-in-out infinite alternate;
+}
+
+.v-head-body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 12px;
+    background: #0b0f1e;
+    border: 1px solid rgba(157, 200, 230, .4);
+    border-radius: 6px;
+}
+
+.v-head-body i {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+.v-head-body i:nth-child(1) { background: #00e5ff; }
+.v-head-body i:nth-child(2) { background: #ff007f; }
+.v-head-body i:nth-child(3) { background: #ffe600; }
+.v-head-body i:nth-child(4) { background: #000; box-shadow: 0 0 0 1px #fff; }
+
+/* Çok silik 4 renkli mürekkep ışını */
+.v-head-beam {
+    height: calc(100% - 12px);
+    opacity: .28;
+    background: linear-gradient(90deg,
+        #00e5ff 0 25%, #ff007f 25% 50%, #ffe600 50% 75%, #3a3a3a 75% 100%);
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%);
+            mask-image: linear-gradient(180deg, #000, transparent 85%);
+}
+
+@keyframes vLTR {
+    from { transform: translate3d(-50%, 0, 0); }
+    to   { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes vHead {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(calc(100vw - 40px), 0, 0); }
+}
+
+@media (max-width: 600px) {
+    .v-marquee { padding: 36px 0 22px; }
+    .v-marquee-track { animation-duration: 26s; }
+    .v-head { animation-duration: 5.5s; }
+    .v-marquee-list li { letter-spacing: 3px; }
+    .v-marquee-list li::after { margin: 0 58px 0 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .v-marquee-track, .v-head { animation: none; }
+}
 }
