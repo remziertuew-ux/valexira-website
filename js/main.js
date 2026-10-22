@@ -4,7 +4,7 @@
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
 
-    var NUM  = 450;
+    var NUM  = 200;
     var W, H, cx, cy;
     var stars = [];
     var warp  = 0;
