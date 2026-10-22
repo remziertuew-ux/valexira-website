@@ -413,3 +413,40 @@ animate();
         goTo(i);
     }, DURATION);
 })();
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".navbar");
+    if (!navbar) return;
+
+    // Şerit elemanını oluşturup navbar içerisine ekliyoruz
+    const glowLine = document.createElement("div");
+    glowLine.className = "nav-glow-line";
+    navbar.appendChild(glowLine);
+
+    // Başlangıç rengi turkuaz (cyan)
+    let currentColor = "cyan";
+
+    function startNextAnimation() {
+        // Önceki sınıfları temizle
+        glowLine.className = "nav-glow-line";
+
+        // DOM'un sıfırlanması için minik bir gecikme
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                // Rengi uygula ve animasyonu başlat
+                glowLine.classList.add(currentColor, "animate");
+            });
+        });
+    }
+
+    // Animasyon bittiğinde çalısacak olay (Event Listener)
+    glowLine.addEventListener("animationend", function () {
+        // Animasyon bitince rengi değiştir: Turkuaz ise Pembe yap, Pembe ise Turkuaz yap
+        currentColor = (currentColor === "cyan") ? "pink" : "cyan";
+
+        // İki geçiş arasında 1 saniye boşluk bırak (Aynı anda asla görünmezler)
+        setTimeout(startNextAnimation, 1000);
+    });
+
+    // İlk animasyonu başlat
+    startNextAnimation();
+});
