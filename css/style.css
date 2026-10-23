@@ -1546,8 +1546,6 @@ html, body {
 .v-service-card:nth-child(5) { animation-delay: 0.32s; }
 .v-service-card:nth-child(6) { animation-delay: 0.4s; }
 
-}
-
 /* Üstte akan ışık çizgisi */
 .v-service-card::after {
     content: "";
