@@ -3087,3 +3087,151 @@ html, body {
   .vs__panel{padding:22px 18px;gap:16px}
   .vs__ring{flex-basis:68px;width:68px;height:68px}
 }
+/* Valexira - Öne çıkan hizmet sayfaları (infografik renkleri, parlamasız) */
+.vf {
+  --vf-cyan: 0, 229, 255;
+  --vf-pink: 255, 46, 147;
+  --vf-card: #0a1020;
+  --vf-border: #16305a;
+  --vf-text: #c9d4e8;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 30px);
+  color: #fff;
+  font-family: inherit;
+  overflow-x: hidden;
+}
+
+.vf *,
+.vf *::before,
+.vf *::after { box-sizing: border-box; }
+
+/* ---------- Başlık ---------- */
+.vf__title {
+  position: relative;
+  margin: 0 0 48px;
+  padding-bottom: 18px;
+  text-align: center;
+  font-size: clamp(22px, 4vw, 34px);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.vf__title span { color: rgb(var(--vf-pink)); }
+
+.vf__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 72px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgb(var(--vf-cyan)), rgb(var(--vf-pink)));
+  transform: translateX(-50%);
+}
+
+/* ---------- Izgara ---------- */
+.vf__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 22px;
+}
+
+/* ---------- Kart ---------- */
+.vf__card {
+  --accent: var(--vf-cyan);
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px 26px 24px;
+  border: 1.5px solid var(--vf-border);
+  border-top: 5px solid rgb(var(--accent));
+  border-radius: 22px;
+  background: var(--vf-card);
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.vf__card--pink { --accent: var(--vf-pink); }
+
+.vf__card:focus-visible {
+  outline: 3px solid rgb(var(--accent));
+  outline-offset: 3px;
+}
+
+/* ---------- İkon ---------- */
+.vf__icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 22px;
+  border: 4px solid rgb(var(--accent));
+  border-radius: 50%;
+  background: #070b18;
+}
+
+.vf__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Metin ---------- */
+.vf__name {
+  margin: 0 0 10px;
+  font-size: 22px;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.vf__text {
+  margin: 0 0 22px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--vf-text);
+}
+
+/* ---------- Alt bağlantı satırı ---------- */
+.vf__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(var(--accent));
+}
+
+.vf__arrow {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(var(--accent), 0.5);
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+/* ---------- Hover: yalnızca fareli cihazlarda ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .vf__card { transition: transform 0.2s ease; }
+  .vf__card:hover { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vf__card { transition: none; }
+  .vf__card:hover { transform: none; }
+}
