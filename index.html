@@ -615,6 +615,132 @@
                 </p>
             </section>
 
+                        <!-- =====================================================================
+     VALEXIRA INFOGRAFIK  |  Bu bloğu index.html içinde göstermek
+     istediğin yere yapıştır. CSS ve JS dosyaları ayrıdır:
+       <head> içine  : <link rel="stylesheet" href="css/infografik.css">
+       </body> önüne : <script src="js/infografik.js" defer></script>
+     ===================================================================== -->
+<section id="valexira-infographic-root" aria-labelledby="vx-title">
+    <div class="v-infographic-container">
+
+        <!-- Başlık -->
+        <header class="v-info-header v-reveal">
+            <div>
+                <span class="v-info-subtitle">VALEXİRA DİJİTAL BASKI MİMARİSİ</span>
+                <h2 id="vx-title">Reklam &amp; Matbaa Süreç İnfografiği</h2>
+            </div>
+            <div class="v-info-badge">🖨️ Sistem Kapasitesi: 1440 DPI • UV &amp; Solvent</div>
+        </header>
+
+        <!-- Süreç adımları -->
+        <div class="v-timeline" role="tablist" aria-label="Üretim adımları">
+            <button type="button" class="v-node v-reveal is-active" role="tab" id="vx-tab-0" aria-controls="vx-panel" aria-selected="true" data-step="0">
+                <span class="v-link" aria-hidden="true"></span>
+                <span class="v-node-circle">1</span>
+                <span class="v-node-text"><span class="v-node-title">Grafik Tasarım</span><span class="v-node-sub">Vektör &amp; CMYK</span></span>
+            </button>
+            <button type="button" class="v-node v-reveal" role="tab" id="vx-tab-1" aria-controls="vx-panel" aria-selected="false" tabindex="-1" data-step="1">
+                <span class="v-link" aria-hidden="true"></span>
+                <span class="v-node-circle">2</span>
+                <span class="v-node-text"><span class="v-node-title">Malzeme Seçimi</span><span class="v-node-sub">Folyo, Branda vb.</span></span>
+            </button>
+            <button type="button" class="v-node v-reveal" role="tab" id="vx-tab-2" aria-controls="vx-panel" aria-selected="false" tabindex="-1" data-step="2">
+                <span class="v-link" aria-hidden="true"></span>
+                <span class="v-node-circle">3</span>
+                <span class="v-node-text"><span class="v-node-title">Yüksek Çözünürlük Baskı</span><span class="v-node-sub">UV &amp; Solvent</span></span>
+            </button>
+            <button type="button" class="v-node v-reveal" role="tab" id="vx-tab-3" aria-controls="vx-panel" aria-selected="false" tabindex="-1" data-step="3">
+                <span class="v-link" aria-hidden="true"></span>
+                <span class="v-node-circle">4</span>
+                <span class="v-node-text"><span class="v-node-title">Kesim &amp; Son İşlem</span><span class="v-node-sub">Plotter &amp; Laminasyon</span></span>
+            </button>
+            <button type="button" class="v-node v-reveal" role="tab" id="vx-tab-4" aria-controls="vx-panel" aria-selected="false" tabindex="-1" data-step="4">
+                <span class="v-link" aria-hidden="true"></span>
+                <span class="v-node-circle">5</span>
+                <span class="v-node-text"><span class="v-node-title">Montaj &amp; Teslimat</span><span class="v-node-sub">Saha Uygulama</span></span>
+            </button>
+        </div>
+
+        <div class="v-info-grid">
+
+            <!-- Sol: adım detayı -->
+            <article class="v-info-card v-reveal" id="vx-panel" role="tabpanel" aria-labelledby="vx-tab-0" aria-live="polite">
+                <div class="v-card-top">
+                    <span class="v-det-badge" data-vx="num">01</span>
+                    <div>
+                        <h3 data-vx="title">Grafik Tasarım &amp; Vektör Hazırlık</h3>
+                        <span class="v-det-subcat" data-vx="cat">Baskı Öncesi (Pre-Press) Standartları</span>
+                    </div>
+                </div>
+
+                <p class="v-det-desc" data-vx="desc">Baskı kalitesinin temeli doğru hazırlanan grafik dosyasıdır. Tasarımlar Illustrator veya CorelDRAW ortamında vektörel çizilir. Renk modunun CMYK olması ve taşma paylarının (bleed) 3 mm olarak ayarlanması önemlidir.</p>
+
+                <div class="v-det-specs">
+                    <div class="v-spec-box">
+                        <span class="v-spec-label" data-vx="l1">RENK MODU</span>
+                        <span class="v-spec-val" data-vx="v1">CMYK (FOGRA39)</span>
+                    </div>
+                    <div class="v-spec-box">
+                        <span class="v-spec-label" data-vx="l2">ÖNERİLEN ÇÖZÜNÜRLÜK</span>
+                        <span class="v-spec-val" data-vx="v2">300 DPI / PPI</span>
+                    </div>
+                </div>
+
+                <div class="v-tags-wrap" data-vx="tags">
+                    <span class="v-tag">#PDF/X-1a</span>
+                    <span class="v-tag">#Vector Layout</span>
+                    <span class="v-tag">#3mm Bleed</span>
+                    <span class="v-tag">#Font Outlining</span>
+                    <span class="v-tag">#Pantone Matching</span>
+                </div>
+            </article>
+
+            <!-- Sağ: hesaplayıcı -->
+            <div class="v-calc-card v-reveal">
+                <h3>🧮 Baskı Çözünürlük Hesaplayıcı</h3>
+
+                <div class="v-calc-inputs">
+                    <div class="v-input-group">
+                        <label for="vWidth">GENİŞLİK (CM)</label>
+                        <input type="number" id="vWidth" value="300" min="1" max="5000" step="any" inputmode="decimal">
+                    </div>
+                    <div class="v-input-group">
+                        <label for="vHeight">YÜKSEKLİK (CM)</label>
+                        <input type="number" id="vHeight" value="200" min="1" max="5000" step="any" inputmode="decimal">
+                    </div>
+                </div>
+
+                <div class="v-input-group v-input-wide">
+                    <label for="vMaterial">MALZEME TÜRÜ</label>
+                    <select id="vMaterial">
+                        <option value="folyo">Döküm Folyo (Araç / Vitrin)</option>
+                        <option value="branda">Dış Mekan Branda (Vinil)</option>
+                        <option value="oneway">One Way Vision (Delikli Folyo)</option>
+                    </select>
+                </div>
+
+                <div class="v-calc-results" aria-live="polite">
+                    <div class="v-res-row"><span>Tavsiye Edilen DPI:</span><strong class="is-cyan" data-vx="r-dpi">100 DPI</strong></div>
+                    <div class="v-res-row"><span>Piksel Boyutu:</span><strong data-vx="r-pixel">11.811 x 7.874 px</strong></div>
+                    <div class="v-res-row"><span>Baskı Alanı:</span><strong data-vx="r-area">6 m²</strong></div>
+                    <div class="v-res-row"><span>Baskı Türü:</span><strong class="is-pink" data-vx="r-type">Eko-Solvent Dijital Baskı</strong></div>
+                </div>
+                <p class="v-calc-note" data-vx="note" hidden></p>
+
+                <a href="iletisim" class="v-calc-btn">BASKI TEKLİFİ AL →</a>
+            </div>
+        </div>
+
+        <!-- Alt bilgi -->
+        <footer class="v-info-footer-note v-reveal">
+            <span>✔ Valexira Dijital Baskı ve Reklam Teknolojileri • ISO 9001 Kalite Standardı</span>
+            <span>1440 DPI • UV &amp; Solvent Teknoloji</span>
+        </footer>
+
+    </div>
+</section>
+
             <!-- M² HESAPLA & MATERYAL SEÇİM -->
             <section aria-labelledby="calculator-heading" style="width:100%; padding:clamp(20px,5vw,60px) 5%; overflow-x:hidden;">
                 <div style="text-align:center; padding:20px 0;">
