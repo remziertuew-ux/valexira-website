@@ -413,3 +413,288 @@ animate();
         goTo(i);
     }, DURATION);
 })();
+
+/* =====================================================================
+   VALEXIRA INFOGRAFİK  |  js/infografik.js
+   - Adım seçimi (tıklama, klavye, otomatik oynatma)
+   - Çözünürlük hesaplayıcı
+   - Görünüm animasyonları
+   ===================================================================== */
+(function () {
+    'use strict';
+
+    /* ---------- Adım verileri ---------- */
+    var STEPS = [
+        {
+            num: '01',
+            title: 'Grafik Tasarım & Vektör Hazırlık',
+            cat: 'Baskı Öncesi (Pre-Press) Standartları',
+            desc: 'Baskı kalitesinin temeli doğru hazırlanan grafik dosyasıdır. Tasarımlar Illustrator veya CorelDRAW ortamında vektörel çizilir. Renk modunun CMYK olması ve taşma paylarının (bleed) 3 mm olarak ayarlanması önemlidir.',
+            l1: 'RENK MODU', v1: 'CMYK (FOGRA39)',
+            l2: 'ÖNERİLEN ÇÖZÜNÜRLÜK', v2: '300 DPI / PPI',
+            tags: ['#PDF/X-1a', '#Vector Layout', '#3mm Bleed', '#Font Outlining', '#Pantone Matching']
+        },
+        {
+            num: '02',
+            title: 'Malzeme Seçimi & Ortam Analizi',
+            cat: 'Uygulama Alanına Göre Seçim',
+            desc: 'Malzeme, uygulanacak yere göre belirlenir. Cam ve araç yüzeyleri için döküm folyo, geniş dış mekân alanları için branda, içeriden dışarının görülmesi gereken camlar için delikli folyo (One Way Vision) tercih edilir. Kullanım süresi ve yüzey yapısı seçimi belirler.',
+            l1: 'KULLANIM ALANI', v1: 'İç ve dış mekân',
+            l2: 'YÜZEY', v2: 'Cam, araç, duvar, tabela',
+            tags: ['#Döküm Folyo', '#Branda', '#One Way Vision', '#Dekota', '#Kendinden Yapışkanlı']
+        },
+        {
+            num: '03',
+            title: 'Yüksek Çözünürlük Baskı',
+            cat: 'Üretim Aşaması',
+            desc: 'Dosya onaylandıktan sonra malzemeye uygun makinede baskı alınır. Solvent mürekkepler dış mekânda dayanıklı sonuç verir, UV baskı ise sert yüzeylere doğrudan baskı yapılmasını sağlar. Baskı sonrası mürekkebin kuruması için kısa bir bekleme gerekir.',
+            l1: 'ÇÖZÜNÜRLÜK', v1: "1440 DPI'a kadar",
+            l2: 'MÜREKKEP', v2: 'UV / Eko-Solvent',
+            tags: ['#1440 DPI', '#UV Baskı', '#Eko-Solvent', '#Renk Profili']
+        },
+        {
+            num: '04',
+            title: 'Kesim & Son İşlem',
+            cat: 'Baskı Sonrası (Finishing)',
+            desc: 'Baskı tamamlanınca iş istenen şekle getirilir. Plotter kontur kesimi yapar, laminasyon ise yüzeyi çizilmeye ve güneş ışığına karşı korur. Gerektiğinde uygulamayı kolaylaştırmak için transfer bandı eklenir.',
+            l1: 'KESİM', v1: 'Kontur / düz kesim',
+            l2: 'KORUMA', v2: 'Mat veya parlak laminasyon',
+            tags: ['#Plotter Kesim', '#Kontur Kesim', '#Laminasyon', '#Transfer Bandı']
+        },
+        {
+            num: '05',
+            title: 'Montaj & Teslimat',
+            cat: 'Uygulama Aşaması',
+            desc: 'Ürün atölyede teslim edilir ya da yerinde uygulanır. Yüzeyin temiz ve kuru olması, uygulama sıcaklığı ve hava kabarcıklarının doğru alınması sonucu belirler. Büyük işlerde uygulama sırası önceden planlanır.',
+            l1: 'UYGULAMA', v1: 'Kuru veya ıslak yöntem',
+            l2: 'TESLİMAT', v2: 'Atölye teslim / montaj',
+            tags: ['#Saha Uygulama', '#Yüzey Hazırlığı', '#Rakle', '#Kabarcıksız Montaj']
+        }
+    ];
+
+    /* ---------- Hesaplayıcı kuralları ---------- */
+    // rules: [en uzun kenar (cm) üst sınırı, önerilen DPI]
+    var MATERIALS = {
+        folyo:  { type: 'Eko-Solvent Dijital Baskı',          rules: [[100, 150], [300, 100], [Infinity, 72]] },
+        branda: { type: 'Solvent Dijital Baskı',              rules: [[200, 100], [500, 72],  [Infinity, 50]] },
+        oneway: { type: 'Eko-Solvent Baskı + UV Laminasyon',  rules: [[300, 100], [Infinity, 72]] }
+    };
+    var MAX_CM = 5000;
+    var INCH = 2.54;
+
+    function compute(w, h, material) {
+        w = Number(w);
+        h = Number(h);
+        if (!isFinite(w) || !isFinite(h) || w <= 0 || h <= 0 || w > MAX_CM || h > MAX_CM) {
+            return { valid: false };
+        }
+        var m = MATERIALS[material] || MATERIALS.folyo;
+        var side = Math.max(w, h);
+        var dpi = m.rules[m.rules.length - 1][1];
+        for (var i = 0; i < m.rules.length; i++) {
+            if (side <= m.rules[i][0]) { dpi = m.rules[i][1]; break; }
+        }
+        return {
+            valid: true,
+            dpi: dpi,
+            pxW: Math.round((w / INCH) * dpi),
+            pxH: Math.round((h / INCH) * dpi),
+            area: (w * h) / 10000,
+            type: m.type,
+            // Rulo genişliğini aşan işler parçalı basılır
+            split: Math.min(w, h) > 320
+        };
+    }
+
+    // Node testleri için
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = { compute: compute, STEPS: STEPS };
+    }
+    if (typeof document === 'undefined') { return; }
+
+    var root = document.getElementById('valexira-infographic-root');
+    if (!root) { return; }
+    root.classList.add('v-js');
+
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var $ = function (sel) { return root.querySelector(sel); };
+    var vx = function (name) { return root.querySelector('[data-vx="' + name + '"]'); };
+
+    /* ---------- Adım seçimi ---------- */
+    var nodes = [].slice.call(root.querySelectorAll('.v-node'));
+    var card = $('.v-info-card');
+    var current = 0;
+
+    function renderTags(list) {
+        var wrap = vx('tags');
+        wrap.textContent = '';
+        list.forEach(function (t, i) {
+            var s = document.createElement('span');
+            s.className = 'v-tag';
+            s.style.setProperty('--t', i);
+            s.textContent = t;
+            wrap.appendChild(s);
+        });
+    }
+
+    function setStep(index, fromUser) {
+        index = (index + STEPS.length) % STEPS.length;
+        var d = STEPS[index];
+
+        nodes.forEach(function (n, i) {
+            var active = i === index;
+            n.classList.toggle('is-active', active);
+            n.classList.toggle('is-done', i < index);
+            n.setAttribute('aria-selected', active ? 'true' : 'false');
+            n.tabIndex = active ? 0 : -1;
+        });
+
+        vx('num').textContent = d.num;
+        vx('title').textContent = d.title;
+        vx('cat').textContent = d.cat;
+        vx('desc').textContent = d.desc;
+        vx('l1').textContent = d.l1;
+        vx('v1').textContent = d.v1;
+        vx('l2').textContent = d.l2;
+        vx('v2').textContent = d.v2;
+        renderTags(d.tags);
+        card.setAttribute('aria-labelledby', 'vx-tab-' + index);
+
+        if (!reduced && index !== current) {
+            card.classList.remove('is-swapping');
+            void card.offsetWidth; // animasyonu yeniden başlat
+            card.classList.add('is-swapping');
+        }
+        current = index;
+
+        if (fromUser) { stopAutoplay(true); }
+    }
+
+    nodes.forEach(function (n, i) {
+        n.style.setProperty('--i', i);
+        n.addEventListener('click', function () { setStep(i, true); });
+    });
+
+    // Klavye: ok tuşları, Home, End
+    $('.v-timeline').addEventListener('keydown', function (e) {
+        var k = e.key, target = null;
+        if (k === 'ArrowRight' || k === 'ArrowDown') { target = current + 1; }
+        else if (k === 'ArrowLeft' || k === 'ArrowUp') { target = current - 1; }
+        else if (k === 'Home') { target = 0; }
+        else if (k === 'End') { target = STEPS.length - 1; }
+        if (target === null) { return; }
+        e.preventDefault();
+        setStep(target, true);
+        nodes[current].focus();
+    });
+
+    /* ---------- Otomatik oynatma ---------- */
+    var timer = null, inView = false, hovering = false, userStopped = false;
+    var INTERVAL = 6000;
+
+    function syncAutoplay() {
+        var should = !reduced && inView && !hovering && !userStopped && !document.hidden;
+        if (should && !timer) {
+            timer = setInterval(function () { setStep(current + 1, false); }, INTERVAL);
+        } else if (!should && timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+    function stopAutoplay(permanent) {
+        if (permanent) { userStopped = true; }
+        syncAutoplay();
+    }
+
+    root.addEventListener('pointerenter', function () { hovering = true; syncAutoplay(); });
+    root.addEventListener('pointerleave', function () { hovering = false; syncAutoplay(); });
+    root.addEventListener('focusin',      function () { hovering = true; syncAutoplay(); });
+    root.addEventListener('focusout',     function () { hovering = false; syncAutoplay(); });
+    document.addEventListener('visibilitychange', syncAutoplay);
+
+    /* ---------- Hesaplayıcı ---------- */
+    var inW = $('#vWidth'), inH = $('#vHeight'), inM = $('#vMaterial');
+    var results = $('.v-calc-results');
+    var nf = new Intl.NumberFormat('tr-TR');
+    var af = new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 2 });
+    var flashTimer = null;
+
+    function parse(el) { return parseFloat(String(el.value).replace(',', '.')); }
+
+    function calculate() {
+        var r = compute(parse(inW), parse(inH), inM.value);
+        var note = vx('note');
+
+        inW.classList.toggle('is-invalid', !(parse(inW) > 0 && parse(inW) <= MAX_CM));
+        inH.classList.toggle('is-invalid', !(parse(inH) > 0 && parse(inH) <= MAX_CM));
+
+        if (!r.valid) {
+            vx('r-dpi').textContent = '—';
+            vx('r-pixel').textContent = '—';
+            vx('r-area').textContent = '—';
+            vx('r-type').textContent = '—';
+            note.textContent = 'Genişlik ve yüksekliği 1 ile 5000 cm arasında girin.';
+            note.hidden = false;
+            return;
+        }
+
+        vx('r-dpi').textContent = r.dpi + ' DPI';
+        vx('r-pixel').textContent = nf.format(r.pxW) + ' x ' + nf.format(r.pxH) + ' px';
+        vx('r-area').textContent = af.format(r.area) + ' m²';
+        vx('r-type').textContent = r.type;
+
+        if (r.split) {
+            note.textContent = 'Bu ölçüde iş genellikle parçalara bölünerek basılır ve birleştirilir.';
+            note.hidden = false;
+        } else {
+            note.hidden = true;
+        }
+
+        if (!reduced) {
+            results.classList.remove('is-updated');
+            void results.offsetWidth;
+            results.classList.add('is-updated');
+            clearTimeout(flashTimer);
+            flashTimer = setTimeout(function () { results.classList.remove('is-updated'); }, 450);
+        }
+    }
+
+    inW.addEventListener('input', calculate);
+    inH.addEventListener('input', calculate);
+    inM.addEventListener('change', calculate);
+
+    /* ---------- Görünüm animasyonları ---------- */
+    var reveals = [].slice.call(root.querySelectorAll('.v-reveal'));
+    reveals.forEach(function (el) {
+        if (!el.classList.contains('v-node')) { el.style.setProperty('--i', 0); }
+    });
+
+    if ('IntersectionObserver' in window) {
+        var revealIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                    en.target.classList.add('is-visible');
+                    revealIO.unobserve(en.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(function (el) { revealIO.observe(el); });
+
+        new IntersectionObserver(function (entries) {
+            inView = entries[0].isIntersecting;
+            syncAutoplay();
+        }, { threshold: 0.35 }).observe(root);
+    } else {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+        inView = true;
+        syncAutoplay();
+    }
+
+    /* ---------- Başlangıç ---------- */
+    setStep(0, false);
+    calculate();
+
+    // Eski satır içi çağrılarla uyumluluk
+    window.switchInfoStep = function (i) { setStep(i, true); };
+    window.calculatePrint = calculate;
+})();
