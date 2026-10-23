@@ -1550,10 +1550,40 @@ html, body {
 .v-service-card.light-cyan .v-service-list li span { color: #00f2fe; }
 .v-service-card.light-pink .v-service-list li span { color: #ff007f; }
 
+/* Mobil: 2 kutu yan yana, yazılar sola yaslı */
 @media (max-width: 600px) {
     #v-cyber-services-section { padding: 20px 10px; }
-    .v-services-grid { gap: 15px; }
-    .v-service-card { max-width: 100%; min-width: 100%; padding: 18px 16px; }
+    .v-services-grid { gap: 10px; }
+    .v-service-card {
+        flex: 0 0 calc(50% - 5px);
+        min-width: 0;
+        max-width: calc(50% - 5px);
+        padding: 14px 12px;
+        text-align: left;
+    }
+    .v-card-title {
+        justify-content: flex-start;
+        gap: 6px;
+        font-size: 12.5px;
+        letter-spacing: 0.6px;
+        line-height: 1.25;
+        text-align: left;
+    }
+    .v-card-title svg { width: 16px; height: 16px; }
+    .v-service-list { align-items: stretch; gap: 7px; }
+    .v-service-list li {
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+        text-align: left;
+    }
+    .v-service-list li span { margin-top: 0.3em; }
+}
+
+/* Çok dar telefonlarda tek sütun */
+@media (max-width: 340px) {
+    .v-service-card { flex-basis: 100%; max-width: 100%; }
 }
 
 /* =====================================================
