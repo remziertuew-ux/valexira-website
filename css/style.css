@@ -1496,7 +1496,13 @@ html, body {
     .v-pro-title { font-size: 26px; }
 }
 
-/* === v-cyber-services-section === */
+/* =====================================================================
+   v-cyber-services-section : infografik stil
+   - HTML'e dokunmadan çalışır (aynı sınıf adları)
+   - Animasyonlar sadece transform/opacity kullanır (GPU'da çalışır,
+     blur/filter/layout animasyonu yok) -> mobilde akıcı kalır
+   ===================================================================== */
+
 #v-cyber-services-section {
     width: 100%;
     max-width: 1200px;
@@ -1512,67 +1518,200 @@ html, body {
     gap: 20px;
     justify-content: center;
     width: 100%;
+    counter-reset: vsvc; /* kartlara otomatik numara */
 }
 
+/* ---------- Kart ---------- */
 .v-service-card {
+    --c: 0, 242, 254;                      /* renk (rgb) */
+    position: relative;
     flex: 1;
     min-width: min(100%, 260px);
     max-width: 285px;
-    background: transparent;
     padding: 22px 20px;
-    border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(var(--c), 0.18);
+    border-radius: 6px 24px 6px 24px;      /* şekilli köşeler */
+    background: linear-gradient(160deg, rgba(var(--c), 0.07), transparent 55%);
+    overflow: hidden;
+    counter-increment: vsvc;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    animation: vsvcIn 0.6s ease both;      /* giriş (yedek) */
 }
-.v-service-card.light-cyan { border: 1px solid rgba(0, 242, 254, 0.15); }
-.v-service-card.light-pink { border: 1px solid rgba(255, 0, 127, 0.15); }
-.v-service-card.light-cyan:hover { transform: translateY(-3px); border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 0 15px rgba(0, 242, 254, 0.1); }
-.v-service-card.light-pink:hover { transform: translateY(-3px); border-color: rgba(255, 0, 127, 0.4); box-shadow: 0 0 15px rgba(255, 0, 127, 0.1); }
+.v-service-card.light-cyan { --c: 0, 242, 254; }
+.v-service-card.light-pink { --c: 255, 0, 127; }
 
+.v-service-card:nth-child(2) { animation-delay: 0.08s; }
+.v-service-card:nth-child(3) { animation-delay: 0.16s; }
+.v-service-card:nth-child(4) { animation-delay: 0.24s; }
+.v-service-card:nth-child(5) { animation-delay: 0.32s; }
+.v-service-card:nth-child(6) { animation-delay: 0.4s; }
+
+/* Altıgen numara rozeti */
+.v-service-card::before {
+    content: counter(vsvc, decimal-leading-zero);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 36px;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background: linear-gradient(135deg, rgba(var(--c), 0.55), rgba(var(--c), 0.12));
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+}
+
+/* Üstte akan ışık çizgisi */
+.v-service-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(var(--c)), transparent);
+    will-change: transform;
+    animation: vsvcScan 4s linear infinite;
+}
+.v-service-card:nth-child(2n)::after { animation-delay: -1.3s; }
+.v-service-card:nth-child(3n)::after { animation-delay: -2.6s; }
+
+/* ---------- Başlık ---------- */
 .v-card-title {
     display: flex;
     align-items: center;
     gap: 8px;
+    margin: 0 0 14px 0;
+    padding: 0 42px 8px 0;                 /* rozete yer bırak */
+    border-bottom: 1px solid rgba(var(--c), 0.18);
     font-weight: 700;
     font-size: 16px;
     letter-spacing: 1.2px;
-    margin: 0 0 14px 0;
-    padding-bottom: 8px;
     line-height: 1;
+    color: rgb(var(--c));
 }
-.v-service-card.light-cyan .v-card-title { color: #00f2fe; border-bottom: 1px solid rgba(0, 242, 254, 0.15); }
-.v-service-card.light-pink .v-card-title { color: #ff007f; border-bottom: 1px solid rgba(255, 0, 127, 0.15); }
 .v-card-title svg { flex-shrink: 0; }
 
-.v-service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; }
-.v-service-list li { font-size: 13px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 6px; line-height: 1.3; transition: color 0.2s ease; }
-.v-service-list li:hover { color: #ffffff; }
-.v-service-list li span { font-size: 8px; display: inline-block; opacity: 0.8; }
-.v-service-card.light-cyan .v-service-list li span { color: #00f2fe; }
-.v-service-card.light-pink .v-service-list li span { color: #ff007f; }
+/* ---------- Liste (dikey akış hattı) ---------- */
+.v-service-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+.v-service-list::before {                   /* sabit hat */
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 3.5px;
+    width: 1px;
+    background: rgba(var(--c), 0.25);
+}
+.v-service-list::after {                    /* hat boyunca akan nokta/ışık */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2.5px;
+    width: 3px;
+    height: 28%;
+    border-radius: 3px;
+    background: linear-gradient(180deg, transparent, rgb(var(--c)));
+    will-change: transform;
+    animation: vsvcFlow 3s linear infinite;
+}
+.v-service-list li {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease;
+}
+.v-service-list li span {
+    display: inline-block;
+    font-size: 8px;
+    opacity: 0.9;
+    color: rgb(var(--c));
+}
 
-/* Mobil: 2 kutu yan yana, yazılar sola yaslı */
+/* Hover sadece fare olan cihazlarda (dokunmatikte takılı kalmaz) */
+@media (hover: hover) {
+    .v-service-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(var(--c), 0.5);
+        box-shadow: 0 0 15px rgba(var(--c), 0.12);
+    }
+    .v-service-list li:hover { color: #fff; }
+}
+
+/* ---------- Animasyonlar ---------- */
+@keyframes vsvcIn {
+    from { opacity: 0; translate: 0 16px; }
+    to   { opacity: 1; translate: 0 0; }
+}
+@keyframes vsvcScan {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(167%); }
+}
+@keyframes vsvcFlow {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(350%); }
+}
+
+/* Destekleyen tarayıcıda kartlar ekrana girince belirir */
+@supports (animation-timeline: view()) {
+    .v-service-card,
+    .v-service-card:nth-child(n) {
+        animation: vsvcIn linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 55%;
+        animation-delay: 0s;
+    }
+}
+
+/* ---------- Mobil: 2 kutu yan yana, yazılar sola yaslı ---------- */
 @media (max-width: 600px) {
     #v-cyber-services-section { padding: 20px 10px; }
     .v-services-grid { gap: 10px; }
+
     .v-service-card {
         flex: 0 0 calc(50% - 5px);
         min-width: 0;
         max-width: calc(50% - 5px);
         padding: 14px 12px;
+        border-radius: 4px 18px 4px 18px;
         text-align: left;
     }
+    .v-service-card::before {
+        top: 9px;
+        right: 8px;
+        width: 24px;
+        height: 27px;
+        font-size: 10px;
+    }
+
     .v-card-title {
-        justify-content: flex-start;
         gap: 6px;
+        padding-right: 30px;
         font-size: 12.5px;
         letter-spacing: 0.6px;
         line-height: 1.25;
         text-align: left;
     }
     .v-card-title svg { width: 16px; height: 16px; }
-    .v-service-list { align-items: stretch; gap: 7px; }
+
+    .v-service-list { gap: 7px; }
     .v-service-list li {
-        justify-content: flex-start;
         align-items: flex-start;
         font-size: 12px;
         overflow-wrap: anywhere;
@@ -1584,6 +1723,15 @@ html, body {
 /* Çok dar telefonlarda tek sütun */
 @media (max-width: 340px) {
     .v-service-card { flex-basis: 100%; max-width: 100%; }
+}
+
+/* Hareket azaltma tercihi */
+@media (prefers-reduced-motion: reduce) {
+    .v-service-card,
+    .v-service-card::after,
+    .v-service-list::after {
+        animation: none !important;
+    }
 }
 
 /* =====================================================
