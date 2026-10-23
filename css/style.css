@@ -1546,21 +1546,6 @@ html, body {
 .v-service-card:nth-child(5) { animation-delay: 0.32s; }
 .v-service-card:nth-child(6) { animation-delay: 0.4s; }
 
-/* Altıgen numara rozeti */
-.v-service-card::before {
-    content: counter(vsvc, decimal-leading-zero);
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 36px;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    background: linear-gradient(135deg, rgba(var(--c), 0.55), rgba(var(--c), 0.12));
-    font-size: 12px;
-    font-weight: 800;
-    color: #fff;
 }
 
 /* Üstte akan ışık çizgisi */
