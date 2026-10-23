@@ -3492,3 +3492,156 @@ html, body {
     }
     #valexira-infographic-root.v-js .v-reveal { opacity: 1; transform: none; }
 }
+/* Valexira - SEO infografik bölümü */
+.v-seo {
+  --v-cyan: #00e5ff;
+  --v-text: #ffffff;
+  --v-soft: rgba(255,255,255,.06);
+  --v-line: rgba(0,229,255,.35);
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--v-text);
+}
+.v-seo *, .v-seo *::before, .v-seo *::after { box-sizing: border-box; }
+
+.v-seo__title {
+  color: var(--v-cyan);
+  font-size: clamp(22px, 4vw, 30px);
+  line-height: 1.25;
+  margin: 0 0 40px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(0,229,255,.2);
+}
+
+/* Hizmet akışı: ikonlar bir hat üzerinde */
+.v-seo__flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+}
+.v-seo__flow::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: 16%;
+  right: 16%;
+  border-top: 2px dashed var(--v-line);
+}
+.v-seo__node {
+  position: relative;
+  text-align: center;
+  padding: 0 8px;
+}
+.v-seo__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #0b1f2a;
+  border: 2px solid var(--v-cyan);
+  box-shadow: 0 0 0 8px rgba(0,229,255,.08);
+  position: relative;
+  z-index: 1;
+}
+.v-seo__icon svg { width: 30px; height: 30px; }
+.v-seo__node h3 {
+  color: var(--v-cyan);
+  font-size: 19px;
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+.v-seo__node p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 34ch;
+}
+
+/* Fiyat formülü */
+.v-seo__formula {
+  margin-top: 56px;
+  padding: 28px 24px;
+  background: var(--v-soft);
+  border: 1px solid var(--v-line);
+  border-radius: 16px;
+}
+.v-seo__formula h3,
+.v-seo__facts h3 {
+  font-size: clamp(17px, 3vw, 20px);
+  margin: 0 0 6px;
+}
+.v-seo__formula > p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+.v-seo__eq {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+}
+.v-seo__chip {
+  flex: 1 1 150px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--v-cyan);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.v-seo__chip strong { display: block; color: var(--v-cyan); font-size: 17px; }
+.v-seo__op {
+  flex: 0 0 auto;
+  align-self: center;
+  color: var(--v-cyan);
+  font-size: 26px;
+  font-weight: 700;
+}
+.v-seo__chip--result {
+  background: var(--v-cyan);
+  border-color: var(--v-cyan);
+  color: #04141b;
+}
+.v-seo__chip--result strong { color: #04141b; }
+
+/* Teslimat bilgi kutuları */
+.v-seo__facts { margin-top: 40px; }
+.v-seo__facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+.v-seo__stat {
+  padding: 22px;
+  border-left: 4px solid var(--v-cyan);
+  background: var(--v-soft);
+  border-radius: 0 12px 12px 0;
+}
+.v-seo__big {
+  display: block;
+  color: var(--v-cyan);
+  font-size: clamp(26px, 5vw, 38px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.v-seo__stat p { font-size: 15px; line-height: 1.6; margin: 0; }
+
+/* Mobil */
+@media (max-width: 760px) {
+  .v-seo__flow { grid-template-columns: 1fr; gap: 36px; }
+  .v-seo__flow::before { display: none; }
+  .v-seo__op { display: none; }
+}
