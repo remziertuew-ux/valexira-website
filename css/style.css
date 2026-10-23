@@ -2830,3 +2830,532 @@ html, body {
         cursor: auto;
     }
 }
+
+/* =====================================================================
+   VALEXIRA INFOGRAFİK
+   Tüm kurallar #valexira-infographic-root altında, sitenin geri kalanını
+   etkilemez. style.css'ten SONRA yükle.
+   Mobilde (900px ve altı) her şey ortalıdır; kurallar ilgili yerlerine
+   doğrudan işlenmiştir, ayrı bir ezme bloğu yoktur.
+   ===================================================================== */
+
+#valexira-infographic-root {
+    --vx-cyan: #00f2fe;
+    --vx-pink: #ff007f;
+    --vx-dark: #0a0d1c;
+    --vx-text: rgba(255, 255, 255, 0.78);
+    --vx-muted: rgba(255, 255, 255, 0.55);
+    --vx-line: rgba(255, 255, 255, 0.1);
+
+    width: 100%;
+    padding: clamp(40px, 7vw, 90px) clamp(14px, 4vw, 28px);
+    color: #fff;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+#valexira-infographic-root *,
+#valexira-infographic-root *::before,
+#valexira-infographic-root *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- Ana kutu ---------- */
+#valexira-infographic-root .v-infographic-container {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 44px);
+    border-radius: 26px;
+    border: 1px solid var(--vx-line);
+    background:
+        radial-gradient(circle at 12% 0%, rgba(0, 242, 254, 0.09), transparent 45%),
+        radial-gradient(circle at 92% 100%, rgba(255, 0, 127, 0.08), transparent 45%),
+        rgba(255, 255, 255, 0.025);
+    overflow: hidden;
+}
+
+/* ---------- Başlık ---------- */
+#valexira-infographic-root .v-info-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px 24px;
+}
+#valexira-infographic-root .v-info-subtitle {
+    display: block;
+    margin-bottom: 10px;
+    font-size: clamp(0.68rem, 1.6vw, 0.8rem);
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--vx-cyan);
+}
+#valexira-infographic-root h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 4.2vw, 2.4rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: #fff;
+}
+#valexira-infographic-root .v-info-badge {
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 0, 127, 0.5);
+    border-radius: 50px;
+    background: rgba(255, 0, 127, 0.07);
+    font-size: clamp(0.72rem, 1.8vw, 0.85rem);
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ---------- Süreç adımları ---------- */
+#valexira-infographic-root .v-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: clamp(34px, 6vw, 56px) 0;
+}
+
+#valexira-infographic-root .v-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    text-align: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+#valexira-infographic-root .v-node:focus-visible {
+    outline: 2px solid var(--vx-cyan);
+    outline-offset: 6px;
+    border-radius: 12px;
+}
+
+/* adımlar arası çizgi (kesikli zemin + dolan renkli çizgi) */
+#valexira-infographic-root .v-link {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    margin-top: -1px;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0 6px, transparent 6px 12px);
+    animation: vxDashX 1.2s linear infinite;
+}
+#valexira-infographic-root .v-node:last-child .v-link { display: none; }
+#valexira-infographic-root .v-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--vx-cyan), var(--vx-pink));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.6s ease;
+}
+#valexira-infographic-root .v-node.is-done .v-link::after { transform: scaleX(1); }
+
+#valexira-infographic-root .v-node-circle {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    flex: none;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    background: var(--vx-dark);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--vx-muted);
+    transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+}
+#valexira-infographic-root .v-node:hover .v-node-circle { border-color: var(--vx-cyan); color: #fff; }
+
+#valexira-infographic-root .v-node.is-done .v-node-circle {
+    border-color: var(--vx-cyan);
+    color: var(--vx-cyan);
+}
+#valexira-infographic-root .v-node.is-active .v-node-circle {
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--vx-cyan), var(--vx-pink));
+    color: #05060f;
+    transform: scale(1.12);
+    box-shadow: 0 0 22px rgba(0, 242, 254, 0.45);
+    animation: vxPulse 2.2s ease-out infinite;
+}
+
+#valexira-infographic-root .v-node-text { display: block; margin-top: 12px; }
+#valexira-infographic-root .v-node-title {
+    display: block;
+    font-size: clamp(0.78rem, 1.35vw, 0.95rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--vx-text);
+    transition: color 0.3s ease;
+}
+#valexira-infographic-root .v-node-sub {
+    display: block;
+    margin-top: 3px;
+    font-size: clamp(0.68rem, 1.1vw, 0.78rem);
+    color: var(--vx-muted);
+}
+#valexira-infographic-root .v-node.is-active .v-node-title { color: #fff; }
+
+/* ---------- Alt bölüm: detay + hesaplayıcı ---------- */
+#valexira-infographic-root .v-info-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: clamp(16px, 3vw, 26px);
+    align-items: stretch;
+}
+
+#valexira-infographic-root .v-info-card,
+#valexira-infographic-root .v-calc-card {
+    padding: clamp(20px, 3vw, 32px);
+    border: 1px solid var(--vx-line);
+    border-radius: 20px;
+    background: rgba(5, 7, 18, 0.55);
+    min-width: 0;
+}
+#valexira-infographic-root .v-info-card { border-top: 3px solid var(--vx-cyan); }
+#valexira-infographic-root .v-calc-card { border-top: 3px solid var(--vx-pink); }
+
+/* Detay kartı */
+#valexira-infographic-root .v-card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+#valexira-infographic-root .v-det-badge {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(255, 0, 127, 0.2));
+    border: 1px solid rgba(0, 242, 254, 0.4);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--vx-cyan);
+}
+#valexira-infographic-root .v-card-top h3 {
+    margin: 0 0 4px;
+    font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #fff;
+}
+#valexira-infographic-root .v-det-subcat {
+    font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--vx-cyan);
+}
+#valexira-infographic-root .v-det-desc {
+    margin: 0 0 22px;
+    font-size: clamp(0.92rem, 1.8vw, 1.02rem);
+    line-height: 1.75;
+    color: var(--vx-text);
+}
+
+#valexira-infographic-root .v-det-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+#valexira-infographic-root .v-spec-box {
+    padding: 12px 14px;
+    border-left: 3px solid var(--vx-cyan);
+    border-radius: 6px 12px 12px 6px;
+    background: rgba(255, 255, 255, 0.04);
+}
+#valexira-infographic-root .v-spec-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--vx-muted);
+}
+#valexira-infographic-root .v-spec-val {
+    display: block;
+    font-size: clamp(0.88rem, 1.8vw, 1rem);
+    font-weight: 700;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+#valexira-infographic-root .v-tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+#valexira-infographic-root .v-tag {
+    padding: 5px 12px;
+    border: 1px solid rgba(0, 242, 254, 0.35);
+    border-radius: 50px;
+    background: rgba(0, 242, 254, 0.06);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--vx-cyan);
+}
+
+/* Adım değişince içerik animasyonu */
+#valexira-infographic-root .v-info-card.is-swapping .v-card-top,
+#valexira-infographic-root .v-info-card.is-swapping .v-det-desc,
+#valexira-infographic-root .v-info-card.is-swapping .v-det-specs {
+    animation: vxFadeUp 0.45s ease both;
+}
+#valexira-infographic-root .v-info-card.is-swapping .v-det-desc { animation-delay: 0.05s; }
+#valexira-infographic-root .v-info-card.is-swapping .v-det-specs { animation-delay: 0.1s; }
+#valexira-infographic-root .v-info-card.is-swapping .v-tag { animation: vxPop 0.4s ease both; animation-delay: calc(0.12s + var(--t, 0) * 60ms); }
+
+/* Hesaplayıcı */
+#valexira-infographic-root .v-calc-card { display: flex; flex-direction: column; }
+#valexira-infographic-root .v-calc-card h3 {
+    margin: 0 0 18px;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    font-weight: 800;
+    color: #fff;
+}
+#valexira-infographic-root .v-calc-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+#valexira-infographic-root .v-input-wide { margin-top: 12px; }
+#valexira-infographic-root .v-input-group { min-width: 0; }
+#valexira-infographic-root .v-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--vx-muted);
+}
+#valexira-infographic-root .v-input-group input,
+#valexira-infographic-root .v-input-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    font: inherit;
+    font-size: 16px; /* iOS'ta yakınlaştırmayı önler */
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+#valexira-infographic-root .v-input-group input:focus,
+#valexira-infographic-root .v-input-group select:focus {
+    outline: none;
+    border-color: var(--vx-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.2);
+}
+#valexira-infographic-root .v-input-group input.is-invalid { border-color: #ff5a5a; }
+#valexira-infographic-root .v-input-group option { background: #0b0e1c; color: #fff; }
+
+#valexira-infographic-root .v-calc-results {
+    margin: 20px 0 10px;
+    padding: 6px 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+}
+#valexira-infographic-root .v-res-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+    font-size: clamp(0.82rem, 1.7vw, 0.92rem);
+    color: var(--vx-text);
+}
+#valexira-infographic-root .v-res-row:last-child { border-bottom: 0; }
+#valexira-infographic-root .v-res-row strong {
+    text-align: right;
+    color: #fff;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+#valexira-infographic-root .v-res-row strong.is-cyan { color: var(--vx-cyan); }
+#valexira-infographic-root .v-res-row strong.is-pink { color: var(--vx-pink); }
+#valexira-infographic-root .v-calc-results.is-updated strong { animation: vxFlash 0.4s ease; }
+
+#valexira-infographic-root .v-calc-note {
+    margin: 0 0 14px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #ffb347;
+}
+#valexira-infographic-root .v-calc-note[hidden] { display: none; }
+
+#valexira-infographic-root .v-calc-btn {
+    display: block;
+    margin-top: auto;
+    padding: 15px 20px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--vx-pink), #ff6a00);
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #fff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#valexira-infographic-root .v-calc-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(255, 0, 127, 0.35); }
+#valexira-infographic-root .v-calc-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* ---------- Alt bilgi ---------- */
+#valexira-infographic-root .v-info-footer-note {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 20px;
+    margin-top: clamp(22px, 4vw, 34px);
+    padding-top: 18px;
+    border-top: 1px solid var(--vx-line);
+    font-size: clamp(0.72rem, 1.5vw, 0.82rem);
+    color: var(--vx-muted);
+}
+
+/* ---------- Giriş animasyonu (JS yoksa içerik zaten görünür) ---------- */
+#valexira-infographic-root.v-js .v-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: calc(var(--i, 0) * 90ms);
+}
+#valexira-infographic-root.v-js .v-reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Animasyonlar ---------- */
+@keyframes vxPulse {
+    0%   { box-shadow: 0 0 22px rgba(0, 242, 254, 0.45), 0 0 0 0 rgba(0, 242, 254, 0.5); }
+    70%  { box-shadow: 0 0 22px rgba(0, 242, 254, 0.45), 0 0 0 14px rgba(0, 242, 254, 0); }
+    100% { box-shadow: 0 0 22px rgba(0, 242, 254, 0.45), 0 0 0 0 rgba(0, 242, 254, 0); }
+}
+@keyframes vxDashX { to { background-position: 12px 0; } }
+@keyframes vxDashY { to { background-position: 0 12px; } }
+@keyframes vxFadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes vxPop { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: none; } }
+@keyframes vxFlash { 0% { opacity: 0.35; } 100% { opacity: 1; } }
+
+/* ---------- Tablet ve telefon: dikey süreç + tek sütun + her şey ortalı ---------- */
+@media (max-width: 900px) {
+
+    /* Başlık */
+    #valexira-infographic-root .v-info-header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Alt bölüm tek sütun */
+    #valexira-infographic-root .v-info-grid { grid-template-columns: 1fr; }
+
+    /* Süreç adımları: dikey ve ortalı */
+    #valexira-infographic-root .v-timeline {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #valexira-infographic-root .v-node {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 0 34px;
+        text-align: center;
+    }
+    #valexira-infographic-root .v-node:last-child { padding-bottom: 0; }
+    #valexira-infographic-root .v-node-circle { width: 44px; height: 44px; font-size: 1rem; }
+    #valexira-infographic-root .v-node-text { margin-top: 10px; }
+    #valexira-infographic-root .v-node-title { font-size: 0.95rem; }
+    #valexira-infographic-root .v-node-sub { font-size: 0.8rem; }
+
+    /* Bağlantı: iki adım arasında, ortada kısa dikey çizgi (yazının üstünden geçmez) */
+    #valexira-infographic-root .v-link {
+        top: auto;
+        bottom: 4px;
+        left: 50%;
+        width: 3px;
+        height: 26px;
+        margin-top: 0;
+        margin-left: -1.5px;
+        background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0 6px, transparent 6px 12px);
+        animation-name: vxDashY;
+    }
+    #valexira-infographic-root .v-link::after {
+        background: linear-gradient(180deg, var(--vx-cyan), var(--vx-pink));
+        transform: scaleY(0);
+        transform-origin: center top;
+    }
+    #valexira-infographic-root .v-node.is-done .v-link::after { transform: scaleY(1); }
+
+    /* Detay kartı */
+    #valexira-infographic-root .v-card-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+    }
+    #valexira-infographic-root .v-det-desc { text-align: center; }
+    #valexira-infographic-root .v-det-specs { text-align: center; }
+    #valexira-infographic-root .v-spec-box {
+        border-left: 0;
+        border-top: 3px solid var(--vx-cyan);
+        border-radius: 12px;
+    }
+    #valexira-infographic-root .v-tags-wrap { justify-content: center; }
+
+    /* Hesaplayıcı */
+    #valexira-infographic-root .v-calc-card h3 { text-align: center; }
+    #valexira-infographic-root .v-input-group label { text-align: center; }
+    #valexira-infographic-root .v-input-group input,
+    #valexira-infographic-root .v-input-group select {
+        text-align: center;
+        text-align-last: center; /* select için */
+    }
+    #valexira-infographic-root .v-calc-results { text-align: center; }
+    #valexira-infographic-root .v-res-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        text-align: center;
+    }
+    #valexira-infographic-root .v-res-row strong { text-align: center; }
+    #valexira-infographic-root .v-calc-note { text-align: center; }
+    #valexira-infographic-root .v-calc-btn { text-align: center; }
+
+    /* Alt bilgi */
+    #valexira-infographic-root .v-info-footer-note {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #valexira-infographic-root .v-det-specs,
+    #valexira-infographic-root .v-calc-inputs { grid-template-columns: 1fr; }
+    #valexira-infographic-root .v-det-badge { width: 46px; height: 46px; font-size: 1.1rem; }
+}
+
+/* ---------- Hareket azaltma tercihi ---------- */
+@media (prefers-reduced-motion: reduce) {
+    #valexira-infographic-root *,
+    #valexira-infographic-root *::before,
+    #valexira-infographic-root *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    #valexira-infographic-root.v-js .v-reveal { opacity: 1; transform: none; }
+}
