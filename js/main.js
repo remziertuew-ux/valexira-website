@@ -479,3 +479,4 @@ animate();
     });
     document.head.appendChild(s);
   }
+})();
