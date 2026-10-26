@@ -431,3 +431,52 @@ animate();
   }
   [w,h,m].forEach(function(e){e.addEventListener("input",run)});run();
 })();
+(function () {
+  var root = document.getElementById("sss");
+  if (!root) { return; }
+  var items = root.querySelectorAll("details.vq__item");
+
+  // Aynı anda tek soru açık kalsın
+  items.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) { return; }
+      items.forEach(function (o) { if (o !== d) { o.open = false; } });
+    });
+  });
+
+  // Adres #sss-fiyat gibi bitiyorsa o soruyu aç
+  function openFromHash() {
+    var id = location.hash.slice(1);
+    var el = id ? document.getElementById(id) : null;
+    if (el && el.classList.contains("vq__item")) { el.open = true; }
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+
+  // Sayfadaki soru ve cevaplardan FAQPage verisini üret
+  var list = [];
+  items.forEach(function (d) {
+    var q = d.querySelector("summary");
+    var a = d.querySelector(".vq__a");
+    if (!q || !a) { return; }
+    list.push({
+      "@type": "Question",
+      "name": q.textContent.trim(),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": a.textContent.replace(/\s+/g, " ").trim()
+      }
+    });
+  });
+
+  if (list.length) {
+    var s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": list
+    });
+    document.head.appendChild(s);
+  }
+})();
