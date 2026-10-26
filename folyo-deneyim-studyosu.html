@@ -12,13 +12,13 @@
 
 :root {
   font-family: "DM Sans", Arial, sans-serif;
-  color: #778098;
+  color: #182039;
   background: radial-gradient(circle at center, #111424 0%, #000000 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   --navy: #10172b;
-  --ink: #778098;
+  --ink: #182039;
   --muted: #778098;
   --cyan: #29d4df;
   --pink: #f054a5;
@@ -170,7 +170,7 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 }
 
 .hero h1 em, .guide-heading h2 em {
-  color: #e74a9b;
+  color: #ea5ca5;
   font-style: normal;
 }
 
@@ -440,21 +440,10 @@ h1, h2, h3, p { overflow-wrap: break-word; }
   background: linear-gradient(100deg, #35d5d3, #63e0cd);
   box-shadow: 0 4px 13px rgba(37, 196, 190, .28);
 }
-
 .view-button:hover:not(.is-active) {
   color: #eaffff;
   background: rgba(41, 212, 223, .12);
 }
-
-@media (max-width: 600px) {
-  .view-button {
-    min-height: 32px;
-    padding-inline: 11px;
-    font-size: 11px;
-  }
-}
-
-.view-button.is-active { color: #27324a; background: #fff; box-shadow: 0 1px 4px rgba(24, 32, 57, .1); }
 .light-control { display: flex; align-items: center; gap: 5px; }
 .light-label { margin-right: 2px; color: #9aa1b0; font-size: 8px; font-weight: 700; letter-spacing: 1px; }
 .light-button { min-height: 30px; padding: 0 8px; border: 1px solid transparent; border-radius: 7px; color: #81899b; background: transparent; font-size: 10px; cursor: pointer; }
@@ -537,6 +526,7 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 .film-layer { position: absolute; z-index: 4; inset: 0; background: transparent; transition: background .3s ease, backdrop-filter .3s ease, opacity .3s ease; }
 .window-stage[data-material=white] .film-layer { background: #f7f8f4; }
 .window-stage[data-material=blockout] .film-layer { background: #737b85; }
+.window-stage[data-material=blockout][data-side=outside] .film-layer { background: #f7f8f4; }
 .window-stage[data-material=oneway] .film-layer { background: rgba(240, 245, 242, .23); }
 .window-stage[data-material=frost] .film-layer { background: rgba(242, 247, 249, .64); backdrop-filter: blur(7px) saturate(.78); }
 .window-stage[data-material=white] .scene-interior,
@@ -545,8 +535,58 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 .window-stage[data-material=blockout] .scene-street { opacity: .025; }
 .window-stage[data-material=oneway][data-side=outside][data-light=day] .scene-interior { opacity: .36; }
 .window-stage[data-material=oneway][data-side=outside][data-light=night] .scene-interior { opacity: .95; filter: brightness(1.13); }
-.window-stage[data-material=oneway][data-side=inside][data-light=night] .scene-street { opacity: .75; filter: brightness(.78); }
+.window-stage[data-material=oneway][data-side=inside][data-light=night] .scene-street { opacity: 1; filter: brightness(.68) saturate(.8); }
 .window-stage[data-material=oneway][data-side=inside][data-light=day] .scene-street { opacity: .98; filter: brightness(1); }
+.window-stage[data-material=oneway][data-side=inside][data-light=night] .street-sky {
+  background: linear-gradient(#111b35, #343246);
+}
+.window-stage[data-material=oneway][data-side=inside][data-light=night] .street-sun {
+  display: none;
+}
+.window-stage[data-material=oneway][data-side=inside][data-light=night] .street-sky::after {
+  position: absolute;
+  top: 12%;
+  right: 17%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff0c6;
+  box-shadow: 0 0 24px rgba(255, 231, 171, .65);
+  content: "";
+}
+.window-stage[data-material=oneway][data-side=inside][data-light=night] .building i {
+  background: #ffdf91;
+  box-shadow: 0 0 7px rgba(255, 216, 133, .6);
+}
+.window-stage[data-material=frost][data-side=inside][data-light=night] .scene-street {
+  opacity: 1;
+  filter: brightness(.42) saturate(.55);
+}
+.window-stage[data-material=frost][data-side=inside][data-light=night] .street-sky {
+  background: linear-gradient(#111b35, #343246);
+}
+.window-stage[data-material=frost][data-side=inside][data-light=night] .street-sun {
+  display: none;
+}
+.window-stage[data-material=frost][data-side=inside][data-light=night] .street-sky::after {
+  position: absolute;
+  top: 12%;
+  right: 17%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff0c6;
+  box-shadow: 0 0 24px rgba(255, 231, 171, .65);
+  content: "";
+}
+.window-stage[data-material=frost][data-side=inside][data-light=night] .building i {
+  background: #ffdf91;
+  box-shadow: 0 0 7px rgba(255, 216, 133, .6);
+}
+.window-stage[data-material=frost][data-side=inside][data-light=night] .film-layer {
+  background: rgba(110, 116, 122, .68);
+  backdrop-filter: blur(10px) saturate(.55);
+}
 
 .printed-art {
   position: absolute;
@@ -584,6 +624,11 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 .window-stage[data-material=white] .printed-art { border-color: #fff; }
 .window-stage[data-material=blockout] .printed-art { background: linear-gradient(145deg, #364152, #151e30); }
 .window-stage[data-material=blockout] .printed-art strong em { color: #64e2d3; }
+.window-stage[data-material=blockout][data-side=outside] .printed-art {
+  border-color: #fff;
+  background: linear-gradient(145deg, #e54b8f 0%, #d74083 53%, #562b67 100%);
+}
+.window-stage[data-material=blockout][data-side=outside] .printed-art strong em { color: #ffd777; }
 .window-stage[data-material=oneway] .printed-art { inset: 8% 10%; }
 .window-stage[data-material=frost] .printed-art { opacity: 0; transform: scale(.96); }
 .window-stage[data-side=inside][data-material=white] .printed-art,
@@ -666,6 +711,8 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 }
 
 .guide-heading h2 { margin: 12px 0 0; font: 800 clamp(21px, 2.5vw, 29px)/1.2 "Manrope", sans-serif; letter-spacing: -1px; }
+.guide-heading h2 > span { color: #ea5ca5; }
+.guide-heading h2 em { color: #fff; }
 .guide-copy { color: #68728a; font-size: 12px; line-height: 1.8; }
 .guide-copy p { margin: 0 0 9px; }
 .guide-copy p:last-child { margin-bottom: 0; }
@@ -715,7 +762,7 @@ h1, h2, h3, p { overflow-wrap: break-word; }
   .preview-label { padding: 6px; font-size: 7px; }
   .preview-title h2 { font-size: 14px; }
   .view-controls { margin-top: 12px; gap: 6px; }
-  .view-button { min-height: 30px; padding-inline: 9px; font-size: 9px; }
+  .view-button { min-height: 32px; padding-inline: 11px; font-size: 11px; }
   .light-control { gap: 2px; }
   .light-label { display: none; }
   .light-button { padding-inline: 6px; font-size: 9px; }
@@ -803,7 +850,7 @@ body {
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span> CAM ÜZERİNDE CANLI ÖNİZLEME</p>
         <h1 id="page-title">Vitrininizde hangi folyo <em>iyi görünür?</em></h1>
-        <p class="hero-lead">Arkası gri folyo, yüksek örtücülüğü sayesinde alttaki yüzeyi tamamen kapatır ve %100 ışık geçirmezlik sağlar; beyaz folyoda ise bu özellik yoktur.</p>
+        <p class="hero-lead">Malzemeyi seçin, camın nasıl görüneceğini farklı açılardan deneyimleyin. Karar vermek artık daha kolay.</p>
       </div>
       <div class="hero-stamp" aria-label="Dört farklı folyo seçeneği">
         <span class="stamp-number">04</span>
@@ -963,7 +1010,7 @@ body {
     <section class="guide page-wrap" id="guide">
       <div class="guide-heading">
         <p class="eyebrow">KÜÇÜK BİR NOT</p>
-        <h2>Simülasyon yol gösterir.<br><em>Numune son sözü söyler.</em></h2>
+        <h2><span>Simülasyon yol gösterir.</span><br><em>Numune son sözü söyler.</em></h2>
       </div>
       <div class="guide-copy">
         <p>Bu stüdyo, folyo türlerinin camdaki genel etkisini karşılaştırmak için hazırlanmış temsili bir önizlemedir. Gerçek görünüm; folyo markasına, baskıya, camın rengine ve ortam ışığına göre değişebilir.</p>
