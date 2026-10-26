@@ -373,11 +373,20 @@
 /* GENEL AYARLAR */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
-    background: radial-gradient(circle at center, #080c11 0%, #000000 100%);
+    background-color: #05060a;
+    color: #ffffff;
     font-family: 'Inter', sans-serif;
-    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background: radial-gradient(ellipse at 50% 0%, #0a0d16 0%, #05060a 55%, #000000 100%);
+    background-attachment: fixed;
 }
 
 .v-wrapper {
@@ -1050,16 +1059,6 @@ body {
 *, *::before, *::after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-}
-
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #19011d;
-    color: #ffffff;
-    -webkit-font-smoothing: antialiased;
 }
 
 /* === UZAY YILDIZ CANVAS (tamamen şeffaf, sadece yıldızlar çizer) === */
