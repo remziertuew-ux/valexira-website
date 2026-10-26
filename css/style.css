@@ -375,7 +375,7 @@
 
 body {
     overflow-x: hidden;
-    background: linear-gradient(to left, #000000 0%, #060507 100%);
+    background: radial-gradient(circle at center, #080c11 0%, #000000 100%);
     font-family: 'Inter', sans-serif;
     color: #fff;
 }
