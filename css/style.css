@@ -3346,3 +3346,194 @@ html, body {
   .vp__card { transition: none; }
   .vp__card:hover { transform: none; }
 }
+
+/* Valexira - Sıkça sorulan sorular */
+.vq {
+  --vq-cyan: 0, 229, 255;
+  --vq-pink: 255, 46, 147;
+  --vq-card: #0a1020;
+  --vq-border: #16305a;
+  --vq-text: #c9d4e8;
+
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 80px) clamp(15px, 4vw, 30px);
+  color: #fff;
+  font-family: inherit;
+}
+
+.vq *,
+.vq *::before,
+.vq *::after { box-sizing: border-box; }
+
+/* ---------- Başlık ---------- */
+.vq__head {
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+.vq__kicker {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgb(var(--vq-cyan));
+}
+
+.vq__title {
+  position: relative;
+  margin: 0;
+  padding-bottom: 18px;
+  font-size: clamp(24px, 4.4vw, 36px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.vq__title span { color: rgb(var(--vq-pink)); }
+
+.vq__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 72px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgb(var(--vq-cyan)), rgb(var(--vq-pink)));
+  transform: translateX(-50%);
+}
+
+.vq__lead {
+  max-width: 720px;
+  margin: 18px auto 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--vq-text);
+}
+
+/* ---------- Soru kartı ---------- */
+.vq__item {
+  --accent: var(--vq-cyan);
+
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 1.5px solid var(--vq-border);
+  border-left: 5px solid rgb(var(--accent));
+  border-radius: 16px;
+  background: var(--vq-card);
+}
+
+.vq__item:nth-child(even) { --accent: var(--vq-pink); }
+
+.vq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  list-style: none;
+  cursor: pointer;
+  font-size: clamp(15px, 2.4vw, 17px);
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.vq__item summary::-webkit-details-marker { display: none; }
+
+.vq__item summary::after {
+  content: "+";
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgb(var(--accent));
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  color: rgb(var(--accent));
+}
+
+.vq__item[open] summary { border-bottom: 1px solid var(--vq-border); }
+.vq__item[open] summary::after { content: "\2212"; }
+
+.vq__item summary:focus-visible {
+  outline: 3px solid rgb(var(--accent));
+  outline-offset: -3px;
+}
+
+/* ---------- Cevap ---------- */
+.vq__a {
+  padding: 18px 20px 20px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--vq-text);
+  overflow-wrap: anywhere;
+}
+
+.vq__a p { margin: 0 0 12px; }
+.vq__a p:last-child { margin-bottom: 0; }
+.vq__a strong { color: #fff; }
+
+.vq__a a {
+  color: rgb(var(--accent));
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Alt çağrı ---------- */
+.vq__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 24px;
+  border: 1.5px solid var(--vq-border);
+  border-top: 5px solid rgb(var(--vq-pink));
+  border-radius: 22px;
+  background: var(--vq-card);
+}
+
+.vq__cta p {
+  flex: 1 1 260px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--vq-text);
+}
+
+.vq__btn {
+  display: inline-block;
+  padding: 13px 26px;
+  border: 2px solid rgb(var(--vq-pink));
+  border-radius: 50px;
+  background: rgb(var(--vq-pink));
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.vq__btn--line {
+  background: transparent;
+  border-color: rgb(var(--vq-cyan));
+  color: rgb(var(--vq-cyan));
+}
+
+.vq__btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width: 560px) {
+  .vq__item summary { padding: 15px 14px; }
+  .vq__a { padding: 14px 14px 16px; }
+  .vq__cta { padding: 20px 16px; }
+  .vq__btn { flex: 1 1 100%; }
+}
