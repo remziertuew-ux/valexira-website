@@ -120,54 +120,106 @@
             </section>
 
             <!-- TASARIM HİZMETLERİ KARTLARI -->
-            <section aria-labelledby="tasarim-kartlar-heading" style="width:100%; overflow-x:hidden; padding:clamp(40px,8vw,100px) 0; background:transparent;">
+<style>
+  .vx-img-wrap { position:relative; overflow:hidden; border-radius:25px; background:#0d0d14; aspect-ratio:16/9; cursor:zoom-in; margin:12px; }
+  .vx-img-wrap img { width:100%; height:100%; object-fit:contain; display:block; transition:transform .4s ease; }
+  .vx-img-wrap:hover img { transform:scale(1.05); }
 
-                <div style="width:100%; max-width:1200px; margin:0 auto; padding:0 clamp(15px,4vw,30px); text-align:center; margin-bottom:clamp(40px,6vh,60px);">
-                    <h2 id="tasarim-kartlar-heading" style="font-family:'Poppins',sans-serif; font-size:clamp(28px,7vw,56px); font-weight:900; color:#ffffff; margin:0 0 20px; line-height:1.1; word-wrap:break-word;">
-                        Geleceği <span style="color:#00f2ff;">Valexira</span> ile Tasarlayın
-                    </h2>
-                    <p style="font-family:'Poppins',sans-serif; font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7); max-width:800px; margin:0 auto;">
-                        Fikirlerinizi dijital birer sanat eserine dönüştürüyoruz.
-                    </p>
-                </div>
+  #vxLb { position:fixed; inset:0; z-index:99999; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.92); overflow:auto; }
+  #vxLb.open { display:flex; }
+  #vxLbImg { max-width:92vw; max-height:90vh; border-radius:12px; cursor:zoom-in; transition:transform .25s ease; }
+  #vxLbImg.zoomed { cursor:zoom-out; transform:scale(2); }
+  #vxLbClose { position:fixed; top:18px; right:22px; width:44px; height:44px; border:0; border-radius:50%; background:#ff007f; color:#fff; font-size:26px; line-height:1; cursor:pointer; z-index:100000; }
+</style>
 
-                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:30px; width:100%; max-width:1300px; margin:0 auto; padding:0 clamp(15px,4vw,30px);">
+<section aria-labelledby="tasarim-kartlar-heading" style="width:100%; overflow-x:hidden; padding:clamp(40px,8vw,100px) 0; background:transparent;">
 
-                    <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div onclick="openLightbox('images/tasa-3.jpeg')" style="cursor:zoom-in; padding:12px;">
-                            <img src="images/tasa-3.jpeg" alt="Valexira Profesyonel Grafik Tasarım Hizmetleri" style="width:100%; height:clamp(200px,25vh,260px); object-fit:cover; border-radius:25px; display:block;" loading="lazy">
-                        </div>
-                        <div style="padding:25px 30px 35px; flex-grow:1;">
-                            <span style="background:#ff007f; color:#fff; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">KREATİF</span>
-                            <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Grafik Tasarım</h3>
-                            <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Afiş, broşür ve katalog tasarımları ile markanızın mesajını en etkili şekilde iletiyoruz.</p>
-                        </div>
-                    </article>
+    <div style="width:100%; max-width:1200px; margin:0 auto; padding:0 clamp(15px,4vw,30px); text-align:center; margin-bottom:clamp(40px,6vh,60px);">
+        <h2 id="tasarim-kartlar-heading" style="font-family:'Poppins',sans-serif; font-size:clamp(28px,7vw,56px); font-weight:900; color:#ffffff; margin:0 0 20px; line-height:1.1; word-wrap:break-word;">
+            Geleceği <span style="color:#00f2ff;">Valexira</span> ile Tasarlayın
+        </h2>
+        <p style="font-family:'Poppins',sans-serif; font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7); max-width:800px; margin:0 auto;">
+            Fikirlerinizi dijital birer sanat eserine dönüştürüyoruz.
+        </p>
+    </div>
 
-                    <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div onclick="openLightbox('images/tass.jpg')" style="cursor:zoom-in; padding:12px;">
-                            <img src="images/tass.jpg" alt="Valexira Kurumsal Kimlik ve Logo Tasarımı" style="width:100%; height:clamp(200px,25vh,260px); object-fit:cover; border-radius:25px; display:block;" loading="lazy">
-                        </div>
-                        <div style="padding:25px 30px 35px; flex-grow:1;">
-                            <span style="background:#00f2ff; color:#000; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">BRANDING</span>
-                            <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Kurumsal Kimlik</h3>
-                            <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Logo tasarımı ve profesyonel marka imajı çalışmaları ile kalıcı bir kimlik oluşturuyoruz.</p>
-                        </div>
-                    </article>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:30px; width:100%; max-width:1300px; margin:0 auto; padding:0 clamp(15px,4vw,30px);">
 
-                    <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div onclick="openLightbox('images/tasa-1.jpeg')" style="cursor:zoom-in; padding:12px;">
-                            <img src="images/tasa-1.jpeg" alt="Valexira Dijital Tasarım ve Sosyal Medya Görselleri" style="width:100%; height:clamp(200px,25vh,260px); object-fit:cover; border-radius:25px; display:block;" loading="lazy">
-                        </div>
-                        <div style="padding:25px 30px 35px; flex-grow:1;">
-                            <span style="background:#7000ff; color:#fff; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">DİJİTAL</span>
-                            <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Dijital Tasarım</h3>
-                            <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Sosyal medya görselleri ve dijital reklam tasarımları ile fark yaratmanızı sağlıyoruz.</p>
-                        </div>
-                    </article>
+        <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
+            <div class="vx-img-wrap" onclick="vxOpenLb('images/tasa-3.jpeg')">
+                <img src="images/tasa-3.jpeg" alt="Valexira Profesyonel Grafik Tasarım Hizmetleri" loading="lazy">
+            </div>
+            <div style="padding:25px 30px 35px; flex-grow:1;">
+                <span style="background:#ff007f; color:#fff; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">KREATİF</span>
+                <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Grafik Tasarım</h3>
+                <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Afiş, broşür ve katalog tasarımları ile markanızın mesajını en etkili şekilde iletiyoruz.</p>
+            </div>
+        </article>
 
-                </div>
-            </section>
+        <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
+            <div class="vx-img-wrap" onclick="vxOpenLb('images/tass.jpg')">
+                <img src="images/tass.jpg" alt="Valexira Kurumsal Kimlik ve Logo Tasarımı" loading="lazy">
+            </div>
+            <div style="padding:25px 30px 35px; flex-grow:1;">
+                <span style="background:#00f2ff; color:#000; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">BRANDING</span>
+                <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Kurumsal Kimlik</h3>
+                <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Logo tasarımı ve profesyonel marka imajı çalışmaları ile kalıcı bir kimlik oluşturuyoruz.</p>
+            </div>
+        </article>
+
+        <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
+            <div class="vx-img-wrap" onclick="vxOpenLb('images/tasa-1.jpeg')">
+                <img src="images/tasa-1.jpeg" alt="Valexira Dijital Tasarım ve Sosyal Medya Görselleri" loading="lazy">
+            </div>
+            <div style="padding:25px 30px 35px; flex-grow:1;">
+                <span style="background:#7000ff; color:#fff; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">DİJİTAL</span>
+                <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Dijital Tasarım</h3>
+                <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Sosyal medya görselleri ve dijital reklam tasarımları ile fark yaratmanızı sağlıyoruz.</p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div id="vxLb" role="dialog" aria-modal="true" aria-label="Görsel büyütme">
+    <button id="vxLbClose" aria-label="Kapat">&times;</button>
+    <img id="vxLbImg" src="" alt="">
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('vxLb');
+  var img = document.getElementById('vxLbImg');
+
+  window.vxOpenLb = function (src) {
+    img.src = src;
+    img.classList.remove('zoomed');
+    img.style.transformOrigin = 'center center';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function close() {
+    lb.classList.remove('open');
+    img.classList.remove('zoomed');
+    document.body.style.overflow = '';
+  }
+
+  img.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var r = img.getBoundingClientRect();
+    var x = ((e.clientX - r.left) / r.width) * 100;
+    var y = ((e.clientY - r.top) / r.height) * 100;
+    img.style.transformOrigin = x + '% ' + y + '%';
+    img.classList.toggle('zoomed');
+  });
+
+  lb.addEventListener('click', close);
+  document.getElementById('vxLbClose').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
 
             <!-- WEB TASARIM -->
              <section aria-labelledby="web-heading" style="width:100%; overflow-x:hidden; padding:clamp(40px,8vw,100px) 0; font-family:'Poppins',sans-serif; color:#fff; background:transparent;">
