@@ -2818,3 +2818,281 @@ body {
   .vq__cta { padding: 20px 16px; }
   .vq__btn { flex: 1 1 100%; }
 }
+/* ==========================================================
+   Valexira - 3D Küp Görsel (vc-cube.css)
+   Kare 3D küp: kendiliğinden döner, havada süzülür, sürükleyerek
+   çevrilir, üzerine gelince eğilir ve ışık yansıması geçer.
+   Tüm class'lar "vc-" ile başlar, sitedeki diğer CSS ile çakışmaz.
+   ========================================================== */
+
+.vc-wrap {
+    --vc-size: min(calc(100vw - 56px), 500px);   /* küpün kenar uzunluğu */
+    --vc-cyan: #00f2fe;
+    --vc-pink: #ff2d95;
+
+    width: 100%;
+    margin: 0 auto;
+    padding: clamp(16px, 3vw, 28px) 12px clamp(24px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    box-sizing: border-box;
+}
+
+.vc-wrap *,
+.vc-wrap *::before,
+.vc-wrap *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- Sahne (3D derinlik burada başlar) ---------- */
+.vc-scene {
+    position: relative;
+    width: var(--vc-size);
+    height: var(--vc-size);
+    perspective: 1500px;
+    touch-action: pan-y;              /* dikey sayfa kaydırması serbest, yatay sürükleme bizde */
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    animation: vcFade .9s ease-out both;
+}
+
+.vc-scene.is-drag {
+    cursor: grabbing;
+}
+
+/* Opacity animasyonu sadece sahnede; 3D katmanlarına opacity verilmez (3D'yi bozar) */
+@keyframes vcFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.vc-float,
+.vc-tilt,
+.vc-cube {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+}
+
+/* ---------- Uçarak giriş + süzülme ---------- */
+.vc-float {
+    animation:
+        vcIn 1.1s cubic-bezier(.2, .8, .2, 1) both,
+        vcFloat 6.5s ease-in-out 1.1s infinite;
+}
+
+@keyframes vcIn {
+    from { transform: translateY(70px) rotateY(-70deg) scale(.82); }
+    to   { transform: none; }
+}
+
+@keyframes vcFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    25%      { transform: translate(5px, -8px) rotate(.4deg); }
+    50%      { transform: translate(0, -14px) rotate(.8deg); }
+    75%      { transform: translate(-5px, -6px) rotate(.2deg); }
+}
+
+/* Yer gölgesi: küp yükselince küçülür */
+.vc-scene::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: -34px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(0, 242, 254, .26), rgba(0, 242, 254, 0) 70%);
+    pointer-events: none;
+    animation: vcShadow 6.5s ease-in-out 1.1s infinite;
+}
+
+@keyframes vcShadow {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(.78); }
+}
+
+/* Görünmeden önce bekle (JS ekrana girince "is-in" ekler) */
+.vc-wrap.vc-ready:not(.is-in) .vc-scene {
+    opacity: 0;
+    animation: none;
+}
+
+.vc-wrap.vc-ready:not(.is-in) .vc-float,
+.vc-wrap.vc-ready:not(.is-in) .vc-scene::after {
+    animation: none;
+}
+
+/* Ekran dışında / sekme arkadayken dur */
+.vc-wrap.is-off .vc-float,
+.vc-wrap.is-off .vc-scene::after,
+.vc-wrap.is-hidden .vc-float,
+.vc-wrap.is-hidden .vc-scene::after {
+    animation-play-state: paused;
+}
+
+/* ---------- Eğilme (fare) ---------- */
+.vc-tilt {
+    transform: rotateX(var(--vc-rx, 0deg)) rotateY(var(--vc-ry, 0deg)) scale(var(--vc-s, 1));
+    transition: transform .3s ease-out;
+}
+
+/* ---------- Küp ---------- */
+.vc-cube {
+    transform: translateZ(calc(var(--vc-size) / -2)) rotateY(var(--vc-ang, 0deg));
+    transition: transform 1.1s cubic-bezier(.77, 0, .18, 1);
+}
+
+.vc-scene.is-drag .vc-cube {
+    transition: none;                 /* sürüklerken parmağı/fareyi birebir takip etsin */
+}
+
+/* ---------- Yüzler ---------- */
+.vc-face {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    overflow: hidden;
+    background: #0c051c;
+    border: 1px solid rgba(255, 255, 255, .16);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.vc-face:nth-child(1) { transform: rotateY(0deg)   translateZ(calc(var(--vc-size) / 2)); }
+.vc-face:nth-child(2) { transform: rotateY(90deg)  translateZ(calc(var(--vc-size) / 2)); }
+.vc-face:nth-child(3) { transform: rotateY(180deg) translateZ(calc(var(--vc-size) / 2)); }
+.vc-face:nth-child(4) { transform: rotateY(270deg) translateZ(calc(var(--vc-size) / 2)); }
+
+.vc-face img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;             /* tarayıcının görsel sürükleme davranışını engeller */
+    -webkit-user-drag: none;
+}
+
+/* Işık yansıması (imleci takip eder) */
+.vc-face::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--vc-mx, 50%) var(--vc-my, 50%), rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 55%);
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+/* Görsel yüklenemezse tam yolu ekranda göster */
+.vc-face.is-broken::before {
+    content: "Görsel bulunamadı: " attr(data-path);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+    word-break: break-all;
+    color: var(--vc-cyan);
+    font: 13px/1.5 "Segoe UI", sans-serif;
+    background: #0c051c;
+}
+
+/* ---------- Alt kontrol: ok + noktalar ---------- */
+.vc-nav {
+    margin-top: clamp(40px, 5vw, 52px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.vc-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .22);
+    transition: background .3s, border-color .3s;
+}
+
+.vc-btn:hover {
+    background: rgba(255, 45, 149, .3);
+    border-color: var(--vc-pink);
+}
+
+.vc-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vc-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, .35);
+    transition: width .35s cubic-bezier(.2, .8, .2, 1), background .3s;
+}
+
+.vc-dot.is-active {
+    width: 28px;
+    background: linear-gradient(90deg, var(--vc-cyan), var(--vc-pink));
+}
+
+.vc-btn:focus-visible,
+.vc-dot:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+/* ---------- Üzerine gelince (sadece fare olan cihazlarda) ---------- */
+@media (hover: hover) and (pointer: fine) {
+    .vc-scene:hover .vc-float,
+    .vc-scene:hover::after {
+        animation-play-state: paused;
+    }
+
+    .vc-scene:hover .vc-tilt {
+        --vc-s: 1.03;
+    }
+
+    .vc-scene:hover .vc-face::after {
+        opacity: 1;
+    }
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width: 600px) {
+    .vc-scene::after { bottom: -28px; }
+    .vc-btn { width: 36px; height: 36px; border-radius: 10px; }
+}
+
+/* ---------- Hareketi azaltmak isteyenler ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .vc-scene,
+    .vc-float,
+    .vc-scene::after {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    .vc-tilt,
+    .vc-cube {
+        transition: none;
+    }
+}
