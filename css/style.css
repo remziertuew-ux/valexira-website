@@ -2825,6 +2825,13 @@ body {
    Tüm class'lar "vc-" ile başlar, sitedeki diğer CSS ile çakışmaz.
    ========================================================== */
 
+/* ==========================================================
+   Valexira - 3D Küp Görsel (vc-cube.css)
+   Kare 3D küp: kendiliğinden döner, havada süzülür, sürükleyerek
+   çevrilir, üzerine gelince eğilir ve ışık yansıması geçer.
+   Tüm class'lar "vc-" ile başlar, sitedeki diğer CSS ile çakışmaz.
+   ========================================================== */
+
 .vc-wrap {
     --vc-size: min(calc(100vw - 56px), 500px);   /* küpün kenar uzunluğu */
     --vc-cyan: #00f2fe;
@@ -2897,41 +2904,19 @@ body {
     75%      { transform: translate(-5px, -6px) rotate(.2deg); }
 }
 
-/* Yer gölgesi: küp yükselince küçülür */
-.vc-scene::after {
-    content: "";
-    position: absolute;
-    left: 12%;
-    right: 12%;
-    bottom: -34px;
-    height: 18px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(0, 242, 254, .26), rgba(0, 242, 254, 0) 70%);
-    pointer-events: none;
-    animation: vcShadow 6.5s ease-in-out 1.1s infinite;
-}
-
-@keyframes vcShadow {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(.78); }
-}
-
 /* Görünmeden önce bekle (JS ekrana girince "is-in" ekler) */
 .vc-wrap.vc-ready:not(.is-in) .vc-scene {
     opacity: 0;
     animation: none;
 }
 
-.vc-wrap.vc-ready:not(.is-in) .vc-float,
-.vc-wrap.vc-ready:not(.is-in) .vc-scene::after {
+.vc-wrap.vc-ready:not(.is-in) .vc-float {
     animation: none;
 }
 
 /* Ekran dışında / sekme arkadayken dur */
 .vc-wrap.is-off .vc-float,
-.vc-wrap.is-off .vc-scene::after,
-.vc-wrap.is-hidden .vc-float,
-.vc-wrap.is-hidden .vc-scene::after {
+.vc-wrap.is-hidden .vc-float {
     animation-play-state: paused;
 }
 
@@ -3007,7 +2992,7 @@ body {
 
 /* ---------- Alt kontrol: ok + noktalar ---------- */
 .vc-nav {
-    margin-top: clamp(40px, 5vw, 52px);
+    margin-top: clamp(24px, 3.5vw, 32px);
     display: flex;
     align-items: center;
     gap: 16px;
@@ -3062,8 +3047,7 @@ body {
 
 /* ---------- Üzerine gelince (sadece fare olan cihazlarda) ---------- */
 @media (hover: hover) and (pointer: fine) {
-    .vc-scene:hover .vc-float,
-    .vc-scene:hover::after {
+    .vc-scene:hover .vc-float {
         animation-play-state: paused;
     }
 
@@ -3078,15 +3062,13 @@ body {
 
 /* ---------- Mobil ---------- */
 @media (max-width: 600px) {
-    .vc-scene::after { bottom: -28px; }
     .vc-btn { width: 36px; height: 36px; border-radius: 10px; }
 }
 
 /* ---------- Hareketi azaltmak isteyenler ---------- */
 @media (prefers-reduced-motion: reduce) {
     .vc-scene,
-    .vc-float,
-    .vc-scene::after {
+    .vc-float {
         animation: none !important;
         opacity: 1 !important;
     }
