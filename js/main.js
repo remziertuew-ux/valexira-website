@@ -480,3 +480,250 @@ animate();
     document.head.appendChild(s);
   }
 })();
+
+/* ==========================================================
+   Valexira - 3D Küp Görsel (vc-cube.js)
+   - Global değişken oluşturmaz (IIFE), diğer scriptlerle çakışmaz.
+   - [data-vc] olan her blok ayrı çalışır.
+   - Otomatik döner; sürükleme, ok, nokta, klavye ve tıklama ile de çevrilir.
+   - Üzerine gelince, ekran dışında, sekme arkadayken veya sürüklerken durur.
+   - Görsel yolu hatalıysa yüzün üzerinde tam yolu yazar.
+   ========================================================== */
+(function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia
+        ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        : false;
+
+    /* ---------- Hatalı görsel yolunu yakala ---------- */
+    function watchImage(face, img) {
+        function markBroken() {
+            face.classList.add('is-broken');
+            face.setAttribute('data-path', img.getAttribute('src') || '');
+        }
+        function check() {
+            if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) { markBroken(); }
+        }
+        img.addEventListener('error', markBroken);
+        check();                                   /* hata olayı script'ten önce olmuş olabilir */
+        window.addEventListener('load', check);
+    }
+
+    function setup(root) {
+        var scene = root.querySelector('.vc-scene');
+        var tilt  = root.querySelector('.vc-tilt');
+        var cube  = root.querySelector('.vc-cube');
+        var faces = Array.prototype.slice.call(root.querySelectorAll('.vc-face'));
+        var dots  = Array.prototype.slice.call(root.querySelectorAll('.vc-dot'));
+        var prevBtn = root.querySelector('.vc-prev');
+        var nextBtn = root.querySelector('.vc-next');
+
+        if (!scene || !tilt || !cube || faces.length < 4) { return; }
+
+        var n        = dots.length || 2;               /* benzersiz görsel sayısı (2 veya 4) */
+        var interval = parseInt(root.getAttribute('data-interval'), 10) || 4500;
+        var step     = 0;                              /* toplam çeyrek dönüş sayısı */
+        var timer    = 0;
+        var reasons  = { hover: false, drag: false, focus: false, offscreen: false, hidden: false };
+
+        /* ---------- Görseller ---------- */
+        faces.forEach(function (face) {
+            var img = face.querySelector('img');
+            if (!img) { return; }
+            img.draggable = false;
+            watchImage(face, img);
+        });
+
+        /* ---------- Otomatik dönme ---------- */
+        function isPaused() {
+            return reasons.hover || reasons.drag || reasons.focus || reasons.offscreen || reasons.hidden;
+        }
+
+        function schedule() {
+            clearTimeout(timer);
+            if (reduceMotion || isPaused()) { return; }
+            timer = setTimeout(function () { go(step + 1); }, interval);
+        }
+
+        function setPause(reason, value) {
+            reasons[reason] = value;
+            schedule();
+        }
+
+        /* ---------- Döndürme ---------- */
+        function render() {
+            var active = ((step % n) + n) % n;
+            dots.forEach(function (dot, i) {
+                dot.classList.toggle('is-active', i === active);
+                if (i === active) { dot.setAttribute('aria-current', 'true'); }
+                else { dot.removeAttribute('aria-current'); }
+            });
+        }
+
+        function go(newStep) {
+            step = newStep;
+            cube.style.setProperty('--vc-ang', (-step * 90) + 'deg');
+            render();
+            schedule();
+        }
+
+        if (prevBtn) { prevBtn.addEventListener('click', function () { go(step - 1); }); }
+        if (nextBtn) { nextBtn.addEventListener('click', function () { go(step + 1); }); }
+
+        dots.forEach(function (dot, k) {
+            dot.addEventListener('click', function () {
+                var current = ((step % n) + n) % n;
+                var delta = ((k - current) % n + n) % n;
+                if (delta > n / 2) { delta -= n; }
+                if (delta !== 0) { go(step + delta); }
+            });
+        });
+
+        root.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft')  { go(step - 1); }
+            if (e.key === 'ArrowRight') { go(step + 1); }
+        });
+
+        /* Klavye ile odaklanınca dur (fare tıklaması süresiz durdurmasın diye :focus-visible) */
+        root.addEventListener('focusin', function (e) {
+            var keyboardFocus = false;
+            try { keyboardFocus = e.target.matches(':focus-visible'); } catch (err) { /* eski tarayıcı */ }
+            if (keyboardFocus) { setPause('focus', true); }
+        });
+        root.addEventListener('focusout', function () { setPause('focus', false); });
+
+        /* ---------- Sürükleyerek çevirme + fareyle eğilme ---------- */
+        var drag = null, dragged = false;
+        var rect = null, rafId = 0, px = 0.5, py = 0.5;
+
+        function applyTilt() {
+            rafId = 0;
+            tilt.style.setProperty('--vc-ry', ((px - 0.5) * 14).toFixed(2) + 'deg');
+            tilt.style.setProperty('--vc-rx', (-(py - 0.5) * 14).toFixed(2) + 'deg');
+            tilt.style.setProperty('--vc-mx', (px * 100).toFixed(1) + '%');
+            tilt.style.setProperty('--vc-my', (py * 100).toFixed(1) + '%');
+        }
+
+        function resetTilt() {
+            if (rafId) { cancelAnimationFrame(rafId); rafId = 0; }
+            px = py = 0.5;
+            tilt.style.setProperty('--vc-ry', '0deg');
+            tilt.style.setProperty('--vc-rx', '0deg');
+        }
+
+        scene.addEventListener('pointerenter', function (e) {
+            if (e.pointerType !== 'mouse') { return; }
+            rect = scene.getBoundingClientRect();
+            setPause('hover', true);
+        });
+
+        scene.addEventListener('pointerleave', function (e) {
+            if (e.pointerType !== 'mouse') { return; }
+            rect = null;
+            resetTilt();
+            setPause('hover', false);
+        });
+
+        scene.addEventListener('pointerdown', function (e) {
+            if (e.button !== undefined && e.button !== 0) { return; }
+            dragged = false;
+            drag = { id: e.pointerId, x: e.clientX, y: e.clientY, active: false, dx: 0 };
+        });
+
+        scene.addEventListener('pointermove', function (e) {
+            if (drag && e.pointerId === drag.id) {
+                var dx = e.clientX - drag.x;
+                var dy = e.clientY - drag.y;
+
+                if (!drag.active && Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) {
+                    drag.active = true;
+                    try { scene.setPointerCapture(e.pointerId); } catch (err) { /* sorun değil */ }
+                    scene.classList.add('is-drag');
+                    resetTilt();
+                    setPause('drag', true);
+                }
+
+                if (drag.active) {
+                    drag.dx = dx;
+                    var size  = scene.getBoundingClientRect().width || 1;
+                    var extra = Math.max(-90, Math.min(90, dx / size * 90));
+                    cube.style.setProperty('--vc-ang', (-step * 90 + extra) + 'deg');
+                    return;
+                }
+            }
+
+            /* Fareyle eğilme */
+            if (e.pointerType === 'mouse' && rect) {
+                px = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+                py = Math.min(1, Math.max(0, (e.clientY - rect.top) / rect.height));
+                if (!rafId) { rafId = requestAnimationFrame(applyTilt); }
+            }
+        });
+
+        function endDrag(e, cancelled) {
+            if (!drag || e.pointerId !== drag.id) { return; }
+            var d = drag;
+            drag = null;
+            if (!d.active) { return; }
+
+            dragged = true;
+            scene.classList.remove('is-drag');
+            void scene.offsetWidth;                      /* geçiş animasyonu geri gelsin diye */
+
+            var size = scene.getBoundingClientRect().width || 1;
+            var target = step;
+            if (!cancelled && Math.abs(d.dx) > size * 0.18) { target = step + (d.dx < 0 ? 1 : -1); }
+
+            reasons.drag = false;
+            go(target);
+        }
+
+        scene.addEventListener('pointerup',     function (e) { endDrag(e, false); });
+        scene.addEventListener('pointercancel', function (e) { endDrag(e, true); });
+
+        /* Kısa dokunma / tıklama: sıradaki yüz (sürükleme sonrası tıklama sayılmaz) */
+        scene.addEventListener('click', function () {
+            if (dragged) { dragged = false; return; }
+            go(step + 1);
+        });
+
+        /* ---------- Ekrana girince uçarak gelsin, ekran dışında dursun ---------- */
+        if ('IntersectionObserver' in window && !reduceMotion) {
+            var entered = false;
+            root.classList.add('vc-ready');
+            new IntersectionObserver(function (entries) {
+                var visible = entries[0].isIntersecting;
+                if (visible && !entered) {
+                    entered = true;
+                    root.classList.add('is-in');
+                }
+                root.classList.toggle('is-off', !visible);
+                setPause('offscreen', !visible);
+            }, { threshold: 0.2 }).observe(root);
+        }
+
+        document.addEventListener('visibilitychange', function () {
+            root.classList.toggle('is-hidden', document.hidden);
+            setPause('hidden', document.hidden);
+        });
+
+        go(0);
+    }
+
+    function init() {
+        var blocks = document.querySelectorAll('[data-vc]');
+        for (var i = 0; i < blocks.length; i++) {
+            if (!blocks[i].__vcReady) {                /* iki kez başlatılmasın */
+                blocks[i].__vcReady = true;
+                setup(blocks[i]);
+            }
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
