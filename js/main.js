@@ -3,16 +3,24 @@
     var canvas = document.getElementById('space-canvas');
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
     var NUM  = 200;
     var W, H, cx, cy;
     var stars = [];
     var warp  = 0;
     var lastY = window.scrollY || 0;
+    var frameId = 0;
+    var motionQuery = window.matchMedia
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : null;
+    var reducedMotion = motionQuery && motionQuery.matches;
 
     function resize() {
-        W = canvas.width  = window.innerWidth;
-        H = canvas.height = window.innerHeight;
+        W = window.innerWidth;
+        H = window.innerHeight;
+        if (canvas.width !== W) canvas.width = W;
+        if (canvas.height !== H) canvas.height = H;
         cx = W / 2; cy = H / 2;
     }
 
@@ -103,11 +111,14 @@
 
         warp *= 0.88;
         if (Math.abs(warp) < 0.05) warp = 0;
-        requestAnimationFrame(draw);
+        if (!document.hidden && !reducedMotion) {
+            frameId = requestAnimationFrame(draw);
+        }
     }
 
     var tick = false;
     window.addEventListener('scroll', function () {
+        if (reducedMotion || document.hidden) return;
         if (!tick) {
             requestAnimationFrame(function () {
                 var y = window.scrollY || document.documentElement.scrollTop || 0;
@@ -122,7 +133,37 @@
         }
     }, {passive:true});
 
-    window.addEventListener('resize', function () { resize(); init(); });
+    window.addEventListener('resize', function () {
+        resize();
+        init();
+        if (!document.hidden) {
+            if (frameId) cancelAnimationFrame(frameId);
+            draw();
+        }
+    }, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            if (frameId) cancelAnimationFrame(frameId);
+            frameId = 0;
+        } else {
+            draw();
+        }
+    });
+    if (motionQuery) {
+        var onMotionChange = function (event) {
+            reducedMotion = event.matches;
+            if (reducedMotion && frameId) {
+                cancelAnimationFrame(frameId);
+                frameId = 0;
+            }
+            if (!document.hidden) draw();
+        };
+        if (motionQuery.addEventListener) {
+            motionQuery.addEventListener('change', onMotionChange);
+        } else if (motionQuery.addListener) {
+            motionQuery.addListener(onMotionChange);
+        }
+    }
     resize(); init(); draw();
 })();
 
@@ -276,117 +317,120 @@ function closeLightbox() {
     }
 }
 
-const canvas = document.getElementById('cursor-canvas');
-const ctx = canvas.getContext('2d');
+(function () {
+    var canvas = document.getElementById('cursor-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-// Ekran boyutlandırma fonksiyonu
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+    var particles = [];
+    var maxParticles = 180;
+    var frameId = 0;
+    var reducedMotionQuery = window.matchMedia
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : null;
+    var colors = [
+        'rgba(255, 0, 128, ',
+        'rgba(0, 229, 255, ',
+        'rgba(157, 0, 255, ',
+        'rgba(255, 255, 255, '
+    ];
 
-const particles = [];
-
-/* Sitenin kozmik ve siber renk paleti:
-  Neon Macenta, Camgöbeği, Kozmik Mor ve Parlak Yıldız Beyazı
-*/
-const colors = [
-    'rgba(255, 0, 128, ',   
-    'rgba(0, 229, 255, ',   
-    'rgba(157, 0, 255, ',   
-    'rgba(255, 255, 255, '  
-];
-
-// Fare konum takibi için obje
-const mouse = {
-    x: undefined,
-    y: undefined
-};
-
-// Fare hareket ettikçe parçacık tetikleyici
-window.addEventListener('mousemove', function(event) {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-    
-    // Her harekette arkada kalacak 2 adet kozmik parçacık üretir
-    for (let i = 0; i < 2; i++) {
-        particles.push(new Particle(mouse.x, mouse.y));
-    }
-});
-
-// Mobil cihazlar ve dokunmatik ekranlar için iz takibi
-window.addEventListener('touchmove', function(event) {
-    if (event.touches.length > 0) {
-        mouse.x = event.touches[0].clientX;
-        mouse.y = event.touches[0].clientY;
-        particles.push(new Particle(mouse.x, mouse.y));
-    }
-});
-
-// Parçacık (Yıldız) Sınıfı Yapısı
-class Particle {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        // Parçacık boyutu (Rastgele küçük kozmik noktalar)
-        this.size = Math.random() * 3 + 1; 
-        // Hafifçe saçılma yönü ve hızı
-        this.speedX = (Math.random() - 0.5) * 1.5;
-        this.speedY = (Math.random() - 0.5) * 1.5;
-        // Havuzdan rastgele renk seçimi
-        this.colorBase = colors[Math.floor(Math.random() * colors.length)];
-        // Başlangıç opaklığı
-        this.alpha = 1;
-        // Sönerek kaybolma hızı
-        this.decay = Math.random() * 0.015 + 0.01;
+    function resizeCanvas() {
+        if (canvas.width !== window.innerWidth) canvas.width = window.innerWidth;
+        if (canvas.height !== window.innerHeight) canvas.height = window.innerHeight;
     }
 
-    // Pozisyon ve görünürlük güncelleme
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.alpha -= this.decay; // Zamanla şeffaflaşma
-        if (this.size > 0.1) this.size -= 0.02; // Zamanla küçülme
+    function createParticle(x, y) {
+        return {
+            x: x,
+            y: y,
+            size: Math.random() * 3 + 1,
+            speedX: (Math.random() - 0.5) * 1.5,
+            speedY: (Math.random() - 0.5) * 1.5,
+            colorBase: colors[Math.floor(Math.random() * colors.length)],
+            alpha: 1,
+            decay: Math.random() * 0.015 + 0.01
+        };
     }
 
-    // Ekrana çizme ve parlama (Glow) verme alanı
-    draw() {
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.colorBase + this.alpha + ')';
-        
-        // Siber parlama efekti (Glow)
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.colorBase + '1)';
-        
-        ctx.fill();
-        ctx.restore();
-    }
-}
+    function animate() {
+        frameId = 0;
+        if (document.hidden || (reducedMotionQuery && reducedMotionQuery.matches)) return;
 
-// Akıcı animasyon döngüsü (60 FPS Çalışır)
-function animate() {
-    // Katmanı her karede temizler
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-        
-        // Tamamen sönen (görünmez olan) parçacıkları silerek hafızayı temiz tutar
-        if (particles[i].alpha <= 0) {
-            particles.splice(i, 1);
-            i--;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.shadowBlur = 8;
+        var alive = 0;
+        for (var i = 0; i < particles.length; i++) {
+            var particle = particles[i];
+            particle.x += particle.speedX;
+            particle.y += particle.speedY;
+            particle.alpha -= particle.decay;
+            if (particle.size > 0.1) particle.size -= 0.02;
+
+            if (particle.alpha <= 0) continue;
+
+            particles[alive++] = particle;
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fillStyle = particle.colorBase + particle.alpha + ')';
+            ctx.shadowColor = particle.colorBase + '1)';
+            ctx.fill();
+        }
+
+        ctx.shadowBlur = 0;
+        if (particles.length) frameId = requestAnimationFrame(animate);
+    }
+
+    function requestAnimation() {
+        if (!frameId && !document.hidden &&
+            !(reducedMotionQuery && reducedMotionQuery.matches)) {
+            frameId = requestAnimationFrame(animate);
         }
     }
-    requestAnimationFrame(animate);
-}
 
-// Döngüyü başlat
-animate();
+    function addParticles(x, y, count) {
+        if (document.hidden || (reducedMotionQuery && reducedMotionQuery.matches)) return;
+        for (var i = 0; i < count && particles.length < maxParticles; i++) {
+            particles.push(createParticle(x, y));
+        }
+        requestAnimation();
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+    window.addEventListener('mousemove', function (event) {
+        addParticles(event.clientX, event.clientY, 2);
+    }, { passive: true });
+    window.addEventListener('touchmove', function (event) {
+        if (event.touches.length) {
+            addParticles(event.touches[0].clientX, event.touches[0].clientY, 1);
+        }
+    }, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            if (frameId) cancelAnimationFrame(frameId);
+            frameId = 0;
+        } else {
+            requestAnimation();
+        }
+    });
+    if (reducedMotionQuery) {
+        var onCursorMotionChange = function (event) {
+            if (event.matches) {
+                if (frameId) cancelAnimationFrame(frameId);
+                frameId = 0;
+                particles.length = 0;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        };
+        if (reducedMotionQuery.addEventListener) {
+            reducedMotionQuery.addEventListener('change', onCursorMotionChange);
+        } else if (reducedMotionQuery.addListener) {
+            reducedMotionQuery.addListener(onCursorMotionChange);
+        }
+    }
+})();
 // Portfolyo banner slider
 (function () {
     const banner = document.getElementById('vProBanner');
@@ -420,14 +464,17 @@ animate();
          branda:{dpi:72,tip:"Solvent Büyük Format Baskı"},
          oneway:{dpi:100,tip:"Eko-Solvent Dijital Baskı"}};
   var w=document.getElementById("vxW"),h=document.getElementById("vxH"),m=document.getElementById("vxM");
+  var dpi=document.getElementById("vxDpi"),px=document.getElementById("vxPx");
+  var area=document.getElementById("vxAr"),type=document.getElementById("vxTp");
+  if(!w||!h||!m||!dpi||!px||!area||!type){return}
   var nf=new Intl.NumberFormat("tr-TR",{maximumFractionDigits:2});
   function run(){
-    var W=parseFloat(w.value),H=parseFloat(h.value),c=M[m.value];
-    if(!(W>0&&H>0)){return}
-    document.getElementById("vxDpi").textContent=c.dpi+" DPI";
-    document.getElementById("vxPx").textContent=nf.format(Math.round(W/2.54*c.dpi))+" x "+nf.format(Math.round(H/2.54*c.dpi))+" px";
-    document.getElementById("vxAr").textContent=nf.format(W*H/10000)+" m²";
-    document.getElementById("vxTp").textContent=c.tip;
+    var width=parseFloat(w.value),height=parseFloat(h.value),material=M[m.value];
+    if(!(width>0&&height>0)||!material){return}
+    dpi.textContent=material.dpi+" DPI";
+    px.textContent=nf.format(Math.round(width/2.54*material.dpi))+" x "+nf.format(Math.round(height/2.54*material.dpi))+" px";
+    area.textContent=nf.format(width*height/10000)+" m²";
+    type.textContent=material.tip;
   }
   [w,h,m].forEach(function(e){e.addEventListener("input",run)});run();
 })();
@@ -479,6 +526,8 @@ animate();
     });
     document.head.appendChild(s);
   }
+  
+  
 })();
 
 /* ==========================================================
@@ -507,7 +556,6 @@ animate();
         }
         img.addEventListener('error', markBroken);
         check();                                   /* hata olayı script'ten önce olmuş olabilir */
-        window.addEventListener('load', check);
     }
 
     function setup(root) {
