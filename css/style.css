@@ -1157,6 +1157,36 @@ body {
     z-index: 10001;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-instagram-link {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: #E1306C;
+    border: 1px solid rgba(225, 48, 108, 0.35);
+    border-radius: 10px;
+    background: rgba(225, 48, 108, 0.06);
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.mobile-instagram-link:hover {
+    color: #ff6b9b;
+    border-color: #E1306C;
+    background: rgba(225, 48, 108, 0.12);
+}
+
+.mobile-instagram-link:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
 .mobile-menu-btn::before {
     content: '';
     position: absolute;
@@ -1212,6 +1242,10 @@ body {
 @media (max-width: 1200px) {
     .mobile-menu-btn {
         display: flex;
+    }
+
+    .mobile-instagram-link {
+        display: inline-flex;
     }
 
     /* Mobilde nav-menu'yu gizle */
