@@ -2456,6 +2456,16 @@ svg {
     }
 }
 
+.v-top-notice__cta {
+    border: 0;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.v-top-notice:hover .v-top-notice__cta,
+.v-top-notice:focus-visible .v-top-notice__cta {
+    background: rgba(255, 255, 255, 0.26);
+}
+
 /* ==========================================================
    VALEXIRA — Koyu mor gradient referans teması
    Referanstaki mor/siyah yüzeyler, fuşya duyuru bandı ve
