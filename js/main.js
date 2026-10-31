@@ -775,3 +775,38 @@ function closeLightbox() {
         init();
     }
 })();
+
+/* ==========================================================
+   Valexira - Hizmet görselleri (vg-gorseller.js)
+   Dosya: js/vg-gorseller.js  (defer ile yükle)
+   - Global değişken oluşturmaz (IIFE), main.js ile çakışmaz.
+   - Resimler ekrana girince sırayla yumuşakça belirir.
+   - JS çalışmazsa veya hareket azaltılmışsa resimler hemen görünür.
+   ========================================================== */
+(function () {
+    'use strict';
+
+    var root = document.getElementById('vg-gorseller');
+    if (!root) { return; }
+
+    var items = root.querySelectorAll('.vg__item');
+    var reduce = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) { return; }
+
+    root.classList.add('vg--js');
+
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) { return; }
+            var el = entry.target;
+            var i = Array.prototype.indexOf.call(items, el);
+            el.style.transitionDelay = (i * 90) + 'ms';
+            el.classList.add('is-in');
+            io.unobserve(el);
+        });
+    }, { threshold: 0.15 });
+
+    Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+})();
