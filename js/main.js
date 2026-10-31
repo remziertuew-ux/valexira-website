@@ -1066,3 +1066,22 @@ html[data-vcur="combo"] .vcur-ring.is-link .vcur-label { opacity: 1; }
   });
   /* ---------- /TEST ---------- */
 })();
+// === AI ROBOT TYPEWRITER ===
+(function () {
+    var msg    = ' \u0130leti\u015fim \u00dcs\u00fc Ba\u011flant\u0131s\u0131 Haz\u0131r. Tasar\u0131m yolculu\u011funu ba\u015flat\u0131n.';
+    var el     = document.getElementById('ai-wa-typed');
+    var cursor = document.getElementById('ai-wa-cursor');
+    if (!el || el.dataset.typing) return;   // ikinci çalışmayı engelle
+    el.dataset.typing = '1';
+    var idx = 0;
+    function typeChar() {
+        if (idx < msg.length) {
+            idx++;
+            el.textContent = msg.slice(0, idx);   // += yerine: her zaman temiz metin
+            setTimeout(typeChar, 55 + Math.random() * 30);
+        } else {
+            if (cursor) cursor.style.display = 'none';
+        }
+    }
+    setTimeout(typeChar, 1000);
+})();
