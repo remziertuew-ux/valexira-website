@@ -3575,8 +3575,8 @@ main > section {
     position: relative;
     z-index: 1;
     display: flex;
-    width: min(100%, 520px);
-    max-width: 520px;
+    width: min(100%, 640px);
+    max-width: 640px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
@@ -3955,4 +3955,9 @@ body:not(:has(.v-top-notice)) .hero {
 @media (max-width: 600px) {
   .vh { padding-inline: 16px; }
   .vh__chips li { font-size: 13px; padding: 7px 13px; }
+}
+
+/* Hero 'Hesaplayıcı' butonu hedefi: sabit menü altında kalmasın */
+#hesaplayici {
+    scroll-margin-top: 140px;
 }
