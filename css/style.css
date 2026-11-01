@@ -920,133 +920,6 @@ html, body {
     .v-pro-title { font-size: 26px; }
 }
 
-/* =====================================================================
-   v-cyber-services-section : infografik stil (animasyonsuz, numarasız)
-   - HTML'e dokunmadan çalışır (aynı sınıf adları)
-   - Animasyon, gölge, filtre yok -> mobilde akıcı kalır
-   ===================================================================== */
-
-#v-cyber-services-section {
-    width: 100%;
-    font-family: 'Segoe UI', -apple-system, sans-serif;
-    overflow-x: hidden;
-}
-
-.v-services-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
-}
-
-/* ---------- Kart ---------- */
-.v-service-card {
-    --c: 0, 229, 255;                      /* renk (rgb) */
-    flex: 1;
-    min-width: min(100%, 260px);
-    max-width: 285px;
-    padding: 22px 20px;
-    border: 1.5px solid #16305a;
-    border-top: 5px solid rgb(var(--c));
-    border-radius: 22px;
-}
-
-/* ---------- Başlık ---------- */
-.v-card-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0 0 14px 0;
-    padding: 0 0 10px 0;
-    border-bottom: 1px solid rgba(var(--c), 0.3);
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 1.2px;
-    line-height: 1.2;
-    color: rgb(var(--c));
-}
-.v-card-title svg { flex-shrink: 0; }
-
-/* ---------- Liste (dikey hat) ---------- */
-.v-service-list {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-}
-.v-service-list::before {                   /* sabit hat */
-    content: "";
-    position: absolute;
-    top: 4px;
-    bottom: 4px;
-    left: 3.5px;
-    width: 1px;
-    background: rgba(var(--c), 0.35);
-}
-.v-service-list li {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    line-height: 1.3;
-}
-.v-service-list li span {
-    display: inline-block;
-    font-size: 8px;
-    color: rgb(var(--c));
-}
-
-/* Hover sadece fare olan cihazlarda (dokunmatikte çalışmaz) */
-@media (hover: hover) and (pointer: fine) {
-    .v-service-card { transition: transform 0.2s ease; }
-    .v-service-card:hover { transform: translateY(-3px); }
-    .v-service-list li:hover { color: #fff; }
-}
-
-/* ---------- Mobil: 2 kutu yan yana, yazılar sola yaslı ---------- */
-@media (max-width: 600px) {
-    #v-cyber-services-section { padding: 20px 10px; }
-    .v-services-grid { gap: 10px; }
-
-    .v-service-card {
-        flex: 0 0 calc(50% - 5px);
-        min-width: 0;
-        max-width: calc(50% - 5px);
-        padding: 14px 12px;
-        border-radius: 16px;
-        text-align: left;
-    }
-
-    .v-card-title {
-        gap: 6px;
-        font-size: 12.5px;
-        letter-spacing: 0.6px;
-        line-height: 1.25;
-        text-align: left;
-    }
-    .v-card-title svg { width: 16px; height: 16px; }
-
-    .v-service-list { gap: 7px; }
-    .v-service-list li {
-        align-items: flex-start;
-        font-size: 12px;
-        overflow-wrap: anywhere;
-        text-align: left;
-    }
-    .v-service-list li span { margin-top: 0.3em; }
-}
-
-/* Çok dar telefonlarda tek sütun */
-@media (max-width: 340px) {
-    .v-service-card { flex-basis: 100%; max-width: 100%; }
-}
 /* =====================================================
    HTML <style> BLOĞU 2 — AI ROBOT WHATSAPP BUTONU
    ===================================================== */
@@ -4185,4 +4058,202 @@ body:not(:has(.v-top-notice)) .hero {
         border-color: #00f2fe;
         background: rgba(0, 242, 254, 0.08);
     }
+}
+
+/* MÜŞTERİ YORUMLARI (main > section kuralına takılmaz) */
+main > .vyr {
+    box-sizing: border-box;
+    /* Bölüm tam genişlik kalır, içerik en fazla 1200px olur */
+    padding: clamp(40px, 7vw, 80px) max(clamp(15px, 4vw, 30px), calc((100% - 1200px) / 2));
+    overflow-x: clip;
+}
+
+.vyr *,
+.vyr *::before,
+.vyr *::after { box-sizing: border-box; }
+
+.vyr__head {
+    text-align: center;
+    margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.vyr__kicker {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #E1306C;
+}
+
+.vyr__title {
+    margin: 0 0 12px;
+    font-size: clamp(26px, 4vw, 38px);
+    line-height: 1.2;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.vyr__title span { color: #00f2fe; }
+
+.vyr__rate {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.vyr__stars {
+    color: #ffc83d;
+    letter-spacing: 2px;
+}
+
+/* Kartlar: mobilde 1, tablette 2, masaüstünde 3 sütun; artan kart ortalanır */
+.vyr__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.vyr__card {
+    margin: 0;
+    padding: 24px;
+    min-width: 0;
+    flex: 0 1 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: #110b22;
+    border: 1px solid #493867;
+    border-radius: 16px;
+}
+
+@media (min-width: 640px) {
+    .vyr__card { flex-basis: calc((100% - 20px) / 2); }
+}
+
+@media (min-width: 1000px) {
+    .vyr__card { flex-basis: calc((100% - 40px) / 3); }
+}
+
+.vyr__text {
+    margin: 0;
+    flex: 1;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.vyr__who {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vyr__who strong { color: #fff; font-size: 15px; overflow-wrap: anywhere; }
+.vyr__who span   { color: rgba(255, 255, 255, 0.5); font-size: 12px; }
+
+.vyr__cta {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+.vyr__btn {
+    flex: 0 1 auto;
+    padding: 13px 26px;
+    border-radius: 30px;
+    background: #E1306C;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(225, 48, 108, 0.24);
+}
+
+.vyr__btn:hover { background: #C42A5E; }
+
+.vyr__btn--line {
+    background: transparent;
+    border: 1px solid #a78be9;
+    color: #e0d3ff;
+    box-shadow: none;
+}
+
+.vyr__btn--line:hover { background: rgba(167, 139, 233, 0.12); }
+
+/* Küçük ekranlarda butonlar tam genişlik */
+@media (max-width: 480px) {
+    .vyr__card { padding: 20px; }
+    .vyr__btn  { flex: 1 1 100%; }
+}
+
+.vyr {
+    --vyr-gap: 12px;
+    --vyr-cols: 2;
+}
+
+.vyr__stars {
+    color: #ffc83d;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Kartlar: mobilde 2, masaüstünde 4 sütun; artan kart ortalanır */
+.vyr__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--vyr-gap);
+}
+
+.vyr__card {
+    margin: 0;
+    padding: 14px;
+    min-width: 0;
+    flex: 0 0 calc((100% - (var(--vyr-cols) - 1) * var(--vyr-gap)) / var(--vyr-cols));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #110b22;
+    border: 1px solid #493867;
+    border-radius: 12px;
+}
+
+.vyr__text {
+    margin: 0;
+    flex: 1;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.vyr__who {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vyr__who strong { color: #fff; font-size: 13px; overflow-wrap: anywhere; }
+.vyr__who span   { color: rgba(255, 255, 255, 0.5); font-size: 11px; }
+
+@media (min-width: 640px) {
+    .vyr { --vyr-gap: 16px; }
+    .vyr__card { padding: 18px; }
+    .vyr__text { font-size: 14px; }
+    .vyr__who strong { font-size: 14px; }
+}
+
+@media (min-width: 1000px) {
+    .vyr { --vyr-gap: 20px; --vyr-cols: 4; }
+    .vyr__card { padding: 20px; }
 }
