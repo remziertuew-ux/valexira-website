@@ -4152,3 +4152,37 @@ body:not(:has(.v-top-notice)) .hero {
 .ai-robot-eye.ai-robot-eye--delay {
     animation-delay: 0.3s;
 }
+
+.v-footer .v-footer-list .v-footer-list__sep {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Lokasyonlar: mobilde yan yana sığan etiketler */
+@media (max-width: 768px) {
+    .v-footer .v-footer-list.v-footer-list--sm {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        line-height: 1.4;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .v-footer .v-footer-list--sm .v-footer-link {
+        display: inline-block;
+        padding: 9px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        font-size: 13px;
+        transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+    }
+
+    .v-footer .v-footer-list--sm .v-footer-link:hover,
+    .v-footer .v-footer-list--sm .v-footer-link:focus-visible {
+        border-color: #00f2fe;
+        background: rgba(0, 242, 254, 0.08);
+    }
+}
