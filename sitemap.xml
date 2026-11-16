@@ -78,10 +78,15 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://valexira.com/baski-yaptirmadan-once-bilmeniz-gerekenler</loc>
-    <lastmod>2026-10-27</lastmod>
+    <loc>https://valexira.com/blog</loc>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/metrekare-hesaplama</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://valexira.com/iletisim</loc>
