@@ -3087,21 +3087,6 @@ main > section {
     --process-accent: #E1306C;
 }
 
-.vx-process-card__top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-
-
-.vx-process-number {
-    color: #b6a8cc;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-
 .vx-process-card h3 {
     margin: 0;
     color: #fff;
@@ -3118,10 +3103,6 @@ main > section {
 
 .vx-process-card {
     min-height: 330px;
-}
-
-.vx-process-card__top {
-    justify-content: flex-end;
 }
 
 .vx-process-diagram {
