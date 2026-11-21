@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Hizmetlerimiz | Dijital Baskı, Matbaa ve Tasarım — Valexira Dijital</title>
+    <meta name="description" content="Valexira Dijital'in İstanbul'da sunduğu dijital baskı, matbaa, promosyon, levha ve grafik tasarım hizmetlerini inceleyin.">
+    <link rel="canonical" href="https://valexira.com/hizmetlerimiz">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Hizmetlerimiz | Valexira Dijital">
+    <meta property="og:description" content="Dijital baskıdan matbaaya, promosyondan tasarıma Valexira Dijital hizmetlerini keşfedin.">
+    <meta property="og:image" content="https://valexira.com/images/team-9.png">
+    <meta property="og:url" content="https://valexira.com/hizmetlerimiz">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/team-9.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        #services-page { padding: 125px 20px 80px; color: #fff; }
+        .services-page__intro { max-width: 900px; margin: 0 auto 48px; text-align: center; }
+        .services-page__eyebrow { color: #00f2fe; font-size: 13px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
+        .services-page__title { margin: 12px 0 16px; font: 800 clamp(2.4rem, 7vw, 5rem)/1.05 'Space Grotesk', sans-serif; letter-spacing: -2px; }
+        .services-page__lead { max-width: 760px; margin: 0 auto; color: rgba(255,255,255,.72); font-size: clamp(16px, 2vw, 19px); line-height: 1.75; }
+        .services-page__content { width: 100%; max-width: 1200px; margin: 0 auto; }
+        .services-page__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
+        .services-page__card { --accent: #00f2fe; position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 370px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-top: 2px solid var(--accent); border-radius: 22px; background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)); color: inherit; text-decoration: none; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+        .services-page__card:nth-child(even) { --accent: #ff4d9d; }
+        .services-page__card:hover, .services-page__card:focus-visible { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 12px 35px rgba(0,0,0,.24), 0 0 22px color-mix(in srgb, var(--accent) 18%, transparent); outline: none; }
+        .services-page__card-image { display: block; width: 100%; height: 165px; object-fit: cover; background: #17102d; }
+        .services-page__card-body { display: flex; flex: 1; flex-direction: column; padding: 21px 23px 23px; }
+        .services-page__card h2 { margin: 12px 0 10px; font: 700 clamp(22px, 3vw, 28px)/1.2 'Space Grotesk', sans-serif; }
+        .services-page__card p { margin: 0; color: rgba(255,255,255,.68); font-size: 15px; line-height: 1.7; }
+        .services-page__link { margin-top: auto; padding-top: 25px; color: var(--accent); font-weight: 700; }
+        .services-page__extras { width: 100%; max-width: 1200px; margin: 60px auto 0; padding: 32px; box-sizing: border-box; border: 1px solid rgba(0,242,254,.18); border-radius: 22px; background: rgba(0,0,0,.18); }
+        .services-page__extras > h2 { margin-bottom: 24px; font: 700 clamp(21px, 3vw, 28px) 'Space Grotesk', sans-serif; }
+        .services-page__catalog { display: block; }
+        .services-page__group { min-width: 0; padding: 24px 0 0; border-top: 1px solid rgba(255,255,255,.12); }
+        .services-page__group:first-child { padding-top: 0; border-top: 0; }
+        .services-page__group + .services-page__group { margin-top: 26px; }
+        .services-page__group h3 { margin: 0 0 14px; color: #00f2fe; font: 700 18px/1.3 'Space Grotesk', sans-serif; }
+        .services-page__tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 14px; }
+        .services-page__tile { min-width: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: rgba(255,255,255,.045); color: #fff; text-decoration: none; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+        .services-page__tile:hover, .services-page__tile:focus-visible { transform: translateY(-3px); border-color: rgba(0,242,254,.55); background: rgba(0,242,254,.07); outline: none; }
+        .services-page__tile-image { display: block; width: 100%; height: 140px; aspect-ratio: 16 / 10; object-fit: cover; background: #17102d; }
+        .services-page__tile-title { display: flex; min-height: 54px; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; font-size: 14px; font-weight: 700; line-height: 1.4; }
+        .services-page__tile-arrow { flex: 0 0 auto; color: #00f2fe; }
+        .services-page__cta { width: 100%; max-width: 1200px; margin: 30px auto 0; padding: 30px; box-sizing: border-box; border-radius: 22px; background: linear-gradient(110deg, rgba(0,242,254,.1), rgba(255,77,157,.1)); text-align: center; }
+        .services-page__cta p { margin-bottom: 18px; color: rgba(255,255,255,.78); }
+        .services-page__cta a { display: inline-block; padding: 12px 22px; border: 1px solid #ff4d9d; border-radius: 999px; color: #fff; font-weight: 700; text-decoration: none; }
+        @media (max-width: 900px) {
+            .services-page__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 600px) {
+            #services-page { padding: 110px 15px 55px; }
+            .services-page__grid { grid-template-columns: 1fr; }
+            .services-page__card { min-height: 0; }
+            .services-page__card-image { height: 175px; }
+            .services-page__card-body { padding: 20px; }
+            .services-page__extras { padding: 24px 18px; }
+            .services-page__group { padding-top: 20px; }
+            .services-page__group + .services-page__group { margin-top: 20px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Valexira Dijital Hizmetleri",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "url": "https://valexira.com/dijital-baski", "name": "Dijital Baskı"},
+        {"@type": "ListItem", "position": 2, "url": "https://valexira.com/matbaa", "name": "Matbaa"},
+        {"@type": "ListItem", "position": 3, "url": "https://valexira.com/promosyon", "name": "Promosyon"},
+        {"@type": "ListItem", "position": 4, "url": "https://valexira.com/levha", "name": "Levha"},
+        {"@type": "ListItem", "position": 5, "url": "https://valexira.com/tasarim", "name": "Tasarım"}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="v-site-main">
+        <header class="navbar">
+            <div class="container nav-container">
+                <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
+                    <img src="/images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40">
+                    <span class="logo-text">DİJİTAL</span>
+                </a>
+                <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
+                    <ul class="nav-links">
+                        <li><a href="/">Anasayfa</a></li>
+                        <li><a href="/hizmetlerimiz" aria-current="page">Hizmetlerimiz</a></li>
+                        <li><a href="/portfolyo">Portfolyo</a></li>
+                        <li><a href="/hakkimizda">Hakkımızda</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/iletisim">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="navMenu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <a href="/iletisim" class="btn-quote desktop-only">Teklif Al</a>
+                </div>
+            </div>
+        </header>
+
+        <main id="services-page">
+            <header class="services-page__intro">
+                <p class="services-page__eyebrow">Valexira Dijital · İstanbul Topkapı</p>
+                <h1 class="services-page__title">Hizmetlerimiz</h1>
+                <p class="services-page__lead">Markanızın ihtiyacına uygun tasarım, baskı ve uygulama çözümlerini tek noktada sunuyoruz. Tüm hizmetlerimizi inceleyin, projeniz için doğru çözümü birlikte belirleyelim.</p>
+            </header>
+
+            <div class="services-page__content">
+            <section class="services-page__grid" aria-label="Valexira Dijital hizmet kategorileri">
+                <a class="services-page__card" href="/dijital-baski">
+                    <img class="services-page__card-image" src="/images/branda-baski.webp" alt="İç ve dış mekân reklamları için geniş format dijital baskı" width="640" height="400" fetchpriority="high">
+                    <div class="services-page__card-body">
+                        <h2>Dijital Baskı</h2>
+                        <p>İç ve dış mekân reklamlarınız için canlı renkli, yüksek çözünürlüklü baskı ve profesyonel uygulama.</p>
+                        <span class="services-page__link">Dijital baskıyı keşfet <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+                <a class="services-page__card" href="/matbaa">
+                    <img class="services-page__card-image" src="/images/mat-1.jpeg" alt="Matbaa hizmetleri için kartvizit baskı örneği" width="640" height="400" loading="lazy">
+                    <div class="services-page__card-body">
+                        <h2>Matbaa</h2>
+                        <p>Kartvizit, broşür, katalog ve kurumsal evraklarınızı markanıza uygun baskı kalitesiyle hazırlıyoruz.</p>
+                        <span class="services-page__link">Matbaa hizmetlerini keşfet <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+                <a class="services-page__card" href="/promosyon">
+                    <img class="services-page__card-image" src="/images/pro-5.jpg" alt="Kurumsal tekstil ve promosyon baskı örneği" width="640" height="400" loading="lazy">
+                    <div class="services-page__card-body">
+                        <h2>Promosyon</h2>
+                        <p>Markanızı günlük hayata taşıyan logolu promosyon ve tanıtım ürünleriyle görünürlüğünüzü artırın.</p>
+                        <span class="services-page__link">Promosyon ürünlerini keşfet <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+                <a class="services-page__card" href="/levha">
+                    <img class="services-page__card-image" src="/images/lev-2.jpg" alt="Pleksi levha üretim örneği" width="640" height="400" loading="lazy">
+                    <div class="services-page__card-body">
+                        <h2>Levha</h2>
+                        <p>İşletme, şantiye ve çalışma alanları için bilgilendirme, uyarı ve yönlendirme levhaları.</p>
+                        <span class="services-page__link">Levha çözümlerini keşfet <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+                <a class="services-page__card" href="/tasarim">
+                    <img class="services-page__card-image" src="/images/tasa-3.jpeg" alt="Valexira kurumsal grafik tasarım çalışması" width="640" height="400" loading="lazy">
+                    <div class="services-page__card-body">
+                        <h2>Tasarım</h2>
+                        <p>Logo, kurumsal kimlik ve baskıya hazır grafik tasarımlarla markanızın görsel dilini oluşturuyoruz.</p>
+                        <span class="services-page__link">Tasarım hizmetlerini keşfet <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+            </section>
+
+            <section class="services-page__extras" aria-labelledby="services-extras-title">
+                <h2 id="services-extras-title">Tüm hizmetlerimiz</h2>
+                <div class="services-page__catalog">
+                    <section class="services-page__group" aria-labelledby="services-print-title">
+                        <h3 id="services-print-title">Folyo, cam ve geniş format baskı</h3>
+                        <div class="services-page__tiles">
+                            <a class="services-page__tile" href="/folyo-baski"><img class="services-page__tile-image" src="/images/folyo-baski-uygulama.jpg" alt="Folyo baskı makinesinde Taşyapı logosu basımı" width="680" height="510" loading="lazy"><span class="services-page__tile-title">Folyo Baskı ve Uygulama <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/folyo-baski"><img class="services-page__tile-image" src="/images/folyo-kesim-vitrin.png" alt="Mağaza vitrininde folyo kesim uygulama örneği" width="596" height="510" loading="lazy"><span class="services-page__tile-title">Kesim Folyo <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/folyo-baski"><img class="services-page__tile-image" src="/images/baskı-4.jpg" alt="Camda kumlama ve buzlu folyo uygulaması" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Kumlama / Buzlu Cam Folyosu <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/one-way-vision"><img class="services-page__tile-image" src="/images/one-way-vision.webp" alt="One Way Vision delikli cam folyo uygulaması" width="640" height="400" loading="lazy"><span class="services-page__tile-title">One Way Vision (Delikli Folyo) <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/folyo-baski"><img class="services-page__tile-image" src="/images/Ekran Görüntüsü (2948).png" alt="Mavi zemin üzerine çiçek desenli duvar kağıdı" width="600" height="504" loading="lazy"><span class="services-page__tile-title">Duvar Kağıdı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/folyo-baski"><img class="services-page__tile-image" src="/images/baskı-5.png" alt="Vitrin ve cam folyo uygulaması" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Vitrin, Cam ve Araç Uygulaması <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/branda-baski"><img class="services-page__tile-image" src="/images/branda-baski.webp" alt="Dış mekân için branda baskı" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Branda Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/afis-baski"><img class="services-page__tile-image" src="/images/afis-baski.webp" alt="Afiş ve poster baskı örneği" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Afiş ve Poster Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/dijital-baski"><img class="services-page__tile-image" src="/images/baskı-3.jpeg" alt="Vinil ve dijital baskı üretimi" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Vinil Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/dijital-baski"><img class="services-page__tile-image" src="/images/roll-up-banner-ornek.png" alt="Mağaza içi kampanya için roll-up banner baskı örneği" width="382" height="510" loading="lazy"><span class="services-page__tile-title">Roll-up ve Banner Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                        </div>
+                    </section>
+
+                    <section class="services-page__group" aria-labelledby="services-printshop-title">
+                        <h3 id="services-printshop-title">Matbaa ve basılı ürünler</h3>
+                        <div class="services-page__tiles">
+                            <a class="services-page__tile" href="/matbaa"><img class="services-page__tile-image" src="/images/mat-1.jpeg" alt="Örnek kartvizit baskısı" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Kartvizit Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/matbaa"><img class="services-page__tile-image" src="/images/tass.jpg" alt="Sevk fişi ve fason atölye üretim bilgi formu örnekleri" width="3729" height="1756" loading="lazy"><span class="services-page__tile-title">Sevk Fişi ve Üretim Formu Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/matbaa"><img class="services-page__tile-image" src="/images/menu.jpg" alt="Restoran ve kafe için menü baskısı" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Menü ve Broşür Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/matbaa"><img class="services-page__tile-image" src="/images/mat-4.jpeg" alt="Magnet ve mıknatıslı kartvizit baskısı" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Magnet ve Mıknatıslı Kartvizit <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/matbaa"><img class="services-page__tile-image" src="/images/etiket.jpeg" alt="Etiket ve sticker baskı örnekleri" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Etiket ve Sticker Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                        </div>
+                    </section>
+
+                    <section class="services-page__group" aria-labelledby="services-sign-title">
+                        <h3 id="services-sign-title">Levha, tabela ve yönlendirme</h3>
+                        <div class="services-page__tiles">
+                            <a class="services-page__tile" href="/levha"><img class="services-page__tile-image" src="/images/lev-2.jpg" alt="Pleksi levha üretim örneği" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Pleksi, Dekota ve Alüminyum Levha <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/levha"><img class="services-page__tile-image" src="/images/UYARI.jpg" alt="İş güvenliği uyarı levhası" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Uyarı ve İş Güvenliği Levhaları <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/levha"><img class="services-page__tile-image" src="/images/TAH.jpg" alt="Acil durum tahliye planı" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Tahliye Planı ve Acil Durum Krokisi <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/levha"><img class="services-page__tile-image" src="/images/lev-4.jpg" alt="Elips ve yumurta tabela örneği" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Elips ve Yumurta Tabela <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/levha"><img class="services-page__tile-image" src="/images/lev-3.jpg" alt="İSG standartlarına uygun levha çözümleri" width="640" height="400" loading="lazy"><span class="services-page__tile-title">İSG Uyumlu Levha Çözümleri <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                        </div>
+                    </section>
+
+                    <section class="services-page__group" aria-labelledby="services-promo-title">
+                        <h3 id="services-promo-title">Promosyon, tekstil ve tasarım</h3>
+                        <div class="services-page__tiles">
+                            <a class="services-page__tile" href="/promosyon"><img class="services-page__tile-image" src="/images/pro1.jpg" alt="Ajanda ve kalem promosyon ürünleri" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Ajanda ve Kalem <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/promosyon"><img class="services-page__tile-image" src="/images/pro-3.jpg" alt="Kupa ve termos baskı örneği" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Kupa ve Termos <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/promosyon"><img class="services-page__tile-image" src="/images/pro-2.jpg" alt="Bloknot ve şapka promosyon ürünleri" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Bloknot ve Şapka <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/promosyon"><img class="services-page__tile-image" src="/images/pro-4.jpg" alt="Kurumsal çanta ve promosyon aksesuarları" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Çanta ve Aksesuar <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/promosyon"><img class="services-page__tile-image" src="/images/pro-5.jpg" alt="Tekstil ve tişört baskı örneği" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Tekstil ve Tişört Baskı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/tasarim"><img class="services-page__tile-image" src="/images/tasa-3.jpeg" alt="Logo ve grafik tasarım çalışması" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Logo ve Grafik Tasarım <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                            <a class="services-page__tile" href="/tasarim"><img class="services-page__tile-image" src="/images/tasa-1.jpeg" alt="Kurumsal kimlik ve banner tasarımı" width="640" height="400" loading="lazy"><span class="services-page__tile-title">Kurumsal Kimlik ve Banner Tasarımı <span class="services-page__tile-arrow" aria-hidden="true">→</span></span></a>
+                        </div>
+                    </section>
+
+                </div>
+            </section>
+
+            <section class="services-page__cta" aria-label="Teklif ve iletişim">
+                <p>İhtiyacınıza uygun çözüm ve fiyat bilgisi için bize ulaşın.</p>
+                <a href="/iletisim">Projeniz için teklif alın</a>
+            </section>
+            </div>
+        </main>
+
+        <footer class="v-footer">
+            <div class="v-footer-glow" aria-hidden="true"></div>
+            <div class="v-footer-flex">
+                <div class="v-footer-col v-footer-col--wide">
+                    <img src="/images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" loading="lazy" width="180">
+                    <p class="v-footer-desc">Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.</p>
+                </div>
+                <nav class="v-footer-col v-footer-col--md" aria-label="Kreatif hizmetler">
+                    <h2 class="v-footer-head pink">Kreatif</h2>
+                    <ul class="v-footer-list">
+                        <li><a class="v-footer-link" href="/tasarim">Logo Tasarımı</a></li>
+                        <li><a class="v-footer-link" href="/tasarim">Banner Tasarımı</a></li>
+                        <li><a class="v-footer-link" href="/afis-baski">Afiş &amp; Broşür</a></li>
+                        <li><a class="v-footer-link" href="/matbaa">Kurumsal Kimlik</a></li>
+                    </ul>
+                </nav>
+                <nav class="v-footer-col v-footer-col--md" aria-label="Hizmetler">
+                    <h2 class="v-footer-head cyan">Hizmetler</h2>
+                    <ul class="v-footer-list">
+                        <li><a class="v-footer-link" href="/branda-baski">Branda Baskı</a></li>
+                        <li><a class="v-footer-link" href="/folyo-baski">Folyo Uygulama</a></li>
+                        <li><a class="v-footer-link" href="/one-way-vision">One Way Vision</a></li>
+                        <li><a class="v-footer-link" href="/levha">Levha</a></li>
+                        <li class="v-footer-list__sep"><a class="v-footer-link" href="/metrekare-hesaplama">M² Hesaplama</a></li>
+                    </ul>
+                </nav>
+                <nav class="v-footer-col v-footer-col--sm" aria-label="Hizmet verilen lokasyonlar">
+                    <h2 class="v-footer-head cyan">Lokasyonlar</h2>
+                    <ul class="v-footer-list v-footer-list--sm">
+                        <li><a class="v-footer-link" href="/aksaray-reklamci">Aksaray</a></li>
+                        <li><a class="v-footer-link" href="/bagcilar-reklamci">Bağcılar</a></li>
+                        <li><a class="v-footer-link" href="/bakirkoy-reklamci">Bakırköy</a></li>
+                        <li><a class="v-footer-link" href="/esenler-reklamci">Esenler</a></li>
+                        <li><a class="v-footer-link" href="/ikitelli-reklamci">İkitelli</a></li>
+                        <li><a class="v-footer-link" href="/kadikoy-reklamci">Kadıköy</a></li>
+                        <li><a class="v-footer-link" href="/sirinevler-reklamci">Şirinevler</a></li>
+                    </ul>
+                </nav>
+                <div class="v-footer-col v-footer-col--wide">
+                    <h2 class="v-footer-head pink">Bize Ulaşın</h2>
+                    <address class="v-footer-address">
+                        <div class="v-footer-row v-footer-row--top">
+                            <span class="v-footer-addr-text">Maltepe Mahallesi, Litros Yolu Sokak, 2. Matbaacılar Sitesi, B Blok, Kat: 5, No: 119, 34010 Zeytinburnu/İstanbul</span>
+                        </div>
+                        <div class="v-footer-row">
+                            <a class="v-footer-contact-link" href="tel:+905427412994">+90 542 741 29 94</a>
+                        </div>
+                        <div class="v-footer-row">
+                            <a class="v-footer-contact-link v-footer-contact-link--break" href="mailto:valexiradijital@gmail.com">valexiradijital@gmail.com</a>
+                        </div>
+                    </address>
+                    <div class="v-footer-social">
+                        <a class="v-footer-social-link" href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        <a class="v-footer-social-link" href="https://www.instagram.com/valexira_dijital/" target="_blank" rel="noopener noreferrer me">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="v-footer-bottom v-footer-bottom--compact">&copy; 2026 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.</div>
+        </footer>
+    </div>
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
