@@ -133,13 +133,39 @@
     .v-footer .v-footer-flex,
     .v-footer .v-footer-container,
     .v-footer > div[style*="max-width:1200px"] {
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 24px !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 24px 18px !important;
         padding: 24px 16px 18px !important;
+    }
+
+    .v-footer .v-footer-col--wide,
+    .v-footer .v-footer-col--sm {
+        grid-column: 1 / -1;
     }
 
     .v-footer-desc {
         max-width: 420px;
+    }
+
+    .v-footer .v-footer-col--sm .v-footer-head {
+        text-align: center;
+    }
+
+    .v-footer .v-footer-col--sm .v-footer-head::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .v-footer .v-footer-list.v-footer-list--sm {
+        display: grid !important;
+        grid-template-columns: repeat(2, max-content) !important;
+        justify-content: center !important;
+        justify-items: start !important;
+        column-gap: clamp(36px, 14vw, 80px) !important;
+        row-gap: 6px !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
     }
 
     .v-footer-bottom,
