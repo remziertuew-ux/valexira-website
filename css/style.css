@@ -3141,29 +3141,30 @@ main > section {
     flex-basis: 72px;
     width: 72px;
     height: 72px;
-    border: 1px solid rgb(var(--accent));
-    border-radius: 50%;
+    border: 1px solid rgba(var(--accent), 0.62);
+    border-radius: 7px;
     background:
-        radial-gradient(circle, #17152a 0 40%, transparent 41%),
-        conic-gradient(from 90deg, rgb(var(--accent)) 0 12%, transparent 12% 20%, rgb(var(--accent)) 20% 32%, transparent 32% 40%, rgb(var(--accent)) 40% 52%, transparent 52% 60%, rgb(var(--accent)) 60% 72%, transparent 72% 80%, rgb(var(--accent)) 80% 92%, transparent 92%);
-    box-shadow:
-        inset 0 0 0 7px #17152a,
-        0 0 22px rgba(121, 217, 245, 0.1);
-}
-
-.vs__ring::after {
-    content: "";
-    position: absolute;
-    inset: 17px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 50%;
+        linear-gradient(145deg, rgba(var(--accent), 0.16), rgba(var(--accent), 0.035)),
+        #17152a;
+    box-shadow: inset 0 0 0 1px rgba(var(--accent), 0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .vs__ring svg {
     position: relative;
     z-index: 1;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
+    stroke: color-mix(in srgb, rgb(var(--accent)) 72%, white);
+    stroke-width: 2.5;
+}
+
+.vs__panel:hover .vs__ring {
+    transform: translateY(-2px);
+    border-color: rgb(var(--accent));
+    background:
+        linear-gradient(145deg, rgba(var(--accent), 0.28), rgba(var(--accent), 0.08)),
+        #17152a;
 }
 
 .vs__big {
@@ -3261,13 +3262,9 @@ main > section {
         height: 56px;
     }
 
-    .vs__ring::after {
-        inset: 13px;
-    }
-
     .vs__ring svg {
-        width: 20px;
-        height: 20px;
+        width: 26px;
+        height: 26px;
     }
 
     .vs__big {
@@ -4779,11 +4776,13 @@ body:not(:has(.v-top-notice)) .hero {
 
 .vh__card {
   --accent: #7448df;
+  --vh-accent-rgb: 116, 72, 223;
   min-height: 230px;
 }
 
 .vh__card--pink {
   --accent: #E1306C;
+  --vh-accent-rgb: 225, 48, 108;
   border-top-color: #E1306C;
 }
 
@@ -4807,23 +4806,33 @@ body:not(:has(.v-top-notice)) .hero {
   z-index: 1;
   width: 50px;
   height: 50px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(var(--vh-accent-rgb), 0.62);
+  border-radius: 7px;
   background:
-    radial-gradient(circle, var(--vh-bg) 0 44%, transparent 45%),
-    conic-gradient(from 45deg, var(--accent) 0 12%, transparent 12% 24%, var(--accent) 24% 36%, transparent 36% 48%, var(--accent) 48% 60%, transparent 60% 72%, var(--accent) 72% 84%, transparent 84%);
-  box-shadow:
-    inset 0 0 0 6px var(--vh-bg),
-    0 8px 18px rgba(56, 37, 109, 0.08);
+      linear-gradient(145deg, rgba(var(--vh-accent-rgb), 0.16), rgba(var(--vh-accent-rgb), 0.035)),
+      #17152a;
+  box-shadow: inset 0 0 0 1px rgba(var(--vh-accent-rgb), 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.vh__card:hover .vh__icon {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background:
+      linear-gradient(145deg, rgba(var(--vh-accent-rgb), 0.28), rgba(var(--vh-accent-rgb), 0.08)),
+      #17152a;
 }
 
 .vh__icon svg {
   position: relative;
   z-index: 2;
-  width: 19px;
-  height: 19px;
-  background: var(--vh-bg);
-  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  stroke: color-mix(in srgb, var(--accent) 72%, white);
+  stroke-width: 2.6;
 }
 
 .vh__name,
