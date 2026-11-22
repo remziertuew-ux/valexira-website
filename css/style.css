@@ -3597,6 +3597,7 @@ main > section {
 }
 
 .vx-process-card--print .vx-flow-pulse {
+    animation-duration: 2.8s;
     animation-delay: -0.55s;
 }
 
@@ -3608,6 +3609,11 @@ main > section {
 .vx-process-card:focus-within .vx-flow-pulse {
     stroke-width: 3.4;
     animation-duration: 0.72s;
+}
+
+.vx-process-card--print:hover .vx-flow-pulse,
+.vx-process-card--print:focus-within .vx-flow-pulse {
+    animation-duration: 2.2s;
 }
 
 @keyframes vxSignalFlow {
