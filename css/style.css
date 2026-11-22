@@ -511,17 +511,6 @@ html, body {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* === UZAY YILDIZ CANVAS (tamamen şeffaf, sadece yıldızlar çizer) === */
-#space-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-}
-
 .v-particles-container,
 .v-site-main {
     position: relative;
@@ -2027,7 +2016,7 @@ svg {
 }
 
 .navbar {
-    top: 40px;
+    top: 48px;
     left: 0;
     right: 0;
     width: auto;
@@ -2040,7 +2029,7 @@ svg {
     top: 0;
     z-index: 1002;
     display: flex;
-    min-height: 40px;
+    min-height: 48px;
     align-items: center;
     justify-content: center;
     gap: clamp(7px, 1.4vw, 14px);
@@ -2085,12 +2074,12 @@ svg {
 
 @media (min-width: 1025px) {
     .v-top-notice {
-        min-height: 36px;
+        min-height: 48px;
         padding-block: 4px;
     }
 
     .navbar {
-        top: 36px;
+        top: 48px;
     }
 }
 
@@ -2336,7 +2325,7 @@ svg {
 
 @media (max-width: 480px) {
     .v-top-notice {
-        min-height: 40px;
+        min-height: 48px;
         gap: 7px;
         padding-inline: 10px;
         font-size: 11px;
@@ -2444,7 +2433,6 @@ body {
     color: var(--vx-text);
 }
 
-#space-canvas,
 .v-particles-container,
 #cursor-canvas {
     display: none !important;
@@ -2767,7 +2755,7 @@ main > section {
 }
 
 .v-top-notice {
-    background: #E1306C;
+    background: #C42A5E;
     border: 0;
 }
 
@@ -6247,9 +6235,13 @@ main > .vyr {
 
 .vyr__btn {
     flex: 0 1 auto;
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
     padding: 13px 26px;
     border-radius: 30px;
-    background: #E1306C;
+    background: #C42A5E;
     color: #fff;
     font-weight: 600;
     font-size: 15px;
