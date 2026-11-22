@@ -3510,6 +3510,8 @@ main > section {
     gap: 20px;
     width: min(100%, 1180px);
     margin: 0 auto 36px;
+    padding: 0;
+    list-style: none;
 }
 
 .vx-process-card {
