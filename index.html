@@ -760,16 +760,23 @@
     <div id="ai-wa-text"><span id="ai-wa-typed"></span><span id="ai-wa-cursor"></span></div>
   </div>
 
-  <!-- AI Robot Butonu -->
-  <a id="ai-wa-btn"
-     href="https://wa.me/905427412994"
-     target="_blank"
-     rel="noopener noreferrer"
-     title="WhatsApp ile Yazın"
-     aria-label="AI Asistan ile WhatsApp'ta iletişime geçin">
-    <div id="ai-wa-glow-ring"></div>
-    <!-- AI Robot SVG -->
-    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <div class="ai-wa-actions">
+    <button id="scroll-to-top" type="button" aria-label="Sayfanın başına dön" title="Yukarı çık">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 19V5M6 11l6-6 6 6"/>
+      </svg>
+    </button>
+
+    <!-- AI Robot Butonu -->
+    <a id="ai-wa-btn"
+       href="https://wa.me/905427412994"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="WhatsApp ile Yazın"
+       aria-label="AI Asistan ile WhatsApp'ta iletişime geçin">
+      <div id="ai-wa-glow-ring"></div>
+      <!-- AI Robot SVG -->
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <!-- Anten -->
       <g id="ai-robot-antenna">
         <line x1="32" y1="6" x2="32" y2="14" stroke="#00f2fe" stroke-width="2.5" stroke-linecap="round"/>
@@ -813,8 +820,9 @@
           <stop offset="100%" stop-color="#030c18"/>
         </linearGradient>
       </defs>
-    </svg>
-  </a>
+      </svg>
+    </a>
+  </div>
 
 </div>
 
