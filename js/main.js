@@ -810,3 +810,50 @@ function closeLightbox() {
 
     Array.prototype.forEach.call(items, function (el) { io.observe(el); });
 })();
+
+/* ==========================================================
+   Footer'dan ayrı Aura tipi iletişim çağrı paneli
+   ========================================================== */
+(function () {
+    'use strict';
+
+    var footer = document.querySelector('footer.v-footer');
+    if (!footer || document.querySelector('.v-contact-callout')) { return; }
+
+    var panel = document.createElement('section');
+    panel.className = 'v-contact-callout';
+    panel.setAttribute('aria-labelledby', 'v-contact-callout-title');
+    panel.innerHTML =
+        '<div class="v-contact-callout__inner">' +
+            '<div class="v-contact-callout__info">' +
+                '<p class="v-contact-callout__kicker">İLETİŞİME GEÇİN</p>' +
+                '<h2 id="v-contact-callout-title">Hayalinizdeki Projeyi Birlikte Başlatalım.</h2>' +
+                '<p class="v-contact-callout__lead">Tasarımdan baskıya, ölçüden uygulamaya kadar ihtiyacınızı netleştirelim.</p>' +
+                '<div class="v-contact-callout__links">' +
+                    '<a href="mailto:valexiradijital@gmail.com" class="v-contact-callout__link">' +
+                        '<span class="v-contact-callout__symbol" aria-hidden="true">✉</span>' +
+                        '<span><small>E-POSTA</small><strong>valexiradijital@gmail.com</strong></span>' +
+                    '</a>' +
+                    '<a href="tel:+905427412994" class="v-contact-callout__link">' +
+                        '<span class="v-contact-callout__symbol" aria-hidden="true">☎</span>' +
+                        '<span><small>TELEFON / WHATSAPP</small><strong>+90 542 741 29 94</strong></span>' +
+                    '</a>' +
+                    '<div class="v-contact-callout__link">' +
+                        '<span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>' +
+                        '<span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="v-contact-callout__action">' +
+                '<p class="v-contact-callout__kicker">TEKLİF FORMU</p>' +
+                '<h3>Projenizi Hızlıca Paylaşın</h3>' +
+                '<p>İhtiyacınızı bize iletin; ölçü, malzeme ve teslimat için birlikte ilerleyelim.</p>' +
+                '<div class="v-contact-callout__buttons">' +
+                    '<a href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer">WhatsApp ile Yazın</a>' +
+                    '<a class="v-contact-callout__secondary" href="/iletisim">İletişim Sayfası</a>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+
+    footer.parentNode.insertBefore(panel, footer);
+})();
