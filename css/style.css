@@ -3565,6 +3565,92 @@ main > section {
     font-weight: 700;
 }
 
+/* Çizgi üzerinde ilerleyen sinyal animasyonu */
+.vx-process-card .vx-process-diagram {
+    overflow: hidden;
+}
+
+.vx-flow-pulse {
+    fill: none;
+    stroke-linecap: round;
+    stroke-width: 2.8;
+    stroke-dasharray: 2 15;
+    opacity: 0.95;
+    animation: vxSignalFlow 1.8s linear infinite;
+}
+
+.vx-flow-pulse--violet {
+    stroke: #cbb2ff;
+    filter: drop-shadow(0 0 3px rgba(181, 140, 255, 0.95));
+}
+
+.vx-flow-pulse--cyan {
+    stroke: #a7efff;
+    filter: drop-shadow(0 0 3px rgba(121, 217, 245, 0.95));
+    animation-duration: 1.35s;
+}
+
+.vx-flow-pulse--pink {
+    stroke: #ff74a4;
+    filter: drop-shadow(0 0 3px rgba(225, 48, 108, 0.95));
+    animation-duration: 1.55s;
+}
+
+.vx-process-card--print .vx-flow-pulse {
+    animation-delay: -0.55s;
+}
+
+.vx-process-card--delivery .vx-flow-pulse {
+    animation-delay: -1.05s;
+}
+
+.vx-process-card:hover .vx-flow-pulse,
+.vx-process-card:focus-within .vx-flow-pulse {
+    stroke-width: 3.4;
+    animation-duration: 0.72s;
+}
+
+.vx-process-card .vx-flow-dot,
+.vx-process-card .vx-flow-node-circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: vxNodePing 2.4s ease-in-out infinite;
+}
+
+.vx-process-card .vx-flow-node-circle:nth-of-type(2n),
+.vx-process-card .vx-flow-dot--cyan {
+    animation-delay: -0.8s;
+}
+
+.vx-process-card--delivery .vx-flow-node-circle {
+    animation-delay: -1.2s;
+}
+
+@keyframes vxSignalFlow {
+    to {
+        stroke-dashoffset: -34;
+    }
+}
+
+@keyframes vxNodePing {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.14);
+        opacity: 0.72;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vx-flow-pulse,
+    .vx-process-card .vx-flow-dot,
+    .vx-process-card .vx-flow-node-circle {
+        animation: none;
+    }
+}
+
 @media (max-width: 860px) {
     .vx-process-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
