@@ -857,3 +857,34 @@ function closeLightbox() {
 
     footer.parentNode.insertBefore(panel, footer);
 })();
+
+(function () {
+    'use strict';
+
+    var button = document.getElementById('scroll-to-top');
+    if (!button) { return; }
+
+    var updateQueued = false;
+    var reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateVisibility() {
+        button.classList.toggle('is-visible', window.scrollY > 300);
+        updateQueued = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        if (updateQueued) { return; }
+        updateQueued = true;
+        window.requestAnimationFrame(updateVisibility);
+    }, { passive: true });
+
+    button.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: reduceMotion ? 'auto' : 'smooth'
+        });
+    });
+
+    updateVisibility();
+})();
