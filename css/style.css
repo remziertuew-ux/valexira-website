@@ -3610,43 +3610,14 @@ main > section {
     animation-duration: 0.72s;
 }
 
-.vx-process-card .vx-flow-dot,
-.vx-process-card .vx-flow-node-circle {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: vxNodePing 2.4s ease-in-out infinite;
-}
-
-.vx-process-card .vx-flow-node-circle:nth-of-type(2n),
-.vx-process-card .vx-flow-dot--cyan {
-    animation-delay: -0.8s;
-}
-
-.vx-process-card--delivery .vx-flow-node-circle {
-    animation-delay: -1.2s;
-}
-
 @keyframes vxSignalFlow {
     to {
         stroke-dashoffset: -34;
     }
 }
 
-@keyframes vxNodePing {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.14);
-        opacity: 0.72;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .vx-flow-pulse,
-    .vx-process-card .vx-flow-dot,
-    .vx-process-card .vx-flow-node-circle {
+    .vx-flow-pulse {
         animation: none;
     }
 }
