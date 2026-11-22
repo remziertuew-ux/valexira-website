@@ -4506,85 +4506,112 @@ body:not(:has(.v-top-notice)) .hero {
 
 .vg__item {
   position: relative;
-  border: 1px solid #d9d2e7;
-  border-top: 3px solid #7448df;
-  border-radius: 5px;
-  background:
-    linear-gradient(135deg, rgba(116, 72, 223, 0.035), transparent 38%),
-    #24183f;
+  border: 1px solid rgba(116, 72, 223, 0.2);
+  border-top: 2px solid #7448df;
+  border-radius: 9px;
+  background: #160d2b;
   box-shadow:
-    inset 0 0 0 5px rgba(255, 255, 255, 0.018),
-    0 16px 34px rgba(33, 23, 53, 0.14);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025),
+    0 12px 26px rgba(33, 23, 53, 0.12);
+  transition: border-color 220ms ease, box-shadow 220ms ease;
 }
 
 .vg__item::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  right: 8px;
-  bottom: 52px;
-  width: 28px;
-  height: 28px;
-  border-right: 1px solid rgba(121, 217, 245, 0.58);
-  border-bottom: 1px solid rgba(121, 217, 245, 0.58);
-  pointer-events: none;
+  display: none;
 }
 
 .vg__item:nth-child(even) {
   border-top-color: #E1306C;
 }
 
+.vg__item:hover {
+  border-color: rgba(121, 217, 245, 0.5);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 18px 34px rgba(33, 23, 53, 0.2),
+    0 0 20px rgba(121, 217, 245, 0.08);
+}
+
+.vg__item:nth-child(even):hover {
+  border-color: rgba(225, 48, 108, 0.55);
+}
+
 .vg__link {
   position: relative;
-  border-radius: 4px;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: 7px;
   overflow: hidden;
 }
 
 .vg__img {
-  aspect-ratio: 16 / 9.8;
-  filter: saturate(0.88) contrast(1.04);
-  transition: filter 0.25s ease, transform 0.35s ease;
+  height: 100%;
+  aspect-ratio: auto;
+  filter: saturate(0.94) contrast(1.04);
+  transition: filter 0.3s ease, transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .vg__link::after {
   content: "";
   position: absolute;
-  inset: 0 0 auto;
-  height: 48%;
+  z-index: 1;
+  inset: 0;
   background:
+    linear-gradient(180deg, rgba(13, 8, 24, 0.04) 35%, rgba(13, 8, 24, 0.18) 58%, rgba(13, 8, 24, 0.94) 100%),
     linear-gradient(rgba(121, 217, 245, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(121, 217, 245, 0.035) 1px, transparent 1px);
-  background-size: 14px 14px;
-  opacity: 0.7;
+  background-size: auto, 16px 16px, 16px 16px;
+  opacity: 0.92;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .vg__cap {
-  min-height: 54px;
-  border-top: 1px solid rgba(121, 217, 245, 0.22);
-  background:
-    linear-gradient(90deg, rgba(121, 217, 245, 0.035) 1px, transparent 1px),
-    #24183f;
-  background-size: 12px 100%;
+  position: absolute;
+  z-index: 2;
+  inset: auto 0 0;
+  min-height: 76px;
+  justify-content: space-between;
+  padding: 28px 14px 14px;
+  border-top: 0;
+  background: linear-gradient(180deg, transparent, rgba(16, 10, 29, 0.18));
   letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.vg__cap > span:first-child {
+  min-width: 0;
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 700;
+  line-height: 1.35;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
 
 .vg__arrow {
-  border-radius: 3px;
-  border-color: #79d9f5;
-  color: #79d9f5;
-  background: rgba(121, 217, 245, 0.055);
+  flex-basis: 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border-color: rgba(121, 217, 245, 0.72);
+  color: #a7efff;
+  background: rgba(17, 13, 32, 0.52);
+  box-shadow: 0 0 16px rgba(121, 217, 245, 0.12);
 }
 
 .vg__item:nth-child(even) .vg__arrow {
-  border-color: #ff8fb3;
-  color: #ff8fb3;
+  border-color: rgba(255, 143, 179, 0.76);
+  color: #ffb1cb;
+  box-shadow: 0 0 16px rgba(225, 48, 108, 0.14);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .vg__link:hover .vg__img {
-    filter: saturate(1) contrast(1.06);
-    transform: scale(1.025);
+    filter: saturate(1.08) contrast(1.06);
+    transform: scale(1.045);
+  }
+
+  .vg__link:hover::after {
+    opacity: 1;
   }
 
   .vg__link:hover .vg__arrow {
@@ -4606,11 +4633,18 @@ body:not(:has(.v-top-notice)) .hero {
   }
 
   .vg__item::after {
-    bottom: 50px;
+    display: none;
   }
 
   .vg__cap {
-    min-height: 50px;
+    min-height: 68px;
+    padding-inline: 10px;
+  }
+
+  .vg__arrow {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -4620,7 +4654,7 @@ body:not(:has(.v-top-notice)) .hero {
   }
 
   .vg__img {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
   }
 }
 
