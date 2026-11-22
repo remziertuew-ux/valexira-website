@@ -1,0 +1,150 @@
+/* Shared footer layout for all Valexira pages */
+.v-footer {
+    width: 100%;
+    padding: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: #110b22 !important;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.v-footer .v-footer-glow {
+    display: none;
+}
+
+.v-footer .v-footer-flex,
+.v-footer .v-footer-container,
+.v-footer > div[style*="max-width:1200px"] {
+    display: grid !important;
+    grid-template-columns: 1.35fr 0.95fr 1.05fr 0.75fr !important;
+    align-items: start !important;
+    column-gap: clamp(28px, 4.2vw, 64px) !important;
+    row-gap: 24px !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: clamp(28px, 3.5vw, 42px) clamp(15px, 3vw, 30px) 24px !important;
+    background: transparent !important;
+}
+
+.v-footer .v-footer-col {
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.v-footer-logo {
+    width: 170px;
+    max-width: 170px;
+    height: auto;
+    display: block;
+    margin: 0 0 18px;
+}
+
+.v-footer-desc {
+    max-width: 230px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.v-footer .v-footer-head {
+    position: relative;
+    margin: 0 0 16px !important;
+    padding: 0 0 10px !important;
+    border: 0 !important;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.v-footer .v-footer-head.pink {
+    color: #ff007f;
+}
+
+.v-footer .v-footer-head.cyan {
+    color: #00f2fe;
+}
+
+.v-footer .v-footer-head::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 26px;
+    height: 2px;
+    background: currentColor;
+}
+
+.v-footer .v-footer-list {
+    height: auto !important;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.v-footer .v-footer-list li,
+.v-footer .v-footer-list .v-footer-link {
+    margin: 0;
+    padding: 1px 0 !important;
+    border: 0 !important;
+    line-height: 1.25;
+}
+
+.v-footer .v-footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+.v-footer .v-footer-link:hover,
+.v-footer .v-footer-link:focus-visible {
+    color: #00f2fe;
+}
+
+.v-footer-bottom,
+.v-footer .v-footer-bottom.v-footer-bottom--compact {
+    width: 100%;
+    margin: 0 !important;
+    padding: 12px 20px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.55);
+    background: transparent !important;
+    font-size: 13px;
+    text-align: center;
+}
+
+@media (max-width: 980px) {
+    .v-footer .v-footer-flex,
+    .v-footer .v-footer-container,
+    .v-footer > div[style*="max-width:1200px"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 24px 18px !important;
+        padding: 28px 16px 20px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .v-footer .v-footer-flex,
+    .v-footer .v-footer-container,
+    .v-footer > div[style*="max-width:1200px"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 24px !important;
+        padding: 24px 16px 18px !important;
+    }
+
+    .v-footer-desc {
+        max-width: 420px;
+    }
+
+    .v-footer-bottom,
+    .v-footer .v-footer-bottom.v-footer-bottom--compact {
+        padding: 10px 16px !important;
+        font-size: 11px;
+    }
+}
