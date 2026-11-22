@@ -138,9 +138,19 @@
         padding: 24px 16px 18px !important;
     }
 
+    .v-footer .v-footer-flex {
+        max-width: 320px !important;
+    }
+
     .v-footer .v-footer-col--wide,
     .v-footer .v-footer-col--sm {
         grid-column: 1 / -1;
+    }
+
+    .v-footer .v-footer-col--md {
+        width: 100%;
+        max-width: 168px;
+        justify-self: center;
     }
 
     .v-footer-desc {
@@ -158,12 +168,12 @@
 
     .v-footer .v-footer-list.v-footer-list--sm {
         display: grid !important;
-        grid-template-columns: repeat(2, max-content) !important;
+        grid-template-columns: repeat(2, minmax(112px, 1fr)) !important;
         justify-content: center !important;
         justify-items: start !important;
-        column-gap: clamp(36px, 14vw, 80px) !important;
+        column-gap: 24px !important;
         row-gap: 6px !important;
-        width: fit-content !important;
+        width: min(100%, 248px) !important;
         max-width: 100% !important;
         margin: 0 auto !important;
     }
