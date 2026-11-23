@@ -3909,3 +3909,58 @@ main > .vyr {
     .v-footer .v-footer-flex { grid-template-columns: minmax(0, 1fr); }
     .v-footer .v-footer-col--wide { grid-column: auto; }
 }
+#scroll-top-btn {
+    position: fixed;
+    right: 102px;
+    bottom: 31px;
+    z-index: 901;
+    display: grid;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid rgba(0, 242, 254, 0.5);
+    border-radius: 50%;
+    background: #160d2b;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+#scroll-top-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+#scroll-top-btn:hover {
+    border-color: #79d9f5;
+    background: #24183f;
+}
+#scroll-top-btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+#scroll-top-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+@media (max-width: 600px) {
+    #scroll-top-btn {
+        right: 76px;
+        bottom: max(14px, env(safe-area-inset-bottom));
+        width: 48px;
+        height: 48px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    #scroll-top-btn {
+        transition: none;
+    }
+}
