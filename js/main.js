@@ -1,3 +1,172 @@
+// === UZAY YILDIZ ANİMASYONU ===
+(function () {
+    var canvas = document.getElementById('space-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var NUM  = 200;
+    var W, H, cx, cy;
+    var stars = [];
+    var warp  = 0;
+    var lastY = window.scrollY || 0;
+    var frameId = 0;
+    var motionQuery = window.matchMedia
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : null;
+    var reducedMotion = motionQuery && motionQuery.matches;
+
+    function resize() {
+        W = window.innerWidth;
+        H = window.innerHeight;
+        if (canvas.width !== W) canvas.width = W;
+        if (canvas.height !== H) canvas.height = H;
+        cx = W / 2; cy = H / 2;
+    }
+
+    function mkStar(fresh) {
+        var maxZ = 1800;
+        return {
+            x    : (Math.random() - 0.5) * W  * 5,
+            y    : (Math.random() - 0.5) * H  * 5,
+            z    : fresh ? Math.random() * maxZ : maxZ,
+            spd  : 0.4 + Math.random() * 1.8,
+            szmul: 0.5 + Math.random() * 1.5,
+            twinkPhase : Math.random() * Math.PI * 2,
+            twinkSpeed : 0.015 + Math.random() * 0.04,
+            col  : Math.random() < 0.80 ? 0 : (Math.random() < 0.60 ? 1 : 2),
+            maxZ : maxZ,
+            px:0, py:0
+        };
+    }
+
+    function init() {
+        stars = [];
+        for (var i = 0; i < NUM; i++) stars.push(mkStar(true));
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        var warping   = warp >  2.5;
+        var reversing = warp < -1;
+
+        for (var i = 0; i < stars.length; i++) {
+            var s = stars[i];
+            var prevPX = s.px, prevPY = s.py;
+
+            s.z -= s.spd + warp * (0.5 + s.spd * 0.3);
+            s.twinkPhase += s.twinkSpeed;
+
+            if (s.z <= 1 || s.z > s.maxZ) {
+                stars[i] = mkStar(false);
+                continue;
+            }
+
+            var f  = 500;
+            var sx = (s.x / s.z) * f + cx;
+            var sy = (s.y / s.z) * f + cy;
+            s.px = sx; s.py = sy;
+
+            if (sx < -100 || sx > W+100 || sy < -100 || sy > H+100) continue;
+
+            var t      = 1 - s.z / s.maxZ;
+            var twink  = 0.7 + 0.3 * Math.sin(s.twinkPhase);
+            var size   = Math.max(0.3, t * 3.2 * s.szmul);
+            var alpha  = Math.min(1, (0.1 + t * 1.4) * twink);
+
+            var r, g, b;
+            if      (s.col === 1) { r=80;  g=220; b=255; }
+            else if (s.col === 2) { r=255; g=80;  b=190; }
+            else {
+                r = Math.floor(170 + t*85);
+                g = Math.floor(175 + t*80);
+                b = Math.floor(215 + t*40);
+            }
+
+            if ((warping || reversing) && prevPX !== 0) {
+                var dx=sx-prevPX, dy=sy-prevPY;
+                if (dx*dx+dy*dy > 1) {
+                    ctx.beginPath();
+                    ctx.moveTo(prevPX, prevPY);
+                    ctx.lineTo(sx, sy);
+                    ctx.strokeStyle='rgba('+r+','+g+','+b+','+(alpha*0.5)+')';
+                    ctx.lineWidth = size * 0.55;
+                    ctx.stroke();
+                }
+            }
+
+            ctx.beginPath();
+            ctx.arc(sx, sy, size, 0, 6.2832);
+            ctx.fillStyle='rgba('+r+','+g+','+b+','+alpha+')';
+            ctx.fill();
+
+            if (t > 0.5) {
+                ctx.beginPath();
+                ctx.arc(sx, sy, size * 2.8, 0, 6.2832);
+                ctx.fillStyle='rgba('+r+','+g+','+b+','+(alpha*0.13)+')';
+                ctx.fill();
+            }
+        }
+
+        warp *= 0.88;
+        if (Math.abs(warp) < 0.05) warp = 0;
+        if (!document.hidden && !reducedMotion) {
+            frameId = requestAnimationFrame(draw);
+        }
+    }
+
+    var tick = false;
+    window.addEventListener('scroll', function () {
+        if (reducedMotion || document.hidden) return;
+        if (!tick) {
+            requestAnimationFrame(function () {
+                var y = window.scrollY || document.documentElement.scrollTop || 0;
+                var d = y - lastY;
+                lastY = y;
+                warp += d * 0.5;
+                if (warp >  32) warp =  32;
+                if (warp < -18) warp = -18;
+                tick = false;
+            });
+            tick = true;
+        }
+    }, {passive:true});
+
+    window.addEventListener('resize', function () {
+        resize();
+        init();
+        if (!document.hidden) {
+            if (frameId) cancelAnimationFrame(frameId);
+            draw();
+        }
+    }, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            if (frameId) cancelAnimationFrame(frameId);
+            frameId = 0;
+        } else {
+            draw();
+        }
+    });
+    if (motionQuery) {
+        var onMotionChange = function (event) {
+            reducedMotion = event.matches;
+            if (reducedMotion && frameId) {
+                cancelAnimationFrame(frameId);
+                frameId = 0;
+            }
+            if (!document.hidden) draw();
+        };
+        if (motionQuery.addEventListener) {
+            motionQuery.addEventListener('change', onMotionChange);
+        } else if (motionQuery.addListener) {
+            motionQuery.addListener(onMotionChange);
+        }
+    }
+    resize(); init(); draw();
+})();
+
 // === MOBİL MENÜ ===
 function _menuClose() {
     var navMenu  = document.getElementById('navMenu');
@@ -50,6 +219,32 @@ document.addEventListener('keydown', function (e) {
         if (navMenu && navMenu.classList.contains('active')) { _menuClose(); }
     }
 });
+
+// Floating back-to-top button, shown alongside the WhatsApp widget.
+(function () {
+    if (!document.getElementById('ai-wa-wrapper')) return;
+
+    var button = document.createElement('button');
+    button.id = 'scroll-top-btn';
+    button.type = 'button';
+    button.setAttribute('aria-label', 'Sayfanın başına dön');
+    button.title = 'Yukarı çık';
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    document.body.appendChild(button);
+
+    function updateVisibility() {
+        var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+        button.classList.toggle('is-visible', scrollY > 300);
+    }
+
+    button.addEventListener('click', function () {
+        var reducedMotion = window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+    });
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    updateVisibility();
+})();
 
 // === M² HESAPLAMA ===
 function calculateM2() {
@@ -640,82 +835,4 @@ function closeLightbox() {
     }, { threshold: 0.15 });
 
     Array.prototype.forEach.call(items, function (el) { io.observe(el); });
-})();
-
-/* ==========================================================
-   Footer'dan ayrı Aura tipi iletişim çağrı paneli
-   ========================================================== */
-(function () {
-    'use strict';
-
-    var footer = document.querySelector('footer.v-footer');
-    if (!footer || document.querySelector('.v-contact-callout')) { return; }
-
-    var panel = document.createElement('section');
-    panel.className = 'v-contact-callout';
-    panel.setAttribute('aria-labelledby', 'v-contact-callout-title');
-    panel.innerHTML =
-        '<div class="v-contact-callout__inner">' +
-            '<div class="v-contact-callout__info">' +
-                '<p class="v-contact-callout__kicker">İLETİŞİME GEÇİN</p>' +
-                '<h2 id="v-contact-callout-title">Hayalinizdeki Projeyi Birlikte Başlatalım.</h2>' +
-                '<p class="v-contact-callout__lead">Tasarımdan baskıya, ölçüden uygulamaya kadar ihtiyacınızı netleştirelim.</p>' +
-                '<div class="v-contact-callout__links">' +
-                    '<a href="mailto:valexiradijital@gmail.com" class="v-contact-callout__link">' +
-                        '<span class="v-contact-callout__symbol" aria-hidden="true">✉</span>' +
-                        '<span><small>E-POSTA</small><strong>valexiradijital@gmail.com</strong></span>' +
-                    '</a>' +
-                    '<a href="tel:+905427412994" class="v-contact-callout__link">' +
-                        '<span class="v-contact-callout__symbol" aria-hidden="true">☎</span>' +
-                        '<span><small>TELEFON / WHATSAPP</small><strong>+90 542 741 29 94</strong></span>' +
-                    '</a>' +
-                    '<div class="v-contact-callout__link">' +
-                        '<span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>' +
-                        '<span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>' +
-                    '</div>' +
-                '</div>' +
-            '</div>' +
-            '<div class="v-contact-callout__action">' +
-                '<p class="v-contact-callout__kicker">TEKLİF FORMU</p>' +
-                '<h3>Projenizi Hızlıca Paylaşın</h3>' +
-                '<p>İhtiyacınızı bize iletin; ölçü, malzeme ve teslimat için birlikte ilerleyelim.</p>' +
-                '<div class="v-contact-callout__buttons">' +
-                    '<a href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer">WhatsApp ile Yazın</a>' +
-                    '<a class="v-contact-callout__secondary" href="/iletisim">İletişim Sayfası</a>' +
-                '</div>' +
-            '</div>' +
-        '</div>';
-
-    footer.parentNode.insertBefore(panel, footer);
-})();
-
-(function () {
-    'use strict';
-
-    var button = document.getElementById('scroll-to-top');
-    if (!button) { return; }
-
-    var updateQueued = false;
-    var reduceMotion = window.matchMedia &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function updateVisibility() {
-        button.classList.toggle('is-visible', window.scrollY > 300);
-        updateQueued = false;
-    }
-
-    window.addEventListener('scroll', function () {
-        if (updateQueued) { return; }
-        updateQueued = true;
-        window.requestAnimationFrame(updateVisibility);
-    }, { passive: true });
-
-    button.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: reduceMotion ? 'auto' : 'smooth'
-        });
-    });
-
-    updateVisibility();
 })();
