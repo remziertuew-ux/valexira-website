@@ -3911,7 +3911,7 @@ main > .vyr {
 }
 #scroll-top-btn {
     position: fixed;
-    right: 102px;
+    left: 24px;
     bottom: 31px;
     z-index: 901;
     display: grid;
@@ -3953,7 +3953,7 @@ main > .vyr {
 }
 @media (max-width: 600px) {
     #scroll-top-btn {
-        right: 76px;
+        left: max(14px, env(safe-area-inset-left));
         bottom: max(14px, env(safe-area-inset-bottom));
         width: 48px;
         height: 48px;
