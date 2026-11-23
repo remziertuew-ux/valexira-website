@@ -40,6 +40,10 @@ jobs:
         run: |
           set -euo pipefail
           shopt -s nullglob
+
+          # grep eşleşme bulamazsa 1 döner; pipefail altında betiği öldürmesin
+          count() { grep -o -- "$1" "$2" | wc -l || true; }
+
           for src in css/*.css; do
             case "$src" in *.min.css) continue ;; esac
             out="${src%.css}.min.css"
@@ -49,8 +53,8 @@ jobs:
             # Güvenlik kontrolleri
             [ -s "$out" ] || { echo "::error::$out boş üretildi"; exit 1; }
 
-            src_wk=$(grep -o -- '-webkit-' "$src" | wc -l)
-            out_wk=$(grep -o -- '-webkit-' "$out" | wc -l)
+            src_wk=$(count '-webkit-' "$src")
+            out_wk=$(count '-webkit-' "$out")
             if [ "$out_wk" -lt "$src_wk" ]; then
               echo "::error::$out içinde -webkit- sayısı düştü ($src_wk -> $out_wk)"
               exit 1
@@ -59,8 +63,8 @@ jobs:
             echo "$src -> $out"
             echo "  boyut      : $(wc -c < "$src") -> $(wc -c < "$out") bayt"
             echo "  -webkit-   : $src_wk -> $out_wk"
-            echo "  @media     : $(grep -o '@media' "$src" | wc -l) -> $(grep -o '@media' "$out" | wc -l)"
-            echo "  @keyframes : $(grep -o '@keyframes' "$src" | wc -l) -> $(grep -o '@keyframes' "$out" | wc -l)"
+            echo "  @media     : $(count '@media' "$src") -> $(count '@media' "$out")"
+            echo "  @keyframes : $(count '@keyframes' "$src") -> $(count '@keyframes' "$out")"
           done
 
       - name: HTML'lerde ?v= parametresini hash ile güncelle
