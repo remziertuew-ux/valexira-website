@@ -1,0 +1,32 @@
+# Valexira Dijital
+
+> İstanbul Topkapı merkezli dijital baskı, matbaa, tasarım ve uygulama hizmetleri.
+
+Valexira Dijital; İstanbul genelinde dijital baskı, folyo ve cam uygulamaları,
+branda ve afiş baskısı, levha, matbaa ve grafik tasarım hizmetleri sunar.
+
+## Öne çıkan sayfalar
+
+- [Ana sayfa](https://valexira.com/): Hizmetler ve işletme hakkında genel bilgi.
+- [Hizmetlerimiz](https://valexira.com/hizmetlerimiz): Sunulan hizmetlerin özeti.
+- [Dijital baskı](https://valexira.com/dijital-baski): Dijital baskı çözümleri.
+- [Folyo baskı](https://valexira.com/folyo-baski): Folyo baskı ve uygulama.
+- [One Way Vision](https://valexira.com/one-way-vision): Delikli folyo ve cam uygulaması.
+- [Branda baskı](https://valexira.com/branda-baski): Dış mekân branda baskısı.
+- [Afiş baskı](https://valexira.com/afis-baski): Afiş ve poster baskısı.
+- [Levha](https://valexira.com/levha): Levha ve uyarı levhası çözümleri.
+- [Matbaa](https://valexira.com/matbaa): Kurumsal matbaa ürünleri.
+- [Tasarım](https://valexira.com/tasarim): Grafik tasarım ve kreatif hizmetler.
+- [Portfolyo](https://valexira.com/portfolyo): Örnek çalışmalar.
+- [Hakkımızda](https://valexira.com/hakkimizda): İşletme hakkında bilgi.
+- [İletişim](https://valexira.com/iletisim): İletişim ve teklif kanalları.
+
+## Hizmet bölgeleri
+
+Merkez Topkapı, İstanbul'dadır. Hizmet bölgeleri arasında Aksaray, Bağcılar,
+Bakırköy, Esenler, İkitelli, Kadıköy ve Şirinevler bulunur.
+
+## Kaynaklar
+
+- [Site haritası](https://valexira.com/sitemap.xml)
+- [Tarama yönergeleri](https://valexira.com/robots.txt)
