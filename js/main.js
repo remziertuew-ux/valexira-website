@@ -267,24 +267,6 @@ function pickProduct(val) {
     res.innerHTML = '<span style="color:#00e5ff;display:block;width:100%;">' + (data[val] || '') + '</span>';
 }
 
-// === AI ROBOT TYPEWRITER ===
-(function () {
-    var msg    = ' \u0130leti\u015fim \u00dcs\u00fc Ba\u011flant\u0131s\u0131 Haz\u0131r. Tasar\u0131m yolculu\u011funu ba\u015flat\u0131n.';
-    var el     = document.getElementById('ai-wa-typed');
-    var cursor = document.getElementById('ai-wa-cursor');
-    if (!el) return;
-    var idx = 0;
-    function typeChar() {
-        if (idx < msg.length) {
-            el.textContent += msg[idx++];
-            setTimeout(typeChar, 55 + Math.random() * 30);
-        } else {
-            if (cursor) cursor.style.display = 'none';
-        }
-    }
-    setTimeout(typeChar, 1000);
-})();
-
 // === TEKLİF FORMU & WHATSAPP ===
 (function () {
     var fileInput  = document.getElementById('v_file');
