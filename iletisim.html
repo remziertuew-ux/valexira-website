@@ -26,13 +26,15 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://valexira.com/#business",
+      "areaServed": {"@type": "City", "name": "İstanbul"},
       "name": "Valexira Dijital",
       "url": "https://valexira.com/",
-      "telephone": "+90-542-741-2994",
+      "telephone": "+905427412994",
       "email": "valexiradijital@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok Kat: 5 No: 119",
+        "streetAddress": "Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119",
         "addressLocality": "Zeytinburnu",
         "postalCode": "34010",
         "addressRegion": "İstanbul",
@@ -63,6 +65,51 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://valexira.com/iletisim",
+          "url": "https://valexira.com/iletisim",
+          "name": "İletişim",
+          "inLanguage": "tr-TR",
+          "isPartOf": {
+            "@id": "https://valexira.com/#website"
+          },
+          "about": {
+            "@id": "https://valexira.com/#business"
+          },
+          "breadcrumb": {
+            "@id": "https://valexira.com/iletisim#breadcrumb"
+          },
+          "mainEntity": {
+            "@id": "https://valexira.com/#business"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://valexira.com/iletisim#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://valexira.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "İletişim",
+              "item": "https://valexira.com/iletisim"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -231,7 +278,7 @@
                         <div style="overflow:hidden; border-radius:24px; border:1px solid rgba(255,255,255,.12);">
                             <iframe
                                 title="Valexira Dijital - Zeytinburnu, İstanbul konum haritası"
-                                src="https://maps.google.com/maps?q=Maltepe%2C%20Litros%20Yolu%20Sk.%202.%20Matbaac%C4%B1lar%20Sitesi%20B%20Blok%20Kat%3A%205%20No%3A%20119%2C%2034010%20Zeytinburnu%2F%C4%B0stanbul&z=16&output=embed"
+                                src="https://maps.google.com/maps?q=Maltepe%2C%20Litros%20Yolu%20Sk.%202.%20Matbaac%C4%B1lar%20Sitesi%20B%20Blok%2C%20Kat%3A%205%20No%3A%20119%2C%2034010%20Zeytinburnu%20%2F%20%C4%B0stanbul&z=16&output=embed"
                                 width="100%"
                                 height="420"
                                 style="display:block; border:0;"
