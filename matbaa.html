@@ -26,22 +26,26 @@
     {
       "@context": "https://schema.org",
       "@type": "Service",
+      "@id": "https://valexira.com/matbaa#service",
       "name": "Matbaa Baskı Hizmetleri",
       "provider": {
         "@type": "LocalBusiness",
+        "@id": "https://valexira.com/#business",
+        "areaServed": {"@type": "City", "name": "İstanbul"},
         "name": "Valexira Dijital",
-        "url": "https://valexira.com/matbaa",
-        "telephone": "+90-542-741-2994",
+        "url": "https://valexira.com/",
+        "telephone": "+905427412994",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
-          "addressLocality": "Topkapı",
+          "streetAddress": "Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119",
+          "addressLocality": "Zeytinburnu",
           "addressRegion": "İstanbul",
+          "postalCode": "34010",
           "addressCountry": "TR"
         }
       },
       "description": "Kartvizit, broşür, menü, magnet ve etiket baskı hizmetleri",
-      "areaServed": "İstanbul",
+      "areaServed": {"@type": "City", "name": "İstanbul"},
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Matbaa Ürünleri",
@@ -64,6 +68,51 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://valexira.com/matbaa",
+          "url": "https://valexira.com/matbaa",
+          "name": "Matbaa",
+          "inLanguage": "tr-TR",
+          "isPartOf": {
+            "@id": "https://valexira.com/#website"
+          },
+          "about": {
+            "@id": "https://valexira.com/#business"
+          },
+          "breadcrumb": {
+            "@id": "https://valexira.com/matbaa#breadcrumb"
+          },
+          "mainEntity": {
+            "@id": "https://valexira.com/matbaa#service"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://valexira.com/matbaa#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://valexira.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Matbaa",
+              "item": "https://valexira.com/matbaa"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -258,7 +307,7 @@
                 </a>
                 <div class="v-contact-callout__link">
                     <span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>
-                    <span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>
+                    <span><small>STÜDYO OFİS</small><strong>Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119, 34010 Zeytinburnu / İstanbul</strong></span>
                 </div>
             </div>
         </div>
