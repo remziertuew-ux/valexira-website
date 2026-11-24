@@ -28,20 +28,24 @@
   "@graph": [
     {
       "@type": "Service",
+      "@id": "https://valexira.com/afis-baski#service",
       "name": "Afiş Baskı",
       "serviceType": "Afiş baskı",
       "description": "Afiş, poster ve geniş format baskı ile tasarım hizmeti.",
       "provider": {
         "@type": "LocalBusiness",
+        "@id": "https://valexira.com/#business",
+        "areaServed": {"@type": "City", "name": "İstanbul"},
         "name": "Valexira Dijital",
         "url": "https://valexira.com/",
         "telephone": "+905427412994",
         "image": "https://valexira.com/images/team-9.png",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
-          "addressLocality": "Topkapı",
+          "streetAddress": "Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119",
+          "addressLocality": "Zeytinburnu",
           "addressRegion": "İstanbul",
+          "postalCode": "34010",
           "addressCountry": "TR"
         }
       },
@@ -53,6 +57,7 @@
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://valexira.com/afis-baski#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -78,6 +83,28 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+
+    <script type="application/ld+json">
+    {
+      "@type": "WebPage",
+      "@id": "https://valexira.com/afis-baski",
+      "url": "https://valexira.com/afis-baski",
+      "name": "Afiş Baskı",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://valexira.com/#website"
+      },
+      "about": {
+        "@id": "https://valexira.com/#business"
+      },
+      "breadcrumb": {
+        "@id": "https://valexira.com/afis-baski#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://valexira.com/afis-baski#service"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -210,7 +237,7 @@
         <div style="flex:1; min-width:min(100%,280px);">
             <h3 class="v-footer-head pink">Bize Ulaşın</h3>
             <address class="v-footer-contact" style="font-style:normal; font-size:clamp(14px,2vw,15px);">
-                <p>Maltepe Mahallesi, Litros Yolu Sokak, 2. Matbaacılar Sitesi, B Blok, Kat: 5, No: 119, 34010 Zeytinburnu/İstanbul</p>
+                <p>Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119, 34010 Zeytinburnu / İstanbul</p>
                 <p><a href="tel:+905427412994">+90 542 741 29 94</a></p>
                 <p><a href="mailto:valexiradijital@gmail.com">valexiradijital@gmail.com</a></p>
             </address>
