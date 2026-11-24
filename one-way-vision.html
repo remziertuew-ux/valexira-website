@@ -28,20 +28,24 @@
   "@graph": [
     {
       "@type": "Service",
+      "@id": "https://valexira.com/one-way-vision#service",
       "name": "One Way Vision (Delikli Folyo) Baskı ve Uygulama",
       "serviceType": "One Way Vision cam kaplama",
       "description": "Vitrin ve ofis camları için delikli folyo (one way vision) baskı, ölçü alma ve yerinde uygulama.",
       "provider": {
         "@type": "LocalBusiness",
+        "@id": "https://valexira.com/#business",
+        "areaServed": {"@type": "City", "name": "İstanbul"},
         "name": "Valexira Dijital",
         "url": "https://valexira.com/",
         "telephone": "+905427412994",
         "image": "https://valexira.com/images/team-9.png",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
-          "addressLocality": "Topkapı",
+          "streetAddress": "Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119",
+          "addressLocality": "Zeytinburnu",
           "addressRegion": "İstanbul",
+          "postalCode": "34010",
           "addressCountry": "TR"
         }
       },
@@ -50,6 +54,7 @@
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://valexira.com/one-way-vision#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://valexira.com/" },
         { "@type": "ListItem", "position": 2, "name": "One Way Vision", "item": "https://valexira.com/one-way-vision" }
@@ -65,6 +70,28 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+
+    <script type="application/ld+json">
+    {
+      "@type": "WebPage",
+      "@id": "https://valexira.com/one-way-vision",
+      "url": "https://valexira.com/one-way-vision",
+      "name": "One Way Vision",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://valexira.com/#website"
+      },
+      "about": {
+        "@id": "https://valexira.com/#business"
+      },
+      "breadcrumb": {
+        "@id": "https://valexira.com/one-way-vision#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://valexira.com/one-way-vision#service"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -254,7 +281,7 @@
                 </a>
                 <div class="v-contact-callout__link">
                     <span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>
-                    <span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>
+                    <span><small>STÜDYO OFİS</small><strong>Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119, 34010 Zeytinburnu / İstanbul</strong></span>
                 </div>
             </div>
         </div>
