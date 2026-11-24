@@ -68,13 +68,60 @@
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
+      "@id": "https://valexira.com/hizmetlerimiz#service-list",
       "name": "Valexira Dijital Hizmetleri",
+      "about": {"@id": "https://valexira.com/#business"},
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "url": "https://valexira.com/dijital-baski", "name": "Dijital Baskı"},
         {"@type": "ListItem", "position": 2, "url": "https://valexira.com/matbaa", "name": "Matbaa"},
         {"@type": "ListItem", "position": 3, "url": "https://valexira.com/promosyon", "name": "Promosyon"},
         {"@type": "ListItem", "position": 4, "url": "https://valexira.com/levha", "name": "Levha"},
         {"@type": "ListItem", "position": 5, "url": "https://valexira.com/tasarim", "name": "Tasarım"}
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://valexira.com/hizmetlerimiz",
+          "url": "https://valexira.com/hizmetlerimiz",
+          "name": "Hizmetlerimiz",
+          "inLanguage": "tr-TR",
+          "isPartOf": {
+            "@id": "https://valexira.com/#website"
+          },
+          "about": {
+            "@id": "https://valexira.com/#business"
+          },
+          "breadcrumb": {
+            "@id": "https://valexira.com/hizmetlerimiz#breadcrumb"
+          },
+          "mainEntity": {
+            "@id": "https://valexira.com/hizmetlerimiz#service-list"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://valexira.com/hizmetlerimiz#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://valexira.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Hizmetlerimiz",
+              "item": "https://valexira.com/hizmetlerimiz"
+            }
+          ]
+        }
       ]
     }
     </script>
@@ -239,7 +286,7 @@
                 </a>
                 <div class="v-contact-callout__link">
                     <span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>
-                    <span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>
+                    <span><small>STÜDYO OFİS</small><strong>Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119, 34010 Zeytinburnu / İstanbul</strong></span>
                 </div>
             </div>
         </div>
