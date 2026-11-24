@@ -28,20 +28,24 @@
   "@graph": [
     {
       "@type": "Service",
+      "@id": "https://valexira.com/folyo-baski#service",
       "name": "Folyo Baskı ve Folyo Uygulama",
       "serviceType": "Yapışkanlı folyo baskı",
       "description": "Vitrin, cam, cephe ve zeminler için yapışkanlı folyo baskı, kumlama folyo ve yerinde uygulama.",
       "provider": {
         "@type": "LocalBusiness",
+        "@id": "https://valexira.com/#business",
+        "areaServed": {"@type": "City", "name": "İstanbul"},
         "name": "Valexira Dijital",
         "url": "https://valexira.com/",
         "telephone": "+905427412994",
         "image": "https://valexira.com/images/team-9.png",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
-          "addressLocality": "Topkapı",
+          "streetAddress": "Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119",
+          "addressLocality": "Zeytinburnu",
           "addressRegion": "İstanbul",
+          "postalCode": "34010",
           "addressCountry": "TR"
         }
       },
@@ -50,6 +54,7 @@
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://valexira.com/folyo-baski#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://valexira.com/" },
         { "@type": "ListItem", "position": 2, "name": "Folyo Baskı", "item": "https://valexira.com/folyo-baski" }
@@ -65,6 +70,28 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+
+    <script type="application/ld+json">
+    {
+      "@type": "WebPage",
+      "@id": "https://valexira.com/folyo-baski",
+      "url": "https://valexira.com/folyo-baski",
+      "name": "Folyo Baskı",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://valexira.com/#website"
+      },
+      "about": {
+        "@id": "https://valexira.com/#business"
+      },
+      "breadcrumb": {
+        "@id": "https://valexira.com/folyo-baski#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://valexira.com/folyo-baski#service"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -258,7 +285,7 @@
                 </a>
                 <div class="v-contact-callout__link">
                     <span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>
-                    <span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>
+                    <span><small>STÜDYO OFİS</small><strong>Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119, 34010 Zeytinburnu / İstanbul</strong></span>
                 </div>
             </div>
         </div>
