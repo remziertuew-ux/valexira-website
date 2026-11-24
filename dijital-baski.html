@@ -22,13 +22,15 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://valexira.com/#business",
+  "areaServed": {"@type": "City", "name": "İstanbul"},
   "name": "Valexira Dijital",
   "image": "https://valexira.com/images/team-9.png",
   "description": "İstanbul Topkapı'da profesyonel branda baskı, afiş baskı, camlara reklam uygulama, vinil, folyo baskı, levha baskı, matbaa ve reklam çözümleri.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
-    "addressLocality": "Topkapı",
+    "streetAddress": "Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119",
+    "addressLocality": "Zeytinburnu",
     "addressRegion": "İstanbul",
     "postalCode": "34010",
     "addressCountry": "TR"
@@ -40,7 +42,7 @@
   },
   "telephone": "+905427412994",
   "email": "valexiradijital@gmail.com",
-  "url": "https://valexira.com/dijital-baski",
+  "url": "https://valexira.com/",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -201,6 +203,51 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://valexira.com/dijital-baski",
+          "url": "https://valexira.com/dijital-baski",
+          "name": "Dijital Baskı",
+          "inLanguage": "tr-TR",
+          "isPartOf": {
+            "@id": "https://valexira.com/#website"
+          },
+          "about": {
+            "@id": "https://valexira.com/#business"
+          },
+          "breadcrumb": {
+            "@id": "https://valexira.com/dijital-baski#breadcrumb"
+          },
+          "mainEntity": {
+            "@id": "https://valexira.com/#business"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://valexira.com/dijital-baski#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://valexira.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Dijital Baskı",
+              "item": "https://valexira.com/dijital-baski"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -372,7 +419,7 @@
                 </a>
                 <div class="v-contact-callout__link">
                     <span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>
-                    <span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>
+                    <span><small>STÜDYO OFİS</small><strong>Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119, 34010 Zeytinburnu / İstanbul</strong></span>
                 </div>
             </div>
         </div>
