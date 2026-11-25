@@ -217,7 +217,7 @@
                 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:30px; width:100%; max-width:1300px; margin:0 auto; padding:0 clamp(15px,4vw,30px);">
 
                     <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div class="vx-img-wrap" onclick="vxOpenLb('images/tasa-3.jpeg')">
+                        <div class="vx-img-wrap" onclick="vxOpenLb(this.querySelector('img'))">
                             <img src="/images/tasa-3.jpeg" alt="Meva Nail güzellik salonu için hazırlanan logo, broşür ve kartvizit baskı tasarımı" loading="lazy">
                         </div>
                         <div style="padding:25px 30px 35px; flex-grow:1;">
@@ -228,7 +228,7 @@
                     </article>
 
                     <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div class="vx-img-wrap" onclick="vxOpenLb('images/tasa-1.jpeg')">
+                        <div class="vx-img-wrap" onclick="vxOpenLb(this.querySelector('img'))">
                             <img src="/images/tasa-1.jpeg" alt="Qucco için hazırlanan kartvizit ve tahsilat makbuzu dijital baskı çalışması" loading="lazy">
                         </div>
                         <div style="padding:25px 30px 35px; flex-grow:1;">
@@ -239,7 +239,7 @@
                     </article>
 
                     <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div class="vx-img-wrap" onclick="vxOpenLb('images/tass.jpg')">
+                        <div class="vx-img-wrap" onclick="vxOpenLb(this.querySelector('img'))">
                             <img src="/images/tass.jpg" alt="Özen Tekstil için hazırlanan sevk fişi matbaa baskısı" loading="lazy">
                         </div>
                         <div style="padding:25px 30px 35px; flex-grow:1;">
@@ -267,13 +267,13 @@
         <!-- Lightbox (kartlar için) -->
         <div id="vxLb" role="dialog" aria-modal="true" aria-label="Görsel büyütme">
             <button id="vxLbClose" aria-label="Kapat">&times;</button>
-            <img id="vxLbImg" src="" alt="">
+            <img id="vxLbImg" alt="">
         </div>
 
         <!-- Lightbox (eski, main.js uyumluluğu için korundu) -->
         <div id="valexira-lightbox" class="v-lightbox" role="dialog" aria-modal="true" aria-label="Büyük görsel" onclick="closeLightbox()">
             <span class="v-lightbox-close" aria-label="Kapat">&times;</span>
-            <img id="lightbox-img" src="" alt="Valexira Tasarım Detay">
+            <img id="lightbox-img" alt="Valexira Tasarım Detay">
         </div>
 
         <section aria-labelledby="tasarim-regions" style="max-width:1000px; margin:0 auto; padding:30px clamp(15px,4vw,30px); color:#fff; font-family:'Poppins',sans-serif;">
@@ -379,8 +379,10 @@
             var lb  = document.getElementById('vxLb');
             var img = document.getElementById('vxLbImg');
 
-            window.vxOpenLb = function (src) {
-                img.src = src;
+            window.vxOpenLb = function (sourceImage) {
+                if (!sourceImage) return;
+                img.src = sourceImage.currentSrc || sourceImage.src;
+                img.alt = sourceImage.alt;
                 img.classList.remove('zoomed');
                 img.style.transformOrigin = 'center center';
                 lb.classList.add('open');
@@ -408,10 +410,11 @@
         })();
 
         /* Eski lightbox (korundu) */
-        function openLightbox(src) {
+        function openLightbox(src, alt) {
             var lb  = document.getElementById('valexira-lightbox');
             var img = document.getElementById('lightbox-img');
             img.src = src;
+            img.alt = alt || 'Valexira Tasarım Detay';
             lb.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }

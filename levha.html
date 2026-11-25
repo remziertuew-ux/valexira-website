@@ -432,7 +432,7 @@
                             </p>
                         </article>
                         <div style="width:100%; aspect-ratio:16/9; border-radius:20px; border:1px solid rgba(0,242,254,0.2); overflow:hidden;">
-                            <img src="/images/UYARI.jpg" alt="Valexira İş Güvenliği Uyarı Levhaları" class="clickable-img" onclick="openLightbox(this.src)" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                            <img src="/images/UYARI.jpg" alt="Valexira İş Güvenliği Uyarı Levhaları" class="clickable-img" onclick="openLightbox(this)" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
                         </div>
                     </div>
 
@@ -446,7 +446,7 @@
                             </p>
                         </article>
                         <div style="width:100%; aspect-ratio:16/9; border-radius:20px; border:1px solid rgba(225,48,108,0.2); overflow:hidden;">
-                            <img src="/images/TAH.jpg" alt="Valexira Tahliye Planı ve Acil Durum Krokisi" class="clickable-img" onclick="openLightbox(this.src)" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+                            <img src="/images/TAH.jpg" alt="Valexira Tahliye Planı ve Acil Durum Krokisi" class="clickable-img" onclick="openLightbox(this)" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
                         </div>
                     </div>
 
@@ -458,7 +458,7 @@
 <!-- Lightbox -->
 <div id="v-portfolio-lightbox" onclick="closeLightbox()" role="dialog" aria-modal="true" aria-label="Büyük görsel">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" src="" alt="Valexira Detaylı Görsel">
+    <img id="lightbox-img" alt="Valexira Detaylı Görsel">
 </div>
 
         <section aria-labelledby="levha-regions" style="max-width:1000px; margin:0 auto; padding:30px clamp(15px,4vw,30px); color:#fff; font-family:'Poppins',sans-serif;">
@@ -560,10 +560,11 @@
     <!-- ===== SCRIPTS (body sonu) ===== -->
     <script src="/js/main.js" defer></script>
     <script>
-        function openLightbox(src) {
+        function openLightbox(sourceImage) {
             var lb  = document.getElementById('lightbox');
             var img = document.getElementById('lightbox-img');
-            img.src = src;
+            img.src = sourceImage.currentSrc || sourceImage.src;
+            img.alt = sourceImage.alt;
             lb.style.display = 'flex';
         }
 
