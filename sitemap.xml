@@ -1,373 +1,147 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-
-    <!-- SEO -->
-<title>Grafik Tasarım İstanbul | Logo, Kurumsal Kimlik, Matbaa Tasarımı — Valexira Dijital</title>
-    <meta name="description" content="İstanbul'da profesyonel grafik tasarım, kurumsal kimlik, logo, kartvizit, broşür ve afiş tasarımı hizmetleri. Valexira Dijital ile markanızı öne çıkarın.">
-    <link rel="canonical" href="https://valexira.com/tasarim">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Grafik Tasarım İstanbul | Logo, Kurumsal Kimlik — Valexira Dijital">
-    <meta property="og:description" content="İstanbul'da grafik tasarım, logo, kurumsal kimlik, kartvizit, broşür ve afiş tasarımı hizmetleri.">
-    <meta property="og:image" content="https://valexira.com/images/team-9.png">
-    <meta property="og:url" content="https://valexira.com/tasarim">
-    <meta property="og:type" content="website">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="/images/team-9.png">
-
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Grafik Tasarım Hizmetleri",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Valexira Dijital",
-        "url": "https://valexira.com/",
-        "telephone": "+90-542-741-2994",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Maltepe Cad. 2. Matbaacılar Sitesi B/Blok No:44",
-          "addressLocality": "Topkapı",
-          "addressRegion": "İstanbul",
-          "addressCountry": "TR"
-        }
-      },
-      "description": "Grafik tasarım, logo, kurumsal kimlik, kartvizit, broşür ve afiş tasarımı",
-      "areaServed": "İstanbul",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Tasarım Hizmetleri",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Grafik Tasarım" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kurumsal Kimlik ve Logo Tasarımı" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kartvizit, Broşür ve Afiş Tasarımı" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baskıya Hazır Dijital Tasarım" } }
-        ]
-      }
-    }
-    </script>
-
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Sayfaya özel CSS (kartlar + lightbox) -->
-    <style>
-      .vx-img-wrap { position:relative; overflow:hidden; border-radius:25px; background:#0d0d14; aspect-ratio:16/9; cursor:zoom-in; margin:12px; }
-      .vx-img-wrap img { width:100%; height:100%; object-fit:contain; display:block; transition:transform .4s ease; }
-      .vx-img-wrap:hover img { transform:scale(1.05); }
-
-      #vxLb { position:fixed; inset:0; z-index:99999; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.92); overflow:auto; }
-      #vxLb.open { display:flex; }
-      #vxLbImg { max-width:92vw; max-height:90vh; border-radius:12px; cursor:zoom-in; transition:transform .25s ease; }
-      #vxLbImg.zoomed { cursor:zoom-out; transform:scale(2); }
-      #vxLbClose { position:fixed; top:18px; right:22px; width:44px; height:44px; border:0; border-radius:50%; background:#E1306C; color:#fff; font-size:26px; line-height:1; cursor:pointer; z-index:100000; }
-    </style>
-
-</head>
-
-<body>
-
-    <div class="v-site-main">
-
-        <!-- ===== HEADER ===== -->
-        <header class="navbar">
-            <div class="container nav-container">
-                <a href="/" class="logo-area" title="Valexira Dijital Ana Sayfa">
-                    <img src="images/team-9.png" alt="Valexira Dijital Logo" class="logo-img" width="40" height="40">
-                    <span class="logo-text">DİJİTAL</span>
-                </a>
-
-                <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
-                    <ul class="nav-links">
-                        <li><a href="/">Anasayfa</a></li><li><a href="hizmetlerimiz">Hizmetlerimiz</a></li>
-                        
-                        
-                        
-                        
-                        
-                        <li><a href="portfolyo">Portfolyo</a></li>
-                        <li><a href="hakkimizda">Hakkımızda</a></li>
-                        <li><a href="blog">Blog</a></li>
-                        <li><a href="iletisim">İletişim</a></li>
-                    </ul>
-                </nav>
-
-                <div class="header-right">
-                    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="navMenu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <a href="iletisim" class="btn-quote desktop-only">Teklif Al</a>
-                </div>
-            </div>
-        </header>
-
-        <!-- ===== ANA İÇERİK ===== -->
-        <main>
-
-            <!-- HERO / SAYFA BAŞLIĞI -->
-            <section aria-label="Sayfa başlığı" style="width:100%; padding-top:clamp(60px,10vh,100px); overflow-x:hidden; background:transparent;">
-                <div style="max-width:1200px; margin:0 auto; padding:clamp(20px,5vh,40px) clamp(15px,4vw,30px); text-align:center;">
-                    <h1 style="font-family:'Poppins',sans-serif; font-size:clamp(2.2rem,9vw,5rem); font-weight:900; color:#ffffff; text-transform:uppercase; letter-spacing:clamp(-1px,-0.2vw,-2px); margin:0; line-height:1.1; word-wrap:break-word; overflow-wrap:break-word;">
-                        TASARIM
-                    </h1>
-                    <p style="color:#00f2fe; letter-spacing:3px; font-weight:600; font-size:14px; margin-top:10px; text-transform:uppercase;">
-                        Valexira Profesyonel Tasarım Hizmetleri
-                    </p>
-                </div>
-            </section>
-
-            <!-- TASARIM HİZMETLERİ KARTLARI -->
-            <section aria-labelledby="tasarim-kartlar-heading" style="width:100%; overflow-x:hidden; padding:clamp(40px,8vw,100px) 0; background:transparent;">
-
-                <div style="width:100%; max-width:1200px; margin:0 auto; padding:0 clamp(15px,4vw,30px); text-align:center; margin-bottom:clamp(40px,6vh,60px);">
-                    <h2 id="tasarim-kartlar-heading" style="font-family:'Poppins',sans-serif; font-size:clamp(28px,7vw,56px); font-weight:900; color:#ffffff; margin:0 0 20px; line-height:1.1; word-wrap:break-word;">
-                        Geleceği <span style="color:#00f2ff;">Valexira</span> ile Tasarlayın
-                    </h2>
-                    <p style="font-family:'Poppins',sans-serif; font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7); max-width:800px; margin:0 auto;">
-                        Fikirlerinizi dijital birer sanat eserine dönüştürüyoruz.
-                    </p>
-                </div>
-
-                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:30px; width:100%; max-width:1300px; margin:0 auto; padding:0 clamp(15px,4vw,30px);">
-
-                    <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div class="vx-img-wrap" onclick="vxOpenLb('images/tasa-3.jpeg')">
-                            <img src="images/tasa-3.jpeg" alt="Meva Nail güzellik salonu için hazırlanan logo, broşür ve kartvizit baskı tasarımı" loading="lazy">
-                        </div>
-                        <div style="padding:25px 30px 35px; flex-grow:1;">
-                            <span style="background:#E1306C; color:#fff; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">DİJİTAL</span>
-                            <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Dijital Baskı</h3>
-                            <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Afiş ve broşür tasarımları ile markanızın mesajını en etkili şekilde iletiyoruz.</p>
-                        </div>
-                    </article>
-
-                    <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div class="vx-img-wrap" onclick="vxOpenLb('images/tasa-1.jpeg')">
-                            <img src="images/tasa-1.jpeg" alt="Qucco için hazırlanan kartvizit ve tahsilat makbuzu dijital baskı çalışması" loading="lazy">
-                        </div>
-                        <div style="padding:25px 30px 35px; flex-grow:1;">
-                            <span style="background:#7000ff; color:#fff; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">GRAFİK</span>
-                            <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Grafik Tasarım</h3>
-                            <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Kartvizit, makbuz ve kurumsal evraklar için baskıya hazır tasarımlar ile fark yaratmanızı sağlıyoruz.</p>
-                        </div>
-                    </article>
-
-                    <article class="v-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:35px; overflow:hidden; text-align:center; display:flex; flex-direction:column;">
-                        <div class="vx-img-wrap" onclick="vxOpenLb('images/tass.jpg')">
-                            <img src="images/tass.jpg" alt="Özen Tekstil için hazırlanan sevk fişi matbaa baskısı" loading="lazy">
-                        </div>
-                        <div style="padding:25px 30px 35px; flex-grow:1;">
-                            <span style="background:#00f2ff; color:#000; padding:6px 18px; border-radius:50px; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:1px;">BRANDING</span>
-                            <h3 style="font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,26px); color:#ffffff; margin:20px 0 12px; font-weight:800; line-height:1.2;">Kurumsal Kimlik</h3>
-                            <p style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">Logo tasarımı ve profesyonel marka imajı çalışmaları ile kalıcı bir kimlik oluşturuyoruz.</p>
-                        </div>
-                    </article>
-
-                </div><!-- /grid -->
-            </section><!-- /tasarim-kartlar -->
-
-            <!-- TASARIM MASASI GÖRSELİ -->
-            <section aria-label="Valexira tasarım ve baskı çalışma masası" style="width:100%; overflow-x:hidden; padding:clamp(40px,8vw,100px) 0; background:transparent;">
-                <div style="width:100%; max-width:1100px; margin:0 auto; padding:0 clamp(20px,5vw,40px); position:relative;">
-                    <div style="position:absolute; width:70%; height:70%; background:#00f2ff; filter:blur(100px); opacity:0.15; top:15%; left:15%; z-index:1;" aria-hidden="true"></div>
-                    <div style="position:relative; z-index:2; border-radius:35px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 25px 50px rgba(0,0,0,0.5);">
-                        <img src="images/web.webp" alt="Valexira grafik tasarım, matbaa ve dijital baskı çalışma masası" style="width:100%; display:block; transition:transform 0.8s cubic-bezier(0.2,1,0.3,1);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- Lightbox (kartlar için) -->
-        <div id="vxLb" role="dialog" aria-modal="true" aria-label="Görsel büyütme">
-            <button id="vxLbClose" aria-label="Kapat">&times;</button>
-            <img id="vxLbImg" src="" alt="">
-        </div>
-
-        <!-- Lightbox (eski, main.js uyumluluğu için korundu) -->
-        <div id="valexira-lightbox" class="v-lightbox" role="dialog" aria-modal="true" aria-label="Büyük görsel" onclick="closeLightbox()">
-            <span class="v-lightbox-close" aria-label="Kapat">&times;</span>
-            <img id="lightbox-img" src="" alt="Valexira Tasarım Detay">
-        </div>
-
-        <!-- ===================== İLETİŞİM ÇAĞRI ALANI ===================== -->
-<section class="v-contact-callout" aria-labelledby="contact-callout-title">
-    <div class="v-contact-callout__inner">
-        <div class="v-contact-callout__info">
-            <p class="v-contact-callout__kicker">İLETİŞİME GEÇİN</p>
-            <h2 id="contact-callout-title">Hayalinizdeki Projeyi Birlikte Başlatalım.</h2>
-            <p class="v-contact-callout__lead">Tasarımdan baskıya, ölçüden uygulamaya kadar ihtiyacınızı netleştirelim.</p>
-            <div class="v-contact-callout__links">
-                <a class="v-contact-callout__link" href="mailto:valexiradijital@gmail.com">
-                    <span class="v-contact-callout__symbol" aria-hidden="true">✉</span>
-                    <span><small>E-POSTA</small><strong>valexiradijital@gmail.com</strong></span>
-                </a>
-                <a class="v-contact-callout__link" href="tel:+905427412994">
-                    <span class="v-contact-callout__symbol" aria-hidden="true">☎</span>
-                    <span><small>TELEFON / WHATSAPP</small><strong>+90 542 741 29 94</strong></span>
-                </a>
-                <div class="v-contact-callout__link">
-                    <span class="v-contact-callout__symbol" aria-hidden="true">⌖</span>
-                    <span><small>STÜDYO OFİS</small><strong>Maltepe Mah., Litros Yolu Sok., Matbaacılar Sitesi, Zeytinburnu / İstanbul</strong></span>
-                </div>
-            </div>
-        </div>
-        <div class="v-contact-callout__action">
-            <p class="v-contact-callout__kicker">TEKLİF FORMU</p>
-            <h3>Projenizi Hızlıca Paylaşın</h3>
-            <p>İhtiyacınızı bize iletin; ölçü, malzeme ve teslimat için birlikte ilerleyelim.</p>
-            <div class="v-contact-callout__buttons">
-                <a href="https://wa.me/905427412994" target="_blank" rel="noopener noreferrer">WhatsApp ile Yazın</a>
-                <a class="v-contact-callout__secondary" href="/iletisim">İletişim Sayfası</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="v-footer">
-    <div class="v-footer-glow" aria-hidden="true"></div>
-
-    <div class="v-footer-flex">
-
-        <div class="v-footer-col v-footer-col--wide">
-            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" loading="lazy" width="180">
-            <p class="v-footer-desc">
-                Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.
-            </p>
-        </div>
-
-        <nav class="v-footer-col v-footer-col--md" aria-label="Kreatif hizmetler">
-            <h2 class="v-footer-head pink">Kreatif</h2>
-            <ul class="v-footer-list">
-                <li><a class="v-footer-link" href="/tasarim">Logo Tasarımı</a></li>
-                <li><a class="v-footer-link" href="/tasarim">Banner Tasarımı</a></li>
-                <li><a class="v-footer-link" href="/afis-baski">Afiş &amp; Broşür</a></li>
-                <li><a class="v-footer-link" href="/matbaa">Kurumsal Kimlik</a></li>
-            </ul>
-        </nav>
-
-        <nav class="v-footer-col v-footer-col--md" aria-label="Hizmetler">
-            <h2 class="v-footer-head cyan">Hizmetler</h2>
-            <ul class="v-footer-list">
-                <li><a class="v-footer-link" href="/branda-baski">Branda Baskı</a></li>
-                <li><a class="v-footer-link" href="/folyo-baski">Folyo Uygulama</a></li>
-                <li><a class="v-footer-link" href="/one-way-vision">One Way Vision</a></li>
-                <li><a class="v-footer-link" href="/levha">Levha</a></li>
-                <li class="v-footer-list__sep"><a class="v-footer-link" href="/metrekare-hesaplama">📐 M² Hesaplama</a></li>
-            </ul>
-        </nav>
-
-<nav class="v-footer-col v-footer-col--sm" aria-label="Hizmet verilen lokasyonlar">
-            <h2 class="v-footer-head cyan">Lokasyonlar</h2>
-            <ul class="v-footer-list v-footer-list--sm">
-                <li><a class="v-footer-link" href="/aksaray-reklamci">Aksaray</a></li>
-                <li><a class="v-footer-link" href="/bagcilar-reklamci">Bağcılar</a></li>
-                <li><a class="v-footer-link" href="/bakirkoy-reklamci">Bakırköy</a></li>
-                <li><a class="v-footer-link" href="/esenler-reklamci">Esenler</a></li>
-                <li><a class="v-footer-link" href="/ikitelli-reklamci">İkitelli</a></li>
-                <li><a class="v-footer-link" href="/kadikoy-reklamci">Kadıköy</a></li>
-                <li><a class="v-footer-link" href="/sirinevler-reklamci">Şirinevler</a></li>
-            </ul>
-        </nav>
-
-
-    </div><!-- /footer flex container -->
-
-    <div class="v-footer-bottom v-footer-bottom--compact">
-        &copy; 2026 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
-    </div>
-</footer>
-    </div><!-- /v-site-main -->
-
-    <!-- ===== SCRIPTS (body sonu) ===== -->
-    <script src="js/main.js" defer></script>
-    <script>
-        /* Kart lightbox (yakınlaştırmalı) */
-        (function () {
-            var lb  = document.getElementById('vxLb');
-            var img = document.getElementById('vxLbImg');
-
-            window.vxOpenLb = function (src) {
-                img.src = src;
-                img.classList.remove('zoomed');
-                img.style.transformOrigin = 'center center';
-                lb.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            };
-
-            function close() {
-                lb.classList.remove('open');
-                img.classList.remove('zoomed');
-                document.body.style.overflow = '';
-            }
-
-            img.addEventListener('click', function (e) {
-                e.stopPropagation();
-                var r = img.getBoundingClientRect();
-                var x = ((e.clientX - r.left) / r.width) * 100;
-                var y = ((e.clientY - r.top) / r.height) * 100;
-                img.style.transformOrigin = x + '% ' + y + '%';
-                img.classList.toggle('zoomed');
-            });
-
-            lb.addEventListener('click', close);
-            document.getElementById('vxLbClose').addEventListener('click', close);
-            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-        })();
-
-        /* Eski lightbox (korundu) */
-        function openLightbox(src) {
-            var lb  = document.getElementById('valexira-lightbox');
-            var img = document.getElementById('lightbox-img');
-            img.src = src;
-            lb.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            var lb = document.getElementById('valexira-lightbox');
-            lb.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function toggleMenu() {
-            var navMenu = document.getElementById('navMenu');
-            var menuBtn = document.querySelector('.mobile-menu-btn');
-            var isOpen  = navMenu.classList.toggle('active');
-            menuBtn.classList.toggle('open', isOpen);
-            menuBtn.setAttribute('aria-expanded', isOpen);
-        }
-
-        document.addEventListener('click', function(e) {
-            var navMenu = document.getElementById('navMenu');
-            var menuBtn = document.querySelector('.mobile-menu-btn');
-            if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                navMenu.classList.remove('active');
-                menuBtn.classList.remove('open');
-                menuBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeLightbox();
-        });
-    </script>
-
-</body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://valexira.com/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/hizmetlerimiz</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/dijital-baski</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/folyo-baski</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/folyo-deneyim-studyosu</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/one-way-vision</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/branda-baski</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/afis-baski</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/matbaa</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/promosyon</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/levha</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/tasarim</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/portfolyo</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/hakkimizda</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/blog</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/metrekare-hesaplama</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/iletisim</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/esenler-reklamci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/bakirkoy-reklamci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/bagcilar-reklamci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/kadikoy-reklamci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/aksaray-reklamci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/sirinevler-reklamci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://valexira.com/ikitelli-reklamci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

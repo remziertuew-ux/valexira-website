@@ -33,13 +33,14 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
+      "@id": "https://valexira.com/metrekare-hesaplama#application",
       "name": "Metrekare Hesaplama Aracı",
       "url": "https://valexira.com/metrekare-hesaplama",
       "description": "En ve boy girerek anında metrekare hesaplayan ücretsiz online araç.",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
-      "author": { "@type": "Organization", "name": "Valexira Dijital", "url": "https://valexira.com" }
+      "author": { "@type": "Organization", "@id": "https://valexira.com/#business", "name": "Valexira Dijital", "url": "https://valexira.com" }
     }
     </script>
 
@@ -48,6 +49,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": "https://valexira.com/metrekare-hesaplama#breadcrumb",
       "itemListElement": [
         {"@type":"ListItem","position":1,"name":"Anasayfa","item":"https://valexira.com/"},
         {"@type":"ListItem","position":2,"name":"Metrekare Hesaplama","item":"https://valexira.com/metrekare-hesaplama"}
@@ -58,8 +60,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css?v=20261122j">
-    <link rel="stylesheet" href="/css/footer.css?v=20261122j">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -178,6 +179,28 @@
         .cta-secondary { background:rgba(0,242,254,0.1); border:1px solid rgba(0,242,254,0.4); color:#00f2fe; }
         .cta-wa { background:rgba(37,211,102,0.15); border:1px solid rgba(37,211,102,0.35); color:#25d366; text-transform:none; font-weight:700; }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@type": "WebPage",
+      "@id": "https://valexira.com/metrekare-hesaplama",
+      "url": "https://valexira.com/metrekare-hesaplama",
+      "name": "Metrekare Hesaplama",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://valexira.com/#website"
+      },
+      "about": {
+        "@id": "https://valexira.com/#business"
+      },
+      "breadcrumb": {
+        "@id": "https://valexira.com/metrekare-hesaplama#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://valexira.com/metrekare-hesaplama#application"
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -342,54 +365,50 @@
 <!-- / page-layout -->
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="v-footer">
-    <div class="v-footer-glow" aria-hidden="true"></div>
-    <div class="v-footer-flex">
-        <div class="v-footer-col v-footer-col--wide">
-            <img src="/images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" loading="lazy" width="180">
-            <p class="v-footer-desc">Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.</p>
+<footer class="v-footer" style="width:100%; overflow-x:hidden; box-sizing:border-box; position:relative;">
+    <div class="v-footer-glow" style="max-width:100%; pointer-events:none;"></div>
+    <div class="v-footer-container" style="width:100%; max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; box-sizing:border-box; padding:0 clamp(15px,4vw,30px);">
+        <div class="v-footer-col" style="flex:1; min-width:min(100%,280px); box-sizing:border-box;">
+            <img src="images/team-9.png" alt="Valexira Dijital Logo" class="v-footer-logo" style="max-width:100%; height:auto;" loading="lazy">
+            <p class="v-footer-desc" style="font-size:clamp(14px,2vw,16px); line-height:1.6;">
+                Profesyonel <strong>grafik tasarım</strong>, yüksek kaliteli <strong>dijital baskı</strong> ve kurumsal <strong>matbaa</strong> çözümleriyle markanızı geleceğe taşıyoruz.
+            </p>
         </div>
-
-        <nav class="v-footer-col v-footer-col--md" aria-label="Kreatif hizmetler">
-            <h2 class="v-footer-head pink">Kreatif</h2>
-            <ul class="v-footer-list">
-                <li><a class="v-footer-link" href="/tasarim">Logo Tasarımı</a></li>
-                <li><a class="v-footer-link" href="/tasarim">Banner Tasarımı</a></li>
-                <li><a class="v-footer-link" href="/afis-baski">Afiş &amp; Broşür</a></li>
-                <li><a class="v-footer-link" href="/matbaa">Kurumsal Kimlik</a></li>
+        <nav class="v-footer-col" style="flex:1; min-width:min(100%,150px); box-sizing:border-box;">
+            <h3 class="v-footer-head pink" style="font-size:clamp(18px,3vw,22px);">Kreatif</h3>
+            <ul class="v-footer-list" style="list-style:none; padding:0;">
+                <li>Logo Tasarımı</li>
+                <li>Web Site Tasarımı</li>
+                <li>Afiş &amp; Broşür</li>
+                <li>Kurumsal Kimlik</li>
             </ul>
         </nav>
-
-        <nav class="v-footer-col v-footer-col--md" aria-label="Hizmetler">
-            <h2 class="v-footer-head cyan">Hizmetler</h2>
-            <ul class="v-footer-list">
-                <li><a class="v-footer-link" href="/branda-baski">Branda Baskı</a></li>
-                <li><a class="v-footer-link" href="/folyo-baski">Folyo Uygulama</a></li>
-                <li><a class="v-footer-link" href="/one-way-vision">One Way Vision</a></li>
-                <li><a class="v-footer-link" href="/levha">Levha</a></li>
-                <li class="v-footer-list__sep"><a class="v-footer-link" href="/metrekare-hesaplama">📐 M² Hesaplama</a></li>
+        <nav class="v-footer-col" style="flex:1; min-width:min(100%,150px); box-sizing:border-box;">
+            <h3 class="v-footer-head cyan" style="font-size:clamp(18px,3vw,22px);">Üretim</h3>
+            <ul class="v-footer-list" style="list-style:none; padding:0;">
+                <li>Branda Baskı</li>
+                <li>Folyo Uygulama</li>
+                <li>Kartvizit &amp; Magnet</li>
+                <li>Işıklı Tabela</li>
             </ul>
         </nav>
-
-        <nav class="v-footer-col v-footer-col--sm" aria-label="Hizmet verilen lokasyonlar">
-            <h2 class="v-footer-head cyan">Lokasyonlar</h2>
-            <ul class="v-footer-list v-footer-list--sm">
-                <li><a class="v-footer-link" href="/aksaray-reklamci">Aksaray</a></li>
-                <li><a class="v-footer-link" href="/bagcilar-reklamci">Bağcılar</a></li>
-                <li><a class="v-footer-link" href="/bakirkoy-reklamci">Bakırköy</a></li>
-                <li><a class="v-footer-link" href="/esenler-reklamci">Esenler</a></li>
-                <li><a class="v-footer-link" href="/ikitelli-reklamci">İkitelli</a></li>
-                <li><a class="v-footer-link" href="/kadikoy-reklamci">Kadıköy</a></li>
-                <li><a class="v-footer-link" href="/sirinevler-reklamci">Şirinevler</a></li>
-            </ul>
-        </nav>
+        <div class="v-footer-col" style="flex:1; min-width:min(100%,280px); box-sizing:border-box;">
+            <h3 class="v-footer-head pink" style="font-size:clamp(18px,3vw,22px);">Bize Ulaşın</h3>
+            <div class="v-footer-contact" style="font-size:clamp(14px,2vw,15px);">
+                <p>Maltepe, Litros Yolu Sk. 2. Matbaacılar Sitesi B Blok, Kat: 5 No: 119, 34010 Zeytinburnu / İstanbul</p>
+                <p><a href="tel:+905427412994" style="text-decoration:none; color:inherit; font-weight:bold;">+90 542 741 29 94</a></p>
+                <p>valexiradijital@gmail.com</p>
+            </div>
+            <a href="https://wa.me/905427412994" target="_blank" rel="noopener" class="v-whatsapp-link" style="display:inline-flex; align-items:center; text-decoration:none; gap:8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+        </div>
     </div>
-
-    <div class="v-footer-bottom v-footer-bottom--compact">
-        &copy; 2026 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
+    <div class="v-footer-bottom" style="width:100%; text-align:center; padding:20px 0; font-size:clamp(12px,1.5vw,14px); box-sizing:border-box; border-top:1px solid rgba(255,255,255,0.05); margin-top:40px;">
+        © 2026 <strong>Valexira Dijital</strong> | Tüm Hakları Saklıdır.
     </div>
 </footer>
-
 
 </div>
 
@@ -593,6 +612,6 @@
 })();
 </script>
 
-<script src="js/main.js?v=0cba9051e9"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
