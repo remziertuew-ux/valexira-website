@@ -1846,6 +1846,16 @@ body {
     width: 100%;
     height: 100%;
 }
+.v-site-main > main > section > *,
+.v-site-main > section > *,
+.v-site-main > footer > * {
+    position: relative;
+    z-index: 2;
+}
+.v-site-main > main > .hero,
+.v-site-main > footer.v-footer {
+    z-index: 2;
+}
 .v-site-main {
     z-index: auto;
     background: transparent;
